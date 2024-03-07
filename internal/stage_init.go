@@ -3,11 +3,11 @@ package internal
 import (
 	"fmt"
 
-	tester_utils "github.com/codecrafters-io/tester-utils"
+	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
 // Example from the grep course
-func testInit(stageHarness *tester_utils.StageHarness) error {
+func testInit(stageHarness *test_case_harness.TestCaseHarness) error {
 	// should exit with 0: echo "dog" | grep -E "d"
 	stageHarness.Logger.Infof("$ echo \"%s\" | ./script.sh -E \"%s\"", "dog", "d")
 
