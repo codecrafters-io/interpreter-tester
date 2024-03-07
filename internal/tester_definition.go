@@ -1,16 +1,16 @@
 package internal
 
 import (
-	testerutils "github.com/codecrafters-io/tester-utils"
+	"github.com/codecrafters-io/tester-utils/tester_definition"
 )
 
-var testerDefinition = testerutils.TesterDefinition{
-	AntiCheatTestCases:    []testerutils.TestCase{},
+var testerDefinition = tester_definition.TesterDefinition{
+	AntiCheatTestCases: []tester_definition.TestCase{},
 	ExecutableFileName: "script.sh",
-	TestCases: []testerutils.TestCase{
+	TestCases: []tester_definition.TestCase{
 		{
-			Slug:                    "init",
-			TestFunc:                testInit,
+			Slug:     "init",
+			TestFunc: testInit,
 		},
 	},
 }
