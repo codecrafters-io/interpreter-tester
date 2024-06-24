@@ -33,8 +33,10 @@ func (b *InterpreterExecutable) Run(args ...string) (executable.ExecutableResult
 		var log string
 		log += fmt.Sprintf("$ ./%s", path.Base(b.executable.Path))
 		for _, arg := range b.args {
-			if strings.Contains(arg, " ") {
-				log += " \"" + arg + "\""
+			// Instead of printing the full path of the file, we can just print the file name, the path is super long
+			// XXX: Confirm with the team if this is the desired behavior
+			if strings.Contains(arg, ".lox") {
+				log += " " + "test.lox"
 			} else {
 				log += " " + arg
 			}
