@@ -1,0 +1,36 @@
+package assertions
+
+import (
+	"fmt"
+)
+
+// OrderedStringArrayAssertion : Order of the actual and expected values matters.
+// We don't alter the ordering.
+type OrderedStringArrayAssertion struct {
+	ExpectedValue []string
+	Type          string
+}
+
+func NewOrderedStringArrayAssertion(expectedValue []string, t string) OrderedStringArrayAssertion {
+	return OrderedStringArrayAssertion{ExpectedValue: expectedValue, Type: t}
+}
+
+func (a OrderedStringArrayAssertion) Run(value []string) ([]string, error) {
+	if len(value) != len(a.ExpectedValue) {
+		return []string{}, fmt.Errorf("Expected %d lines of %s, got %d", len(a.ExpectedValue), a.Type, len(value))
+	}
+
+	output := []string{}
+	for i, expectedValue := range a.ExpectedValue {
+		actualValue := value[i]
+
+		if actualValue != expectedValue {
+			return output, fmt.Errorf("Expected element #%d to be %q, got %q", i+1, expectedValue, actualValue)
+		} else {
+			output = append(output, fmt.Sprintf("✓ %s", actualValue))
+		}
+	}
+
+	successOutput := []string{fmt.Sprintf("✓ %d lines match on %s", len(a.ExpectedValue), a.Type)}
+	return successOutput, nil
+}
