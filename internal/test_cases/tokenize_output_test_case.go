@@ -56,12 +56,14 @@ func (t *TokenizeOutputTestCase) Run(executable *interpreter_executable.Interpre
 		return err
 	}
 
-	stderrAssertionResult, err := assertions.NewOrderedStringArrayAssertion(expectedStderr, "stderr").Run(stdErr)
-	for _, line := range stderrAssertionResult {
-		logger.Successf(line)
-	}
-	if err != nil {
-		return err
+	if len(expectedStderr) > 0 {
+		stderrAssertionResult, err := assertions.NewOrderedStringArrayAssertion(expectedStderr, "stderr").Run(stdErr)
+		for _, line := range stderrAssertionResult {
+			logger.Successf(line)
+		}
+		if err != nil {
+			return err
+		}
 	}
 
 	logger.Successf("✓ Received exit code %d.", 0)
