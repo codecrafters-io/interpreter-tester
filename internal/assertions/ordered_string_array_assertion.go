@@ -26,7 +26,7 @@ func (a OrderedStringArrayAssertion) Run(value []string) ([]string, error) {
 
 		if actualValue != expectedValue {
 			output = append(output, fmt.Sprintf("𐄂 %s", actualValue))
-			return output, fmt.Errorf("Expected element #%d to be %q, got %q", i+1, expectedValue, actualValue)
+			return output, fmt.Errorf("Expected line #%d on %s to be %q, got %q", i+1, a.Type, expectedValue, actualValue)
 		} else {
 			output = append(output, fmt.Sprintf("✓ %s", actualValue))
 		}
