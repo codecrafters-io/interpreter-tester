@@ -25,3 +25,14 @@ copy_course_file:
 
 update_tester_utils:
 	go get -u github.com/codecrafters-io/tester-utils
+
+test_dev: build
+	cd /Users/ryang/Developer/byox/craftinginterpreters && \
+	CODECRAFTERS_SUBMISSION_DIR=/Users/ryang/Developer/byox/craftinginterpreters \
+	CODECRAFTERS_TEST_CASES_JSON="[ \
+		{\"slug\":\"ry8\",\"tester_log_prefix\":\"stage_101\",\"title\":\"Stage #1: Scanning: Empty File\"}, \
+		{\"slug\":\"ol4\",\"tester_log_prefix\":\"stage_102\",\"title\":\"Stage #2: Scanning: Parenthese\"}, \
+		{\"slug\":\"oe8\",\"tester_log_prefix\":\"stage_103\",\"title\":\"Stage #3: Scanning: Braces\"}, \
+		{\"slug\":\"xc5\",\"tester_log_prefix\":\"stage_104\",\"title\":\"Stage #4: Scanning: single-character tokens\"} \
+	]" \
+	$(shell pwd)/dist/main.out
