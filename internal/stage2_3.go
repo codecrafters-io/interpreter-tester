@@ -17,7 +17,7 @@ func testParen(stageHarness *test_case_harness.TestCaseHarness) error {
 	shuffledString2 := random.RandShuffledStr(25, []rune("()"))
 	shuffledString3 := random.RandShuffledStr(5, []rune("()")) + "##"
 	commandTestCases := testcases.MultiTokenizeTestCase{
-		FileContents: []string{"(", "((", shuffledString1, shuffledString2, shuffledString3},
+		FileContents: []string{"(", "))", shuffledString1, shuffledString2, shuffledString3},
 	}
 	if err := commandTestCases.RunAll(b, logger); err != nil {
 		return err
