@@ -16,7 +16,7 @@ func testSingleChars(stageHarness *test_case_harness.TestCaseHarness) error {
 	shuffledString1 := random.RandomStringFromCharacters(15, []rune("+-*.,;"))
 	shuffledString2 := random.RandomStringFromCharacters(20, []rune("+-*.,;(){}"))
 	commandTestCases := testcases.MultiTokenizeTestCase{
-		FileContents: []string{"+-", "+-*.,;", ".;++-+,-++.**,;", shuffledString1, shuffledString2},
+		FileContents: []string{"+-", "++--**..,,;;", shuffledString1, shuffledString2},
 	}
 	if err := commandTestCases.RunAll(b, logger); err != nil {
 		return err
