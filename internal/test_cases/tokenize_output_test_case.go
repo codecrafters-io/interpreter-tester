@@ -29,7 +29,11 @@ func (t *TokenizeOutputTestCase) Run(executable *interpreter_executable.Interpre
 	}
 	defer os.Remove(tmpFileName)
 
-	logger.Debugf("File contents: %q", t.FileContents)
+	logger.Infof("Writing contents to ./test.lox:")
+	logger.UpdateSecondaryPrefix("test.lox")
+	logger.Infof(t.FileContents)
+	logger.ResetSecondaryPrefix()
+
 	result, err := executable.Run("tokenize", tmpFileName)
 	if err != nil {
 		return err

@@ -13,7 +13,15 @@ import (
 // Cleaning the file is the responsibility of the caller
 // As dir is empty, it will create the file in the default temp directory
 func createTempFileWithContents(contents string) (string, error) {
-	tmpFile, err := os.CreateTemp("", "test.lox")
+	tmpFileName := "test.lox"
+	if _, err := os.Stat(tmpFileName); err == nil {
+		err := os.Remove(tmpFileName)
+		if err != nil {
+			return "", fmt.Errorf("CodeCrafters internal error. Error removing tmp file: %v", err)
+		}
+	}
+
+	tmpFile, err := os.Create(tmpFileName)
 	if err != nil {
 		return "", fmt.Errorf("CodeCrafters internal error. Error creating tmp file: %v", err)
 	}

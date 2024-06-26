@@ -30,7 +30,11 @@ func (t *ReceiveOutputTestCase) Run(executable *interpreter_executable.Interpret
 	}
 	defer os.Remove(tmpFileName)
 
-	logger.Debugf("File contents: %q", t.FileContents)
+	logger.Infof("Writing contents to ./test.lox:")
+	logger.UpdateSecondaryPrefix("test.lox")
+	logger.Infof(t.FileContents)
+	logger.ResetSecondaryPrefix()
+
 	result, err := executable.Run(t.Command, tmpFileName)
 	if err != nil {
 		return err
