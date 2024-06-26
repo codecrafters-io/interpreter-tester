@@ -35,10 +35,3 @@ func (a OrderedStringArrayAssertion) Run(value []string) ([]string, error) {
 	successOutput := []string{fmt.Sprintf("✓ %d line(s) match on %s", len(a.ExpectedValue), a.Type)}
 	return successOutput, nil
 }
-
-// func pluralize(count int) string {
-// 	if count > 1 {
-// 		return "s"
-// 	}
-// 	return ""
-// }

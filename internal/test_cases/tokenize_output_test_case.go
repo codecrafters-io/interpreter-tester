@@ -53,20 +53,35 @@ func (t *TokenizeOutputTestCase) Run(executable *interpreter_executable.Interpre
 	}
 
 	stdoutAssertionResult, err := assertions.NewOrderedStringArrayAssertion(expectedStdout, "stdout").Run(stdOut)
+	logCount := len(stdoutAssertionResult)
+	if err != nil {
+		// If there is an error, the last line should be error log
+		// All lines before that should be success logs
+		for _, line := range stdoutAssertionResult[:logCount-1] {
+			logger.Successf(line)
+		}
+		logger.Errorf(stdoutAssertionResult[logCount-1])
+		return err
+	}
+
 	for _, line := range stdoutAssertionResult {
 		logger.Successf(line)
-	}
-	if err != nil {
-		return err
 	}
 
 	if len(expectedStderr) > 0 {
 		stderrAssertionResult, err := assertions.NewOrderedStringArrayAssertion(expectedStderr, "stderr").Run(stdErr)
+		logCount = len(stderrAssertionResult)
+		if err != nil {
+			// If there is an error, the last line should be error log
+			// All lines before that should be success logs
+			for _, line := range stderrAssertionResult[:logCount-1] {
+				logger.Successf(line)
+			}
+			logger.Errorf(stderrAssertionResult[logCount-1])
+			return err
+		}
 		for _, line := range stderrAssertionResult {
 			logger.Successf(line)
-		}
-		if err != nil {
-			return err
 		}
 	}
 
