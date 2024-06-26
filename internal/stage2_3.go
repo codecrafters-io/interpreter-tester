@@ -13,9 +13,9 @@ func testParen(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	shuffledString1 := random.RandShuffledStr(5, []rune("()"))
-	shuffledString2 := random.RandShuffledStr(25, []rune("()"))
-	shuffledString3 := random.RandShuffledStr(5, []rune("()")) + "##"
+	shuffledString1 := random.RandomStringFromCharacters(5, []rune("()"))
+	shuffledString2 := random.RandomStringFromCharacters(25, []rune("()"))
+	shuffledString3 := random.RandomStringFromCharacters(5, []rune("()")) + "##"
 	commandTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{"(", "))", shuffledString1, shuffledString2, shuffledString3},
 	}

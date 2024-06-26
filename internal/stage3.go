@@ -13,8 +13,8 @@ func testBrace(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	shuffledString1 := random.RandShuffledStr(20, []rune("{}"))
-	shuffledString2 := random.RandShuffledStr(20, []rune("(){}"))
+	shuffledString1 := random.RandomStringFromCharacters(20, []rune("{}"))
+	shuffledString2 := random.RandomStringFromCharacters(20, []rune("(){}"))
 	commandTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{"}", "{{}}", shuffledString1, shuffledString2},
 	}
