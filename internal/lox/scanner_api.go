@@ -6,7 +6,7 @@ func ScanTokens(source string) ([]string, []string, error) {
 	scanner := NewScanner(source)
 	tokens, errors := scanner.ScanTokens()
 
-	tokenLines := []string{}
+	var tokenLines []string
 	errorLines := errors
 
 	for _, token := range tokens {

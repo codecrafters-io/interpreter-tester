@@ -43,12 +43,12 @@ func getOutputFromStdOut(result executable.ExecutableResult) []string {
 }
 
 func getOutputFromStdErr(result executable.ExecutableResult) []string {
-	filteredStdErr := []string{}
+	var filteredStdErr []string
 	stdErr := strings.Split(strings.TrimRight(string(result.Stderr), "\n"), "\n")
-	regexp := regexp.MustCompile(`\[line [0-9]+\]`)
+	regex := regexp.MustCompile(`\[line [0-9]+\]`)
 
 	for _, line := range stdErr {
-		if regexp.MatchString(line) {
+		if regex.MatchString(line) {
 			filteredStdErr = append(filteredStdErr, line)
 		}
 	}

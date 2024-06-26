@@ -20,7 +20,7 @@ func (a OrderedStringArrayAssertion) Run(value []string) ([]string, error) {
 		return []string{}, fmt.Errorf("Expected %d lines of %s, got %d", len(a.ExpectedValue), a.Type, len(value))
 	}
 
-	output := []string{}
+	var output []string
 	for i, expectedValue := range a.ExpectedValue {
 		actualValue := value[i]
 
