@@ -123,7 +123,7 @@ class Scanner {
           identifier();
 //< identifier-start
         } else {
-          Lox.error(line, "Unexpected character.");
+          Lox.error(line, "Unexpected character: " + c);
         }
 //< digit-start
         break;
