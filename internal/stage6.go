@@ -8,8 +8,7 @@ import (
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
-// TODO: Fix
-func testEqualityWHAT(stageHarness *test_case_harness.TestCaseHarness) error {
+func testEquality(stageHarness *test_case_harness.TestCaseHarness) error {
 	b := interpreter_executable.NewInterpreterExecutable(stageHarness)
 
 	logger := stageHarness.Logger

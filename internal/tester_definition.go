@@ -37,5 +37,9 @@ var testerDefinition = tester_definition.TesterDefinition{
 			Slug:     "bu3",
 			TestFunc: testNegation,
 		},
+		{
+			Slug:     "ey7",
+			TestFunc: testIdentifier,
+		},
 	},
 }
