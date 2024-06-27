@@ -25,5 +25,17 @@ var testerDefinition = tester_definition.TesterDefinition{
 			Slug:     "xc5",
 			TestFunc: testSingleChars,
 		},
+		{
+			Slug:     "ea6",
+			TestFunc: testErrors,
+		},
+		{
+			Slug:     "mp7",
+			TestFunc: testEquality,
+		},
+		{
+			Slug:     "bu3",
+			TestFunc: testNegation,
+		},
 	},
 }
