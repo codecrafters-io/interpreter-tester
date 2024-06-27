@@ -37,6 +37,7 @@ test_dev: build
 		{\"slug\":\"ea6\",\"tester_log_prefix\":\"stage_105\",\"title\":\"Stage #5: Scanning: lexical errors\"}, \
 		{\"slug\":\"mp7\",\"tester_log_prefix\":\"stage_106\",\"title\":\"Stage #6: Scanning: equality operators\"}, \
 		{\"slug\":\"bu3\",\"tester_log_prefix\":\"stage_107\",\"title\":\"Stage #7: Scanning: negation operators\"}, \
+		{\"slug\":\"et2\",\"tester_log_prefix\":\"stage_108\",\"title\":\"Stage #8: Scanning: relational operators\"}, \
 		{\"slug\":\"ey7\",\"tester_log_prefix\":\"stage_110\",\"title\":\"Stage #10: Scanning: Identifiers\"} \
 	]" \
 	$(shell pwd)/dist/main.out
@@ -52,6 +53,9 @@ test_og: build
 		{\"slug\":\"ea6\",\"tester_log_prefix\":\"stage_105\",\"title\":\"Stage #5: Scanning: lexical errors\"}, \
 		{\"slug\":\"mp7\",\"tester_log_prefix\":\"stage_106\",\"title\":\"Stage #6: Scanning: equality operators\"}, \
 		{\"slug\":\"bu3\",\"tester_log_prefix\":\"stage_107\",\"title\":\"Stage #7: Scanning: negation operators\"}, \
+		{\"slug\":\"et2\",\"tester_log_prefix\":\"stage_108\",\"title\":\"Stage #8: Scanning: relational operators\"}, \
 		{\"slug\":\"ey7\",\"tester_log_prefix\":\"stage_110\",\"title\":\"Stage #10: Scanning: Identifiers\"} \
 	]" \
 	$(shell pwd)/dist/main.out
+
+test_all: test_dev test_og
