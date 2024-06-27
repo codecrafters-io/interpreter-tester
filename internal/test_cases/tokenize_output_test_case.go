@@ -39,17 +39,17 @@ func (t *TokenizeOutputTestCase) Run(executable *interpreter_executable.Interpre
 		return err
 	}
 
-	// No matter what, we always expect the exit code to be 0
-	if result.ExitCode != 0 {
-		return fmt.Errorf("expected exit code %v, got %v", 0, result.ExitCode)
-	}
-
 	stdOut := getOutputFromStdOut(result)
 	stdErr := getOutputFromStdErr(result)
 
-	expectedStdout, expectedStderr, err := lox.ScanTokens(t.FileContents)
+	expectedStdout, expectedStderr, exitCode, err := lox.ScanTokens(t.FileContents)
 	if err != nil {
 		return fmt.Errorf("CodeCrafters internal error: %v", err)
+	}
+
+	// No matter what, we always expect the exit code to be 0
+	if result.ExitCode != exitCode {
+		return fmt.Errorf("expected exit code %v, got %v", exitCode, result.ExitCode)
 	}
 
 	stdoutAssertionResult, err := assertions.NewOrderedStringArrayAssertion(expectedStdout, "stdout").Run(stdOut)
@@ -85,7 +85,7 @@ func (t *TokenizeOutputTestCase) Run(executable *interpreter_executable.Interpre
 		}
 	}
 
-	logger.Successf("✓ Received exit code %d.", 0)
+	logger.Successf("✓ Received exit code %d.", exitCode)
 
 	return nil
 }
