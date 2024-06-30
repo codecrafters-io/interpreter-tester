@@ -42,8 +42,32 @@ var testerDefinition = tester_definition.TesterDefinition{
 			TestFunc: testRelational,
 		},
 		{
+			Slug:     "ml2",
+			TestFunc: testComments,
+		},
+		{
+			Slug:     "er2",
+			TestFunc: testWhitespace,
+		},
+		{
+			Slug:     "tz7",
+			TestFunc: testErrorsMulti,
+		},
+		{
+			Slug:     "ue7",
+			TestFunc: testStrings,
+		},
+		{
+			Slug:     "kj0",
+			TestFunc: testNumbers,
+		},
+		{
 			Slug:     "ey7",
 			TestFunc: testIdentifier,
+		},
+		{
+			Slug:     "pq5",
+			TestFunc: testReservedWords,
 		},
 	},
 }

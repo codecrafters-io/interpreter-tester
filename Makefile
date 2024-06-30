@@ -33,12 +33,18 @@ test_dev: build
 		{\"slug\":\"ry8\",\"tester_log_prefix\":\"stage_101\",\"title\":\"Stage #1: Scanning: Empty File\"}, \
 		{\"slug\":\"ol4\",\"tester_log_prefix\":\"stage_102\",\"title\":\"Stage #2: Scanning: Parenthese\"}, \
 		{\"slug\":\"oe8\",\"tester_log_prefix\":\"stage_103\",\"title\":\"Stage #3: Scanning: Braces\"}, \
-		{\"slug\":\"xc5\",\"tester_log_prefix\":\"stage_104\",\"title\":\"Stage #4: Scanning: single-character tokens\"}, \
-		{\"slug\":\"ea6\",\"tester_log_prefix\":\"stage_105\",\"title\":\"Stage #5: Scanning: lexical errors\"}, \
-		{\"slug\":\"mp7\",\"tester_log_prefix\":\"stage_106\",\"title\":\"Stage #6: Scanning: equality operators\"}, \
-		{\"slug\":\"bu3\",\"tester_log_prefix\":\"stage_107\",\"title\":\"Stage #7: Scanning: negation operators\"}, \
-		{\"slug\":\"et2\",\"tester_log_prefix\":\"stage_108\",\"title\":\"Stage #8: Scanning: relational operators\"}, \
-		{\"slug\":\"ey7\",\"tester_log_prefix\":\"stage_110\",\"title\":\"Stage #10: Scanning: Identifiers\"} \
+		{\"slug\":\"xc5\",\"tester_log_prefix\":\"stage_104\",\"title\":\"Stage #4: Scanning: Single-character tokens\"}, \
+		{\"slug\":\"ea6\",\"tester_log_prefix\":\"stage_105\",\"title\":\"Stage #5: Scanning: Lexical errors\"}, \
+		{\"slug\":\"mp7\",\"tester_log_prefix\":\"stage_106\",\"title\":\"Stage #6: Scanning: Equality operators\"}, \
+		{\"slug\":\"bu3\",\"tester_log_prefix\":\"stage_107\",\"title\":\"Stage #7: Scanning: Negation operators\"}, \
+		{\"slug\":\"et2\",\"tester_log_prefix\":\"stage_108\",\"title\":\"Stage #8: Scanning: Relational operators\"}, \
+		{\"slug\":\"ml2\",\"tester_log_prefix\":\"stage_109\",\"title\":\"Stage #9: Scanning: Comments\"}, \
+		{\"slug\":\"er2\",\"tester_log_prefix\":\"stage_110\",\"title\":\"Stage #10: Scanning: Whitespaces\"}, \
+		{\"slug\":\"tz7\",\"tester_log_prefix\":\"stage_111\",\"title\":\"Stage #11: Scanning: Multi-line errors\"}, \
+		{\"slug\":\"ue7\",\"tester_log_prefix\":\"stage_112\",\"title\":\"Stage #12: Scanning: String literals\"}, \
+		{\"slug\":\"kj0\",\"tester_log_prefix\":\"stage_113\",\"title\":\"Stage #13: Scanning: Number literals\"}, \
+		{\"slug\":\"ey7\",\"tester_log_prefix\":\"stage_114\",\"title\":\"Stage #14: Scanning: Identifiers\"}, \
+		{\"slug\":\"pq5\",\"tester_log_prefix\":\"stage_115\",\"title\":\"Stage #15: Scanning: Reserved words\"} \
 	]" \
 	$(shell pwd)/dist/main.out
 
@@ -49,12 +55,18 @@ test_og: build
 		{\"slug\":\"ry8\",\"tester_log_prefix\":\"stage_101\",\"title\":\"Stage #1: Scanning: Empty File\"}, \
 		{\"slug\":\"ol4\",\"tester_log_prefix\":\"stage_102\",\"title\":\"Stage #2: Scanning: Parenthese\"}, \
 		{\"slug\":\"oe8\",\"tester_log_prefix\":\"stage_103\",\"title\":\"Stage #3: Scanning: Braces\"}, \
-		{\"slug\":\"xc5\",\"tester_log_prefix\":\"stage_104\",\"title\":\"Stage #4: Scanning: single-character tokens\"}, \
-		{\"slug\":\"ea6\",\"tester_log_prefix\":\"stage_105\",\"title\":\"Stage #5: Scanning: lexical errors\"}, \
-		{\"slug\":\"mp7\",\"tester_log_prefix\":\"stage_106\",\"title\":\"Stage #6: Scanning: equality operators\"}, \
-		{\"slug\":\"bu3\",\"tester_log_prefix\":\"stage_107\",\"title\":\"Stage #7: Scanning: negation operators\"}, \
-		{\"slug\":\"et2\",\"tester_log_prefix\":\"stage_108\",\"title\":\"Stage #8: Scanning: relational operators\"}, \
-		{\"slug\":\"ey7\",\"tester_log_prefix\":\"stage_110\",\"title\":\"Stage #10: Scanning: Identifiers\"} \
+		{\"slug\":\"xc5\",\"tester_log_prefix\":\"stage_104\",\"title\":\"Stage #4: Scanning: Single-character tokens\"}, \
+		{\"slug\":\"ea6\",\"tester_log_prefix\":\"stage_105\",\"title\":\"Stage #5: Scanning: Lexical errors\"}, \
+		{\"slug\":\"mp7\",\"tester_log_prefix\":\"stage_106\",\"title\":\"Stage #6: Scanning: Equality operators\"}, \
+		{\"slug\":\"bu3\",\"tester_log_prefix\":\"stage_107\",\"title\":\"Stage #7: Scanning: Negation operators\"}, \
+		{\"slug\":\"et2\",\"tester_log_prefix\":\"stage_108\",\"title\":\"Stage #8: Scanning: Relational operators\"}, \
+		{\"slug\":\"ml2\",\"tester_log_prefix\":\"stage_109\",\"title\":\"Stage #9: Scanning: Comments\"}, \
+		{\"slug\":\"er2\",\"tester_log_prefix\":\"stage_110\",\"title\":\"Stage #10: Scanning: Whitespaces\"}, \
+		{\"slug\":\"tz7\",\"tester_log_prefix\":\"stage_111\",\"title\":\"Stage #11: Scanning: Multi-line errors\"}, \
+		{\"slug\":\"ue7\",\"tester_log_prefix\":\"stage_112\",\"title\":\"Stage #12: Scanning: String literals\"}, \
+		{\"slug\":\"kj0\",\"tester_log_prefix\":\"stage_113\",\"title\":\"Stage #13: Scanning: Number literals\"}, \
+		{\"slug\":\"ey7\",\"tester_log_prefix\":\"stage_114\",\"title\":\"Stage #14: Scanning: Identifiers\"}, \
+		{\"slug\":\"pq5\",\"tester_log_prefix\":\"stage_115\",\"title\":\"Stage #15: Scanning: Reserved words\"} \
 	]" \
 	$(shell pwd)/dist/main.out
 
