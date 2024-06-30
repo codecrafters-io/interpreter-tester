@@ -8,13 +8,15 @@ import (
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
+var Parens = []string{"(", ")"}
+
 func testParen(stageHarness *test_case_harness.TestCaseHarness) error {
 	b := interpreter_executable.NewInterpreterExecutable(stageHarness)
 
 	logger := stageHarness.Logger
 
-	shuffledString1 := random.RandomStringFromCharacters(5, []rune("()"))
-	shuffledString2 := random.RandomStringFromCharacters(25, []rune("()"))
+	shuffledString1 := random.RandomStringFromCharacters(5, Parens)
+	shuffledString2 := random.RandomStringFromCharacters(25, Parens)
 	commandTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{"(", "))", shuffledString1, shuffledString2},
 	}

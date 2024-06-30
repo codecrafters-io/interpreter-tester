@@ -1,6 +1,8 @@
 package internal
 
 import (
+	"slices"
+
 	"github.com/codecrafters-io/grep-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/grep-tester/internal/test_cases"
 
@@ -8,13 +10,15 @@ import (
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
+var Braces = []string{"{", "}"}
+
 func testBrace(stageHarness *test_case_harness.TestCaseHarness) error {
 	b := interpreter_executable.NewInterpreterExecutable(stageHarness)
 
 	logger := stageHarness.Logger
 
-	shuffledString1 := random.RandomStringFromCharacters(20, []rune("{}"))
-	shuffledString2 := random.RandomStringFromCharacters(20, []rune("(){}"))
+	shuffledString1 := random.RandomStringFromCharacters(20, Braces)
+	shuffledString2 := random.RandomStringFromCharacters(20, slices.Concat(Parens, Braces))
 	commandTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{"}", "{{}}", shuffledString1, shuffledString2},
 	}

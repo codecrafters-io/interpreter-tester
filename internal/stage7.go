@@ -1,6 +1,8 @@
 package internal
 
 import (
+	"slices"
+
 	"github.com/codecrafters-io/grep-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/grep-tester/internal/test_cases"
 
@@ -8,12 +10,14 @@ import (
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
+var Negation = []string{"!", "!="}
+
 func testNegation(stageHarness *test_case_harness.TestCaseHarness) error {
 	b := interpreter_executable.NewInterpreterExecutable(stageHarness)
 
 	logger := stageHarness.Logger
 
-	shuffledString1 := random.RandomStringFromCharacters(20, []rune("!!==@"))
+	shuffledString1 := random.RandomStringFromCharacters(20, slices.Concat(Parens, Braces, SingleCharOperators, LexicalErrors, Equals, Negation))
 	commandTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{"!=", "!!===", "(!)#(!===)", shuffledString1},
 	}
