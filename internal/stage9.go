@@ -22,7 +22,7 @@ func testComments(stageHarness *test_case_harness.TestCaseHarness) error {
 	comment2 := "()//Comment"
 	comment3 := "//Unicode:s£§¶ÜÞĐĦŋœƂƢƩǁឃᢆ᯽₪ℜ↩⊗┺░☃☺♣"
 	division1 := "/"
-	division2 := random.RandomStringFromCharacters(20, slices.Concat(Parens, Braces, SingleCharOperators, LexicalErrors, Equals, Negation, Relational)) + "//Comment"
+	division2 := random.RandomStringFromCharacters(30, slices.Concat(Parens, Braces, SingleCharOperators, LexicalErrors, Equals, Negation, Relational)) + "//Comment"
 	commandTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{comment1, comment2, comment3, division1, division2},
 	}

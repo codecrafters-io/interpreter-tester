@@ -3,6 +3,7 @@ package testcases
 import (
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/codecrafters-io/grep-tester/internal/assertions"
 	"github.com/codecrafters-io/grep-tester/internal/interpreter_executable"
@@ -31,7 +32,10 @@ func (t *TokenizeOutputTestCase) Run(executable *interpreter_executable.Interpre
 
 	logger.Infof("Writing contents to ./test.lox:")
 	logger.UpdateSecondaryPrefix("test.lox")
-	logger.Infof(t.FileContents)
+	// If the file contents contain a singe %, it will be decoded as a format specifier
+	// And it will add a `(MISSING)` to the log line
+	printableFileContents := strings.ReplaceAll(t.FileContents, "%", "%%")
+	logger.Infof(printableFileContents)
 	logger.ResetSecondaryPrefix()
 
 	result, err := executable.Run("tokenize", tmpFileName)
