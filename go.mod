@@ -1,4 +1,4 @@
-module github.com/codecrafters-io/grep-tester
+module github.com/codecrafters-io/interpreter-tester
 
 go 1.21
 

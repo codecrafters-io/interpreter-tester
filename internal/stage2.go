@@ -1,8 +1,8 @@
 package internal
 
 import (
-	"github.com/codecrafters-io/grep-tester/internal/interpreter_executable"
-	testcases "github.com/codecrafters-io/grep-tester/internal/test_cases"
+	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
+	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
 
 	"github.com/codecrafters-io/tester-utils/random"
 	"github.com/codecrafters-io/tester-utils/test_case_harness"

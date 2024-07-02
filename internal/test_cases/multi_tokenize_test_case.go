@@ -1,7 +1,7 @@
 package testcases
 
 import (
-	"github.com/codecrafters-io/grep-tester/internal/interpreter_executable"
+	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	"github.com/codecrafters-io/tester-utils/logger"
 )
 

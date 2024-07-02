@@ -5,9 +5,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/codecrafters-io/grep-tester/internal/assertions"
-	"github.com/codecrafters-io/grep-tester/internal/interpreter_executable"
-	"github.com/codecrafters-io/grep-tester/internal/lox"
+	"github.com/codecrafters-io/interpreter-tester/internal/assertions"
+	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
+	"github.com/codecrafters-io/interpreter-tester/internal/lox"
 	"github.com/codecrafters-io/tester-utils/logger"
 )
 
