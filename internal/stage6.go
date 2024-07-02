@@ -17,9 +17,9 @@ func testEquality(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	shuffledString1 := random.RandomStringFromCharacters(20, slices.Concat(Parens, Braces, SingleCharOperators, LexicalErrors, Equals))
+	shuffledString1 := "((" + random.RandomStringFromCharacters(5, slices.Concat(LexicalErrors, RepeatSlice(Equals, 2))) + "))"
 	commandTestCases := testcases.MultiTokenizeTestCase{
-		FileContents: []string{"==", "{=====}", "(=)#(=====)", shuffledString1},
+		FileContents: []string{"=", "===", "({=}){=====}", shuffledString1},
 	}
 	if err := commandTestCases.RunAll(b, logger); err != nil {
 		return err

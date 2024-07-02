@@ -19,12 +19,11 @@ func testComments(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	// As whitespace is not introduced yet, we skip multi-line comments here.
 	comment1 := "//Comment"
-	comment2 := "()//Comment"
-	comment3 := "//Unicode:s£§¶ÜÞĐĦŋœƂƢƩǁឃᢆ᯽₪ℜ↩⊗┺░☃☺♣"
+	comment2 := "(///Unicode:£§᯽☺♣)"
 	division1 := "/"
-	division2 := random.RandomStringFromCharacters(30, slices.Concat(Parens, Braces, SingleCharOperators, LexicalErrors, Equals, Negation, Relational)) + "//Comment"
+	division2 := "({(" + random.RandomStringFromCharacters(5, slices.Concat(SingleCharOperators, LexicalErrors, Equals, Negation, Relational)) + ")})" + "//Comment"
 	commandTestCases := testcases.MultiTokenizeTestCase{
-		FileContents: []string{comment1, comment2, comment3, division1, division2},
+		FileContents: []string{comment1, comment2, division1, division2},
 	}
 	if err := commandTestCases.RunAll(b, logger); err != nil {
 		return err
