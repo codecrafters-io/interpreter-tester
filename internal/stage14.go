@@ -11,19 +11,17 @@ import (
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
-var asciiLower = strings.Split("abcdefghijklmnopqrstuvwxyz", "")
-var asciiUpper = strings.Split("ABCDEFGHIJKLMNOPQRSTUVWXYZ", "")
-var asciiDigits = strings.Split("0123456789", "")
+var Identifiers = []string{"_hello", "world_", "f00", "6ar", "6az", "foo", "bar", "baz"}
 
 func testIdentifier(stageHarness *test_case_harness.TestCaseHarness) error {
 	b := interpreter_executable.NewInterpreterExecutable(stageHarness)
 
 	logger := stageHarness.Logger
 
-	identifier1 := strings.Join(random.RandomSelection(5, asciiLower), "")
-	identifier2 := "_" + strings.Join(random.RandomSelection(5, asciiDigits), "")
-	identifier3 := "_" + strings.Join(random.RandomSelection(50, slices.Concat(asciiUpper, asciiLower, asciiDigits, []string{"_"})), "") + "_"
-	identifier4 := randomStringFromCharactersNew(50, slices.Concat(Parens, Braces, SingleCharOperators, LexicalErrors, Equals, Negation, Relational, Division, Whitespace, asciiLower, asciiUpper, asciiDigits, []string{"_"}))
+	identifier1 := strings.Join(random.RandomSelection(3, Identifiers), " ")
+	identifier2 := "_123" + strings.Join(random.RandomSelection(5, Identifiers), " ")
+	identifier3 := strings.Join(random.RandomSelection(5, Identifiers), " ") + "_123"
+	identifier4 := "{{" + strings.Join(random.RandomSelection(1, Identifiers), "") + random.RandomStringFromCharacters(2, slices.Concat(SingleCharOperators, LexicalErrors, Relational, Whitespace)) + strings.Join(random.RandomSelection(1, Identifiers), "") + random.RandomStringFromCharacters(2, slices.Concat(SingleCharOperators, LexicalErrors, Relational, Whitespace)) + strings.Join(random.RandomSelection(1, Identifiers), "") + "}}"
 
 	commandTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{identifier1, identifier2, identifier3, identifier4},

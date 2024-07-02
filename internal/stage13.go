@@ -15,7 +15,7 @@ func testNumbers(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	shuffledString2 := random.RandomStringFromCharacters(35, slices.Concat(Parens, Braces, SingleCharOperators, LexicalErrors, Equals, Negation, Relational, Division, Whitespace, Strings, []string{"123.456", "456.789"}))
+	shuffledString2 := "{ 1234.00" + random.RandomStringFromCharacters(5, slices.Concat(SingleCharOperators, LexicalErrors, Whitespace)) + "00.1234 }"
 	commandTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{"1234", "1234.1234", "1234.1234.1234.", shuffledString2},
 	}

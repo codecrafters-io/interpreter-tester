@@ -7,6 +7,7 @@ import (
 	"github.com/codecrafters-io/grep-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/grep-tester/internal/test_cases"
 
+	"github.com/codecrafters-io/tester-utils/random"
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
@@ -20,8 +21,9 @@ func testReservedWords(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	k1 := Keywords[0]
 	k2 := strings.Join(Keywords[0:], " ")
-	k3 := strings.Join(KeywordsCapitalized[0:], " ")
-	k4 := randomStringFromCharactersNew(40, slices.Concat(Parens, Braces, SingleCharOperators, LexicalErrors, Equals, Negation, Relational, Division, Whitespace, asciiLower, asciiUpper, asciiDigits, []string{"_"}, Keywords, KeywordsCapitalized))
+	k3 := strings.Join(KeywordsCapitalized[0:], "	")
+	k4 := "(" + random.RandomStringFromCharacters(1, slices.Concat(Identifiers, Strings, Keywords, KeywordsCapitalized)) + random.RandomStringFromCharacters(1, slices.Concat(SingleCharOperators, LexicalErrors, Relational, Whitespace)) + random.RandomStringFromCharacters(1, slices.Concat(Identifiers, Strings, Keywords, KeywordsCapitalized)) + random.RandomStringFromCharacters(1, slices.Concat(SingleCharOperators, LexicalErrors, Relational, Whitespace)) + random.RandomStringFromCharacters(1, slices.Concat(Identifiers, Strings, Keywords, KeywordsCapitalized)) + random.RandomStringFromCharacters(1, slices.Concat(SingleCharOperators, LexicalErrors, Relational, Whitespace)) + random.RandomStringFromCharacters(1, slices.Concat(Identifiers, Strings, Keywords, KeywordsCapitalized)) + random.RandomStringFromCharacters(1, slices.Concat(SingleCharOperators, LexicalErrors, Relational, Whitespace)) + ")"
+
 	commandTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{k1, k2, k3, k4},
 	}
