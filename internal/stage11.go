@@ -6,6 +6,7 @@ import (
 	"github.com/codecrafters-io/grep-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/grep-tester/internal/test_cases"
 
+	"github.com/codecrafters-io/tester-utils/random"
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
@@ -16,7 +17,7 @@ func testErrorsMulti(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	multiLineErrors1 := `() 
 	@`
-	multiLineErrors2 := randomStringFromCharactersNew(10, slices.Concat(LexicalErrors, Whitespace))
+	multiLineErrors2 := random.RandomStringFromCharacters(5, slices.Concat(LexicalErrors, Whitespace))
 	multiLineErrors3 := `()  #	{}
 	@ @ @
 	$
@@ -26,7 +27,7 @@ func testErrorsMulti(stageHarness *test_case_harness.TestCaseHarness) error {
 	#
 	#
 	#`
-	multiLineErrors4 := randomStringFromCharactersNew(40, slices.Concat(Parens, Braces, SingleCharOperators, LexicalErrors, RepeatSlice(Whitespace, 5)))
+	multiLineErrors4 := "({" + random.RandomStringFromCharacters(10, slices.Concat(SingleCharOperators, LexicalErrors, RepeatSlice(Whitespace, 3))) + "})"
 	commandTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{multiLineErrors1, multiLineErrors2, multiLineErrors3, multiLineErrors4},
 	}
