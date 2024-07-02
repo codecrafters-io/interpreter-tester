@@ -35,6 +35,18 @@ func (t *TokenizeOutputTestCase) Run(executable *interpreter_executable.Interpre
 	// If the file contents contain a singe %, it will be decoded as a format specifier
 	// And it will add a `(MISSING)` to the log line
 	printableFileContents := strings.ReplaceAll(t.FileContents, "%", "%%")
+	printableFileContents = strings.ReplaceAll(printableFileContents, "\t", "<|TAB|>")
+
+	// ToDo: Remove unused code
+	// regex := regexp.MustCompile("[ ]+\n$")
+	// out := regex.FindAll([]byte(printableFileContents), -1)
+	// fmt.Println("Matched", out)
+	// printableFileContents = regex.ReplaceAllString(printableFileContents, "<|SPACE|>")
+
+	printableFileContents = strings.ReplaceAll(printableFileContents, " ", "<|SP|>")
+	// printableFileContents = strings.ReplaceAll(printableFileContents, "\n", "↩")
+	// fileContentsArray := strings.Split(printableFileContents, "")
+	// printableFileContents = strings.Join(fileContentsArray, " ")
 	logger.Infof(printableFileContents)
 	logger.ResetSecondaryPrefix()
 
