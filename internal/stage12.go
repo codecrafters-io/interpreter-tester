@@ -18,12 +18,8 @@ func testStrings(stageHarness *test_case_harness.TestCaseHarness) error {
 	string2 := `"foo 	bar 123 // hello world!"`
 	shuffledString2 := (randomSelection(2, Strings, "+")) + `"perseverance" && "Success" != "Failure"`
 
-	commandTestCases := testcases.MultiTokenizeTestCase{
+	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{Strings[0], string1, string2, shuffledString2},
 	}
-	if err := commandTestCases.RunAll(b, logger); err != nil {
-		return err
-	}
-
-	return nil
+	return tokenizeTestCases.RunAll(b, logger)
 }

@@ -27,12 +27,8 @@ num2 = 200.00
 result = (str1 == "Test" , str2 != "Fail") && (num1 + num2) >= 300 && (a - b) < 10
 }`
 
-	commandTestCases := testcases.MultiTokenizeTestCase{
+	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{identifier1, identifier2, identifier3, identifier4},
 	}
-	if err := commandTestCases.RunAll(b, logger); err != nil {
-		return err
-	}
-
-	return nil
+	return tokenizeTestCases.RunAll(b, logger)
 }

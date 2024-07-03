@@ -18,12 +18,8 @@ func testBrace(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	shuffledString1 := randomStringFromCharacters(20, Braces)
 	shuffledString2 := randomStringFromCharacters(20, slices.Concat(Parens, Braces))
-	commandTestCases := testcases.MultiTokenizeTestCase{
+	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{"}", "{{}}", shuffledString1, shuffledString2},
 	}
-	if err := commandTestCases.RunAll(b, logger); err != nil {
-		return err
-	}
-
-	return nil
+	return tokenizeTestCases.RunAll(b, logger)
 }

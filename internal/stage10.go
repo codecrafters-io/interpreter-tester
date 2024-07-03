@@ -23,12 +23,8 @@ func testWhitespace(stageHarness *test_case_harness.TestCaseHarness) error {
 	ws2 := sp + tab + lf + sp
 	ws3 := "{" + randomStringFromCharacters(2, Whitespace) + "}" + lf + "((" + randomStringFromCharacters(5, slices.Concat(SingleCharOperators, Whitespace)) + "))"
 	ws4 := "{" + randomStringFromCharacters(5, Whitespace) + "}" + lf + "((" + randomStringFromCharacters(5, slices.Concat(SingleCharOperators, Relational, Whitespace)) + "))"
-	commandTestCases := testcases.MultiTokenizeTestCase{
+	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{ws1, ws2, ws3, ws4},
 	}
-	if err := commandTestCases.RunAll(b, logger); err != nil {
-		return err
-	}
-
-	return nil
+	return tokenizeTestCases.RunAll(b, logger)
 }

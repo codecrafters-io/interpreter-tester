@@ -21,12 +21,8 @@ func testComments(stageHarness *test_case_harness.TestCaseHarness) error {
 	comment2 := "(///Unicode:£§᯽☺♣)"
 	division1 := "/"
 	division2 := "({(" + randomStringFromCharacters(3, slices.Concat(SingleCharOperators, LexicalErrors, Equals, Negation, Relational)) + ")})" + "//Comment"
-	commandTestCases := testcases.MultiTokenizeTestCase{
+	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{comment1, comment2, division1, division2},
 	}
-	if err := commandTestCases.RunAll(b, logger); err != nil {
-		return err
-	}
-
-	return nil
+	return tokenizeTestCases.RunAll(b, logger)
 }

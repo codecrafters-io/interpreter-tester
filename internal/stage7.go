@@ -17,12 +17,8 @@ func testNegation(stageHarness *test_case_harness.TestCaseHarness) error {
 	logger := stageHarness.Logger
 
 	shuffledString1 := "{(" + randomStringFromCharacters(5, slices.Concat(LexicalErrors, Equals, Negation)) + ")}"
-	commandTestCases := testcases.MultiTokenizeTestCase{
+	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{"!=", "!!===", "!{!}(!===)=", shuffledString1},
 	}
-	if err := commandTestCases.RunAll(b, logger); err != nil {
-		return err
-	}
-
-	return nil
+	return tokenizeTestCases.RunAll(b, logger)
 }

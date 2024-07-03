@@ -25,12 +25,8 @@ $
 +++
 #`
 	multiLineErrors4 := "({" + randomSelection(1, SingleCharOperators, "") + randomSelection(1, Whitespace, "") + randomSelection(1, LexicalErrors, "") + "})"
-	commandTestCases := testcases.MultiTokenizeTestCase{
+	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{multiLineErrors1, multiLineErrors2, multiLineErrors3, multiLineErrors4},
 	}
-	if err := commandTestCases.RunAll(b, logger); err != nil {
-		return err
-	}
-
-	return nil
+	return tokenizeTestCases.RunAll(b, logger)
 }

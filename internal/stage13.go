@@ -15,12 +15,8 @@ func testNumbers(stageHarness *test_case_harness.TestCaseHarness) error {
 	shuffledString1 := `"Hello" = "Hello" && 42 == 42`
 	shuffledString2 := `(5+3) > 7 ; "Success" != "Failure" & 10 >= 5`
 
-	commandTestCases := testcases.MultiTokenizeTestCase{
+	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{"1234.1234", "1234.1234.1234.", shuffledString1, shuffledString2},
 	}
-	if err := commandTestCases.RunAll(b, logger); err != nil {
-		return err
-	}
-
-	return nil
+	return tokenizeTestCases.RunAll(b, logger)
 }
