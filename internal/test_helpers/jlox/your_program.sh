@@ -7,6 +7,7 @@ fi
 
 command=$1
 filename=$2
+script_dir=$(dirname "$0")
 
 if [ ! -f "$filename" ]; then
   echo "File $filename does not exist."
@@ -15,7 +16,7 @@ fi
 
 case "$command" in
   tokenize)
-    ./internal/test_helpers/jlox/jlox "$filename"
+    ${script_dir}/jlox "$filename"
     ;;
   *)
     echo "Unknown command: $command"
