@@ -33,10 +33,5 @@ func (b *InterpreterExecutable) Run(args ...string) (executable.ExecutableResult
 	}
 	b.logger.Infof(log)
 
-	result, err := b.executable.Run(b.args...)
-	if err != nil {
-		return executable.ExecutableResult{}, err
-	}
-
-	return result, nil
+	return b.executable.Run(b.args...)
 }
