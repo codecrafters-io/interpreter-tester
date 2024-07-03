@@ -86,10 +86,12 @@ func (t *TokenizeOutputTestCase) Run(executable *interpreter_executable.Interpre
 	if err != nil {
 		// If there is an error, the last line should be error log
 		// All lines before that should be success logs
-		for _, line := range stdoutAssertionResult[:logCount-1] {
-			logger.Successf(line)
+		if logCount > 1 {
+			for _, line := range stdoutAssertionResult[:logCount-1] {
+				logger.Successf(line)
+			}
+			logger.Errorf(stdoutAssertionResult[logCount-1])
 		}
-		logger.Errorf(stdoutAssertionResult[logCount-1])
 		return err
 	}
 	for _, line := range stdoutAssertionResult {
