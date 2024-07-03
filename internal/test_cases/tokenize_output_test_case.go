@@ -3,6 +3,7 @@ package testcases
 import (
 	"fmt"
 	"os"
+	"regexp"
 	"strings"
 
 	"github.com/codecrafters-io/interpreter-tester/internal/assertions"
@@ -37,16 +38,11 @@ func (t *TokenizeOutputTestCase) Run(executable *interpreter_executable.Interpre
 	printableFileContents := strings.ReplaceAll(t.FileContents, "%", "%%")
 	printableFileContents = strings.ReplaceAll(printableFileContents, "\t", "<|TAB|>")
 
-	// ToDo: Remove unused code
-	// regex := regexp.MustCompile("[ ]+\n$")
-	// out := regex.FindAll([]byte(printableFileContents), -1)
-	// fmt.Println("Matched", out)
-	// printableFileContents = regex.ReplaceAllString(printableFileContents, "<|SPACE|>")
+	regex1 := regexp.MustCompile("[ ]+\n")
+	regex2 := regexp.MustCompile("[ ]+$")
+	printableFileContents = regex1.ReplaceAllString(printableFileContents, "<|SPACE|>")
+	printableFileContents = regex2.ReplaceAllString(printableFileContents, "<|SPACE|>")
 
-	printableFileContents = strings.ReplaceAll(printableFileContents, " ", "<|SP|>")
-	// printableFileContents = strings.ReplaceAll(printableFileContents, "\n", "↩")
-	// fileContentsArray := strings.Split(printableFileContents, "")
-	// printableFileContents = strings.Join(fileContentsArray, " ")
 	logger.Infof(printableFileContents)
 	logger.ResetSecondaryPrefix()
 
@@ -68,25 +64,9 @@ func (t *TokenizeOutputTestCase) Run(executable *interpreter_executable.Interpre
 		return fmt.Errorf("expected exit code %v, got %v", exitCode, result.ExitCode)
 	}
 
-	stdoutAssertionResult, err := assertions.NewOrderedStringArrayAssertion(expectedStdout, "stdout").Run(stdOut)
-	logCount := len(stdoutAssertionResult)
-	if err != nil {
-		// If there is an error, the last line should be error log
-		// All lines before that should be success logs
-		for _, line := range stdoutAssertionResult[:logCount-1] {
-			logger.Successf(line)
-		}
-		logger.Errorf(stdoutAssertionResult[logCount-1])
-		return err
-	}
-
-	for _, line := range stdoutAssertionResult {
-		logger.Successf(line)
-	}
-
 	if len(expectedStderr) > 0 {
 		stderrAssertionResult, err := assertions.NewOrderedStringArrayAssertion(expectedStderr, "stderr").Run(stdErr)
-		logCount = len(stderrAssertionResult)
+		logCount := len(stderrAssertionResult)
 		if err != nil {
 			// If there is an error, the last line should be error log
 			// All lines before that should be success logs
@@ -99,6 +79,21 @@ func (t *TokenizeOutputTestCase) Run(executable *interpreter_executable.Interpre
 		for _, line := range stderrAssertionResult {
 			logger.Successf(line)
 		}
+	}
+
+	stdoutAssertionResult, err := assertions.NewOrderedStringArrayAssertion(expectedStdout, "stdout").Run(stdOut)
+	logCount := len(stdoutAssertionResult)
+	if err != nil {
+		// If there is an error, the last line should be error log
+		// All lines before that should be success logs
+		for _, line := range stdoutAssertionResult[:logCount-1] {
+			logger.Successf(line)
+		}
+		logger.Errorf(stdoutAssertionResult[logCount-1])
+		return err
+	}
+	for _, line := range stdoutAssertionResult {
+		logger.Successf(line)
 	}
 
 	logger.Successf("✓ Received exit code %d.", exitCode)

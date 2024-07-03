@@ -5,8 +5,6 @@ import (
 	"github.com/codecrafters-io/tester-utils/logger"
 )
 
-// ToDo: Improve test case name
-
 type MultiTokenizeTestCase struct {
 	FileContents []string
 }
