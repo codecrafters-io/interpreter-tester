@@ -49,8 +49,8 @@ func (t *TokenizeTestCase) Run(executable *interpreter_executable.InterpreterExe
 		return err
 	}
 
-	stdOut := getOutputFromStdOut(result)
-	stdErr := getOutputFromStdErr(result)
+	stdout := getStdoutLinesFromExecutableResult(result)
+	stderr := getStderrLinesFromExecutableResult(result)
 
 	expectedStdout, expectedStderr, exitCode, err := lox.ScanTokens(t.FileContents)
 	if err != nil {
@@ -63,7 +63,7 @@ func (t *TokenizeTestCase) Run(executable *interpreter_executable.InterpreterExe
 	}
 
 	if len(expectedStderr) > 0 {
-		stderrAssertionResult, err := assertions.NewOrderedStringArrayAssertion(expectedStderr, "stderr").Run(stdErr)
+		stderrAssertionResult, err := assertions.NewOrderedStringArrayAssertion(expectedStderr, "stderr").Run(stderr)
 		logCount := len(stderrAssertionResult)
 		if err != nil {
 			// If there is an error, the last line should be error log
@@ -79,7 +79,7 @@ func (t *TokenizeTestCase) Run(executable *interpreter_executable.InterpreterExe
 		}
 	}
 
-	stdoutAssertionResult, err := assertions.NewOrderedStringArrayAssertion(expectedStdout, "stdout").Run(stdOut)
+	stdoutAssertionResult, err := assertions.NewOrderedStringArrayAssertion(expectedStdout, "stdout").Run(stdout)
 	logCount := len(stdoutAssertionResult)
 	if err != nil {
 		// If there is an error, the last line should be error log

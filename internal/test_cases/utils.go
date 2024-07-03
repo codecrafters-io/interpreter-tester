@@ -9,9 +9,6 @@ import (
 	"github.com/codecrafters-io/tester-utils/executable"
 )
 
-// CreateTemp creates a new temporary file in the directory dir with a name beginning with prefix
-// Cleaning the file is the responsibility of the caller
-// As dir is empty, it will create the file in the default temp directory
 func createTempFileWithContents(contents string) (string, error) {
 	tmpFileName := "test.lox"
 	if _, err := os.Stat(tmpFileName); err == nil {
@@ -37,17 +34,17 @@ func createTempFileWithContents(contents string) (string, error) {
 	return tmpFile.Name(), nil
 }
 
-func getOutputFromStdOut(result executable.ExecutableResult) []string {
-	stdOut := strings.Split(strings.TrimRight(string(result.Stdout), "\n"), "\n")
-	return stdOut
+func getStdoutLinesFromExecutableResult(result executable.ExecutableResult) []string {
+	stdout := strings.Split(strings.TrimRight(string(result.Stdout), "\n"), "\n")
+	return stdout
 }
 
-func getOutputFromStdErr(result executable.ExecutableResult) []string {
+func getStderrLinesFromExecutableResult(result executable.ExecutableResult) []string {
 	var filteredStdErr []string
-	stdErr := strings.Split(strings.TrimRight(string(result.Stderr), "\n"), "\n")
+	stderr := strings.Split(strings.TrimRight(string(result.Stderr), "\n"), "\n")
 	regex := regexp.MustCompile(`\[line [0-9]+\]`)
 
-	for _, line := range stdErr {
+	for _, line := range stderr {
 		if regex.MatchString(line) {
 			filteredStdErr = append(filteredStdErr, line)
 		}
