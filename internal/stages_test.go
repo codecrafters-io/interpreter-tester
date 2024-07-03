@@ -11,8 +11,8 @@ func TestStages(t *testing.T) {
 	os.Setenv("CODECRAFTERS_RANDOM_SEED", "1234567890")
 
 	testCases := map[string]tester_utils_testing.TesterOutputTestCase{
-		"literal_character": {
-			UntilStageSlug:      "xc5",
+		"pass_all_og": {
+			UntilStageSlug:      "pq5",
 			CodePath:            "./test_helpers/jlox",
 			ExpectedExitCode:    0,
 			StdoutFixturePath:   "./test_helpers/fixtures/pass_all",
