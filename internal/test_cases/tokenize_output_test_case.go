@@ -12,19 +12,17 @@ import (
 	"github.com/codecrafters-io/tester-utils/logger"
 )
 
-// ToDo: Improve test case name
-
-// TokenizeOutputTestCase is a test case for testing the
+// TokenizeTestCase is a test case for testing the
 // "tokenize" functionality of the interpreter executable.
-// A tmp file is created with R.FileContents,
+// A temporary file is created with R.FileContents,
 // It is sent to the "tokenize" command of the executable,
 // the expected outputs are generated using the lox.ScanTokens function,
 // With that the output of the executable is matched.
-type TokenizeOutputTestCase struct {
+type TokenizeTestCase struct {
 	FileContents string
 }
 
-func (t *TokenizeOutputTestCase) Run(executable *interpreter_executable.InterpreterExecutable, logger *logger.Logger) error {
+func (t *TokenizeTestCase) Run(executable *interpreter_executable.InterpreterExecutable, logger *logger.Logger) error {
 	tmpFileName, err := createTempFileWithContents(t.FileContents)
 	if err != nil {
 		return err

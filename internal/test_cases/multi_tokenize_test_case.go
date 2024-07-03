@@ -12,7 +12,7 @@ type MultiTokenizeTestCase struct {
 func (t *MultiTokenizeTestCase) RunAll(executable *interpreter_executable.InterpreterExecutable, logger *logger.Logger) error {
 	for i, fileContents := range t.FileContents {
 		logger.Infof("Running test case: %d", i+1)
-		testCase := TokenizeOutputTestCase{
+		testCase := TokenizeTestCase{
 			FileContents: fileContents}
 		if err := testCase.Run(executable, logger); err != nil {
 			return err
