@@ -1,1 +1,4 @@
 dist
+.history/
+.idea/
+.vscode/
