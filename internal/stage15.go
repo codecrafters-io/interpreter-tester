@@ -6,7 +6,6 @@ import (
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
 
-	"github.com/codecrafters-io/tester-utils/random"
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
@@ -18,8 +17,8 @@ func testReservedWords(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	k1 := random.RandomSelection(1, Keywords, "")
-	k2 := random.RandomSelection(5, slices.Concat(Keywords, KeywordsCapitalized), " ")
+	k1 := randomSelection(1, Keywords, "")
+	k2 := randomSelection(5, slices.Concat(Keywords, KeywordsCapitalized), " ")
 	k3 := `var greeting = "Hello"
 if (greeting == "Hello") {
     return true

@@ -6,7 +6,6 @@ import (
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
 
-	"github.com/codecrafters-io/tester-utils/random"
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
@@ -17,7 +16,7 @@ func testNegation(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	shuffledString1 := "{(" + random.RandomStringFromCharacters(5, slices.Concat(LexicalErrors, Equals, Negation)) + ")}"
+	shuffledString1 := "{(" + randomStringFromCharacters(5, slices.Concat(LexicalErrors, Equals, Negation)) + ")}"
 	commandTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{"!=", "!!===", "!{!}(!===)=", shuffledString1},
 	}

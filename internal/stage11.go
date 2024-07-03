@@ -6,7 +6,6 @@ import (
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
 
-	"github.com/codecrafters-io/tester-utils/random"
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
@@ -17,7 +16,7 @@ func testErrorsMulti(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	multiLineErrors1 := `() 
 	@`
-	multiLineErrors2 := random.RandomStringFromCharacters(3, slices.Concat(LexicalErrors, Whitespace))
+	multiLineErrors2 := randomStringFromCharacters(3, slices.Concat(LexicalErrors, Whitespace))
 	multiLineErrors3 := `()  #	{}
 @
 $
@@ -25,7 +24,7 @@ $
 // Let's Go!
 +++
 #`
-	multiLineErrors4 := "({" + random.RandomSelection(1, SingleCharOperators, "") + random.RandomSelection(1, Whitespace, "") + random.RandomSelection(1, LexicalErrors, "") + "})"
+	multiLineErrors4 := "({" + randomSelection(1, SingleCharOperators, "") + randomSelection(1, Whitespace, "") + randomSelection(1, LexicalErrors, "") + "})"
 	commandTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{multiLineErrors1, multiLineErrors2, multiLineErrors3, multiLineErrors4},
 	}

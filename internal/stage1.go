@@ -12,7 +12,7 @@ func testEOF(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	commandTestCases := testcases.TokenizeOutputTestCase{
+	commandTestCases := testcases.TokenizeTestCase{
 		FileContents: "",
 	}
 	if err := commandTestCases.Run(b, logger); err != nil {
