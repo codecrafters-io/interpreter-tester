@@ -1,9 +1,6 @@
 package internal
 
 import (
-	"slices"
-	"strings"
-
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
 
@@ -18,10 +15,18 @@ func testIdentifier(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	identifier1 := strings.Join(random.RandomSelection(3, Identifiers), " ")
-	identifier2 := "_123" + strings.Join(random.RandomSelection(5, Identifiers), " ")
-	identifier3 := strings.Join(random.RandomSelection(5, Identifiers), " ") + "_123"
-	identifier4 := "{{" + strings.Join(random.RandomSelection(1, Identifiers), "") + random.RandomStringFromCharacters(2, slices.Concat(SingleCharOperators, LexicalErrors, Relational, Whitespace)) + strings.Join(random.RandomSelection(1, Identifiers), "") + random.RandomStringFromCharacters(2, slices.Concat(SingleCharOperators, LexicalErrors, Relational, Whitespace)) + strings.Join(random.RandomSelection(1, Identifiers), "") + "}}"
+	identifier1 := random.RandomSelection(2, Identifiers[6:], " ")
+	identifier2 := "_123" + random.RandomSelection(5, Identifiers, " ")
+	identifier3 := `message = "Hello, World!"
+number = 123`
+	identifier4 := `{
+// This is a complex test case
+str1 = "Test" 
+str2 = "Case"
+num1 = 100
+num2 = 200.00
+result = (str1 == "Test" , str2 != "Fail") && (num1 + num2) >= 300 && (a - b) < 10
+}`
 
 	commandTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{identifier1, identifier2, identifier3, identifier4},

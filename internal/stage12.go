@@ -1,8 +1,6 @@
 package internal
 
 import (
-	"slices"
-
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
 
@@ -17,9 +15,9 @@ func testStrings(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	string1 := `"foo baz"`
+	string1 := random.RandomSelection(2, Strings, " ")
 	string2 := `"foo 	bar 123 // hello world!"`
-	shuffledString2 := "(({" + random.RandomStringFromCharacters(5, slices.Concat(Whitespace, Strings)) + "}))"
+	shuffledString2 := (random.RandomSelection(2, Strings, "+")) + `"perseverance" && "Success" != "Failure"`
 
 	commandTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{Strings[0], string1, string2, shuffledString2},

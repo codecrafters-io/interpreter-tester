@@ -18,7 +18,7 @@ func testRelational(stageHarness *test_case_harness.TestCaseHarness) error {
 	logger := stageHarness.Logger
 
 	shuffledString1 := random.RandomStringFromCharacters(5, Relational)
-	shuffledString2 := "(){" + random.RandomStringFromCharacters(5, slices.Concat(LexicalErrors, Equals, Negation, Relational)) + "}"
+	shuffledString2 := "(){" + random.RandomStringFromCharacters(3, slices.Concat(LexicalErrors, Equals, Negation, Relational)) + "}"
 
 	commandTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{">=", "<<<=>>>=", shuffledString1, shuffledString2},

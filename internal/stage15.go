@@ -2,7 +2,6 @@ package internal
 
 import (
 	"slices"
-	"strings"
 
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
@@ -19,10 +18,22 @@ func testReservedWords(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	k1 := Keywords[0]
-	k2 := strings.Join(Keywords[0:], " ")
-	k3 := strings.Join(KeywordsCapitalized[0:], "	")
-	k4 := "(" + random.RandomStringFromCharacters(1, slices.Concat(Identifiers, Strings, Keywords, KeywordsCapitalized)) + random.RandomStringFromCharacters(1, slices.Concat(SingleCharOperators, LexicalErrors, Relational, Whitespace)) + random.RandomStringFromCharacters(1, slices.Concat(Identifiers, Strings, Keywords, KeywordsCapitalized)) + random.RandomStringFromCharacters(1, slices.Concat(SingleCharOperators, LexicalErrors, Relational, Whitespace)) + random.RandomStringFromCharacters(1, slices.Concat(Identifiers, Strings, Keywords, KeywordsCapitalized)) + random.RandomStringFromCharacters(1, slices.Concat(SingleCharOperators, LexicalErrors, Relational, Whitespace)) + random.RandomStringFromCharacters(1, slices.Concat(Identifiers, Strings, Keywords, KeywordsCapitalized)) + random.RandomStringFromCharacters(1, slices.Concat(SingleCharOperators, LexicalErrors, Relational, Whitespace)) + ")"
+	k1 := random.RandomSelection(1, Keywords, "")
+	k2 := random.RandomSelection(5, slices.Concat(Keywords, KeywordsCapitalized), " ")
+	k3 := `var greeting = "Hello"
+if (greeting == "Hello") {
+    return true
+} else {
+    return false
+}`
+	k4 := `var result = (a + b) > 7 && "Success" != "Failure" or x >= 5
+while (result) {
+    var counter = 0
+    counter = counter + 1
+    if (counter == 10) {
+        return nil
+    }
+}`
 
 	commandTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{k1, k2, k3, k4},
