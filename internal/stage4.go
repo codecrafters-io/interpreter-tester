@@ -16,7 +16,7 @@ func testSingleChars(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	shuffledString1 := randomStringFromCharacters(10, SingleCharOperators)
+	shuffledString1 := randomStringFromCharacters(7, SingleCharOperators)
 	shuffledString2 := "({" + randomStringFromCharacters(5, slices.Concat(SingleCharOperators)) + "})"
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{"+-", "++--**..,,;;", shuffledString1, shuffledString2},
