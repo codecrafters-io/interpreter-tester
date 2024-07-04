@@ -19,18 +19,14 @@ func (a StdoutAssertion) Run(stdout []string, logger *logger.Logger) error {
 
 	for i, expectedLine := range a.ExpectedLines {
 		if i >= len(stdout) {
-			for _, line := range output {
-				logger.Successf(line)
-			}
+			logAllSuccessLogs(output, logger)
 			logger.Errorf("? %s", expectedLine)
 			return fmt.Errorf("Expected line #%d on stdout to be %q, but didn't find line", i+1, expectedLine)
 		}
 		actualValue := stdout[i]
 
 		if actualValue != expectedLine {
-			for _, line := range output {
-				logger.Successf(line)
-			}
+			logAllSuccessLogs(output, logger)
 			logger.Errorf("𐄂 %s", actualValue)
 			return fmt.Errorf("Expected line #%d on stdout to be %q, got %q", i+1, expectedLine, actualValue)
 		} else {
@@ -39,9 +35,7 @@ func (a StdoutAssertion) Run(stdout []string, logger *logger.Logger) error {
 	}
 
 	if len(stdout) > len(a.ExpectedLines) {
-		for _, line := range output {
-			logger.Successf(line)
-		}
+		logAllSuccessLogs(output, logger)
 		logger.Errorf("! %s", stdout[len(a.ExpectedLines)])
 		return fmt.Errorf("Expected last line to be %q, but found %d more line(s)", stdout[len(a.ExpectedLines)-1], len(stdout)-len(a.ExpectedLines))
 	}
@@ -51,4 +45,10 @@ func (a StdoutAssertion) Run(stdout []string, logger *logger.Logger) error {
 	logger.Successf("✓ %d line(s) match on stdout", len(a.ExpectedLines))
 
 	return nil
+}
+
+func logAllSuccessLogs(output []string, logger *logger.Logger) {
+	for _, line := range output {
+		logger.Successf(line)
+	}
 }
