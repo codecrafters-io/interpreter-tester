@@ -30,7 +30,7 @@ func (t *TokenizeTestCase) Run(executable *interpreter_executable.InterpreterExe
 	defer os.Remove(tmpFileName)
 
 	logger.Infof("Writing contents to ./test.lox:")
-	logger.UpdateSecondaryPrefix("[test.lox] ")
+	logger.UpdateSecondaryPrefix("test.lox")
 	// If the file contents contain a singe %, it will be decoded as a format specifier
 	// And it will add a `(MISSING)` to the log line
 	printableFileContents := strings.ReplaceAll(t.FileContents, "%", "%%")
@@ -63,19 +63,8 @@ func (t *TokenizeTestCase) Run(executable *interpreter_executable.InterpreterExe
 	}
 
 	if len(expectedStderr) > 0 {
-		stderrAssertionResult, err := assertions.NewStderrAssertion(expectedStderr).Run(stderr)
-		logCount := len(stderrAssertionResult)
-		if err != nil {
-			// If there is an error, the last line should be error log
-			// All lines before that should be success logs
-			for _, line := range stderrAssertionResult[:logCount-1] {
-				logger.Successf(line)
-			}
-			logger.Errorf(stderrAssertionResult[logCount-1])
+		if err := assertions.NewStderrAssertion(expectedStderr).Run(stderr, logger); err != nil {
 			return err
-		}
-		for _, line := range stderrAssertionResult {
-			logger.Successf(line)
 		}
 	}
 
