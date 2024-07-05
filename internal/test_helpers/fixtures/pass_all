@@ -1,39 +1,35 @@
 Debug = true
 
 [33m[stage-15] [0m[94mRunning tests for Stage #15: pq5[0m
-[33m[stage-15] [0m[94mRunning test case: 1[0m
-[33m[stage-15] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-15] [test.lox] [0m[94mfalse[0m
-[33m[stage-15] [0m[94m$ ./your_program.sh tokenize test.lox[0m
-[33m[your_program] [0mFALSE false null
+[33m[stage-15] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-15] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-15] [test-1] [0m[94m[test.lox] while[0m
+[33m[stage-15] [test-1] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[your_program] [0mWHILE while null
 [33m[your_program] [0mEOF  null
-[33m[stage-15] [0m[92m✓ 2 line(s) match on stdout[0m
-[33m[stage-15] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-15] [0m[94mTest case 1 passed[0m
-[33m[stage-15] [0m[94m[0m
-[33m[stage-15] [0m[94mRunning test case: 2[0m
-[33m[stage-15] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-15] [test.lox] [0m[94mIF VAR CLASS var else[0m
-[33m[stage-15] [0m[94m$ ./your_program.sh tokenize test.lox[0m
-[33m[your_program] [0mIDENTIFIER IF null
-[33m[your_program] [0mIDENTIFIER VAR null
-[33m[your_program] [0mIDENTIFIER CLASS null
-[33m[your_program] [0mVAR var null
+[33m[stage-15] [test-1] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-15] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-15] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-15] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-15] [test-2] [0m[94m[test.lox] true return RETURN FUN else[0m
+[33m[stage-15] [test-2] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[your_program] [0mTRUE true null
+[33m[your_program] [0mRETURN return null
+[33m[your_program] [0mIDENTIFIER RETURN null
+[33m[your_program] [0mIDENTIFIER FUN null
 [33m[your_program] [0mELSE else null
 [33m[your_program] [0mEOF  null
-[33m[stage-15] [0m[92m✓ 6 line(s) match on stdout[0m
-[33m[stage-15] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-15] [0m[94mTest case 2 passed[0m
-[33m[stage-15] [0m[94m[0m
-[33m[stage-15] [0m[94mRunning test case: 3[0m
-[33m[stage-15] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-15] [test.lox] [0m[94mvar greeting = "Hello"[0m
-[33m[stage-15] [test.lox] [0m[94mif (greeting == "Hello") {[0m
-[33m[stage-15] [test.lox] [0m[94m    return true[0m
-[33m[stage-15] [test.lox] [0m[94m} else {[0m
-[33m[stage-15] [test.lox] [0m[94m    return false[0m
-[33m[stage-15] [test.lox] [0m[94m}[0m
-[33m[stage-15] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-15] [test-2] [0m[92m✓ 6 line(s) match on stdout[0m
+[33m[stage-15] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-15] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-15] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-15] [test-3] [0m[94m[test.lox] var greeting = "Hello"[0m
+[33m[stage-15] [test-3] [0m[94m[test.lox] if (greeting == "Hello") {[0m
+[33m[stage-15] [test-3] [0m[94m[test.lox]     return true[0m
+[33m[stage-15] [test-3] [0m[94m[test.lox] } else {[0m
+[33m[stage-15] [test-3] [0m[94m[test.lox]     return false[0m
+[33m[stage-15] [test-3] [0m[94m[test.lox] }[0m
+[33m[stage-15] [test-3] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mVAR var null
 [33m[your_program] [0mIDENTIFIER greeting null
 [33m[your_program] [0mEQUAL = null
@@ -54,21 +50,19 @@ Debug = true
 [33m[your_program] [0mFALSE false null
 [33m[your_program] [0mRIGHT_BRACE } null
 [33m[your_program] [0mEOF  null
-[33m[stage-15] [0m[92m✓ 20 line(s) match on stdout[0m
-[33m[stage-15] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-15] [0m[94mTest case 3 passed[0m
-[33m[stage-15] [0m[94m[0m
-[33m[stage-15] [0m[94mRunning test case: 4[0m
-[33m[stage-15] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-15] [test.lox] [0m[94mvar result = (a + b) > 7 && "Success" != "Failure" or x >= 5[0m
-[33m[stage-15] [test.lox] [0m[94mwhile (result) {[0m
-[33m[stage-15] [test.lox] [0m[94m    var counter = 0[0m
-[33m[stage-15] [test.lox] [0m[94m    counter = counter + 1[0m
-[33m[stage-15] [test.lox] [0m[94m    if (counter == 10) {[0m
-[33m[stage-15] [test.lox] [0m[94m        return nil[0m
-[33m[stage-15] [test.lox] [0m[94m    }[0m
-[33m[stage-15] [test.lox] [0m[94m}[0m
-[33m[stage-15] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-15] [test-3] [0m[92m✓ 20 line(s) match on stdout[0m
+[33m[stage-15] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-15] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-15] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-15] [test-4] [0m[94m[test.lox] var result = (a + b) > 7 && "Success" != "Failure" or x >= 5[0m
+[33m[stage-15] [test-4] [0m[94m[test.lox] while (result) {[0m
+[33m[stage-15] [test-4] [0m[94m[test.lox]     var counter = 0[0m
+[33m[stage-15] [test-4] [0m[94m[test.lox]     counter = counter + 1[0m
+[33m[stage-15] [test-4] [0m[94m[test.lox]     if (counter == 10) {[0m
+[33m[stage-15] [test-4] [0m[94m[test.lox]         return nil[0m
+[33m[stage-15] [test-4] [0m[94m[test.lox]     }[0m
+[33m[stage-15] [test-4] [0m[94m[test.lox] }[0m
+[33m[stage-15] [test-4] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0m[line 1] Error: Unexpected character: &
 [33m[your_program] [0m[line 1] Error: Unexpected character: &
 [33m[your_program] [0mVAR var null
@@ -114,44 +108,38 @@ Debug = true
 [33m[your_program] [0mRIGHT_BRACE } null
 [33m[your_program] [0mRIGHT_BRACE } null
 [33m[your_program] [0mEOF  null
-[33m[stage-15] [0m[92m✓ 2 line(s) match on stderr[0m
-[33m[stage-15] [0m[92m✓ 43 line(s) match on stdout[0m
-[33m[stage-15] [0m[92m✓ Received exit code 65.[0m
-[33m[stage-15] [0m[94mTest case 4 passed[0m
-[33m[stage-15] [0m[94m[0m
+[33m[stage-15] [test-4] [0m[92m✓ 2 line(s) match on stderr[0m
+[33m[stage-15] [test-4] [0m[92m✓ 43 line(s) match on stdout[0m
+[33m[stage-15] [test-4] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-15] [0m[92mTest passed.[0m
 
 [33m[stage-14] [0m[94mRunning tests for Stage #14: ey7[0m
-[33m[stage-14] [0m[94mRunning test case: 1[0m
-[33m[stage-14] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-14] [test.lox] [0m[94mbaz bar[0m
-[33m[stage-14] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-14] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-14] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-14] [test-1] [0m[94m[test.lox] baz bar[0m
+[33m[stage-14] [test-1] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mIDENTIFIER baz null
 [33m[your_program] [0mIDENTIFIER bar null
 [33m[your_program] [0mEOF  null
-[33m[stage-14] [0m[92m✓ 3 line(s) match on stdout[0m
-[33m[stage-14] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-14] [0m[94mTest case 1 passed[0m
-[33m[stage-14] [0m[94m[0m
-[33m[stage-14] [0m[94mRunning test case: 2[0m
-[33m[stage-14] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-14] [test.lox] [0m[94m_123baz baz _hello f00 f00[0m
-[33m[stage-14] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-14] [test-1] [0m[92m✓ 3 line(s) match on stdout[0m
+[33m[stage-14] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-14] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-14] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-14] [test-2] [0m[94m[test.lox] _123baz baz _hello f00 f00[0m
+[33m[stage-14] [test-2] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mIDENTIFIER _123baz null
 [33m[your_program] [0mIDENTIFIER baz null
 [33m[your_program] [0mIDENTIFIER _hello null
 [33m[your_program] [0mIDENTIFIER f00 null
 [33m[your_program] [0mIDENTIFIER f00 null
 [33m[your_program] [0mEOF  null
-[33m[stage-14] [0m[92m✓ 6 line(s) match on stdout[0m
-[33m[stage-14] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-14] [0m[94mTest case 2 passed[0m
-[33m[stage-14] [0m[94m[0m
-[33m[stage-14] [0m[94mRunning test case: 3[0m
-[33m[stage-14] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-14] [test.lox] [0m[94mmessage = "Hello, World!"[0m
-[33m[stage-14] [test.lox] [0m[94mnumber = 123[0m
-[33m[stage-14] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-14] [test-2] [0m[92m✓ 6 line(s) match on stdout[0m
+[33m[stage-14] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-14] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-14] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-14] [test-3] [0m[94m[test.lox] message = "Hello, World!"[0m
+[33m[stage-14] [test-3] [0m[94m[test.lox] number = 123[0m
+[33m[stage-14] [test-3] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mIDENTIFIER message null
 [33m[your_program] [0mEQUAL = null
 [33m[your_program] [0mSTRING "Hello, World!" Hello, World!
@@ -159,20 +147,18 @@ Debug = true
 [33m[your_program] [0mEQUAL = null
 [33m[your_program] [0mNUMBER 123 123.0
 [33m[your_program] [0mEOF  null
-[33m[stage-14] [0m[92m✓ 7 line(s) match on stdout[0m
-[33m[stage-14] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-14] [0m[94mTest case 3 passed[0m
-[33m[stage-14] [0m[94m[0m
-[33m[stage-14] [0m[94mRunning test case: 4[0m
-[33m[stage-14] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-14] [test.lox] [0m[94m{[0m
-[33m[stage-14] [test.lox] [0m[94m// This is a complex test case[0m
-[33m[stage-14] [test.lox] [0m[94mstr1 = "Test"<|SPACE|>str2 = "Case"[0m
-[33m[stage-14] [test.lox] [0m[94mnum1 = 100[0m
-[33m[stage-14] [test.lox] [0m[94mnum2 = 200.00[0m
-[33m[stage-14] [test.lox] [0m[94mresult = (str1 == "Test" , str2 != "Fail") && (num1 + num2) >= 300 && (a - b) < 10[0m
-[33m[stage-14] [test.lox] [0m[94m}[0m
-[33m[stage-14] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-14] [test-3] [0m[92m✓ 7 line(s) match on stdout[0m
+[33m[stage-14] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-14] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-14] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-14] [test-4] [0m[94m[test.lox] {[0m
+[33m[stage-14] [test-4] [0m[94m[test.lox] // This is a complex test case[0m
+[33m[stage-14] [test-4] [0m[94m[test.lox] str1 = "Test"<|SPACE|>str2 = "Case"[0m
+[33m[stage-14] [test-4] [0m[94m[test.lox] num1 = 100[0m
+[33m[stage-14] [test-4] [0m[94m[test.lox] num2 = 200.00[0m
+[33m[stage-14] [test-4] [0m[94m[test.lox] result = (str1 == "Test" , str2 != "Fail") && (num1 + num2) >= 300 && (a - b) < 10[0m
+[33m[stage-14] [test-4] [0m[94m[test.lox] }[0m
+[33m[stage-14] [test-4] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0m[line 7] Error: Unexpected character: &
 [33m[your_program] [0m[line 7] Error: Unexpected character: &
 [33m[your_program] [0m[line 7] Error: Unexpected character: &
@@ -217,41 +203,35 @@ Debug = true
 [33m[your_program] [0mNUMBER 10 10.0
 [33m[your_program] [0mRIGHT_BRACE } null
 [33m[your_program] [0mEOF  null
-[33m[stage-14] [0m[92m✓ 4 line(s) match on stderr[0m
-[33m[stage-14] [0m[92m✓ 40 line(s) match on stdout[0m
-[33m[stage-14] [0m[92m✓ Received exit code 65.[0m
-[33m[stage-14] [0m[94mTest case 4 passed[0m
-[33m[stage-14] [0m[94m[0m
+[33m[stage-14] [test-4] [0m[92m✓ 4 line(s) match on stderr[0m
+[33m[stage-14] [test-4] [0m[92m✓ 40 line(s) match on stdout[0m
+[33m[stage-14] [test-4] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-14] [0m[92mTest passed.[0m
 
 [33m[stage-13] [0m[94mRunning tests for Stage #13: kj0[0m
-[33m[stage-13] [0m[94mRunning test case: 1[0m
-[33m[stage-13] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-13] [test.lox] [0m[94m1234.1234[0m
-[33m[stage-13] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-13] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-13] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-13] [test-1] [0m[94m[test.lox] 1234.1234[0m
+[33m[stage-13] [test-1] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mNUMBER 1234.1234 1234.1234
 [33m[your_program] [0mEOF  null
-[33m[stage-13] [0m[92m✓ 2 line(s) match on stdout[0m
-[33m[stage-13] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-13] [0m[94mTest case 1 passed[0m
-[33m[stage-13] [0m[94m[0m
-[33m[stage-13] [0m[94mRunning test case: 2[0m
-[33m[stage-13] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-13] [test.lox] [0m[94m1234.1234.1234.[0m
-[33m[stage-13] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-13] [test-1] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-13] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-13] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-13] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-13] [test-2] [0m[94m[test.lox] 1234.1234.1234.[0m
+[33m[stage-13] [test-2] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mNUMBER 1234.1234 1234.1234
 [33m[your_program] [0mDOT . null
 [33m[your_program] [0mNUMBER 1234 1234.0
 [33m[your_program] [0mDOT . null
 [33m[your_program] [0mEOF  null
-[33m[stage-13] [0m[92m✓ 5 line(s) match on stdout[0m
-[33m[stage-13] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-13] [0m[94mTest case 2 passed[0m
-[33m[stage-13] [0m[94m[0m
-[33m[stage-13] [0m[94mRunning test case: 3[0m
-[33m[stage-13] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-13] [test.lox] [0m[94m"Hello" = "Hello" && 42 == 42[0m
-[33m[stage-13] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-13] [test-2] [0m[92m✓ 5 line(s) match on stdout[0m
+[33m[stage-13] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-13] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-13] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-13] [test-3] [0m[94m[test.lox] "Hello" = "Hello" && 42 == 42[0m
+[33m[stage-13] [test-3] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0m[line 1] Error: Unexpected character: &
 [33m[your_program] [0m[line 1] Error: Unexpected character: &
 [33m[your_program] [0mSTRING "Hello" Hello
@@ -261,15 +241,13 @@ Debug = true
 [33m[your_program] [0mEQUAL_EQUAL == null
 [33m[your_program] [0mNUMBER 42 42.0
 [33m[your_program] [0mEOF  null
-[33m[stage-13] [0m[92m✓ 2 line(s) match on stderr[0m
-[33m[stage-13] [0m[92m✓ 7 line(s) match on stdout[0m
-[33m[stage-13] [0m[92m✓ Received exit code 65.[0m
-[33m[stage-13] [0m[94mTest case 3 passed[0m
-[33m[stage-13] [0m[94m[0m
-[33m[stage-13] [0m[94mRunning test case: 4[0m
-[33m[stage-13] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-13] [test.lox] [0m[94m(5+3) > 7 ; "Success" != "Failure" & 10 >= 5[0m
-[33m[stage-13] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-13] [test-3] [0m[92m✓ 2 line(s) match on stderr[0m
+[33m[stage-13] [test-3] [0m[92m✓ 7 line(s) match on stdout[0m
+[33m[stage-13] [test-3] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-13] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-13] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-13] [test-4] [0m[94m[test.lox] (5+3) > 7 ; "Success" != "Failure" & 10 >= 5[0m
+[33m[stage-13] [test-4] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0m[line 1] Error: Unexpected character: &
 [33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mNUMBER 5 5.0
@@ -286,49 +264,41 @@ Debug = true
 [33m[your_program] [0mGREATER_EQUAL >= null
 [33m[your_program] [0mNUMBER 5 5.0
 [33m[your_program] [0mEOF  null
-[33m[stage-13] [0m[92m✓ 1 line(s) match on stderr[0m
-[33m[stage-13] [0m[92m✓ 15 line(s) match on stdout[0m
-[33m[stage-13] [0m[92m✓ Received exit code 65.[0m
-[33m[stage-13] [0m[94mTest case 4 passed[0m
-[33m[stage-13] [0m[94m[0m
+[33m[stage-13] [test-4] [0m[92m✓ 1 line(s) match on stderr[0m
+[33m[stage-13] [test-4] [0m[92m✓ 15 line(s) match on stdout[0m
+[33m[stage-13] [test-4] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-13] [0m[92mTest passed.[0m
 
 [33m[stage-12] [0m[94mRunning tests for Stage #12: ue7[0m
-[33m[stage-12] [0m[94mRunning test case: 1[0m
-[33m[stage-12] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-12] [test.lox] [0m[94m"hello"[0m
-[33m[stage-12] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-12] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-12] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-12] [test-1] [0m[94m[test.lox] "hello"[0m
+[33m[stage-12] [test-1] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mSTRING "hello" hello
 [33m[your_program] [0mEOF  null
-[33m[stage-12] [0m[92m✓ 2 line(s) match on stdout[0m
-[33m[stage-12] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-12] [0m[94mTest case 1 passed[0m
-[33m[stage-12] [0m[94m[0m
-[33m[stage-12] [0m[94mRunning test case: 2[0m
-[33m[stage-12] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-12] [test.lox] [0m[94m"hello" "foo"[0m
-[33m[stage-12] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-12] [test-1] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-12] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-12] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-12] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-12] [test-2] [0m[94m[test.lox] "hello" "foo"[0m
+[33m[stage-12] [test-2] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mSTRING "hello" hello
 [33m[your_program] [0mSTRING "foo" foo
 [33m[your_program] [0mEOF  null
-[33m[stage-12] [0m[92m✓ 3 line(s) match on stdout[0m
-[33m[stage-12] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-12] [0m[94mTest case 2 passed[0m
-[33m[stage-12] [0m[94m[0m
-[33m[stage-12] [0m[94mRunning test case: 3[0m
-[33m[stage-12] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-12] [test.lox] [0m[94m"foo <|TAB|>bar 123 // hello world!"[0m
-[33m[stage-12] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-12] [test-2] [0m[92m✓ 3 line(s) match on stdout[0m
+[33m[stage-12] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-12] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-12] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-12] [test-3] [0m[94m[test.lox] "foo <|TAB|>bar 123 // hello world!"[0m
+[33m[stage-12] [test-3] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mSTRING "foo 	bar 123 // hello world!" foo 	bar 123 // hello world!
 [33m[your_program] [0mEOF  null
-[33m[stage-12] [0m[92m✓ 2 line(s) match on stdout[0m
-[33m[stage-12] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-12] [0m[94mTest case 3 passed[0m
-[33m[stage-12] [0m[94m[0m
-[33m[stage-12] [0m[94mRunning test case: 4[0m
-[33m[stage-12] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-12] [test.lox] [0m[94m"world"+"baz""perseverance" && "Success" != "Failure"[0m
-[33m[stage-12] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-12] [test-3] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-12] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-12] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-12] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-12] [test-4] [0m[94m[test.lox] "world"+"baz""perseverance" && "Success" != "Failure"[0m
+[33m[stage-12] [test-4] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0m[line 1] Error: Unexpected character: &
 [33m[your_program] [0m[line 1] Error: Unexpected character: &
 [33m[your_program] [0mSTRING "world" world
@@ -339,48 +309,42 @@ Debug = true
 [33m[your_program] [0mBANG_EQUAL != null
 [33m[your_program] [0mSTRING "Failure" Failure
 [33m[your_program] [0mEOF  null
-[33m[stage-12] [0m[92m✓ 2 line(s) match on stderr[0m
-[33m[stage-12] [0m[92m✓ 8 line(s) match on stdout[0m
-[33m[stage-12] [0m[92m✓ Received exit code 65.[0m
-[33m[stage-12] [0m[94mTest case 4 passed[0m
-[33m[stage-12] [0m[94m[0m
+[33m[stage-12] [test-4] [0m[92m✓ 2 line(s) match on stderr[0m
+[33m[stage-12] [test-4] [0m[92m✓ 8 line(s) match on stdout[0m
+[33m[stage-12] [test-4] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-12] [0m[92mTest passed.[0m
 
 [33m[stage-11] [0m[94mRunning tests for Stage #11: tz7[0m
-[33m[stage-11] [0m[94mRunning test case: 1[0m
-[33m[stage-11] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-11] [test.lox] [0m[94m()<|SPACE|><|TAB|>@[0m
-[33m[stage-11] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-11] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-11] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-11] [test-1] [0m[94m[test.lox] ()<|SPACE|><|TAB|>@[0m
+[33m[stage-11] [test-1] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0m[line 2] Error: Unexpected character: @
 [33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mEOF  null
-[33m[stage-11] [0m[92m✓ 1 line(s) match on stderr[0m
-[33m[stage-11] [0m[92m✓ 3 line(s) match on stdout[0m
-[33m[stage-11] [0m[92m✓ Received exit code 65.[0m
-[33m[stage-11] [0m[94mTest case 1 passed[0m
-[33m[stage-11] [0m[94m[0m
-[33m[stage-11] [0m[94mRunning test case: 2[0m
-[33m[stage-11] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-11] [test.lox] [0m[94m %<|TAB|>[0m
-[33m[stage-11] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-11] [test-1] [0m[92m✓ 1 line(s) match on stderr[0m
+[33m[stage-11] [test-1] [0m[92m✓ 3 line(s) match on stdout[0m
+[33m[stage-11] [test-1] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-11] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-11] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-11] [test-2] [0m[94m[test.lox]  %<|TAB|>[0m
+[33m[stage-11] [test-2] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0m[line 1] Error: Unexpected character: %
 [33m[your_program] [0mEOF  null
-[33m[stage-11] [0m[92m✓ 1 line(s) match on stderr[0m
-[33m[stage-11] [0m[92m✓ 1 line(s) match on stdout[0m
-[33m[stage-11] [0m[92m✓ Received exit code 65.[0m
-[33m[stage-11] [0m[94mTest case 2 passed[0m
-[33m[stage-11] [0m[94m[0m
-[33m[stage-11] [0m[94mRunning test case: 3[0m
-[33m[stage-11] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-11] [test.lox] [0m[94m()  #<|TAB|>{}[0m
-[33m[stage-11] [test.lox] [0m[94m@[0m
-[33m[stage-11] [test.lox] [0m[94m$[0m
-[33m[stage-11] [test.lox] [0m[94m+++[0m
-[33m[stage-11] [test.lox] [0m[94m// Let's Go![0m
-[33m[stage-11] [test.lox] [0m[94m+++[0m
-[33m[stage-11] [test.lox] [0m[94m#[0m
-[33m[stage-11] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-11] [test-2] [0m[92m✓ 1 line(s) match on stderr[0m
+[33m[stage-11] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-11] [test-2] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-11] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-11] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-11] [test-3] [0m[94m[test.lox] ()  #<|TAB|>{}[0m
+[33m[stage-11] [test-3] [0m[94m[test.lox] @[0m
+[33m[stage-11] [test-3] [0m[94m[test.lox] $[0m
+[33m[stage-11] [test-3] [0m[94m[test.lox] +++[0m
+[33m[stage-11] [test-3] [0m[94m[test.lox] // Let's Go![0m
+[33m[stage-11] [test-3] [0m[94m[test.lox] +++[0m
+[33m[stage-11] [test-3] [0m[94m[test.lox] #[0m
+[33m[stage-11] [test-3] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0m[line 1] Error: Unexpected character: #
 [33m[your_program] [0m[line 2] Error: Unexpected character: @
 [33m[your_program] [0m[line 3] Error: Unexpected character: $
@@ -396,15 +360,13 @@ Debug = true
 [33m[your_program] [0mPLUS + null
 [33m[your_program] [0mPLUS + null
 [33m[your_program] [0mEOF  null
-[33m[stage-11] [0m[92m✓ 4 line(s) match on stderr[0m
-[33m[stage-11] [0m[92m✓ 11 line(s) match on stdout[0m
-[33m[stage-11] [0m[92m✓ Received exit code 65.[0m
-[33m[stage-11] [0m[94mTest case 3 passed[0m
-[33m[stage-11] [0m[94m[0m
-[33m[stage-11] [0m[94mRunning test case: 4[0m
-[33m[stage-11] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-11] [test.lox] [0m[94m({;<|TAB|>%})[0m
-[33m[stage-11] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-11] [test-3] [0m[92m✓ 4 line(s) match on stderr[0m
+[33m[stage-11] [test-3] [0m[92m✓ 11 line(s) match on stdout[0m
+[33m[stage-11] [test-3] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-11] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-11] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-11] [test-4] [0m[94m[test.lox] ({;<|TAB|>%})[0m
+[33m[stage-11] [test-4] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0m[line 1] Error: Unexpected character: %
 [33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mLEFT_BRACE { null
@@ -412,40 +374,34 @@ Debug = true
 [33m[your_program] [0mRIGHT_BRACE } null
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mEOF  null
-[33m[stage-11] [0m[92m✓ 1 line(s) match on stderr[0m
-[33m[stage-11] [0m[92m✓ 6 line(s) match on stdout[0m
-[33m[stage-11] [0m[92m✓ Received exit code 65.[0m
-[33m[stage-11] [0m[94mTest case 4 passed[0m
-[33m[stage-11] [0m[94m[0m
+[33m[stage-11] [test-4] [0m[92m✓ 1 line(s) match on stderr[0m
+[33m[stage-11] [test-4] [0m[92m✓ 6 line(s) match on stdout[0m
+[33m[stage-11] [test-4] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-11] [0m[92mTest passed.[0m
 
 [33m[stage-10] [0m[94mRunning tests for Stage #10: er2[0m
-[33m[stage-10] [0m[94mRunning test case: 1[0m
-[33m[stage-10] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-10] [test.lox] [0m[94m<|SPACE|>[0m
-[33m[stage-10] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-10] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-10] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-10] [test-1] [0m[94m[test.lox] <|SPACE|>[0m
+[33m[stage-10] [test-1] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mEOF  null
-[33m[stage-10] [0m[92m✓ 1 line(s) match on stdout[0m
-[33m[stage-10] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-10] [0m[94mTest case 1 passed[0m
-[33m[stage-10] [0m[94m[0m
-[33m[stage-10] [0m[94mRunning test case: 2[0m
-[33m[stage-10] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-10] [test.lox] [0m[94m <|TAB|>[0m
-[33m[stage-10] [test.lox] [0m[94m<|SPACE|>[0m
-[33m[stage-10] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-10] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-10] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-10] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-10] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-10] [test-2] [0m[94m[test.lox]  <|TAB|>[0m
+[33m[stage-10] [test-2] [0m[94m[test.lox] <|SPACE|>[0m
+[33m[stage-10] [test-2] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mEOF  null
-[33m[stage-10] [0m[92m✓ 1 line(s) match on stdout[0m
-[33m[stage-10] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-10] [0m[94mTest case 2 passed[0m
-[33m[stage-10] [0m[94m[0m
-[33m[stage-10] [0m[94mRunning test case: 3[0m
-[33m[stage-10] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-10] [test.lox] [0m[94m{[0m
-[33m[stage-10] [test.lox] [0m[94m[0m
-[33m[stage-10] [test.lox] [0m[94m}[0m
-[33m[stage-10] [test.lox] [0m[94m((- *<|TAB|>*))[0m
-[33m[stage-10] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-10] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-10] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-10] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-10] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-10] [test-3] [0m[94m[test.lox] {[0m
+[33m[stage-10] [test-3] [0m[94m[test.lox] [0m
+[33m[stage-10] [test-3] [0m[94m[test.lox] }[0m
+[33m[stage-10] [test-3] [0m[94m[test.lox] ((- *<|TAB|>*))[0m
+[33m[stage-10] [test-3] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mLEFT_BRACE { null
 [33m[your_program] [0mRIGHT_BRACE } null
 [33m[your_program] [0mLEFT_PAREN ( null
@@ -456,17 +412,15 @@ Debug = true
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mEOF  null
-[33m[stage-10] [0m[92m✓ 10 line(s) match on stdout[0m
-[33m[stage-10] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-10] [0m[94mTest case 3 passed[0m
-[33m[stage-10] [0m[94m[0m
-[33m[stage-10] [0m[94mRunning test case: 4[0m
-[33m[stage-10] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-10] [test.lox] [0m[94m{<|SPACE|>[0m
-[33m[stage-10] [test.lox] [0m[94m<|TAB|> }[0m
-[33m[stage-10] [test.lox] [0m[94m((; <=[0m
-[33m[stage-10] [test.lox] [0m[94m>))[0m
-[33m[stage-10] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-10] [test-3] [0m[92m✓ 10 line(s) match on stdout[0m
+[33m[stage-10] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-10] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-10] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-10] [test-4] [0m[94m[test.lox] {<|SPACE|>[0m
+[33m[stage-10] [test-4] [0m[94m[test.lox] <|TAB|> }[0m
+[33m[stage-10] [test-4] [0m[94m[test.lox] ((; <=[0m
+[33m[stage-10] [test-4] [0m[94m[test.lox] >))[0m
+[33m[stage-10] [test-4] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mLEFT_BRACE { null
 [33m[your_program] [0mRIGHT_BRACE } null
 [33m[your_program] [0mLEFT_PAREN ( null
@@ -477,46 +431,38 @@ Debug = true
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mEOF  null
-[33m[stage-10] [0m[92m✓ 10 line(s) match on stdout[0m
-[33m[stage-10] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-10] [0m[94mTest case 4 passed[0m
-[33m[stage-10] [0m[94m[0m
+[33m[stage-10] [test-4] [0m[92m✓ 10 line(s) match on stdout[0m
+[33m[stage-10] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-10] [0m[92mTest passed.[0m
 
 [33m[stage-9] [0m[94mRunning tests for Stage #9: ml2[0m
-[33m[stage-9] [0m[94mRunning test case: 1[0m
-[33m[stage-9] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test.lox] [0m[94m//Comment[0m
-[33m[stage-9] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-9] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-9] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-9] [test-1] [0m[94m[test.lox] //Comment[0m
+[33m[stage-9] [test-1] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mEOF  null
-[33m[stage-9] [0m[92m✓ 1 line(s) match on stdout[0m
-[33m[stage-9] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-9] [0m[94mTest case 1 passed[0m
-[33m[stage-9] [0m[94m[0m
-[33m[stage-9] [0m[94mRunning test case: 2[0m
-[33m[stage-9] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test.lox] [0m[94m(///Unicode:£§᯽☺♣)[0m
-[33m[stage-9] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-9] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-9] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-9] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-9] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-9] [test-2] [0m[94m[test.lox] (///Unicode:£§᯽☺♣)[0m
+[33m[stage-9] [test-2] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mEOF  null
-[33m[stage-9] [0m[92m✓ 2 line(s) match on stdout[0m
-[33m[stage-9] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-9] [0m[94mTest case 2 passed[0m
-[33m[stage-9] [0m[94m[0m
-[33m[stage-9] [0m[94mRunning test case: 3[0m
-[33m[stage-9] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test.lox] [0m[94m/[0m
-[33m[stage-9] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-9] [test-2] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-9] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-9] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-9] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-9] [test-3] [0m[94m[test.lox] /[0m
+[33m[stage-9] [test-3] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mSLASH / null
 [33m[your_program] [0mEOF  null
-[33m[stage-9] [0m[92m✓ 2 line(s) match on stdout[0m
-[33m[stage-9] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-9] [0m[94mTest case 3 passed[0m
-[33m[stage-9] [0m[94m[0m
-[33m[stage-9] [0m[94mRunning test case: 4[0m
-[33m[stage-9] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test.lox] [0m[94m({(+;@)})//Comment[0m
-[33m[stage-9] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-9] [test-3] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-9] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-9] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-9] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-9] [test-4] [0m[94m[test.lox] ({(+;@)})//Comment[0m
+[33m[stage-9] [test-4] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0m[line 1] Error: Unexpected character: @
 [33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mLEFT_BRACE { null
@@ -527,28 +473,24 @@ Debug = true
 [33m[your_program] [0mRIGHT_BRACE } null
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mEOF  null
-[33m[stage-9] [0m[92m✓ 1 line(s) match on stderr[0m
-[33m[stage-9] [0m[92m✓ 9 line(s) match on stdout[0m
-[33m[stage-9] [0m[92m✓ Received exit code 65.[0m
-[33m[stage-9] [0m[94mTest case 4 passed[0m
-[33m[stage-9] [0m[94m[0m
+[33m[stage-9] [test-4] [0m[92m✓ 1 line(s) match on stderr[0m
+[33m[stage-9] [test-4] [0m[92m✓ 9 line(s) match on stdout[0m
+[33m[stage-9] [test-4] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-9] [0m[92mTest passed.[0m
 
 [33m[stage-8] [0m[94mRunning tests for Stage #8: et2[0m
-[33m[stage-8] [0m[94mRunning test case: 1[0m
-[33m[stage-8] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test.lox] [0m[94m>=[0m
-[33m[stage-8] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-8] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-8] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-8] [test-1] [0m[94m[test.lox] >=[0m
+[33m[stage-8] [test-1] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mGREATER_EQUAL >= null
 [33m[your_program] [0mEOF  null
-[33m[stage-8] [0m[92m✓ 2 line(s) match on stdout[0m
-[33m[stage-8] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-8] [0m[94mTest case 1 passed[0m
-[33m[stage-8] [0m[94m[0m
-[33m[stage-8] [0m[94mRunning test case: 2[0m
-[33m[stage-8] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test.lox] [0m[94m<<<=>>>=[0m
-[33m[stage-8] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-8] [test-1] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-8] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-8] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-8] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-8] [test-2] [0m[94m[test.lox] <<<=>>>=[0m
+[33m[stage-8] [test-2] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mLESS < null
 [33m[your_program] [0mLESS < null
 [33m[your_program] [0mLESS_EQUAL <= null
@@ -556,28 +498,24 @@ Debug = true
 [33m[your_program] [0mGREATER > null
 [33m[your_program] [0mGREATER_EQUAL >= null
 [33m[your_program] [0mEOF  null
-[33m[stage-8] [0m[92m✓ 7 line(s) match on stdout[0m
-[33m[stage-8] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-8] [0m[94mTest case 2 passed[0m
-[33m[stage-8] [0m[94m[0m
-[33m[stage-8] [0m[94mRunning test case: 3[0m
-[33m[stage-8] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test.lox] [0m[94m<=>>=<<[0m
-[33m[stage-8] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-8] [test-2] [0m[92m✓ 7 line(s) match on stdout[0m
+[33m[stage-8] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-8] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-8] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-8] [test-3] [0m[94m[test.lox] <=>>=<<[0m
+[33m[stage-8] [test-3] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mLESS_EQUAL <= null
 [33m[your_program] [0mGREATER > null
 [33m[your_program] [0mGREATER_EQUAL >= null
 [33m[your_program] [0mLESS < null
 [33m[your_program] [0mLESS < null
 [33m[your_program] [0mEOF  null
-[33m[stage-8] [0m[92m✓ 6 line(s) match on stdout[0m
-[33m[stage-8] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-8] [0m[94mTest case 3 passed[0m
-[33m[stage-8] [0m[94m[0m
-[33m[stage-8] [0m[94mRunning test case: 4[0m
-[33m[stage-8] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test.lox] [0m[94m(){=><=}[0m
-[33m[stage-8] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-8] [test-3] [0m[92m✓ 6 line(s) match on stdout[0m
+[33m[stage-8] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-8] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-8] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-8] [test-4] [0m[94m[test.lox] (){=><=}[0m
+[33m[stage-8] [test-4] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mLEFT_BRACE { null
@@ -586,39 +524,33 @@ Debug = true
 [33m[your_program] [0mLESS_EQUAL <= null
 [33m[your_program] [0mRIGHT_BRACE } null
 [33m[your_program] [0mEOF  null
-[33m[stage-8] [0m[92m✓ 8 line(s) match on stdout[0m
-[33m[stage-8] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-8] [0m[94mTest case 4 passed[0m
-[33m[stage-8] [0m[94m[0m
+[33m[stage-8] [test-4] [0m[92m✓ 8 line(s) match on stdout[0m
+[33m[stage-8] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [0m[92mTest passed.[0m
 
 [33m[stage-7] [0m[94mRunning tests for Stage #7: bu3[0m
-[33m[stage-7] [0m[94mRunning test case: 1[0m
-[33m[stage-7] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test.lox] [0m[94m!=[0m
-[33m[stage-7] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-7] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-7] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-7] [test-1] [0m[94m[test.lox] !=[0m
+[33m[stage-7] [test-1] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mBANG_EQUAL != null
 [33m[your_program] [0mEOF  null
-[33m[stage-7] [0m[92m✓ 2 line(s) match on stdout[0m
-[33m[stage-7] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-7] [0m[94mTest case 1 passed[0m
-[33m[stage-7] [0m[94m[0m
-[33m[stage-7] [0m[94mRunning test case: 2[0m
-[33m[stage-7] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test.lox] [0m[94m!!===[0m
-[33m[stage-7] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-7] [test-1] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-7] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-7] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-7] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-7] [test-2] [0m[94m[test.lox] !!===[0m
+[33m[stage-7] [test-2] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mBANG ! null
 [33m[your_program] [0mBANG_EQUAL != null
 [33m[your_program] [0mEQUAL_EQUAL == null
 [33m[your_program] [0mEOF  null
-[33m[stage-7] [0m[92m✓ 4 line(s) match on stdout[0m
-[33m[stage-7] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-7] [0m[94mTest case 2 passed[0m
-[33m[stage-7] [0m[94m[0m
-[33m[stage-7] [0m[94mRunning test case: 3[0m
-[33m[stage-7] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test.lox] [0m[94m!{!}(!===)=[0m
-[33m[stage-7] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-7] [test-2] [0m[92m✓ 4 line(s) match on stdout[0m
+[33m[stage-7] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-7] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-7] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-7] [test-3] [0m[94m[test.lox] !{!}(!===)=[0m
+[33m[stage-7] [test-3] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mBANG ! null
 [33m[your_program] [0mLEFT_BRACE { null
 [33m[your_program] [0mBANG ! null
@@ -629,14 +561,12 @@ Debug = true
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mEQUAL = null
 [33m[your_program] [0mEOF  null
-[33m[stage-7] [0m[92m✓ 10 line(s) match on stdout[0m
-[33m[stage-7] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-7] [0m[94mTest case 3 passed[0m
-[33m[stage-7] [0m[94m[0m
-[33m[stage-7] [0m[94mRunning test case: 4[0m
-[33m[stage-7] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test.lox] [0m[94m{(###==%)}[0m
-[33m[stage-7] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-7] [test-3] [0m[92m✓ 10 line(s) match on stdout[0m
+[33m[stage-7] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-7] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-7] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-7] [test-4] [0m[94m[test.lox] {(###==%)}[0m
+[33m[stage-7] [test-4] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0m[line 1] Error: Unexpected character: #
 [33m[your_program] [0m[line 1] Error: Unexpected character: #
 [33m[your_program] [0m[line 1] Error: Unexpected character: #
@@ -647,39 +577,33 @@ Debug = true
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mRIGHT_BRACE } null
 [33m[your_program] [0mEOF  null
-[33m[stage-7] [0m[92m✓ 4 line(s) match on stderr[0m
-[33m[stage-7] [0m[92m✓ 6 line(s) match on stdout[0m
-[33m[stage-7] [0m[92m✓ Received exit code 65.[0m
-[33m[stage-7] [0m[94mTest case 4 passed[0m
-[33m[stage-7] [0m[94m[0m
+[33m[stage-7] [test-4] [0m[92m✓ 4 line(s) match on stderr[0m
+[33m[stage-7] [test-4] [0m[92m✓ 6 line(s) match on stdout[0m
+[33m[stage-7] [test-4] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-7] [0m[92mTest passed.[0m
 
 [33m[stage-6] [0m[94mRunning tests for Stage #6: mp7[0m
-[33m[stage-6] [0m[94mRunning test case: 1[0m
-[33m[stage-6] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test.lox] [0m[94m=[0m
-[33m[stage-6] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-6] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-6] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-6] [test-1] [0m[94m[test.lox] =[0m
+[33m[stage-6] [test-1] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mEQUAL = null
 [33m[your_program] [0mEOF  null
-[33m[stage-6] [0m[92m✓ 2 line(s) match on stdout[0m
-[33m[stage-6] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-6] [0m[94mTest case 1 passed[0m
-[33m[stage-6] [0m[94m[0m
-[33m[stage-6] [0m[94mRunning test case: 2[0m
-[33m[stage-6] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test.lox] [0m[94m===[0m
-[33m[stage-6] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-6] [test-1] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-6] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-6] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-6] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-6] [test-2] [0m[94m[test.lox] ===[0m
+[33m[stage-6] [test-2] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mEQUAL_EQUAL == null
 [33m[your_program] [0mEQUAL = null
 [33m[your_program] [0mEOF  null
-[33m[stage-6] [0m[92m✓ 3 line(s) match on stdout[0m
-[33m[stage-6] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-6] [0m[94mTest case 2 passed[0m
-[33m[stage-6] [0m[94m[0m
-[33m[stage-6] [0m[94mRunning test case: 3[0m
-[33m[stage-6] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test.lox] [0m[94m({=}){=====}[0m
-[33m[stage-6] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-6] [test-2] [0m[92m✓ 3 line(s) match on stdout[0m
+[33m[stage-6] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-6] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-6] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-6] [test-3] [0m[94m[test.lox] ({=}){=====}[0m
+[33m[stage-6] [test-3] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mLEFT_BRACE { null
 [33m[your_program] [0mEQUAL = null
@@ -691,14 +615,12 @@ Debug = true
 [33m[your_program] [0mEQUAL = null
 [33m[your_program] [0mRIGHT_BRACE } null
 [33m[your_program] [0mEOF  null
-[33m[stage-6] [0m[92m✓ 11 line(s) match on stdout[0m
-[33m[stage-6] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-6] [0m[94mTest case 3 passed[0m
-[33m[stage-6] [0m[94m[0m
-[33m[stage-6] [0m[94mRunning test case: 4[0m
-[33m[stage-6] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test.lox] [0m[94m((#%==#))[0m
-[33m[stage-6] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-6] [test-3] [0m[92m✓ 11 line(s) match on stdout[0m
+[33m[stage-6] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-6] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-6] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-6] [test-4] [0m[94m[test.lox] ((#%==#))[0m
+[33m[stage-6] [test-4] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0m[line 1] Error: Unexpected character: #
 [33m[your_program] [0m[line 1] Error: Unexpected character: %
 [33m[your_program] [0m[line 1] Error: Unexpected character: #
@@ -708,59 +630,51 @@ Debug = true
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mEOF  null
-[33m[stage-6] [0m[92m✓ 3 line(s) match on stderr[0m
-[33m[stage-6] [0m[92m✓ 6 line(s) match on stdout[0m
-[33m[stage-6] [0m[92m✓ Received exit code 65.[0m
-[33m[stage-6] [0m[94mTest case 4 passed[0m
-[33m[stage-6] [0m[94m[0m
+[33m[stage-6] [test-4] [0m[92m✓ 3 line(s) match on stderr[0m
+[33m[stage-6] [test-4] [0m[92m✓ 6 line(s) match on stdout[0m
+[33m[stage-6] [test-4] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-6] [0m[92mTest passed.[0m
 
 [33m[stage-5] [0m[94mRunning tests for Stage #5: ea6[0m
-[33m[stage-5] [0m[94mRunning test case: 1[0m
-[33m[stage-5] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test.lox] [0m[94m@[0m
-[33m[stage-5] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-5] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-5] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-5] [test-1] [0m[94m[test.lox] @[0m
+[33m[stage-5] [test-1] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0m[line 1] Error: Unexpected character: @
 [33m[your_program] [0mEOF  null
-[33m[stage-5] [0m[92m✓ 1 line(s) match on stderr[0m
-[33m[stage-5] [0m[92m✓ 1 line(s) match on stdout[0m
-[33m[stage-5] [0m[92m✓ Received exit code 65.[0m
-[33m[stage-5] [0m[94mTest case 1 passed[0m
-[33m[stage-5] [0m[94m[0m
-[33m[stage-5] [0m[94mRunning test case: 2[0m
-[33m[stage-5] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test.lox] [0m[94m,.$(#[0m
-[33m[stage-5] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-5] [test-1] [0m[92m✓ 1 line(s) match on stderr[0m
+[33m[stage-5] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-5] [test-1] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-5] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-5] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-5] [test-2] [0m[94m[test.lox] ,.$(#[0m
+[33m[stage-5] [test-2] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0m[line 1] Error: Unexpected character: $
 [33m[your_program] [0m[line 1] Error: Unexpected character: #
 [33m[your_program] [0mCOMMA , null
 [33m[your_program] [0mDOT . null
 [33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mEOF  null
-[33m[stage-5] [0m[92m✓ 2 line(s) match on stderr[0m
-[33m[stage-5] [0m[92m✓ 4 line(s) match on stdout[0m
-[33m[stage-5] [0m[92m✓ Received exit code 65.[0m
-[33m[stage-5] [0m[94mTest case 2 passed[0m
-[33m[stage-5] [0m[94m[0m
-[33m[stage-5] [0m[94mRunning test case: 3[0m
-[33m[stage-5] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test.lox] [0m[94m$@$%$[0m
-[33m[stage-5] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-5] [test-2] [0m[92m✓ 2 line(s) match on stderr[0m
+[33m[stage-5] [test-2] [0m[92m✓ 4 line(s) match on stdout[0m
+[33m[stage-5] [test-2] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-5] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-5] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-5] [test-3] [0m[94m[test.lox] $@$%$[0m
+[33m[stage-5] [test-3] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0m[line 1] Error: Unexpected character: $
 [33m[your_program] [0m[line 1] Error: Unexpected character: @
 [33m[your_program] [0m[line 1] Error: Unexpected character: $
 [33m[your_program] [0m[line 1] Error: Unexpected character: %
 [33m[your_program] [0m[line 1] Error: Unexpected character: $
 [33m[your_program] [0mEOF  null
-[33m[stage-5] [0m[92m✓ 5 line(s) match on stderr[0m
-[33m[stage-5] [0m[92m✓ 1 line(s) match on stdout[0m
-[33m[stage-5] [0m[92m✓ Received exit code 65.[0m
-[33m[stage-5] [0m[94mTest case 3 passed[0m
-[33m[stage-5] [0m[94m[0m
-[33m[stage-5] [0m[94mRunning test case: 4[0m
-[33m[stage-5] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test.lox] [0m[94m{(;-**+)}[0m
-[33m[stage-5] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-5] [test-3] [0m[92m✓ 5 line(s) match on stderr[0m
+[33m[stage-5] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-5] [test-3] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-5] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-5] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-5] [test-4] [0m[94m[test.lox] {(;-**+)}[0m
+[33m[stage-5] [test-4] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mLEFT_BRACE { null
 [33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mSEMICOLON ; null
@@ -771,28 +685,24 @@ Debug = true
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mRIGHT_BRACE } null
 [33m[your_program] [0mEOF  null
-[33m[stage-5] [0m[92m✓ 10 line(s) match on stdout[0m
-[33m[stage-5] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-5] [0m[94mTest case 4 passed[0m
-[33m[stage-5] [0m[94m[0m
+[33m[stage-5] [test-4] [0m[92m✓ 10 line(s) match on stdout[0m
+[33m[stage-5] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-5] [0m[92mTest passed.[0m
 
 [33m[stage-4] [0m[94mRunning tests for Stage #4: xc5[0m
-[33m[stage-4] [0m[94mRunning test case: 1[0m
-[33m[stage-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test.lox] [0m[94m+-[0m
-[33m[stage-4] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-4] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-4] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-4] [test-1] [0m[94m[test.lox] +-[0m
+[33m[stage-4] [test-1] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mPLUS + null
 [33m[your_program] [0mMINUS - null
 [33m[your_program] [0mEOF  null
-[33m[stage-4] [0m[92m✓ 3 line(s) match on stdout[0m
-[33m[stage-4] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-4] [0m[94mTest case 1 passed[0m
-[33m[stage-4] [0m[94m[0m
-[33m[stage-4] [0m[94mRunning test case: 2[0m
-[33m[stage-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test.lox] [0m[94m++--**..,,;;[0m
-[33m[stage-4] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-4] [test-1] [0m[92m✓ 3 line(s) match on stdout[0m
+[33m[stage-4] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-4] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-4] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-4] [test-2] [0m[94m[test.lox] ++--**..,,;;[0m
+[33m[stage-4] [test-2] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mPLUS + null
 [33m[your_program] [0mPLUS + null
 [33m[your_program] [0mMINUS - null
@@ -806,14 +716,12 @@ Debug = true
 [33m[your_program] [0mSEMICOLON ; null
 [33m[your_program] [0mSEMICOLON ; null
 [33m[your_program] [0mEOF  null
-[33m[stage-4] [0m[92m✓ 13 line(s) match on stdout[0m
-[33m[stage-4] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-4] [0m[94mTest case 2 passed[0m
-[33m[stage-4] [0m[94m[0m
-[33m[stage-4] [0m[94mRunning test case: 3[0m
-[33m[stage-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test.lox] [0m[94m+*---*-[0m
-[33m[stage-4] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-4] [test-2] [0m[92m✓ 13 line(s) match on stdout[0m
+[33m[stage-4] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-4] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-4] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-4] [test-3] [0m[94m[test.lox] +*---*-[0m
+[33m[stage-4] [test-3] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mPLUS + null
 [33m[your_program] [0mSTAR * null
 [33m[your_program] [0mMINUS - null
@@ -822,14 +730,12 @@ Debug = true
 [33m[your_program] [0mSTAR * null
 [33m[your_program] [0mMINUS - null
 [33m[your_program] [0mEOF  null
-[33m[stage-4] [0m[92m✓ 8 line(s) match on stdout[0m
-[33m[stage-4] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-4] [0m[94mTest case 3 passed[0m
-[33m[stage-4] [0m[94m[0m
-[33m[stage-4] [0m[94mRunning test case: 4[0m
-[33m[stage-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test.lox] [0m[94m({-+.-,})[0m
-[33m[stage-4] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-4] [test-3] [0m[92m✓ 8 line(s) match on stdout[0m
+[33m[stage-4] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-4] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-4] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-4] [test-4] [0m[94m[test.lox] ({-+.-,})[0m
+[33m[stage-4] [test-4] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mLEFT_BRACE { null
 [33m[your_program] [0mMINUS - null
@@ -840,54 +746,46 @@ Debug = true
 [33m[your_program] [0mRIGHT_BRACE } null
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mEOF  null
-[33m[stage-4] [0m[92m✓ 10 line(s) match on stdout[0m
-[33m[stage-4] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-4] [0m[94mTest case 4 passed[0m
-[33m[stage-4] [0m[94m[0m
+[33m[stage-4] [test-4] [0m[92m✓ 10 line(s) match on stdout[0m
+[33m[stage-4] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [0m[92mTest passed.[0m
 
 [33m[stage-3] [0m[94mRunning tests for Stage #3: oe8[0m
-[33m[stage-3] [0m[94mRunning test case: 1[0m
-[33m[stage-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test.lox] [0m[94m}[0m
-[33m[stage-3] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-3] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-3] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-3] [test-1] [0m[94m[test.lox] }[0m
+[33m[stage-3] [test-1] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mRIGHT_BRACE } null
 [33m[your_program] [0mEOF  null
-[33m[stage-3] [0m[92m✓ 2 line(s) match on stdout[0m
-[33m[stage-3] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-3] [0m[94mTest case 1 passed[0m
-[33m[stage-3] [0m[94m[0m
-[33m[stage-3] [0m[94mRunning test case: 2[0m
-[33m[stage-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test.lox] [0m[94m{{}}[0m
-[33m[stage-3] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-3] [test-1] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-3] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-3] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-3] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-3] [test-2] [0m[94m[test.lox] {{}}[0m
+[33m[stage-3] [test-2] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mLEFT_BRACE { null
 [33m[your_program] [0mLEFT_BRACE { null
 [33m[your_program] [0mRIGHT_BRACE } null
 [33m[your_program] [0mRIGHT_BRACE } null
 [33m[your_program] [0mEOF  null
-[33m[stage-3] [0m[92m✓ 5 line(s) match on stdout[0m
-[33m[stage-3] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-3] [0m[94mTest case 2 passed[0m
-[33m[stage-3] [0m[94m[0m
-[33m[stage-3] [0m[94mRunning test case: 3[0m
-[33m[stage-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test.lox] [0m[94m{}{}{[0m
-[33m[stage-3] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-3] [test-2] [0m[92m✓ 5 line(s) match on stdout[0m
+[33m[stage-3] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-3] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-3] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-3] [test-3] [0m[94m[test.lox] {}{}{[0m
+[33m[stage-3] [test-3] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mLEFT_BRACE { null
 [33m[your_program] [0mRIGHT_BRACE } null
 [33m[your_program] [0mLEFT_BRACE { null
 [33m[your_program] [0mRIGHT_BRACE } null
 [33m[your_program] [0mLEFT_BRACE { null
 [33m[your_program] [0mEOF  null
-[33m[stage-3] [0m[92m✓ 6 line(s) match on stdout[0m
-[33m[stage-3] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-3] [0m[94mTest case 3 passed[0m
-[33m[stage-3] [0m[94m[0m
-[33m[stage-3] [0m[94mRunning test case: 4[0m
-[33m[stage-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test.lox] [0m[94m{)){(){[0m
-[33m[stage-3] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-3] [test-3] [0m[92m✓ 6 line(s) match on stdout[0m
+[33m[stage-3] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-3] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-3] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-3] [test-4] [0m[94m[test.lox] {)){(){[0m
+[33m[stage-3] [test-4] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mLEFT_BRACE { null
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mRIGHT_PAREN ) null
@@ -896,52 +794,44 @@ Debug = true
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mLEFT_BRACE { null
 [33m[your_program] [0mEOF  null
-[33m[stage-3] [0m[92m✓ 8 line(s) match on stdout[0m
-[33m[stage-3] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-3] [0m[94mTest case 4 passed[0m
-[33m[stage-3] [0m[94m[0m
+[33m[stage-3] [test-4] [0m[92m✓ 8 line(s) match on stdout[0m
+[33m[stage-3] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-3] [0m[92mTest passed.[0m
 
 [33m[stage-2] [0m[94mRunning tests for Stage #2: ol4[0m
-[33m[stage-2] [0m[94mRunning test case: 1[0m
-[33m[stage-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test.lox] [0m[94m([0m
-[33m[stage-2] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-2] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-2] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-1] [0m[94m[test.lox] ([0m
+[33m[stage-2] [test-1] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mEOF  null
-[33m[stage-2] [0m[92m✓ 2 line(s) match on stdout[0m
-[33m[stage-2] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-2] [0m[94mTest case 1 passed[0m
-[33m[stage-2] [0m[94m[0m
-[33m[stage-2] [0m[94mRunning test case: 2[0m
-[33m[stage-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test.lox] [0m[94m))[0m
-[33m[stage-2] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-2] [test-1] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-2] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-2] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-2] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-2] [0m[94m[test.lox] ))[0m
+[33m[stage-2] [test-2] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mEOF  null
-[33m[stage-2] [0m[92m✓ 3 line(s) match on stdout[0m
-[33m[stage-2] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-2] [0m[94mTest case 2 passed[0m
-[33m[stage-2] [0m[94m[0m
-[33m[stage-2] [0m[94mRunning test case: 3[0m
-[33m[stage-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test.lox] [0m[94m)(())[0m
-[33m[stage-2] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-2] [test-2] [0m[92m✓ 3 line(s) match on stdout[0m
+[33m[stage-2] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-2] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-2] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-3] [0m[94m[test.lox] )(())[0m
+[33m[stage-2] [test-3] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mEOF  null
-[33m[stage-2] [0m[92m✓ 6 line(s) match on stdout[0m
-[33m[stage-2] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-2] [0m[94mTest case 3 passed[0m
-[33m[stage-2] [0m[94m[0m
-[33m[stage-2] [0m[94mRunning test case: 4[0m
-[33m[stage-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test.lox] [0m[94m(()))))[0m
-[33m[stage-2] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-2] [test-3] [0m[92m✓ 6 line(s) match on stdout[0m
+[33m[stage-2] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-2] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-2] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-4] [0m[94m[test.lox] (()))))[0m
+[33m[stage-2] [test-4] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mRIGHT_PAREN ) null
@@ -950,15 +840,13 @@ Debug = true
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mEOF  null
-[33m[stage-2] [0m[92m✓ 8 line(s) match on stdout[0m
-[33m[stage-2] [0m[92m✓ Received exit code 0.[0m
-[33m[stage-2] [0m[94mTest case 4 passed[0m
-[33m[stage-2] [0m[94m[0m
+[33m[stage-2] [test-4] [0m[92m✓ 8 line(s) match on stdout[0m
+[33m[stage-2] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [0m[92mTest passed.[0m
 
 [33m[stage-1] [0m[94mRunning tests for Stage #1: ry8[0m
 [33m[stage-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-1] [test.lox] [0m[94m[0m
+[33m[stage-1] [0m[94m[test.lox] [0m
 [33m[stage-1] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mEOF  null
 [33m[stage-1] [0m[92m✓ 1 line(s) match on stdout[0m
