@@ -9,8 +9,8 @@ import (
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
-var Keywords = []string{"and", "class", "else", "false", "for", "fun", "if", "nil", "or", "return", "super", "this", "true", "var", "while"}
-var KeywordsCapitalized = []string{"AND", "CLASS", "ELSE", "FALSE", "FOR", "FUN", "IF", "NIL", "OR", "RETURN", "SUPER", "THIS", "TRUE", "VAR", "WHILE"}
+var Keywords = []string{"and", "class", "else", "false", "for", "fun", "if", "nil", "or", "print", "return", "super", "this", "true", "var", "while"}
+var KeywordsCapitalized = []string{"AND", "CLASS", "ELSE", "FALSE", "FOR", "FUN", "IF", "NIL", "OR", "PRINT", "RETURN", "SUPER", "THIS", "TRUE", "VAR", "WHILE"}
 
 func testReservedWords(stageHarness *test_case_harness.TestCaseHarness) error {
 	b := interpreter_executable.NewInterpreterExecutable(stageHarness)

@@ -2,3 +2,4 @@ dist
 .history/
 .idea/
 .vscode/
+*.class
