@@ -13,7 +13,7 @@ type MultiTokenizeTestCase struct {
 
 func (t *MultiTokenizeTestCase) RunAll(executable *interpreter_executable.InterpreterExecutable, logger *logger.Logger) error {
 	for i, fileContents := range t.FileContents {
-		logger.UpdateSecondaryPrefix(fmt.Sprintf("[test-%d] ", i+1))
+		logger.UpdateSecondaryPrefix(fmt.Sprintf("test-%d", i+1))
 		logger.Infof("Running test case: %d", i+1)
 		testCase := TokenizeTestCase{
 			FileContents: fileContents}

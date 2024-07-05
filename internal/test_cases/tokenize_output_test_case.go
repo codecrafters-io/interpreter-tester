@@ -30,9 +30,6 @@ func (t *TokenizeTestCase) Run(executable *interpreter_executable.InterpreterExe
 	defer os.Remove(tmpFileName)
 
 	logger.Infof("Writing contents to ./test.lox:")
-	existingSecondaryPrefix := logger.GetSecondaryPrefix()
-	// existingSecondaryPrefix can be "" or hold our intended log prefix
-	logger.UpdateSecondaryPrefix(existingSecondaryPrefix + "[test.lox] ")
 
 	// If the file contents contain a singe %, it will be decoded as a format specifier
 	// And it will add a `(MISSING)` to the log line
@@ -44,9 +41,9 @@ func (t *TokenizeTestCase) Run(executable *interpreter_executable.InterpreterExe
 	printableFileContents = regex1.ReplaceAllString(printableFileContents, "<|SPACE|>")
 	printableFileContents = regex2.ReplaceAllString(printableFileContents, "<|SPACE|>")
 
-	logger.Infof(printableFileContents)
-
-	logger.UpdateSecondaryPrefix(existingSecondaryPrefix)
+	for _, line := range strings.Split(printableFileContents, "\n") {
+		logger.Infof("[test.lox] " + line)
+	}
 
 	result, err := executable.Run("tokenize", tmpFileName)
 	if err != nil {
