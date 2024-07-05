@@ -24,11 +24,7 @@ func randomSelection(count int, characters []string, joinWith string) string {
 func randomStringFromCharacters(totalLength int, characters []string) string {
 	characterList := make([]string, totalLength)
 	for i := 0; i < totalLength; i++ {
-		chosen := characters[rand.Intn(len(characters))]
-		if len(chosen) > 2 {
-			chosen = " " + chosen + " "
-		}
-		characterList[i] = chosen
+		characterList[i] = characters[rand.Intn(len(characters))]
 	}
 
 	shuffledString := strings.Join(characterList, "")

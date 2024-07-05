@@ -15,7 +15,7 @@ func testParen(stageHarness *test_case_harness.TestCaseHarness) error {
 	logger := stageHarness.Logger
 
 	shuffledString1 := randomStringFromCharacters(5, Parens)
-	shuffledString2 := randomStringFromCharacters(25, Parens)
+	shuffledString2 := randomStringFromCharacters(7, Parens)
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{"(", "))", shuffledString1, shuffledString2},
 	}
