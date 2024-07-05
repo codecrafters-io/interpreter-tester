@@ -15,27 +15,27 @@ func NewStderrAssertion(expectedLines []string) StderrAssertion {
 }
 
 func (a StderrAssertion) Run(stderr []string, logger *logger.Logger) error {
-	var output []string
+	var successLogs []string
 
 	for i, expectedLine := range a.ExpectedLines {
 		if i >= len(stderr) {
-			logAllSuccessLogs(output, logger)
+			logAllSuccessLogs(successLogs, logger)
 			logger.Errorf("? %s", expectedLine)
 			return fmt.Errorf("Expected line #%d on stderr to be %q, but didn't find line", i+1, expectedLine)
 		}
 		actualValue := stderr[i]
 
 		if actualValue != expectedLine {
-			logAllSuccessLogs(output, logger)
+			logAllSuccessLogs(successLogs, logger)
 			logger.Errorf("𐄂 %s", actualValue)
 			return fmt.Errorf("Expected line #%d on stderr to be %q, got %q", i+1, expectedLine, actualValue)
 		} else {
-			output = append(output, fmt.Sprintf("✓ %s", actualValue))
+			successLogs = append(successLogs, fmt.Sprintf("✓ %s", actualValue))
 		}
 	}
 
 	if len(stderr) > len(a.ExpectedLines) {
-		logAllSuccessLogs(output, logger)
+		logAllSuccessLogs(successLogs, logger)
 		logger.Errorf("! %s", stderr[len(a.ExpectedLines)])
 		return fmt.Errorf("Expected last line to be %q, but found %d more line(s)", stderr[len(a.ExpectedLines)-1], len(stderr)-len(a.ExpectedLines))
 	}

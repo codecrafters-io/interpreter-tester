@@ -15,27 +15,27 @@ func NewStdoutAssertion(expectedLines []string) StdoutAssertion {
 }
 
 func (a StdoutAssertion) Run(stdout []string, logger *logger.Logger) error {
-	var output []string
+	var successLogs []string
 
 	for i, expectedLine := range a.ExpectedLines {
 		if i >= len(stdout) {
-			logAllSuccessLogs(output, logger)
+			logAllSuccessLogs(successLogs, logger)
 			logger.Errorf("? %s", expectedLine)
 			return fmt.Errorf("Expected line #%d on stdout to be %q, but didn't find line", i+1, expectedLine)
 		}
 		actualValue := stdout[i]
 
 		if actualValue != expectedLine {
-			logAllSuccessLogs(output, logger)
+			logAllSuccessLogs(successLogs, logger)
 			logger.Errorf("𐄂 %s", actualValue)
 			return fmt.Errorf("Expected line #%d on stdout to be %q, got %q", i+1, expectedLine, actualValue)
 		} else {
-			output = append(output, fmt.Sprintf("✓ %s", actualValue))
+			successLogs = append(successLogs, fmt.Sprintf("✓ %s", actualValue))
 		}
 	}
 
 	if len(stdout) > len(a.ExpectedLines) {
-		logAllSuccessLogs(output, logger)
+		logAllSuccessLogs(successLogs, logger)
 		logger.Errorf("! %s", stdout[len(a.ExpectedLines)])
 		return fmt.Errorf("Expected last line to be %q, but found %d more line(s)", stdout[len(a.ExpectedLines)-1], len(stdout)-len(a.ExpectedLines))
 	}
@@ -47,8 +47,8 @@ func (a StdoutAssertion) Run(stdout []string, logger *logger.Logger) error {
 	return nil
 }
 
-func logAllSuccessLogs(output []string, logger *logger.Logger) {
-	for _, line := range output {
+func logAllSuccessLogs(successLogs []string, logger *logger.Logger) {
+	for _, line := range successLogs {
 		logger.Successf(line)
 	}
 }
