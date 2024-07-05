@@ -14,7 +14,7 @@ func testStrings(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	string1 := randomSelection(2, Strings, " ")
+	string1 := randomSelection(1, Strings, "") + " " + "\"unterminated"
 	string2 := `"foo 	bar 123 // hello world!"`
 	shuffledString2 := (randomSelection(2, Strings, "+")) + `"perseverance" && "Success" != "Failure"`
 
