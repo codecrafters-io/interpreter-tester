@@ -50,9 +50,6 @@ func (t *TokenizeTestCase) Run(executable *interpreter_executable.InterpreterExe
 		return err
 	}
 
-	stdout := getStdoutLinesFromExecutableResult(result)
-	stderr := getStderrLinesFromExecutableResult(result)
-
 	expectedStdout, expectedStderr, exitCode, err := lox.ScanTokens(t.FileContents)
 	if err != nil {
 		return fmt.Errorf("CodeCrafters internal error: %v", err)
@@ -64,12 +61,12 @@ func (t *TokenizeTestCase) Run(executable *interpreter_executable.InterpreterExe
 	}
 
 	if len(expectedStderr) > 0 {
-		if err := assertions.NewStderrAssertion(expectedStderr).Run(stderr, logger); err != nil {
+		if err := assertions.NewStderrAssertion(expectedStderr).Run(result, logger); err != nil {
 			return err
 		}
 	}
 
-	if err = assertions.NewStdoutAssertion(expectedStdout).Run(stdout, logger); err != nil {
+	if err = assertions.NewStdoutAssertion(expectedStdout).Run(result, logger); err != nil {
 		return err
 	}
 

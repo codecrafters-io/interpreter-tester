@@ -2,7 +2,9 @@ package assertions
 
 import (
 	"fmt"
+	"strings"
 
+	"github.com/codecrafters-io/tester-utils/executable"
 	"github.com/codecrafters-io/tester-utils/logger"
 )
 
@@ -14,8 +16,9 @@ func NewStdoutAssertion(expectedLines []string) StdoutAssertion {
 	return StdoutAssertion{ExpectedLines: expectedLines}
 }
 
-func (a StdoutAssertion) Run(stdout []string, logger *logger.Logger) error {
+func (a StdoutAssertion) Run(result executable.ExecutableResult, logger *logger.Logger) error {
 	var successLogs []string
+	stdout := getStdoutLinesFromExecutableResult(result)
 
 	for i, expectedLine := range a.ExpectedLines {
 		if i >= len(stdout) {
@@ -37,7 +40,7 @@ func (a StdoutAssertion) Run(stdout []string, logger *logger.Logger) error {
 	if len(stdout) > len(a.ExpectedLines) {
 		logAllSuccessLogs(successLogs, logger)
 		logger.Errorf("! %s", stdout[len(a.ExpectedLines)])
-		return fmt.Errorf("Expected last line to be %q, but found %d more line(s)", stdout[len(a.ExpectedLines)-1], len(stdout)-len(a.ExpectedLines))
+		return fmt.Errorf("Expected last stdout line to be %q, but found extra line: %q", a.ExpectedLines[len(a.ExpectedLines)-1], stdout[len(a.ExpectedLines)])
 	}
 
 	// If all lines match, we don't want to print all the lines again
@@ -51,4 +54,9 @@ func logAllSuccessLogs(successLogs []string, logger *logger.Logger) {
 	for _, line := range successLogs {
 		logger.Successf(line)
 	}
+}
+
+func getStdoutLinesFromExecutableResult(result executable.ExecutableResult) []string {
+	stdout := strings.Split(strings.TrimRight(string(result.Stdout), "\n"), "\n")
+	return stdout
 }

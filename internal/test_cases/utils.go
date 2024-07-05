@@ -3,10 +3,6 @@ package testcases
 import (
 	"fmt"
 	"os"
-	"regexp"
-	"strings"
-
-	"github.com/codecrafters-io/tester-utils/executable"
 )
 
 func createTempFileWithContents(contents string) (string, error) {
@@ -32,23 +28,4 @@ func createTempFileWithContents(contents string) (string, error) {
 	}
 
 	return tmpFile.Name(), nil
-}
-
-func getStdoutLinesFromExecutableResult(result executable.ExecutableResult) []string {
-	stdout := strings.Split(strings.TrimRight(string(result.Stdout), "\n"), "\n")
-	return stdout
-}
-
-func getStderrLinesFromExecutableResult(result executable.ExecutableResult) []string {
-	var filteredStdErr []string
-	stderr := strings.Split(strings.TrimRight(string(result.Stderr), "\n"), "\n")
-	regex := regexp.MustCompile(`\[line [0-9]+\]`)
-
-	for _, line := range stderr {
-		if regex.MatchString(line) {
-			filteredStdErr = append(filteredStdErr, line)
-		}
-	}
-
-	return filteredStdErr
 }
