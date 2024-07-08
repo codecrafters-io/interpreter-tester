@@ -28,6 +28,6 @@ jobs:
           distribution: 'adopt'
 
       - name: Compile jlox
-        run: cd internal/test_helpers/jlox && make jlox && cd ../../..
+        run: cd craftinginterpreters && make java_chapters && cd ..
 
       - run: make test
