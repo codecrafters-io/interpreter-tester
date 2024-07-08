@@ -49,8 +49,8 @@ test_dev: build
 	$(shell pwd)/dist/main.out
 
 
-test_og: build
-	CODECRAFTERS_SUBMISSION_DIR=./internal/test_helpers/jlox \
+test_scanning_w_jlox: build
+	CODECRAFTERS_SUBMISSION_DIR=./craftinginterpreters/build/gen/chap04_scanning \
 	CODECRAFTERS_TEST_CASES_JSON="[ \
 		{\"slug\":\"ry8\",\"tester_log_prefix\":\"stage_101\",\"title\":\"Stage #1: Scanning: Empty File\"}, \
 		{\"slug\":\"ol4\",\"tester_log_prefix\":\"stage_102\",\"title\":\"Stage #2: Scanning: Parenthese\"}, \
