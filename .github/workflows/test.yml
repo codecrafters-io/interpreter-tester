@@ -27,7 +27,27 @@ jobs:
           java-version: '22'
           distribution: 'adopt'
 
+      - name: Fetch jlox official implementation
+        run: git clone https://github.com/munificent/craftinginterpreters.git
+
+      - name: Set up Dart
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: 2.19.6
+
+      - name: Get Dart dependencies
+        run: cd craftinginterpreters && make get
+
+      - name: Minor updates to official implementation
+        # We update the Scanner class to print the unexpected character along with the error message
+        run: |
+          sed -i 's/Lox\.error(line, "Unexpected character\.");/Lox\.error(line, "Unexpected character: " + c);/g' craftinginterpreters/java/com/craftinginterpreters/lox/Scanner.java
+
       - name: Compile jlox
-        run: cd internal/test_helpers/jlox && make jlox && cd ../../..
+        run: |
+          cd craftinginterpreters
+          make java_chapters
+          cd ..
+          cp -r ./internal/test_helpers/jlox04/* ./craftinginterpreters/build/gen/chap04_scanning
 
       - run: make test
