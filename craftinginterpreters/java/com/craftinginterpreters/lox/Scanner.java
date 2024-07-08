@@ -124,6 +124,7 @@ class Scanner {
 //< identifier-start
         } else {
           // Lox.error(line, "Unexpected character.");
+          // We updated this single line, to include the unexpected character.
           Lox.error(line, "Unexpected character: " + c);
         }
 //< digit-start
