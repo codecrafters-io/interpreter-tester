@@ -70,4 +70,4 @@ test_scanning_w_jlox: build
 	]" \
 	$(shell pwd)/dist/main.out
 
-test_all: test_dev test_og
+test_all: test_dev test_scanning_w_jlox

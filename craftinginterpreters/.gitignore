@@ -26,3 +26,9 @@ xcuserdata/
 *.css
 *.md
 *.txt
+
+# Not required
+note/**
+site/**
+test/**
+util/**

@@ -11,9 +11,9 @@ func TestStages(t *testing.T) {
 	os.Setenv("CODECRAFTERS_RANDOM_SEED", "1234567890")
 
 	testCases := map[string]tester_utils_testing.TesterOutputTestCase{
-		"pass_all_og": {
+		"pass_scanning_jlox": {
 			UntilStageSlug:      "pq5",
-			CodePath:            "./test_helpers/jlox",
+			CodePath:            "../craftinginterpreters/build/gen/chap04_scanning",
 			ExpectedExitCode:    0,
 			StdoutFixturePath:   "./test_helpers/fixtures/pass_all",
 			NormalizeOutputFunc: normalizeTesterOutput,
