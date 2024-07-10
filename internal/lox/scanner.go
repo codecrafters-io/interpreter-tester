@@ -28,7 +28,7 @@ type Scanner struct {
 	source  string
 	start   int
 	current int
-	line    int
+	line    lineNumber
 	tokens  []Token
 	errors  []string
 }
@@ -74,7 +74,7 @@ func (sc *Scanner) scanString() {
 
 	// unterminated string
 	if sc.isAtEnd() {
-		sc.LogError(sc.line, "Unterminated string.")
+		sc.LogError(sc.line.Int(), "Unterminated string.")
 		return
 	}
 
@@ -195,7 +195,7 @@ func (sc *Scanner) scanToken() {
 		} else if sc.isAlpha(c) {
 			sc.scanIdentifier()
 		} else {
-			sc.LogError(sc.line, fmt.Sprintf("Unexpected character: %c", c))
+			sc.LogError(sc.line.Int(), fmt.Sprintf("Unexpected character: %c", c))
 		}
 	}
 }

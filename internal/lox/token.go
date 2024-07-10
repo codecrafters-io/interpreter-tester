@@ -121,7 +121,17 @@ type Token struct {
 	Type    Type
 	Lexeme  string
 	Literal interface{}
-	Line    int
+	Line    lineNumber
+}
+
+// The zero value for lineNumber should be 1
+type lineNumber int
+
+func (m lineNumber) Int() int {
+	if m == 0 {
+		return 1
+	}
+	return int(m)
 }
 
 func (token *Token) String() string {
