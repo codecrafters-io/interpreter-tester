@@ -40,6 +40,7 @@ func (t *ParseTestCase) Run(executable *interpreter_executable.InterpreterExecut
 		return fmt.Errorf("expected exit code %v, got %v", exitCode, result.ExitCode)
 	}
 
+	// ToDo: No need to test error output, only the exitCode is enough
 	if len(expectedStderr) > 0 {
 		expectedStderrLines := strings.Split(expectedStderr, "\n")
 		if err := assertions.NewStderrAssertion(expectedStderrLines).Run(result, logger); err != nil {
