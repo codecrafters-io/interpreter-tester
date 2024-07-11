@@ -25,7 +25,7 @@ $
 // Let's Go!
 +++
 #`
-	multiLineErrors4 := "({" + joinWith(random.RandomElementsFromArray(SingleCharOperators, 1), "") + joinWith(random.RandomElementsFromArray(Whitespace, 1), "") + joinWith(random.RandomElementsFromArray(LexicalErrors, 1), "") + "})"
+	multiLineErrors4 := "({" + random.RandomElementFromArray(SingleCharOperators) + random.RandomElementFromArray(Whitespace) + random.RandomElementFromArray(LexicalErrors) + "})"
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{multiLineErrors1, multiLineErrors2, multiLineErrors3, multiLineErrors4},
 	}

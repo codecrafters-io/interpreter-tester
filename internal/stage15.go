@@ -18,8 +18,8 @@ func testReservedWords(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	k1 := joinWith(random.RandomElementsFromArray(Keywords, 1), "")
-	k2 := joinWith(random.RandomElementsFromArray(slices.Concat(Keywords, KeywordsCapitalized), 1), "")
+	k1 := random.RandomElementFromArray(Keywords)
+	k2 := random.RandomElementFromArray(slices.Concat(Keywords, KeywordsCapitalized))
 	k3 := `var greeting = "Hello"
 if (greeting == "Hello") {
     return true
