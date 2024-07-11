@@ -4,6 +4,7 @@ import (
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
 
+	"github.com/codecrafters-io/tester-utils/random"
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
@@ -14,8 +15,8 @@ func testIdentifier(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	identifier1 := randomSelection(2, Identifiers[6:], " ")
-	identifier2 := "_123" + randomSelection(5, Identifiers, " ")
+	identifier1 := joinWith(random.RandomElementsFromArray(Identifiers[6:], 2), " ")
+	identifier2 := "_123" + joinWith(random.RandomElementsFromArray(Identifiers, 5), " ")
 	identifier3 := `message = "Hello, World!"
 number = 123`
 	identifier4 := `{
