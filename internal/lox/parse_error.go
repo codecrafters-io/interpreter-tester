@@ -23,10 +23,9 @@ func LogError(err error) {
 // MakeError renders an parsing error as a string
 func MakeError(tok Token, message string) error {
 	if tok.Type == EOF {
-		// TODO init EOF with line = 1 ?
-		return fmt.Errorf("[line %v] Error at end: %s", tok.Line.Int(), message)
+		return fmt.Errorf("[line %v] Error at end: %s", tok.Line, message)
 	}
-	return fmt.Errorf("[line %v] Error at '%s': %s", tok.Line.Int(), tok.Lexeme, message)
+	return fmt.Errorf("[line %v] Error at '%s': %s", tok.Line, tok.Lexeme, message)
 }
 
 func report(line int, where string, message string) {
