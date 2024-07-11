@@ -2,10 +2,11 @@ package testcases
 
 import (
 	"fmt"
-	"github.com/codecrafters-io/tester-utils/logger"
 	"os"
 	"regexp"
 	"strings"
+
+	"github.com/codecrafters-io/tester-utils/logger"
 )
 
 func createTempFileWithContents(contents string) (string, error) {
@@ -33,12 +34,12 @@ func createTempFileWithContents(contents string) (string, error) {
 	return tmpFile.Name(), nil
 }
 
-func (t *ParseTestCase) logReadableFileContents(logger *logger.Logger) {
+func logReadableFileContents(logger *logger.Logger, fileContents string) {
 	logger.Infof("Writing contents to ./test.lox:")
 
-	// If the file contents contain a singe %, it will be decoded as a format specifier
+	// If the file contents contain a single %, it will be decoded as a format specifier
 	// And it will add a `(MISSING)` to the log line
-	printableFileContents := strings.ReplaceAll(t.FileContents, "%", "%%")
+	printableFileContents := strings.ReplaceAll(fileContents, "%", "%%")
 	printableFileContents = strings.ReplaceAll(printableFileContents, "\t", "<|TAB|>")
 
 	regex1 := regexp.MustCompile("[ ]+\n")
