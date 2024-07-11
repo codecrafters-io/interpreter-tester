@@ -6,6 +6,7 @@ import (
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
 
+	"github.com/codecrafters-io/tester-utils/random"
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
@@ -16,8 +17,8 @@ func testSingleChars(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	shuffledString1 := randomStringFromCharacters(7, SingleCharOperators)
-	shuffledString2 := "({" + randomStringFromCharacters(5, slices.Concat(SingleCharOperators)) + "})"
+	shuffledString1 := joinWith(random.RandomElementsFromArray(SingleCharOperators, 7), "")
+	shuffledString2 := "({" + joinWith(random.RandomElementsFromArray(slices.Concat(SingleCharOperators), 5), "") + "})"
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{"+-", "++--**..,,;;", shuffledString1, shuffledString2},
 	}
