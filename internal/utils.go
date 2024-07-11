@@ -1,8 +1,10 @@
 package internal
 
 import (
-	"math/rand"
+	"fmt"
 	"strings"
+
+	"github.com/codecrafters-io/tester-utils/random"
 )
 
 func repeatSlice(slice []string, n int) []string {
@@ -13,20 +15,18 @@ func repeatSlice(slice []string, n int) []string {
 	return ret
 }
 
-func randomSelection(count int, characters []string, joinWith string) string {
-	selectedCharacters := make([]string, count)
-	for i := 0; i < count; i++ {
-		selectedCharacters[i] = characters[rand.Intn(len(characters))]
-	}
-	return strings.Join(selectedCharacters, joinWith)
+func getRandInt() string {
+	return fmt.Sprint(random.RandomInt(10, 100))
 }
 
-func randomStringFromCharacters(totalLength int, characters []string) string {
-	characterList := make([]string, totalLength)
-	for i := 0; i < totalLength; i++ {
-		characterList[i] = characters[rand.Intn(len(characters))]
-	}
+func joinWith[T any](arr []T, sep string) string {
+	return strings.Join(convertToStringSlice(arr), sep)
+}
 
-	shuffledString := strings.Join(characterList, "")
-	return shuffledString
+func convertToStringSlice[T any](arr []T) []string {
+	result := make([]string, len(arr))
+	for i, v := range arr {
+		result[i] = fmt.Sprintf("%v", v)
+	}
+	return result
 }

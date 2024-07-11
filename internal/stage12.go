@@ -1,9 +1,6 @@
 package internal
 
 import (
-	"fmt"
-	"strings"
-
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
 
@@ -24,16 +21,4 @@ func testStrings(stageHarness *test_case_harness.TestCaseHarness) error {
 		FileContents: []string{QuotedStrings[0], string1, string2, shuffledString2},
 	}
 	return tokenizeTestCases.RunAll(b, logger)
-}
-
-func joinWith[T any](arr []T, sep string) string {
-	return strings.Join(convertToStringSlice(arr), sep)
-}
-
-func convertToStringSlice[T any](arr []T) []string {
-	result := make([]string, len(arr))
-	for i, v := range arr {
-		result[i] = fmt.Sprintf("%v", v)
-	}
-	return result
 }
