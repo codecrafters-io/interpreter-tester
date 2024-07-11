@@ -1,3 +1,5 @@
+set -e
+
 # Install dart
 brew tap dart-lang/dart
 brew install dart@2.19

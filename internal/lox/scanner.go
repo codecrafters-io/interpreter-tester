@@ -42,9 +42,10 @@ func NewScanner(source string) Scanner {
 // The last token is always an EOF
 func (sc *Scanner) ScanTokens() ([]Token, []string) {
 	for !sc.isAtEnd() {
-		// we're at the beginning of the next lexeme
-		sc.start = sc.current
 		sc.scanToken()
+
+		// We're at the beginning of the next lexeme
+		sc.start = sc.current
 	}
 
 	sc.addToken(EOF)
