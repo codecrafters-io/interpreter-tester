@@ -70,4 +70,14 @@ test_scanning_w_jlox: build
 	]" \
 	$(shell pwd)/dist/main.out
 
+test_parsing_w_jlox: build
+	CODECRAFTERS_SUBMISSION_DIR=./craftinginterpreters/build/gen/chap06_parsing \
+	CODECRAFTERS_TEST_CASES_JSON="[ \
+		{\"slug\":\"xxx\",\"tester_log_prefix\":\"stage_201\",\"title\":\"Stage #201: Parsing: Booleans\"}, \
+		{\"slug\":\"yyy\",\"tester_log_prefix\":\"stage_202\",\"title\":\"Stage #202: Parsing: Number literals\"}, \
+		{\"slug\":\"zzz\",\"tester_log_prefix\":\"stage_203\",\"title\":\"Stage #203: Parsing: String literals\"}, \
+		{\"slug\":\"aaa\",\"tester_log_prefix\":\"stage_204\",\"title\":\"Stage #204: Parsing: Parentheses\"} \
+	]" \
+	$(shell pwd)/dist/main.out
+
 test_all: test_dev test_scanning_w_jlox

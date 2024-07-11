@@ -3,8 +3,6 @@ package testcases
 import (
 	"fmt"
 	"os"
-	"regexp"
-	"strings"
 
 	"github.com/codecrafters-io/interpreter-tester/internal/assertions"
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
@@ -29,21 +27,7 @@ func (t *TokenizeTestCase) Run(executable *interpreter_executable.InterpreterExe
 	}
 	defer os.Remove(tmpFileName)
 
-	logger.Infof("Writing contents to ./test.lox:")
-
-	// If the file contents contain a singe %, it will be decoded as a format specifier
-	// And it will add a `(MISSING)` to the log line
-	printableFileContents := strings.ReplaceAll(t.FileContents, "%", "%%")
-	printableFileContents = strings.ReplaceAll(printableFileContents, "\t", "<|TAB|>")
-
-	regex1 := regexp.MustCompile("[ ]+\n")
-	regex2 := regexp.MustCompile("[ ]+$")
-	printableFileContents = regex1.ReplaceAllString(printableFileContents, "<|SPACE|>")
-	printableFileContents = regex2.ReplaceAllString(printableFileContents, "<|SPACE|>")
-
-	for _, line := range strings.Split(printableFileContents, "\n") {
-		logger.Infof("[test.lox] " + line)
-	}
+	logReadableFileContents(logger, t.FileContents)
 
 	result, err := executable.Run("tokenize", tmpFileName)
 	if err != nil {
@@ -55,7 +39,6 @@ func (t *TokenizeTestCase) Run(executable *interpreter_executable.InterpreterExe
 		return fmt.Errorf("CodeCrafters internal error: %v", err)
 	}
 
-	// No matter what, we always expect the exit code to be 0
 	if result.ExitCode != exitCode {
 		return fmt.Errorf("expected exit code %v, got %v", exitCode, result.ExitCode)
 	}

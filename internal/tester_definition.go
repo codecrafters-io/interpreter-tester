@@ -69,5 +69,22 @@ var testerDefinition = tester_definition.TesterDefinition{
 			Slug:     "pq5",
 			TestFunc: testReservedWords,
 		},
+		// ToDo: Update slugs
+		{
+			Slug:     "xxx",
+			TestFunc: testParseBooleans,
+		},
+		{
+			Slug:     "yyy",
+			TestFunc: testParseNumbers,
+		},
+		{
+			Slug:     "zzz",
+			TestFunc: testParseStrings,
+		},
+		{
+			Slug:     "aaa",
+			TestFunc: testParseParens,
+		},
 	},
 }

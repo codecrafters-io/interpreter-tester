@@ -46,7 +46,9 @@ func (sc *Scanner) ScanTokens() ([]Token, []string) {
 		sc.start = sc.current
 		sc.scanToken()
 	}
-	sc.tokens = append(sc.tokens, Token{Type: EOF})
+	// When parsing the list of tokens, if there is no expression (just EOF)
+	// We need the error to point to line1, instead of line0
+	sc.tokens = append(sc.tokens, Token{Type: EOF, Line: 1})
 	return sc.tokens, sc.errors
 }
 

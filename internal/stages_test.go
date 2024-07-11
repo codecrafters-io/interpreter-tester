@@ -15,7 +15,14 @@ func TestStages(t *testing.T) {
 			UntilStageSlug:      "pq5",
 			CodePath:            "../craftinginterpreters/build/gen/chap04_scanning",
 			ExpectedExitCode:    0,
-			StdoutFixturePath:   "./test_helpers/fixtures/pass_all",
+			StdoutFixturePath:   "./test_helpers/fixtures/pass_scanning",
+			NormalizeOutputFunc: normalizeTesterOutput,
+		},
+		"pass_parsing_jlox": {
+			StageSlugs:          []string{"xxx", "yyy", "zzz", "aaa"},
+			CodePath:            "../craftinginterpreters/build/gen/chap06_parsing",
+			ExpectedExitCode:    0,
+			StdoutFixturePath:   "./test_helpers/fixtures/pass_parsing",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 	}
