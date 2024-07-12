@@ -42,19 +42,15 @@ func NewScanner(source string) Scanner {
 // The last token is always an EOF
 func (sc *Scanner) ScanTokens() ([]Token, []string) {
 	for !sc.isAtEnd() {
-		// we're at the beginning of the next lexeme
-		sc.start = sc.current
 		sc.scanToken()
-	}
-	// When parsing the list of tokens, if there is no expression (just EOF)
-	// We need the error to point to line1, instead of line0
-	sc.tokens = append(sc.tokens, Token{Type: EOF, Line: 1})
-	return sc.tokens, sc.errors
-}
 
-func (sc *Scanner) makeToken(tp Type) Token {
-	lexeme := sc.source[sc.start:sc.current]
-	return Token{Type: tp, Lexeme: lexeme, Line: sc.line}
+		// We're at the beginning of the next lexeme
+		sc.start = sc.current
+	}
+
+	sc.addToken(EOF)
+
+	return sc.tokens, sc.errors
 }
 
 func (sc *Scanner) addToken(tp Type) {
