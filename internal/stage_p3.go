@@ -14,10 +14,9 @@ func testParseStrings(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	randomWords := []string{"foo", "bar", "baz", "quz", "hello", "world"}
-	stringLiteral1 := "\"" + randomSelection(2, randomWords, " ") + "\""
-	stringLiteral2 := "\"'" + randomSelection(1, randomWords, "") + "'\""
-	stringLiteral3 := "\"// " + randomSelection(1, randomWords, "") + "\""
+	stringLiteral1 := "\"" + joinWith(random.RandomElementsFromArray(STRINGS, 2), "") + "\""
+	stringLiteral2 := "\"'" + random.RandomElementFromArray(STRINGS) + "'\""
+	stringLiteral3 := "\"// " + random.RandomElementFromArray(STRINGS) + "\""
 	stringLiteral4 := "\"/* " + fmt.Sprint(random.RandomInt(10, 100)) + " */\""
 
 	parseTestCase := testcases.MultiParseTestCase{
