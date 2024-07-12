@@ -51,30 +51,30 @@ Debug = true
 [33m[stage-8] [0m[94mRunning tests for Stage #8: th5[0m
 [33m[stage-8] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-8] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-1] [0m[94m[test.lox] "hellobar"[0m
+[33m[stage-8] [test-1] [0m[94m[test.lox] "foobar"[0m
 [33m[stage-8] [test-1] [0m[94m$ ./your_program.sh parse test.lox[0m
-[33m[your_program] [0mhellobar
+[33m[your_program] [0mfoobar
 [33m[stage-8] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-8] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-8] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-2] [0m[94m[test.lox] "'baz'"[0m
+[33m[stage-8] [test-2] [0m[94m[test.lox] "'world'"[0m
 [33m[stage-8] [test-2] [0m[94m$ ./your_program.sh parse test.lox[0m
-[33m[your_program] [0m'baz'
+[33m[your_program] [0m'world'
 [33m[stage-8] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-8] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-8] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-3] [0m[94m[test.lox] "// quz"[0m
+[33m[stage-8] [test-3] [0m[94m[test.lox] "// hello"[0m
 [33m[stage-8] [test-3] [0m[94m$ ./your_program.sh parse test.lox[0m
-[33m[your_program] [0m// quz
+[33m[your_program] [0m// hello
 [33m[stage-8] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-8] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-8] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-4] [0m[94m[test.lox] "/* 12 */"[0m
+[33m[stage-8] [test-4] [0m[94m[test.lox] "/* 92 */"[0m
 [33m[stage-8] [test-4] [0m[94m$ ./your_program.sh parse test.lox[0m
-[33m[your_program] [0m/* 12 */
+[33m[your_program] [0m/* 92 */
 [33m[stage-8] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-8] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [0m[92mTest passed.[0m
@@ -120,16 +120,16 @@ Debug = true
 [33m[stage-6] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-6] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-6] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-2] [0m[94m[test.lox] -61[0m
+[33m[stage-6] [test-2] [0m[94m[test.lox] -90[0m
 [33m[stage-6] [test-2] [0m[94m$ ./your_program.sh parse test.lox[0m
-[33m[your_program] [0m(- 61.0)
+[33m[your_program] [0m(- 90.0)
 [33m[stage-6] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-6] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-6] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-6] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-3] [0m[94m[test.lox] !!true[0m
+[33m[stage-6] [test-3] [0m[94m[test.lox] !!false[0m
 [33m[stage-6] [test-3] [0m[94m$ ./your_program.sh parse test.lox[0m
-[33m[your_program] [0m(! (! true))
+[33m[your_program] [0m(! (! false))
 [33m[stage-6] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-6] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-6] [test-4] [0m[94mRunning test case: 4[0m
@@ -144,30 +144,30 @@ Debug = true
 [33m[stage-5] [0m[94mRunning tests for Stage #5: wa9[0m
 [33m[stage-5] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-5] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test-1] [0m[94m[test.lox] 80 * 80 / 52[0m
+[33m[stage-5] [test-1] [0m[94m[test.lox] 30 * 19 / 96[0m
 [33m[stage-5] [test-1] [0m[94m$ ./your_program.sh parse test.lox[0m
-[33m[your_program] [0m(/ (* 80.0 80.0) 52.0)
+[33m[your_program] [0m(/ (* 30.0 19.0) 96.0)
 [33m[stage-5] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-5] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-5] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-5] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test-2] [0m[94m[test.lox] 66 / 34 / 32[0m
+[33m[stage-5] [test-2] [0m[94m[test.lox] 42 / 53 / 67[0m
 [33m[stage-5] [test-2] [0m[94m$ ./your_program.sh parse test.lox[0m
-[33m[your_program] [0m(/ (/ 66.0 34.0) 32.0)
+[33m[your_program] [0m(/ (/ 42.0 53.0) 67.0)
 [33m[stage-5] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-5] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-5] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-5] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test-3] [0m[94m[test.lox] 56 * 70 * 33 / 92[0m
+[33m[stage-5] [test-3] [0m[94m[test.lox] 43 * 15 * 70 / 99[0m
 [33m[stage-5] [test-3] [0m[94m$ ./your_program.sh parse test.lox[0m
-[33m[your_program] [0m(/ (* (* 56.0 70.0) 33.0) 92.0)
+[33m[your_program] [0m(/ (* (* 43.0 15.0) 70.0) 99.0)
 [33m[stage-5] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-5] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-5] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-5] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test-4] [0m[94m[test.lox] (75 * -78 / (90 * 20))[0m
+[33m[stage-5] [test-4] [0m[94m[test.lox] (91 * -10 / (69 * 52))[0m
 [33m[stage-5] [test-4] [0m[94m$ ./your_program.sh parse test.lox[0m
-[33m[your_program] [0m(group (/ (* 75.0 (- 78.0)) (group (* 90.0 20.0))))
+[33m[your_program] [0m(group (/ (* 91.0 (- 10.0)) (group (* 69.0 52.0))))
 [33m[stage-5] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-5] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-5] [0m[92mTest passed.[0m
@@ -182,23 +182,23 @@ Debug = true
 [33m[stage-4] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-4] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-2] [0m[94m[test.lox] 16 - 12 - 53[0m
+[33m[stage-4] [test-2] [0m[94m[test.lox] 20 - 95 - 89[0m
 [33m[stage-4] [test-2] [0m[94m$ ./your_program.sh parse test.lox[0m
-[33m[your_program] [0m(- (- 16.0 12.0) 53.0)
+[33m[your_program] [0m(- (- 20.0 95.0) 89.0)
 [33m[stage-4] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-4] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-4] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-3] [0m[94m[test.lox] 30 + 19 - 96[0m
+[33m[stage-4] [test-3] [0m[94m[test.lox] 64 + 28 - 32[0m
 [33m[stage-4] [test-3] [0m[94m$ ./your_program.sh parse test.lox[0m
-[33m[your_program] [0m(- (+ 30.0 19.0) 96.0)
+[33m[your_program] [0m(- (+ 64.0 28.0) 32.0)
 [33m[stage-4] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-4] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-4] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-4] [0m[94m[test.lox] -(-42 + 53) * (67 * 43) / (15 + 70)[0m
+[33m[stage-4] [test-4] [0m[94m[test.lox] -(-19 + 80) * (32 * 54) / (34 + 77)[0m
 [33m[stage-4] [test-4] [0m[94m$ ./your_program.sh parse test.lox[0m
-[33m[your_program] [0m(/ (* (- (group (+ (- 42.0) 53.0))) (group (* 67.0 43.0))) (group (+ 15.0 70.0)))
+[33m[your_program] [0m(/ (* (- (group (+ (- 19.0) 80.0))) (group (* 32.0 54.0))) (group (+ 34.0 77.0)))
 [33m[stage-4] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-4] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [0m[92mTest passed.[0m
@@ -206,30 +206,30 @@ Debug = true
 [33m[stage-3] [0m[94mRunning tests for Stage #3: uh4[0m
 [33m[stage-3] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-3] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-1] [0m[94m[test.lox] 99 > 8[0m
+[33m[stage-3] [test-1] [0m[94m[test.lox] 67 > -15[0m
 [33m[stage-3] [test-1] [0m[94m$ ./your_program.sh parse test.lox[0m
-[33m[your_program] [0m(> 99.0 8.0)
+[33m[your_program] [0m(> 67.0 (- 15.0))
 [33m[stage-3] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-3] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-3] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-3] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-2] [0m[94m[test.lox] 91 <= 190[0m
+[33m[stage-3] [test-2] [0m[94m[test.lox] 82 <= 149[0m
 [33m[stage-3] [test-2] [0m[94m$ ./your_program.sh parse test.lox[0m
-[33m[your_program] [0m(<= 91.0 190.0)
+[33m[your_program] [0m(<= 82.0 149.0)
 [33m[stage-3] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-3] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-3] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-3] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-3] [0m[94m[test.lox] 99 < 190 < 281[0m
+[33m[stage-3] [test-3] [0m[94m[test.lox] 67 < 149 < 231[0m
 [33m[stage-3] [test-3] [0m[94m$ ./your_program.sh parse test.lox[0m
-[33m[your_program] [0m(< (< 99.0 190.0) 281.0)
+[33m[your_program] [0m(< (< 67.0 149.0) 231.0)
 [33m[stage-3] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-3] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-3] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-3] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-4] [0m[94m[test.lox] (10 - 69) >= -(52 / 20 + 95)[0m
+[33m[stage-3] [test-4] [0m[94m[test.lox] (83 - 80) >= -(80 / 80 + 19)[0m
 [33m[stage-3] [test-4] [0m[94m$ ./your_program.sh parse test.lox[0m
-[33m[your_program] [0m(>= (group (- 10.0 69.0)) (- (group (+ (/ 52.0 20.0) 95.0))))
+[33m[your_program] [0m(>= (group (- 83.0 80.0)) (- (group (+ (/ 80.0 80.0) 19.0))))
 [33m[stage-3] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-3] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-3] [0m[92mTest passed.[0m
@@ -237,9 +237,9 @@ Debug = true
 [33m[stage-2] [0m[94mRunning tests for Stage #2: ht8[0m
 [33m[stage-2] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-2] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-1] [0m[94m[test.lox] "baz"!="bar"[0m
+[33m[stage-2] [test-1] [0m[94m[test.lox] "bar"!="hello"[0m
 [33m[stage-2] [test-1] [0m[94m$ ./your_program.sh parse test.lox[0m
-[33m[your_program] [0m(!= baz bar)
+[33m[your_program] [0m(!= bar hello)
 [33m[stage-2] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-2] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [test-2] [0m[94mRunning test case: 2[0m
@@ -251,16 +251,16 @@ Debug = true
 [33m[stage-2] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-2] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-3] [0m[94m[test.lox] 32 == 19[0m
+[33m[stage-2] [test-3] [0m[94m[test.lox] 30 == 89[0m
 [33m[stage-2] [test-3] [0m[94m$ ./your_program.sh parse test.lox[0m
-[33m[your_program] [0m(== 32.0 19.0)
+[33m[your_program] [0m(== 30.0 89.0)
 [33m[stage-2] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-2] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-2] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-4] [0m[94m[test.lox] (80 != 32) == ((-54 + 34) >= (77 * 67))[0m
+[33m[stage-2] [test-4] [0m[94m[test.lox] (29 != 17) == ((-54 + 47) >= (83 * 88))[0m
 [33m[stage-2] [test-4] [0m[94m$ ./your_program.sh parse test.lox[0m
-[33m[your_program] [0m(== (group (!= 80.0 32.0)) (group (>= (group (+ (- 54.0) 34.0)) (group (* 77.0 67.0)))))
+[33m[your_program] [0m(== (group (!= 29.0 17.0)) (group (>= (group (+ (- 54.0) 47.0)) (group (* 83.0 88.0)))))
 [33m[stage-2] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-2] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [0m[92mTest passed.[0m
@@ -276,7 +276,7 @@ Debug = true
 [33m[stage-1] [test-1] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-1] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-1] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-1] [test-2] [0m[94m[test.lox] (83 +)[0m
+[33m[stage-1] [test-2] [0m[94m[test.lox] (91 +)[0m
 [33m[stage-1] [test-2] [0m[94m$ ./your_program.sh parse test.lox[0m
 [33m[your_program] [0m[line 1] Error at ')': Expect expression.
 [33m[stage-1] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
