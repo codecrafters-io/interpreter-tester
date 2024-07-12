@@ -2,7 +2,7 @@ module github.com/codecrafters-io/interpreter-tester
 
 go 1.22
 
-require github.com/codecrafters-io/tester-utils v0.2.32
+require github.com/codecrafters-io/tester-utils v0.2.33
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
