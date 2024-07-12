@@ -14,9 +14,9 @@ func testParseTerms(stageHarness *test_case_harness.TestCaseHarness) error {
 	logger := stageHarness.Logger
 
 	termExpr1 := "\"hello\"" + "\"world\""
-	termExpr2 := fmt.Sprintf("%s - %s - %s", getRandInt(), getRandInt(), getRandInt())
-	termExpr3 := fmt.Sprintf("%s + %s - %s", getRandInt(), getRandInt(), getRandInt())
-	termExpr4 := fmt.Sprintf("-(-%s + %s) * (%s * %s) / (%s + %s)", getRandInt(), getRandInt(), getRandInt(), getRandInt(), getRandInt(), getRandInt())
+	termExpr2 := fmt.Sprintf("%d - %d - %d", getRandInt(), getRandInt(), getRandInt())
+	termExpr3 := fmt.Sprintf("%d + %d - %d", getRandInt(), getRandInt(), getRandInt())
+	termExpr4 := fmt.Sprintf("-(-%d + %d) * (%d * %d) / (%d + %d)", getRandInt(), getRandInt(), getRandInt(), getRandInt(), getRandInt(), getRandInt())
 	parseTestCase := testcases.MultiParseTestCase{
 		FileContents: []string{termExpr1, termExpr2, termExpr3, termExpr4},
 	}

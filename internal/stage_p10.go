@@ -15,7 +15,7 @@ func testParseErrors(stageHarness *test_case_harness.TestCaseHarness) error {
 	logger := stageHarness.Logger
 
 	error1 := fmt.Sprintf("\"%s", random.RandomElementFromArray(STRINGS))
-	error2 := fmt.Sprintf("(%s +)", getRandInt())
+	error2 := fmt.Sprintf("(%d +)", getRandInt())
 	error3 := "+"
 	parseTestCase := testcases.MultiParseTestCase{
 		FileContents: []string{error1, error2, error3},

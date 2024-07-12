@@ -13,10 +13,10 @@ func testParseFactor(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	factorExpr1 := fmt.Sprintf("%s * %s / %s", getRandInt(), getRandInt(), getRandInt())
-	factorExpr2 := fmt.Sprintf("%s / %s / %s", getRandInt(), getRandInt(), getRandInt())
-	factorExpr3 := fmt.Sprintf("%s * %s * %s / %s", getRandInt(), getRandInt(), getRandInt(), getRandInt())
-	factorExpr4 := fmt.Sprintf("(%s * -%s / (%s * %s))", getRandInt(), getRandInt(), getRandInt(), getRandInt())
+	factorExpr1 := fmt.Sprintf("%d * %d / %d", getRandInt(), getRandInt(), getRandInt())
+	factorExpr2 := fmt.Sprintf("%d / %d / %d", getRandInt(), getRandInt(), getRandInt())
+	factorExpr3 := fmt.Sprintf("%d * %d * %d / %d", getRandInt(), getRandInt(), getRandInt(), getRandInt())
+	factorExpr4 := fmt.Sprintf("(%d * -%d / (%d * %d))", getRandInt(), getRandInt(), getRandInt(), getRandInt())
 
 	parseTestCase := testcases.MultiParseTestCase{
 		FileContents: []string{factorExpr1, factorExpr2, factorExpr3, factorExpr4},
