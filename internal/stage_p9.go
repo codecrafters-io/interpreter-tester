@@ -15,8 +15,8 @@ func testParseEquality(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	randomWord := random.RandomElementFromArray(QUOTEDSTRINGS)
-	equalityExpr1 := strings.Join(random.RandomElementsFromArray(QUOTEDSTRINGS, 2), "!=")
+	randomWord := random.RandomElementFromArray(QUOTED_STRINGS)
+	equalityExpr1 := strings.Join(random.RandomElementsFromArray(QUOTED_STRINGS, 2), "!=")
 	equalityExpr2 := randomWord + " == " + randomWord
 	equalityExpr3 := fmt.Sprintf("%d == %d", getRandInt(), getRandInt())
 	equalityExpr4 := fmt.Sprintf("(%d != %d) == ((-%d + %d) >= (%d * %d))", getRandInt(), getRandInt(), getRandInt(), getRandInt(), getRandInt(), getRandInt())

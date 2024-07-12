@@ -17,7 +17,7 @@ func testRelational(stageHarness *test_case_harness.TestCaseHarness) error {
 	logger := stageHarness.Logger
 
 	shuffledString1 := strings.Join(random.RandomElementsFromArray(RELATIONALS, 5), "")
-	shuffledString2 := "(){" + strings.Join(random.RandomElementsFromArray(slices.Concat(LEXICALERRORS, EQUALS, NEGATIONS, RELATIONALS), 3), "") + "}"
+	shuffledString2 := "(){" + strings.Join(random.RandomElementsFromArray(slices.Concat(LEXICAL_ERRORS, EQUALS, NEGATIONS, RELATIONALS), 3), "") + "}"
 
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{">=", "<<<=>>>=", shuffledString1, shuffledString2},

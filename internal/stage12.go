@@ -15,12 +15,12 @@ func testStrings(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	string1 := random.RandomElementFromArray(QUOTEDSTRINGS) + " " + "\"unterminated"
+	string1 := random.RandomElementFromArray(QUOTED_STRINGS) + " " + "\"unterminated"
 	string2 := `"foo 	bar 123 // hello world!"`
-	shuffledString2 := strings.Join(random.RandomElementsFromArray(QUOTEDSTRINGS, 2), "+") + `"perseverance" && "Success" != "Failure"`
+	shuffledString2 := strings.Join(random.RandomElementsFromArray(QUOTED_STRINGS, 2), "+") + `"perseverance" && "Success" != "Failure"`
 
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
-		FileContents: []string{QUOTEDSTRINGS[0], string1, string2, shuffledString2},
+		FileContents: []string{QUOTED_STRINGS[0], string1, string2, shuffledString2},
 	}
 	return tokenizeTestCases.RunAll(b, logger)
 }

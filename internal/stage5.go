@@ -16,8 +16,8 @@ func testErrors(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	shuffledString1 := strings.Join(random.RandomElementsFromArray(LEXICALERRORS, 5), "")
-	shuffledString2 := "{(" + strings.Join(random.RandomElementsFromArray(slices.Concat(SINGLECHAROPERATORS, LEXICALERRORS), 5), "") + ")}"
+	shuffledString1 := strings.Join(random.RandomElementsFromArray(LEXICAL_ERRORS, 5), "")
+	shuffledString2 := "{(" + strings.Join(random.RandomElementsFromArray(slices.Concat(SINGLE_CHAR_OPERATORS, LEXICAL_ERRORS), 5), "") + ")}"
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{"@", ",.$(#", shuffledString1, shuffledString2},
 	}

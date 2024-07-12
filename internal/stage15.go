@@ -16,7 +16,7 @@ func testReservedWords(stageHarness *test_case_harness.TestCaseHarness) error {
 	logger := stageHarness.Logger
 
 	k1 := random.RandomElementFromArray(KEYWORDS)
-	k2 := random.RandomElementFromArray(slices.Concat(KEYWORDS, CAPITALIZEDKEYWORDS))
+	k2 := random.RandomElementFromArray(slices.Concat(KEYWORDS, CAPITALIZED_KEYWORDS))
 	k3 := `var greeting = "Hello"
 if (greeting == "Hello") {
     return true
