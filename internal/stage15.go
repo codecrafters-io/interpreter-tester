@@ -10,16 +10,13 @@ import (
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
-var Keywords = []string{"and", "class", "else", "false", "for", "fun", "if", "nil", "or", "print", "return", "super", "this", "true", "var", "while"}
-var KeywordsCapitalized = []string{"AND", "CLASS", "ELSE", "FALSE", "FOR", "FUN", "IF", "NIL", "OR", "PRINT", "RETURN", "SUPER", "THIS", "TRUE", "VAR", "WHILE"}
-
 func testReservedWords(stageHarness *test_case_harness.TestCaseHarness) error {
 	b := interpreter_executable.NewInterpreterExecutable(stageHarness)
 
 	logger := stageHarness.Logger
 
-	k1 := random.RandomElementFromArray(Keywords)
-	k2 := random.RandomElementFromArray(slices.Concat(Keywords, KeywordsCapitalized))
+	k1 := random.RandomElementFromArray(KEYWORDS)
+	k2 := random.RandomElementFromArray(slices.Concat(KEYWORDS, CAPITALIZEDKEYWORDS))
 	k3 := `var greeting = "Hello"
 if (greeting == "Hello") {
     return true

@@ -10,15 +10,13 @@ import (
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
-var Relational = []string{"<", ">", "<=", ">="}
-
 func testRelational(stageHarness *test_case_harness.TestCaseHarness) error {
 	b := interpreter_executable.NewInterpreterExecutable(stageHarness)
 
 	logger := stageHarness.Logger
 
-	shuffledString1 := joinWith(random.RandomElementsFromArray(Relational, 5), "")
-	shuffledString2 := "(){" + joinWith(random.RandomElementsFromArray(slices.Concat(LexicalErrors, Equals, Negation, Relational), 3), "") + "}"
+	shuffledString1 := joinWith(random.RandomElementsFromArray(RELATIONALS, 5), "")
+	shuffledString2 := "(){" + joinWith(random.RandomElementsFromArray(slices.Concat(LEXICALERRORS, EQUALS, NEGATIONS, RELATIONALS), 3), "") + "}"
 
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{">=", "<<<=>>>=", shuffledString1, shuffledString2},

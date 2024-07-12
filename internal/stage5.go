@@ -10,15 +10,13 @@ import (
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
-var LexicalErrors = []string{"@", "$", "#", "%"}
-
 func testErrors(stageHarness *test_case_harness.TestCaseHarness) error {
 	b := interpreter_executable.NewInterpreterExecutable(stageHarness)
 
 	logger := stageHarness.Logger
 
-	shuffledString1 := joinWith(random.RandomElementsFromArray(LexicalErrors, 5), "")
-	shuffledString2 := "{(" + joinWith(random.RandomElementsFromArray(slices.Concat(SingleCharOperators, LexicalErrors), 5), "") + ")}"
+	shuffledString1 := joinWith(random.RandomElementsFromArray(LEXICALERRORS, 5), "")
+	shuffledString2 := "{(" + joinWith(random.RandomElementsFromArray(slices.Concat(SINGLECHAROPERATORS, LEXICALERRORS), 5), "") + ")}"
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{"@", ",.$(#", shuffledString1, shuffledString2},
 	}

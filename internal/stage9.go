@@ -10,8 +10,6 @@ import (
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
-var Division = []string{"/"}
-
 func testComments(stageHarness *test_case_harness.TestCaseHarness) error {
 	b := interpreter_executable.NewInterpreterExecutable(stageHarness)
 
@@ -21,7 +19,7 @@ func testComments(stageHarness *test_case_harness.TestCaseHarness) error {
 	comment1 := "//Comment"
 	comment2 := "(///Unicode:£§᯽☺♣)"
 	division1 := "/"
-	division2 := "({(" + joinWith(random.RandomElementsFromArray(slices.Concat(SingleCharOperators, LexicalErrors, Equals, Negation, Relational), 3), "") + ")})" + "//Comment"
+	division2 := "({(" + joinWith(random.RandomElementsFromArray(slices.Concat(SINGLECHAROPERATORS, LEXICALERRORS, EQUALS, NEGATIONS, RELATIONALS), 3), "") + ")})" + "//Comment"
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{comment1, comment2, division1, division2},
 	}

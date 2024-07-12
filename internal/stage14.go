@@ -8,15 +8,13 @@ import (
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
-var Identifiers = []string{"_hello", "world_", "f00", "6ar", "6az", "foo", "bar", "baz"}
-
 func testIdentifier(stageHarness *test_case_harness.TestCaseHarness) error {
 	b := interpreter_executable.NewInterpreterExecutable(stageHarness)
 
 	logger := stageHarness.Logger
 
-	identifier1 := joinWith(random.RandomElementsFromArray(Identifiers[6:], 2), " ")
-	identifier2 := "_123" + joinWith(random.RandomElementsFromArray(Identifiers, 5), " ")
+	identifier1 := joinWith(random.RandomElementsFromArray(IDENTIFIERS[6:], 2), " ")
+	identifier2 := "_123" + joinWith(random.RandomElementsFromArray(IDENTIFIERS, 5), " ")
 	identifier3 := `message = "Hello, World!"
 number = 123`
 	identifier4 := `{

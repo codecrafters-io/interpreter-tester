@@ -10,14 +10,12 @@ import (
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
-var Equals = []string{"=", "=="}
-
 func testEquality(stageHarness *test_case_harness.TestCaseHarness) error {
 	b := interpreter_executable.NewInterpreterExecutable(stageHarness)
 
 	logger := stageHarness.Logger
 
-	shuffledString1 := "((" + joinWith(random.RandomElementsFromArray(slices.Concat(LexicalErrors, Equals), 5), "") + "))"
+	shuffledString1 := "((" + joinWith(random.RandomElementsFromArray(slices.Concat(LEXICALERRORS, EQUALS), 5), "") + "))"
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{"=", "===", "({=}){=====}", shuffledString1},
 	}
