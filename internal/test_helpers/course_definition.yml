@@ -702,11 +702,23 @@ stages:
       In this stage, you'll implement support for scanning reserved words.
 
     FIXME: Temporary hack, to make sure `make test` passes.
+  - slug: "sc2"
 
-  - slug: "xxx"
+  - slug: "ra8"
 
-  - slug: "yyy"
+  - slug: "th5"
 
-  - slug: "zzz"
+  - slug: "xe6"
 
-  - slug: "aaa"
+  - slug: "mq1"
+
+  - slug: "wa9"
+
+  - slug: "yf2"
+
+  - slug: "uh4"
+
+  - slug: "ht8"
+
+  - slug: "wz8"
+
