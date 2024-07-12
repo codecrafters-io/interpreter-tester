@@ -1,6 +1,8 @@
 package internal
 
 import (
+	"strings"
+
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
 
@@ -13,8 +15,8 @@ func testParen(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	shuffledString1 := joinWith(random.RandomElementsFromArray(PARENS, 5), "")
-	shuffledString2 := joinWith(random.RandomElementsFromArray(PARENS, 7), "")
+	shuffledString1 := strings.Join(random.RandomElementsFromArray(PARENS, 5), "")
+	shuffledString2 := strings.Join(random.RandomElementsFromArray(PARENS, 7), "")
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{"(", "))", shuffledString1, shuffledString2},
 	}

@@ -2,6 +2,7 @@ package internal
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
@@ -14,7 +15,7 @@ func testParseStrings(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	stringLiteral1 := "\"" + joinWith(random.RandomElementsFromArray(STRINGS, 2), "") + "\""
+	stringLiteral1 := "\"" + strings.Join(random.RandomElementsFromArray(STRINGS, 2), "") + "\""
 	stringLiteral2 := "\"'" + random.RandomElementFromArray(STRINGS) + "'\""
 	stringLiteral3 := "\"// " + random.RandomElementFromArray(STRINGS) + "\""
 	stringLiteral4 := "\"/* " + fmt.Sprint(random.RandomInt(10, 100)) + " */\""

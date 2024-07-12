@@ -2,6 +2,7 @@ package internal
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
@@ -15,7 +16,7 @@ func testParseEquality(stageHarness *test_case_harness.TestCaseHarness) error {
 	logger := stageHarness.Logger
 
 	randomWord := random.RandomElementFromArray(QUOTEDSTRINGS)
-	equalityExpr1 := joinWith(random.RandomElementsFromArray(QUOTEDSTRINGS, 2), "!=")
+	equalityExpr1 := strings.Join(random.RandomElementsFromArray(QUOTEDSTRINGS, 2), "!=")
 	equalityExpr2 := randomWord + " == " + randomWord
 	equalityExpr3 := fmt.Sprintf("%d == %d", getRandInt(), getRandInt())
 	equalityExpr4 := fmt.Sprintf("(%d != %d) == ((-%d + %d) >= (%d * %d))", getRandInt(), getRandInt(), getRandInt(), getRandInt(), getRandInt(), getRandInt())

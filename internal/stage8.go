@@ -2,6 +2,7 @@ package internal
 
 import (
 	"slices"
+	"strings"
 
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
@@ -15,8 +16,8 @@ func testRelational(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	shuffledString1 := joinWith(random.RandomElementsFromArray(RELATIONALS, 5), "")
-	shuffledString2 := "(){" + joinWith(random.RandomElementsFromArray(slices.Concat(LEXICALERRORS, EQUALS, NEGATIONS, RELATIONALS), 3), "") + "}"
+	shuffledString1 := strings.Join(random.RandomElementsFromArray(RELATIONALS, 5), "")
+	shuffledString2 := "(){" + strings.Join(random.RandomElementsFromArray(slices.Concat(LEXICALERRORS, EQUALS, NEGATIONS, RELATIONALS), 3), "") + "}"
 
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{">=", "<<<=>>>=", shuffledString1, shuffledString2},

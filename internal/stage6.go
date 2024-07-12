@@ -2,6 +2,7 @@ package internal
 
 import (
 	"slices"
+	"strings"
 
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
@@ -15,7 +16,7 @@ func testEquality(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	shuffledString1 := "((" + joinWith(random.RandomElementsFromArray(slices.Concat(LEXICALERRORS, EQUALS), 5), "") + "))"
+	shuffledString1 := "((" + strings.Join(random.RandomElementsFromArray(slices.Concat(LEXICALERRORS, EQUALS), 5), "") + "))"
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{"=", "===", "({=}){=====}", shuffledString1},
 	}

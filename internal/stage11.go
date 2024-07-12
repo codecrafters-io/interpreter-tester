@@ -2,6 +2,7 @@ package internal
 
 import (
 	"slices"
+	"strings"
 
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
@@ -17,7 +18,7 @@ func testErrorsMulti(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	multiLineErrors1 := `() 
 	@`
-	multiLineErrors2 := joinWith(random.RandomElementsFromArray(slices.Concat(LEXICALERRORS, WHITESPACES), 3), "")
+	multiLineErrors2 := strings.Join(random.RandomElementsFromArray(slices.Concat(LEXICALERRORS, WHITESPACES), 3), "")
 	multiLineErrors3 := `()  #	{}
 @
 $

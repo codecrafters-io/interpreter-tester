@@ -1,6 +1,8 @@
 package internal
 
 import (
+	"strings"
+
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
 
@@ -13,8 +15,8 @@ func testIdentifier(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	identifier1 := joinWith(random.RandomElementsFromArray(IDENTIFIERS[6:], 2), " ")
-	identifier2 := "_123" + joinWith(random.RandomElementsFromArray(IDENTIFIERS, 5), " ")
+	identifier1 := strings.Join(random.RandomElementsFromArray(IDENTIFIERS[6:], 2), " ")
+	identifier2 := "_123" + strings.Join(random.RandomElementsFromArray(IDENTIFIERS, 5), " ")
 	identifier3 := `message = "Hello, World!"
 number = 123`
 	identifier4 := `{

@@ -2,6 +2,7 @@ package internal
 
 import (
 	"slices"
+	"strings"
 
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
@@ -17,8 +18,8 @@ func testWhitespace(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	ws1 := SP
 	ws2 := SP + TAB + LF + SP
-	ws3 := "{" + joinWith(random.RandomElementsFromArray(WHITESPACES, 2), "") + "}" + LF + "((" + joinWith(random.RandomElementsFromArray(slices.Concat(SINGLECHAROPERATORS, WHITESPACES), 5), "") + "))"
-	ws4 := "{" + joinWith(random.RandomElementsFromArray(WHITESPACES, 5), "") + "}" + LF + "((" + joinWith(random.RandomElementsFromArray(slices.Concat(SINGLECHAROPERATORS, RELATIONALS, WHITESPACES), 5), "") + "))"
+	ws3 := "{" + strings.Join(random.RandomElementsFromArray(WHITESPACES, 2), "") + "}" + LF + "((" + strings.Join(random.RandomElementsFromArray(slices.Concat(SINGLECHAROPERATORS, WHITESPACES), 5), "") + "))"
+	ws4 := "{" + strings.Join(random.RandomElementsFromArray(WHITESPACES, 5), "") + "}" + LF + "((" + strings.Join(random.RandomElementsFromArray(slices.Concat(SINGLECHAROPERATORS, RELATIONALS, WHITESPACES), 5), "") + "))"
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{ws1, ws2, ws3, ws4},
 	}
