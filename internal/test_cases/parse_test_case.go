@@ -3,7 +3,6 @@ package testcases
 import (
 	"fmt"
 	"os"
-	"strings"
 
 	"github.com/codecrafters-io/interpreter-tester/internal/assertions"
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
@@ -35,18 +34,13 @@ func (t *ParseTestCase) Run(executable *interpreter_executable.InterpreterExecut
 		return err
 	}
 
-	expectedStdout, exitCode, expectedStderr := lox.Parse(t.FileContents)
+	expectedStdout, exitCode, _ := lox.Parse(t.FileContents)
 	if result.ExitCode != exitCode {
 		return fmt.Errorf("expected exit code %v, got %v", exitCode, result.ExitCode)
 	}
 
-	// ToDo: No need to test error output, only the exitCode is enough
-	if len(expectedStderr) > 0 {
-		expectedStderrLines := strings.Split(expectedStderr, "\n")
-		if err := assertions.NewStderrAssertion(expectedStderrLines).Run(result, logger); err != nil {
-			return err
-		}
-	}
+	// We are intentionally not testing the errors lines printed to stderr
+	// We will just check the exitCode here
 
 	expectedStdoutLines := []string{expectedStdout}
 	if err = assertions.NewStdoutAssertion(expectedStdoutLines).Run(result, logger); err != nil {
