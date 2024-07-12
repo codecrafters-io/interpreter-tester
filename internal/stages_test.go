@@ -19,7 +19,7 @@ func TestStages(t *testing.T) {
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 		"pass_parsing_jlox": {
-			StageSlugs:          []string{"xxx", "yyy", "zzz", "aaa"},
+			StageSlugs:          []string{"sc2", "ra8", "th5", "xe6", "mq1", "wa9", "yf2", "uh4", "ht8", "wz8"},
 			CodePath:            "../craftinginterpreters/build/gen/chap06_parsing",
 			ExpectedExitCode:    0,
 			StdoutFixturePath:   "./test_helpers/fixtures/pass_parsing",

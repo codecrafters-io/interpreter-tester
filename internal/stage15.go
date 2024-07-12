@@ -6,19 +6,17 @@ import (
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
 
+	"github.com/codecrafters-io/tester-utils/random"
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
-
-var Keywords = []string{"and", "class", "else", "false", "for", "fun", "if", "nil", "or", "print", "return", "super", "this", "true", "var", "while"}
-var KeywordsCapitalized = []string{"AND", "CLASS", "ELSE", "FALSE", "FOR", "FUN", "IF", "NIL", "OR", "PRINT", "RETURN", "SUPER", "THIS", "TRUE", "VAR", "WHILE"}
 
 func testReservedWords(stageHarness *test_case_harness.TestCaseHarness) error {
 	b := interpreter_executable.NewInterpreterExecutable(stageHarness)
 
 	logger := stageHarness.Logger
 
-	k1 := randomSelection(1, Keywords, "")
-	k2 := randomSelection(5, slices.Concat(Keywords, KeywordsCapitalized), " ")
+	k1 := random.RandomElementFromArray(KEYWORDS)
+	k2 := random.RandomElementFromArray(slices.Concat(KEYWORDS, CAPITALIZED_KEYWORDS))
 	k3 := `var greeting = "Hello"
 if (greeting == "Hello") {
     return true

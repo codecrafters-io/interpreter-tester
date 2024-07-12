@@ -73,11 +73,17 @@ test_scanning_w_jlox: build
 test_parsing_w_jlox: build
 	CODECRAFTERS_SUBMISSION_DIR=./craftinginterpreters/build/gen/chap06_parsing \
 	CODECRAFTERS_TEST_CASES_JSON="[ \
-		{\"slug\":\"xxx\",\"tester_log_prefix\":\"stage_201\",\"title\":\"Stage #201: Parsing: Booleans\"}, \
-		{\"slug\":\"yyy\",\"tester_log_prefix\":\"stage_202\",\"title\":\"Stage #202: Parsing: Number literals\"}, \
-		{\"slug\":\"zzz\",\"tester_log_prefix\":\"stage_203\",\"title\":\"Stage #203: Parsing: String literals\"}, \
-		{\"slug\":\"aaa\",\"tester_log_prefix\":\"stage_204\",\"title\":\"Stage #204: Parsing: Parentheses\"} \
+		{\"slug\":\"sc2\",\"tester_log_prefix\":\"stage_201\",\"title\":\"Stage #201: Parsing: Booleans\"}, \
+		{\"slug\":\"ra8\",\"tester_log_prefix\":\"stage_202\",\"title\":\"Stage #202: Parsing: Number literals\"}, \
+		{\"slug\":\"th5\",\"tester_log_prefix\":\"stage_203\",\"title\":\"Stage #203: Parsing: String literals\"}, \
+		{\"slug\":\"xe6\",\"tester_log_prefix\":\"stage_204\",\"title\":\"Stage #204: Parsing: Parentheses\"}, \
+		{\"slug\":\"mq1\",\"tester_log_prefix\":\"stage_205\",\"title\":\"Stage #205: Parsing: Unary operators\"}, \
+		{\"slug\":\"wa9\",\"tester_log_prefix\":\"stage_206\",\"title\":\"Stage #206: Parsing: Factors\"}, \
+		{\"slug\":\"yf2\",\"tester_log_prefix\":\"stage_207\",\"title\":\"Stage #207: Parsing: Terms\"}, \
+		{\"slug\":\"uh4\",\"tester_log_prefix\":\"stage_208\",\"title\":\"Stage #208: Parsing: Comparison\"}, \
+		{\"slug\":\"ht8\",\"tester_log_prefix\":\"stage_209\",\"title\":\"Stage #209: Parsing: Equality\"}, \
+		{\"slug\":\"wz8\",\"tester_log_prefix\":\"stage_210\",\"title\":\"Stage #210: Parsing: Errors\"} \
 	]" \
 	$(shell pwd)/dist/main.out
 
-test_all: test_dev test_scanning_w_jlox
+test_all: test_scanning_w_jlox test_parsing_w_jlox
