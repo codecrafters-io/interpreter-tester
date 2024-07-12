@@ -80,4 +80,4 @@ test_parsing_w_jlox: build
 	]" \
 	$(shell pwd)/dist/main.out
 
-test_all: test_dev test_scanning_w_jlox
+test_all: test_scanning_w_jlox test_parsing_w_jlox

@@ -7,14 +7,6 @@ import (
 	"github.com/codecrafters-io/tester-utils/random"
 )
 
-func repeatSlice(slice []string, n int) []string {
-	ret := make([]string, 0)
-	for i := 0; i < n; i++ {
-		ret = append(ret, slice...)
-	}
-	return ret
-}
-
 func getRandInt() string {
 	return fmt.Sprint(random.RandomInt(10, 100))
 }
