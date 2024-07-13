@@ -15,10 +15,10 @@ func testParseStrings(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	stringLiteral1 := "\"" + strings.Join(random.RandomElementsFromArray(STRINGS, 2), "") + "\""
+	stringLiteral1 := "\"" + strings.Join(random.RandomElementsFromArray(STRINGS, 2), " ") + "\""
 	stringLiteral2 := "\"'" + random.RandomElementFromArray(STRINGS) + "'\""
 	stringLiteral3 := "\"// " + random.RandomElementFromArray(STRINGS) + "\""
-	stringLiteral4 := "\"/* " + fmt.Sprint(random.RandomInt(10, 100)) + " */\""
+	stringLiteral4 := "\"" + fmt.Sprint(random.RandomInt(10, 100)) + "\""
 
 	parseTestCase := testcases.MultiParseTestCase{
 		FileContents: []string{stringLiteral1, stringLiteral2, stringLiteral3, stringLiteral4},
