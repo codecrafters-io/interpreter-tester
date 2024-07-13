@@ -13,7 +13,7 @@ func testParseTerms(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	termExpr1 := "\"hello\"" + "\"world\""
+	termExpr1 := "\"hello\" + \"world\""
 	termExpr2 := fmt.Sprintf("%d - %d - %d", getRandInt(), getRandInt(), getRandInt())
 	termExpr3 := fmt.Sprintf("%d + %d - %d", getRandInt(), getRandInt(), getRandInt())
 	termExpr4 := fmt.Sprintf("-(-%d + %d) * (%d * %d) / (%d + %d)", getRandInt(), getRandInt(), getRandInt(), getRandInt(), getRandInt(), getRandInt())
