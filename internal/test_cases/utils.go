@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/codecrafters-io/tester-utils/logger"
+	"github.com/fatih/color"
 )
 
 func createTempFileWithContents(contents string) (string, error) {
@@ -48,6 +49,6 @@ func logReadableFileContents(logger *logger.Logger, fileContents string) {
 	printableFileContents = regex2.ReplaceAllString(printableFileContents, "<|SPACE|>")
 
 	for _, line := range strings.Split(printableFileContents, "\n") {
-		logger.Infof("[test.lox] " + line)
+		logger.Plainf(color.YellowString("[test.lox]") + " " + line)
 	}
 }
