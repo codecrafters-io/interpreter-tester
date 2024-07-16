@@ -2,11 +2,13 @@ module github.com/codecrafters-io/interpreter-tester
 
 go 1.22
 
-require github.com/codecrafters-io/tester-utils v0.2.33
+require (
+	github.com/codecrafters-io/tester-utils v0.2.26
+	github.com/fatih/color v1.17.0
+)
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
-	github.com/fatih/color v1.17.0 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mitchellh/go-testing-interface v1.14.1 // indirect
