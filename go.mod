@@ -3,7 +3,7 @@ module github.com/codecrafters-io/interpreter-tester
 go 1.22
 
 require (
-	github.com/codecrafters-io/tester-utils v0.2.33
+	github.com/codecrafters-io/tester-utils v0.2.34
 	github.com/fatih/color v1.17.0
 )
 
