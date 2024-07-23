@@ -50,5 +50,6 @@ jobs:
           cd ..
           cp -r ./internal/test_helpers/jlox04/* ./craftinginterpreters/build/gen/chap04_scanning
           cp -r ./internal/test_helpers/jlox06/* ./craftinginterpreters/build/gen/chap06_parsing
+          cp -r ./internal/test_helpers/jlox07/* ./craftinginterpreters/build/gen/chap07_evaluating
 
       - run: make test
