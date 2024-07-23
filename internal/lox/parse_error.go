@@ -5,23 +5,23 @@ import (
 	"os"
 )
 
-// HadError is true if a scanner/parser error was encountered
-var HadError = false
+// HadParseError is true if a scanner/parser error was encountered
+var HadParseError = false
 
 // LogMessage reports in stderr an error encountered during parsing
 func LogMessage(line int, message string) {
 	report(line, "", message)
-	HadError = true
+	HadParseError = true
 }
 
-// LogError reports in stderr an error encountered during parsing
-func LogError(err error) {
+// LogParseError reports in stderr an error encountered during parsing
+func LogParseError(err error) {
 	fmt.Fprintf(os.Stderr, "%v\n", err.Error())
-	HadError = true
+	HadParseError = true
 }
 
-// MakeError renders an parsing error as a string
-func MakeError(tok Token, message string) error {
+// MakeParseError renders an parsing error as a string
+func MakeParseError(tok Token, message string) error {
 	if tok.Type == EOF {
 		return fmt.Errorf("[line %v] Error at end: %s", tok.Line, message)
 	}
