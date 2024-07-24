@@ -125,5 +125,29 @@ var testerDefinition = tester_definition.TesterDefinition{
 			Slug:     "dc1",
 			TestFunc: testEvaluateUnary,
 		},
+		{
+			Slug:     "bp3",
+			TestFunc: testEvaluateFactor,
+		},
+		{
+			Slug:     "jy2",
+			TestFunc: testEvaluateTerm,
+		},
+		{
+			Slug:     "jx8",
+			TestFunc: testEvaluateConcat,
+		},
+		{
+			Slug:     "et4",
+			TestFunc: testEvaluateRelational,
+		},
+		{
+			Slug:     "hw7",
+			TestFunc: testEvaluateEquality,
+		},
+		{
+			Slug:     "gj9",
+			TestFunc: testEvaluateErrors,
+		},
 	},
 }
