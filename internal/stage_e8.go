@@ -1,0 +1,27 @@
+package internal
+
+import (
+	"fmt"
+
+	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
+	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
+
+	"github.com/codecrafters-io/tester-utils/test_case_harness"
+)
+
+func testEvaluateRelational(stageHarness *test_case_harness.TestCaseHarness) error {
+	b := interpreter_executable.NewInterpreterExecutable(stageHarness)
+
+	logger := stageHarness.Logger
+
+	n1, n2, n3 := getRandInt(), getRandInt(), getRandInt()
+	relational1 := fmt.Sprintf("%d > -%d", n1, n1+n2)
+	relational2 := fmt.Sprintf("%d <= %d", n1, n1+n2+n3)
+	relational3 := fmt.Sprintf("%d >= %d", n3, n3)
+	relational4 := "(72 - 50) >= -(26 / 13 + 8)"
+
+	evaluateTestCases := testcases.MultiEvaluateTestCase{
+		FileContents: []string{relational1, relational2, relational3, relational4},
+	}
+	return evaluateTestCases.RunAll(b, logger)
+}
