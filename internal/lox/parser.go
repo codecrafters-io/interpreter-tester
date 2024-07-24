@@ -135,14 +135,14 @@ func (p *Parser) primary() (Expr, error) {
 		}
 		return &Grouping{Expression: expr}, nil
 	}
-	return nil, MakeError(p.peek(), "Expect expression.")
+	return nil, MakeParseError(p.peek(), "Expect expression.")
 }
 
 func (p *Parser) consume(tp Type, message string) (Token, error) {
 	if p.check(tp) {
 		return p.advance(), nil
 	}
-	return p.previous(), MakeError(p.peek(), message)
+	return p.previous(), MakeParseError(p.peek(), message)
 }
 
 func (p *Parser) advance() Token {

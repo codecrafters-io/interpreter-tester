@@ -109,5 +109,21 @@ var testerDefinition = tester_definition.TesterDefinition{
 			Slug:     "wz8",
 			TestFunc: testParseErrors,
 		},
+		{
+			Slug:     "iz6",
+			TestFunc: testEvaluateBooleans,
+		},
+		{
+			Slug:     "lv1",
+			TestFunc: testEvaluateLiterals,
+		},
+		{
+			Slug:     "oq9",
+			TestFunc: testEvaluateParens,
+		},
+		{
+			Slug:     "dc1",
+			TestFunc: testEvaluateUnary,
+		},
 	},
 }

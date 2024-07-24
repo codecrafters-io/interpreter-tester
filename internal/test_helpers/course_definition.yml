@@ -1,7 +1,7 @@
 slug: "interpreter"
 name: "Build your own Interpreter"
 short_name: "Interpreter"
-release_status: "alpha"
+release_status: "beta"
 
 description_md: |-
   This challenge follows the book [Crafting Interpreters](https://craftinginterpreters.com/) by Robert Nystrom.
@@ -27,6 +27,7 @@ languages:
   - slug: "go"
   - slug: "python"
   - slug: "rust"
+  - slug: "kotlin"
 
 marketing:
   difficulty: hard
@@ -46,6 +47,14 @@ marketing:
       text: |-
         I think the instant feedback right there in the git push is really cool.
         Didn't even know that was possible!
+
+extensions:
+  - slug: "parsing-expressions"
+    name: "Parsing Expressions"
+    description_markdown: |
+      This extension covers chapters 5 & 6 of the book ([Representing Code](https://craftinginterpreters.com/representing-code.html) & [Parsing Expressions](https://craftinginterpreters.com/parsing-expressions.html)).
+
+      In this extension, you'll add the ability to parse expressions.
 
 stages:
   - slug: "ry8"
@@ -72,13 +81,13 @@ stages:
 
       If there's a file named `test.lox` with the following contents:
 
-      ```bash
+      ```
       var language = "lox";
       ```
 
       The `tokenize` command will return the following:
 
-      ```bash
+      ```
       $ ./your_program.sh tokenize test.lox
       VAR var null
       IDENTIFIER language null
@@ -115,7 +124,7 @@ stages:
 
       The tester will write an empty file to `test.lox`. It'll then run your program like this:
 
-      ```bash
+      ```
       $ ./your_program.sh tokenize test.lox
       EOF  null
       ```
@@ -137,7 +146,7 @@ stages:
 
       ### Book reference
 
-      The code for this stage is implemented in [Section 4.2: Recognizing Lexemes](https://craftinginterpreters.com/scanning.html#recognizing-lexemes).
+      The code for this stage is implemented in [Section 4.5: Recognizing Lexemes](https://craftinginterpreters.com/scanning.html#recognizing-lexemes).
 
       ### Tests
 
@@ -145,13 +154,13 @@ stages:
 
       For example, if `test.lox` contains the following:
 
-      ```bash
+      ```
       (()
       ```
 
       The tester will run your program like this:
 
-      ```bash
+      ```
       $ ./your_program.sh tokenize test.lox
       LEFT_PAREN ( null
       LEFT_PAREN ( null
@@ -176,7 +185,7 @@ stages:
 
       ### Book reference
 
-      The code for this stage is implemented in [Section 4.2: Recognizing Lexemes](https://craftinginterpreters.com/scanning.html#recognizing-lexemes).
+      The code for this stage is implemented in [Section 4.5: Recognizing Lexemes](https://craftinginterpreters.com/scanning.html#recognizing-lexemes).
 
       ### Tests
 
@@ -184,13 +193,13 @@ stages:
 
       For example, if `test.lox` contains the following:
 
-      ```bash
+      ```{{=<~ ~>=}}
       {{}}
       ```
 
       The tester will run your program like this:
 
-      ```bash
+      ```
       $ ./your_program.sh tokenize test.lox
       LEFT_BRACE { null
       LEFT_BRACE { null
@@ -212,13 +221,12 @@ stages:
     name: "Scanning: Other single-character tokens"
     difficulty: medium
     description_md: |-
-      In this stage, you'll add support for scanning other single-character tokens, like ",", ".", "-", "+", ";", "*".
-      "/" is not covered here, it's coved in later stages. 
+      In this stage, you'll add support for scanning other single-character tokens, like `,`, `.`, `-`, `+`, `;`, `*`.
+      `/` is not covered here, it's covered in later stages.
 
       ### Book reference
 
-      # TODO Section is wrong. 4.2 ?
-      The code for this stage is implemented in [Section 4.2: Recognizing Lexemes](https://craftinginterpreters.com/scanning.html#recognizing-lexemes).
+      The code for this stage is implemented in [Section 4.5: Recognizing Lexemes](https://craftinginterpreters.com/scanning.html#recognizing-lexemes).
 
       ### Tests
 
@@ -226,13 +234,13 @@ stages:
 
       For example, if `test.lox` contains the following:
 
-      ```bash
+      ```
       ({*.,+*})
       ```
 
       The tester will run your program like this:
 
-      ```bash
+      ```
       $ ./your_program.sh tokenize test.lox
       LEFT_PAREN ( null
       LEFT_BRACE { null
@@ -259,7 +267,7 @@ stages:
     name: "Scanning: Lexical errors"
     difficulty: medium
     description_md: |-
-      In this stage, you'll add support for scanning tokens, that lead to a lexical error.
+      In this stage, you'll add support for reporting errors when scanning invalid tokens like `$`, `#`, etc.
 
       ### Book reference
 
@@ -271,13 +279,13 @@ stages:
 
       For example, if `test.lox` contains the following:
 
-      ```bash
+      ```
       ,.$(#
       ```
 
       The tester will run your program like this:
 
-      ```bash
+      ```
       $ ./your_program.sh tokenize test.lox
       [line 1] Error: Unexpected character: $
       [line 1] Error: Unexpected character: #
@@ -287,16 +295,16 @@ stages:
       EOF  null
       ```
 
-      The lexical errors, should be printed to the stderr stream, with the `[line N]` prefix at the beginning. 
-      The tester will assert that the stdout stream of your program matches the valid tokens, and the stderr stream contains the lexical errors. 
+      The lexical errors, should be printed to the stderr stream, with the `[line N]` prefix at the beginning.
+      The tester will assert that the stdout stream of your program matches the valid tokens, and the stderr stream contains the lexical errors.
       The tester will also assert that the exit code is non-zero, or more specifically 65 in case of lexical errors.
 
       ### Notes
 
       - This output format matches the spec in the [book's repository](https://github.com/munificent/craftinginterpreters/tree/01e6f5b8f3e5dfa65674c2f9cf4700d73ab41cf8/test/scanning)
       - When scanning for tokens, it's valid to have "unbalanced" parentheses or braces. When we get to parsing expressions in later stages, these cases will be highlighted as errors.
-      - You can use the stderr stream to print debug logs for your own use too, to register a line as an error, it has to contain the `[line N]` prefix. Else we will ignore it as an user log. 
-      - As the stdout and stderr are completely different streams, the order of errors and valid tokens don't matter. 
+      - You can use the stderr stream to print debug logs for your own use too, to register a line as an error, it has to contain the `[line N]` prefix. Else we will ignore it as an user log.
+      - As the stdout and stderr are completely different streams, the order of errors and valid tokens don't matter.
     marketing_md: |-
       In this stage, you'll implement support for scanning lexical errors.
 
@@ -316,13 +324,13 @@ stages:
 
       For example, if `test.lox` contains the following:
 
-      ```bash
+      ```
       ={===}
       ```
 
       The tester will run your program like this:
 
-      ```bash
+      ```
       $ ./your_program.sh tokenize test.lox
       EQUAL = null
       LEFT_BRACE { null
@@ -357,13 +365,13 @@ stages:
 
       For example, if `test.lox` contains the following:
 
-      ```bash
+      ```
       !!===
       ```
 
       The tester will run your program like this:
 
-      ```bash
+      ```
       $ ./your_program.sh tokenize test.lox
       BANG ! null
       BANG_EQUAL != null
@@ -384,7 +392,7 @@ stages:
     name: "Scanning: Relational operators"
     difficulty: medium
     description_md: |-
-      In this stage, you'll add support for scanning relational operators, which are: "<", ">", "<=", ">=".
+      In this stage, you'll add support for scanning relational operators, which are: `<`, `>`, `<=`, `>=`.
 
       ### Book reference
 
@@ -396,13 +404,13 @@ stages:
 
       For example, if `test.lox` contains the following:
 
-      ```bash
+      ```
       <<=>>=
       ```
 
       The tester will run your program like this:
 
-      ```bash
+      ```
       $ ./your_program.sh tokenize test.lox
       LESS < null
       LESS_EQUAL <= null
@@ -425,7 +433,7 @@ stages:
     difficulty: medium
     description_md: |-
       In this stage, you'll add support for scanning the division operator & comments.
-      Comments start with "//", and the division operator is "/".
+      Comments start with `//`, and the division operator is `/`.
 
       ### Book reference
 
@@ -433,30 +441,30 @@ stages:
 
       ### Tests
 
-      The tester will run a series of tests with `test.lox` files that contain "/" & "//" mixed with previously introduced tokens.
+      The tester will run a series of tests with `test.lox` files that contain `/` & `//` mixed with previously introduced tokens.
 
       For example, if `test.lox` contains the following:
 
-      ```bash
+      ```
       // Comment
       ```
 
       The tester will run your program like this:
 
-      ```bash
+      ```
       $ ./your_program.sh tokenize test.lox
       EOF  null
       ```
 
       Similarly, if `test.lox` contains the following:
 
-      ```bash
+      ```
       /
       ```
 
       The tester will run your program like this:
 
-      ```bash
+      ```
       $ ./your_program.sh tokenize test.lox
       SLASH / null
       EOF  null
@@ -487,14 +495,14 @@ stages:
 
       For example, if `test.lox` contains the following:
 
-      ```bash
+      ```
       (<|TAB|>
       <|SPACE|>)
       ```
 
       The tester will run your program like this:
 
-      ```bash
+      ```
       $ ./your_program.sh tokenize test.lox
       LEFT_PAREN ( null
       RIGHT_PAREN ) null
@@ -527,22 +535,24 @@ stages:
 
       For example, if `test.lox` contains the following:
 
-      ```bash
-      ()<|SPACE|><|TAB|>@
+      ```
+      #<|SPACE|>(
+      )<|TAB|>@
       ```
 
       The tester will run your program like this:
 
-      ```bash
+      ```
       $ ./your_program.sh tokenize test.lox
+      [line 1] Error: Unexpected character: #
       [line 2] Error: Unexpected character: @
       LEFT_PAREN ( null
       RIGHT_PAREN ) null
       EOF  null
       ```
 
-      The tester will assert that the stdout & stderr of your program matches the format above. 
-      Pay special attention to the line number in your error strings. 
+      The tester will assert that the stdout & stderr of your program matches the format above.
+      Pay special attention to the line number in your error strings.
 
       ### Notes
 
@@ -567,19 +577,36 @@ stages:
 
       For example, if `test.lox` contains the following:
 
-      ```bash
+      ```
       "foo baz"
       ```
 
       The tester will run your program like this:
 
-      ```bash
+      ```
       $ ./your_program.sh tokenize test.lox
       STRING "foo baz" foo baz
       EOF  null
       ```
 
       The tester will assert that the stdout of your program matches the format above.
+
+      If string is unterminated, you should raise a lexical error.
+      For example, if `test.lox` contains the following:
+
+      ```
+      "bar
+      ```
+
+      The tester will run your program like this:
+
+      ```
+      $ ./your_program.sh tokenize test.lox
+      [line 1] Error: Unterminated string.
+      EOF  null
+      ```
+
+      The tester will assert that an error is raised, and that the error string matches the format above.
 
       ### Notes
 
@@ -604,13 +631,13 @@ stages:
 
       For example, if `test.lox` contains the following:
 
-      ```bash
+      ```
       1234.1234
       ```
 
       The tester will run your program like this:
 
-      ```bash
+      ```
       $ ./your_program.sh tokenize test.lox
       NUMBER 1234.1234 1234.1234
       EOF  null
@@ -641,13 +668,13 @@ stages:
 
       For example, if `test.lox` contains the following:
 
-      ```bash
+      ```
       foo bar _hello
       ```
 
       The tester will run your program like this:
 
-      ```bash
+      ```
       $ ./your_program.sh tokenize test.lox
       IDENTIFIER foo null
       IDENTIFIER bar null
@@ -662,13 +689,13 @@ stages:
       - This output format matches the spec in the [book's repository](https://github.com/munificent/craftinginterpreters/tree/01e6f5b8f3e5dfa65674c2f9cf4700d73ab41cf8/test/scanning)
       - When scanning for tokens, it's valid to have "unbalanced" parentheses or braces. When we get to parsing expressions in later stages, these cases will be highlighted as errors.
     marketing_md: |-
-      In this stage, you'll implement support for scanning identifers.
+      In this stage, you'll implement support for scanning identifiers.
 
   - slug: "pq5"
     name: "Scanning: Reserved words"
     difficulty: medium
     description_md: |-
-      In this stage, you'll add support for scanning reserved words.
+      In this stage, you'll add support for scanning reserved words, which are: `and`, `class`, `else`, `false`, `for`, `fun`, `if`, `nil`, `or`, `print`, `return`, `super`, `this`, `true`, `var`, `while`.
 
       ### Book reference
 
@@ -680,13 +707,13 @@ stages:
 
       For example, if `test.lox` contains the following:
 
-      ```bash
+      ```
       and
       ```
 
       The tester will run your program like this:
 
-      ```bash
+      ```
       $ ./your_program.sh tokenize test.lox
       AND and null
       EOF  null
@@ -701,24 +728,422 @@ stages:
     marketing_md: |-
       In this stage, you'll implement support for scanning reserved words.
 
-    FIXME: Temporary hack, to make sure `make test` passes.
   - slug: "sc2"
+    primary_extension_slug: "parsing-expressions"
+    name: "Booleans & Nil"
+    difficulty: hard
+    description_md: |-
+      In this stage you'll implement support for the `parse` command and handle parsing `true`, `false`, and `nil` literals.
+
+      ### Book reference
+
+      Before starting this stage, make sure you've read the [Representing Code](https://craftinginterpreters.com/representing-code.html) chapter (chapter 5). The
+      code covered in that chapter (`AstPrinter`) will be required to generate the output tested in this stage.
+
+      The code for this stage is implemented in [Section 6.2: Recursive Descent Parsing](https://craftinginterpreters.com/parsing-expressions.html#recursive-descent-parsing).
+
+      ### The `parse` command
+
+      In the previous stages, the tester used the `tokenize` command to test your scanner implementation. In this extension, the tester will need to test
+      your parser implementation, so it'll use a different command instead: `parse`.
+
+      The `parse` command accepts a path to a file (`test.lox` for example) and prints out the AST representation of the file to stdout.
+
+      For example, if `test.lox` contains the following:
+
+      ```
+      2 + 3
+      ```
+
+      The `parse` command will return the following:
+
+      ```
+      $ ./your_program.sh parse test.lox
+      (+ 2.0 3.0)
+      ```
+
+      This output format matches the spec in the [book's repository](https://github.com/munificent/craftinginterpreters/blob/01e6f5b8f3e5dfa65674c2f9cf4700d73ab41cf8/test/expressions/parse.lox).
+
+      For the same file, here's what the output from `tokenize` would've been:
+
+      ```
+      $ ./your_program.sh tokenize test.lox
+      NUMBER 2.0 2.0
+      PLUS +
+      NUMBER 3.0 3.0
+      EOF  null
+      ```
+
+      ### Tests
+
+      The tester will run a series of tests with `test.lox` files that contain the boolean values `true` & `false`, and the `nil` literal.
+
+      For example, if `test.lox` contains the following:
+
+      ```
+      true
+      ```
+
+      The tester will run your program like this:
+
+      ```
+      $ ./your_program.sh parse test.lox
+      true
+      ```
+
+      The tester will assert that the stdout of your program matches the format above.
+
+      ### Notes
+
+      - This output format matches the spec in the [book's repository](https://github.com/munificent/craftinginterpreters/blob/01e6f5b8f3e5dfa65674c2f9cf4700d73ab41cf8/test/expressions/parse.lox)
+      <!-- TODO: Clarify how `nil` must be printed: `nil`/`null`? -->
+    marketing_md: |-
+      In this stage, you'll implement support for parsing binary values and the nil literal.
 
   - slug: "ra8"
+    primary_extension_slug: "parsing-expressions"
+    name: "Number literals"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll add support for parsing number literals.
+
+      ### Book reference
+
+      The code for this stage is implemented in [Section 6.2: Recursive Descent Parsing](https://craftinginterpreters.com/parsing-expressions.html#recursive-descent-parsing).
+
+      ### Tests
+
+      The tester will run a series of tests with `test.lox` files that contain number literals, we include both integers and floats.
+
+      For example, if `test.lox` contains the following:
+
+      ```
+      42.47
+      ```
+
+      The tester will run your program like this:
+
+      ```
+      $ ./your_program.sh parse test.lox
+      42.47
+      ```
+
+      The tester will assert that the stdout of your program matches the format above.
+
+      ### Notes
+
+      - This output format matches the spec in the [book's repository](https://github.com/munificent/craftinginterpreters/blob/01e6f5b8f3e5dfa65674c2f9cf4700d73ab41cf8/test/expressions/parse.lox)
+    marketing_md: |-
+      In this stage, you'll implement support for parsing number literals.
 
   - slug: "th5"
+    primary_extension_slug: "parsing-expressions"
+    name: "String literals"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll add support for parsing string literals.
+
+      ### Book reference
+
+      The code for this stage is implemented in [Section 6.2: Recursive Descent Parsing](https://craftinginterpreters.com/parsing-expressions.html#recursive-descent-parsing).
+
+      ### Tests
+
+      The tester will run a series of tests with `test.lox` files that contain string literals, it can contain whitespaces, and numbers too, but everything is inside double quotes.
+
+      For example, if `test.lox` contains the following:
+
+      ```
+      "hello"
+      ```
+
+      The tester will run your program like this:
+
+      ```
+      $ ./your_program.sh parse test.lox
+      hello
+      ```
+
+      The tester will assert that the stdout of your program matches the format above.
+
+      ### Notes
+
+      - This output format matches the spec in the [book's repository](https://github.com/munificent/craftinginterpreters/blob/01e6f5b8f3e5dfa65674c2f9cf4700d73ab41cf8/test/expressions/parse.lox)
+    marketing_md: |-
+      In this stage, you'll implement support for parsing string literals.
 
   - slug: "xe6"
+    primary_extension_slug: "parsing-expressions"
+    name: "Parentheses"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll add support for parsing parentheses.
+
+      ### Book reference
+
+      The code for this stage is implemented in [Section 6.2: Recursive Descent Parsing](https://craftinginterpreters.com/parsing-expressions.html#recursive-descent-parsing).
+
+      ### Tests
+
+      The tester will run a series of tests with `test.lox` files that contain parentheses, combined with number literals, string literals and booleans.
+
+      For example, if `test.lox` contains the following:
+
+      ```
+      ("foo")
+      ```
+
+      The tester will run your program like this:
+
+      ```
+      $ ./your_program.sh parse test.lox
+      (group foo)
+      ```
+
+      The tester will assert that the stdout of your program matches the format above.
+
+      The tester will also check whether your program exits with code 65 if there are unmatched parentheses. For example, if `test.lox` contains the following:
+
+      ```
+      ("foo"
+      ```
+
+      The tester will run your program like this and assert that the exit code is 65:
+
+      ```
+      $ ./your_program.sh parse test.lox
+      Error: Unmatched parentheses.
+      ```
+
+      The exact error message will not be checked, the tester will only check that the program exits with code 65.
+
+      ### Notes
+
+      - This output format matches the spec in the [book's repository](https://github.com/munificent/craftinginterpreters/blob/01e6f5b8f3e5dfa65674c2f9cf4700d73ab41cf8/test/expressions/parse.lox)
+    marketing_md: |-
+      In this stage, you'll implement support for parsing parentheses.
 
   - slug: "mq1"
+    primary_extension_slug: "parsing-expressions"
+    name: "Unary Operators"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll add support for parsing the negation operator (`-`) & the logical not operator (`!`).
+
+      ### Book reference
+
+      The code for this stage is implemented in [Section 6.2: Recursive Descent Parsing](https://craftinginterpreters.com/parsing-expressions.html#recursive-descent-parsing).
+
+      ### Tests
+
+      The tester will run a series of tests with `test.lox` files that contain unary operators, combined with previously introduced tokens.
+
+      For example, if `test.lox` contains the following:
+
+      ```
+      !true
+      ```
+
+      The tester will run your program like this:
+
+      ```
+      $ ./your_program.sh parse test.lox
+      (! true)
+      ```
+
+      The tester will assert that the stdout of your program matches the format above.
+
+      ### Notes
+
+      - This output format matches the spec in the [book's repository](https://github.com/munificent/craftinginterpreters/blob/01e6f5b8f3e5dfa65674c2f9cf4700d73ab41cf8/test/expressions/parse.lox)
+    marketing_md: |-
+      In this stage, you'll implement support for parsing unary operators `!` and `-`.
 
   - slug: "wa9"
+    primary_extension_slug: "parsing-expressions"
+    name: "Arithmetic operators (1/2)"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll add support for parsing the multiplication operator (`*`) & the division operator (`/`).
+
+      ### Book reference
+
+      The code for this stage is implemented in [Section 6.2: Recursive Descent Parsing](https://craftinginterpreters.com/parsing-expressions.html#recursive-descent-parsing).
+
+      ### Tests
+
+      The tester will run a series of tests with `test.lox` files that contain multiplicative algebraic operators, combined with previously introduced tokens.
+
+      For example, if `test.lox` contains the following:
+
+      ```
+      16 * 38 / 58
+      ```
+
+      The tester will run your program like this:
+
+      ```
+      $ ./your_program.sh parse test.lox
+      (/ (* 16.0 38.0) 58.0)
+      ```
+
+      The tester will assert that the stdout of your program matches the format above.
+
+      ### Notes
+
+      - This output format matches the spec in the [book's repository](https://github.com/munificent/craftinginterpreters/blob/01e6f5b8f3e5dfa65674c2f9cf4700d73ab41cf8/test/expressions/parse.lox)
+    marketing_md: |-
+      In this stage, you'll implement support for parsing multiplicative algebraic operators `*` and `/`.
 
   - slug: "yf2"
+    primary_extension_slug: "parsing-expressions"
+    name: "Arithmetic operators (2/2)"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll add support for parsing the addition operator (`+`) & the subtraction operator (`-`).
+
+      ### Book reference
+
+      The code for this stage is implemented in [Section 6.2: Recursive Descent Parsing](https://craftinginterpreters.com/parsing-expressions.html#recursive-descent-parsing).
+
+      ### Tests
+
+      The tester will run a series of tests with `test.lox` files that contain additive algebraic operators, combined with previously introduced tokens.
+
+      For example, if `test.lox` contains the following:
+
+      ```
+      52 + 80 - 94
+      ```
+
+      The tester will run your program like this:
+
+      ```
+      $ ./your_program.sh parse test.lox
+      (- (+ 52.0 80.0) 94.0)
+      ```
+
+      The tester will assert that the stdout of your program matches the format above.
+
+      ### Notes
+
+      - This output format matches the spec in the [book's repository](https://github.com/munificent/craftinginterpreters/blob/01e6f5b8f3e5dfa65674c2f9cf4700d73ab41cf8/test/expressions/parse.lox)
+    marketing_md: |-
+      In this stage, you'll implement support for parsing additive algebraic operators `+` and `-`.
 
   - slug: "uh4"
+    primary_extension_slug: "parsing-expressions"
+    name: "Comparison operators"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll add support for parsing comparison operators: `>`, `<`, `>=` & `<=`.
+
+      ### Book reference
+
+      The code for this stage is implemented in [Section 6.2: Recursive Descent Parsing](https://craftinginterpreters.com/parsing-expressions.html#recursive-descent-parsing).
+
+      ### Tests
+
+      The tester will run a series of tests with `test.lox` files that contain comparison operators, combined with previously introduced tokens.
+
+      For example, if `test.lox` contains the following:
+
+      ```
+      83 < 99 < 115
+      ```
+
+      The tester will run your program like this:
+
+      ```
+      $ ./your_program.sh parse test.lox
+      (< (< 83.0 99.0) 115.0)
+      ```
+
+      The tester will assert that the stdout of your program matches the format above.
+
+      ### Notes
+
+      - This output format matches the spec in the [book's repository](https://github.com/munificent/craftinginterpreters/blob/01e6f5b8f3e5dfa65674c2f9cf4700d73ab41cf8/test/expressions/parse.lox)
+    marketing_md: |-
+      In this stage, you'll implement support for parsing comparison operators `>`, `<`, `>=` & `<=`.
 
   - slug: "ht8"
+    primary_extension_slug: "parsing-expressions"
+    name: "Equality operators"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll add support for parsing equality operators: `==` & `!=`.
+
+      ### Book reference
+
+      The code for this stage is implemented in [Section 6.2: Recursive Descent Parsing](https://craftinginterpreters.com/parsing-expressions.html#recursive-descent-parsing).
+
+      ### Tests
+
+      The tester will run a series of tests with `test.lox` files that contain comparison operators, combined with previously introduced tokens.
+
+      For example, if `test.lox` contains the following:
+
+      ```
+      "baz" == "baz"
+      ```
+
+      The tester will run your program like this:
+
+      ```
+      $ ./your_program.sh parse test.lox
+      (== baz baz)
+      ```
+
+      The tester will assert that the stdout of your program matches the format above.
+
+      ### Notes
+
+      - This output format matches the spec in the [book's repository](https://github.com/munificent/craftinginterpreters/blob/01e6f5b8f3e5dfa65674c2f9cf4700d73ab41cf8/test/expressions/parse.lox)
+    marketing_md: |-
+      In this stage, you'll implement support for parsing equality operators `==` & `!=`.
 
   - slug: "wz8"
+    primary_extension_slug: "parsing-expressions"
+    name: "Syntactic errors"
+    difficulty: medium
+    description_md: |-
+      In this stage, you'll add support for handling syntax errors in expressions.
 
+      ### Book reference
+
+      The code for this stage is implemented in [Section 6.3: Syntax Errors](https://craftinginterpreters.com/parsing-expressions.html#syntax-errors).
+
+      ### Tests
+
+      The tester will run a series of tests with `test.lox` files that contain syntax errors.
+
+      For example, if `test.lox` contains the following:
+
+      ```
+      (72 +)
+      ```
+
+      The tester will run your program like this:
+
+      ```
+      $ ./your_program.sh parse test.lox
+      [line 1] Error at ')': Expect expression.
+      ```
+
+      The tester will assert that the exit code is 65.
+
+      ### Notes
+
+      - This output format matches the spec in the [book's repository](https://github.com/munificent/craftinginterpreters/blob/01e6f5b8f3e5dfa65674c2f9cf4700d73ab41cf8/test/expressions/parse.lox)
+      - The tester won't check the exact error message in this stage, it will only check that the program exits with code 65.
+    marketing_md: |-
+      In this stage, you'll implement support for handling syntax errors in expressions.
+
+  - slug: "iz6"
+
+  - slug: "lv1"
+
+  - slug: "oq9"
+
+  - slug: "dc1"

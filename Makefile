@@ -28,7 +28,7 @@ update_tester_utils:
 
 test_dev: build
 	cd /Users/ryang/Developer/byox/craftinginterpreters && \
-	CODECRAFTERS_SUBMISSION_DIR=/Users/ryang/Developer/byox/craftinginterpreters \
+	CODECRAFTERS_REPOSITORY_DIR=/Users/ryang/Developer/byox/craftinginterpreters \
 	CODECRAFTERS_TEST_CASES_JSON="[ \
 		{\"slug\":\"ry8\",\"tester_log_prefix\":\"stage_101\",\"title\":\"Stage #1: Scanning: Empty File\"}, \
 		{\"slug\":\"ol4\",\"tester_log_prefix\":\"stage_102\",\"title\":\"Stage #2: Scanning: Parenthese\"}, \
@@ -50,7 +50,7 @@ test_dev: build
 
 
 test_scanning_w_jlox: build
-	CODECRAFTERS_SUBMISSION_DIR=./craftinginterpreters/build/gen/chap04_scanning \
+	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap04_scanning \
 	CODECRAFTERS_TEST_CASES_JSON="[ \
 		{\"slug\":\"ry8\",\"tester_log_prefix\":\"stage_101\",\"title\":\"Stage #1: Scanning: Empty File\"}, \
 		{\"slug\":\"ol4\",\"tester_log_prefix\":\"stage_102\",\"title\":\"Stage #2: Scanning: Parenthese\"}, \
@@ -71,7 +71,7 @@ test_scanning_w_jlox: build
 	$(shell pwd)/dist/main.out
 
 test_parsing_w_jlox: build
-	CODECRAFTERS_SUBMISSION_DIR=./craftinginterpreters/build/gen/chap06_parsing \
+	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap06_parsing \
 	CODECRAFTERS_TEST_CASES_JSON="[ \
 		{\"slug\":\"sc2\",\"tester_log_prefix\":\"stage_201\",\"title\":\"Stage #201: Parsing: Booleans\"}, \
 		{\"slug\":\"ra8\",\"tester_log_prefix\":\"stage_202\",\"title\":\"Stage #202: Parsing: Number literals\"}, \
@@ -83,6 +83,17 @@ test_parsing_w_jlox: build
 		{\"slug\":\"uh4\",\"tester_log_prefix\":\"stage_208\",\"title\":\"Stage #208: Parsing: Comparison\"}, \
 		{\"slug\":\"ht8\",\"tester_log_prefix\":\"stage_209\",\"title\":\"Stage #209: Parsing: Equality\"}, \
 		{\"slug\":\"wz8\",\"tester_log_prefix\":\"stage_210\",\"title\":\"Stage #210: Parsing: Errors\"} \
+	]" \
+	$(shell pwd)/dist/main.out
+
+
+test_evaluation_w_jlox: build
+	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap07_evaluating \
+	CODECRAFTERS_TEST_CASES_JSON="[ \
+		{\"slug\":\"iz6\",\"tester_log_prefix\":\"stage_301\",\"title\":\"Stage #301: Evaluation: Literals: Booleans & Nil\"}, \
+		{\"slug\":\"lv1\",\"tester_log_prefix\":\"stage_302\",\"title\":\"Stage #302: Evaluation: Literals: Strings & Numbers\"}, \
+		{\"slug\":\"oq9\",\"tester_log_prefix\":\"stage_303\",\"title\":\"Stage #303: Evaluation: Parentheses\"}, \
+		{\"slug\":\"dc1\",\"tester_log_prefix\":\"stage_304\",\"title\":\"Stage #304: Evaluation: Unary operators\"} \
 	]" \
 	$(shell pwd)/dist/main.out
 

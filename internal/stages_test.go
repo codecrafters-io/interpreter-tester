@@ -25,6 +25,13 @@ func TestStages(t *testing.T) {
 			StdoutFixturePath:   "./test_helpers/fixtures/pass_parsing",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
+		"pass_evaluating_jlox": {
+			StageSlugs:          []string{"iz6", "lv1", "oq9", "dc1"},
+			CodePath:            "../craftinginterpreters/build/gen/chap07_evaluating",
+			ExpectedExitCode:    0,
+			StdoutFixturePath:   "./test_helpers/fixtures/pass_evaluating",
+			NormalizeOutputFunc: normalizeTesterOutput,
+		},
 	}
 
 	tester_utils_testing.TestTesterOutput(t, testerDefinition, testCases)
