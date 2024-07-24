@@ -14,10 +14,10 @@ func testParseUnary(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	unaryExpr1 := "!" + random.RandomElementFromArray(BOOLEANS)
+	unaryExpr1 := "!" + getRandBoolean()
 	unaryExpr2 := "-" + fmt.Sprint(random.RandomInt(10, 100))
-	unaryExpr3 := "!!" + random.RandomElementFromArray(BOOLEANS)
-	unaryExpr4 := "(!!(" + random.RandomElementFromArray(BOOLEANS) + "))"
+	unaryExpr3 := "!!" + getRandBoolean()
+	unaryExpr4 := "(!!(" + getRandBoolean() + "))"
 	parseTestCase := testcases.MultiParseTestCase{
 		FileContents: []string{unaryExpr1, unaryExpr2, unaryExpr3, unaryExpr4},
 	}

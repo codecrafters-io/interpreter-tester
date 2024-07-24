@@ -6,7 +6,6 @@ import (
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
 
-	"github.com/codecrafters-io/tester-utils/random"
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
@@ -16,7 +15,7 @@ func testEvaluateUnary(stageHarness *test_case_harness.TestCaseHarness) error {
 	logger := stageHarness.Logger
 
 	unary1 := fmt.Sprintf("-%d", getRandInt())
-	unary2 := fmt.Sprintf("!%s", random.RandomElementFromArray(BOOLEANS))
+	unary2 := fmt.Sprintf("!%s", getRandBoolean())
 	unary3 := "!nil"
 	unary4 := fmt.Sprintf("(!!%d)", getRandInt())
 

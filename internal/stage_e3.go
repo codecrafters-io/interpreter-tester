@@ -19,7 +19,7 @@ func testEvaluateParens(stageHarness *test_case_harness.TestCaseHarness) error {
 	parens1 := "(true)"
 	parens2 := fmt.Sprintf("(%d)", getRandInt())
 	parens3 := fmt.Sprintf("(\"%s\")", strings.Join(random.RandomElementsFromArray(STRINGS, 2), " "))
-	parens4 := fmt.Sprintf("((%s))", random.RandomElementFromArray(BOOLEANS))
+	parens4 := fmt.Sprintf("((%s))", getRandBoolean())
 
 	evaluateTestCases := testcases.MultiEvaluateTestCase{
 		FileContents: []string{parens1, parens2, parens3, parens4},
