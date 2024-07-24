@@ -147,7 +147,19 @@ var testerDefinition = tester_definition.TesterDefinition{
 		},
 		{
 			Slug:     "gj9",
-			TestFunc: testEvaluateErrors,
+			TestFunc: testEvaluateUnaryErrors,
+		},
+		{
+			Slug:     "yu6",
+			TestFunc: testEvaluateMultErrors,
+		},
+		{
+			Slug:     "cq1",
+			TestFunc: testEvaluateAddErrors,
+		},
+		{
+			Slug:     "ib5",
+			TestFunc: testEvaluateCompErrors,
 		},
 	},
 }
