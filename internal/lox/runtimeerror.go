@@ -5,7 +5,7 @@ import (
 	"os"
 )
 
-// Print reports a runtime error
+// PrintRuntimeError reports a runtime error
 func PrintRuntimeError(message string) {
 	fmt.Fprintf(os.Stderr, "%v\n", message)
 	HadRuntimeError = true
