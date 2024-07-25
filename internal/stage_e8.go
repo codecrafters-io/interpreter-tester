@@ -18,7 +18,7 @@ func testEvaluateRelational(stageHarness *test_case_harness.TestCaseHarness) err
 	relational1 := fmt.Sprintf("%d > -%d", n1, n1+n2)
 	relational2 := fmt.Sprintf("%d <= %d", n1, n1+n2+n3)
 	relational3 := fmt.Sprintf("%d >= %d", n3, n3)
-	relational4 := "(72 - 50) >= -(26 / 13 + 8)"
+	relational4 := fmt.Sprintf("(%d - %d) >= -(%d / %d + %d)", getRandInt(), getRandInt(), n1*2, n1, getRandInt())
 
 	evaluateTestCases := testcases.MultiEvaluateTestCase{
 		FileContents: []string{relational1, relational2, relational3, relational4},

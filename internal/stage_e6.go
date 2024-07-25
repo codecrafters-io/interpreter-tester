@@ -1,6 +1,8 @@
 package internal
 
 import (
+	"fmt"
+
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
 
@@ -12,10 +14,10 @@ func testEvaluateTerm(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	term1 := "10 - 20"
-	term2 := "23 + 27 - 20"
-	term3 := "2 + 23 - (-(25 - 50))"
-	term4 := "-(-4 + 8) * (6 * 2) / (12 + 12)"
+	term1 := fmt.Sprintf("%d - %d", getRandInt(), getRandInt())
+	term2 := fmt.Sprintf("%d + %d - %d", getRandInt(), getRandInt(), getRandInt())
+	term3 := fmt.Sprintf("%d + %d - (-(%d - %d))", getRandInt(), getRandInt(), getRandInt(), getRandInt())
+	term4 := fmt.Sprintf("-(-%d + %d) * (%d * %d) / (1 + 4)", getRandInt(), getRandInt(), getRandInt(), getRandInt())
 
 	evaluateTestCases := testcases.MultiEvaluateTestCase{
 		FileContents: []string{term1, term2, term3, term4},
