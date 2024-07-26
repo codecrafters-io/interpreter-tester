@@ -17,7 +17,7 @@ func testEvaluateConcat(stageHarness *test_case_harness.TestCaseHarness) error {
 	concat1 := fmt.Sprintf("\"%s\" + \"%s\"", getRandString(), getRandString())
 	concat2 := fmt.Sprintf("\"%s\" + \"%s\"", getRandString(), getRandIntAsString())
 	concat3 := fmt.Sprintf("\"%s\" + \"%s\" + \"%s\"", getRandString(), getRandString(), getRandString())
-	concat4 := fmt.Sprintf("\"%s\" + \"%s\" + \"%s\" + \"%s\"", getRandString(), getRandString(), getRandString(), getRandString())
+	concat4 := fmt.Sprintf("(\"%s\" + \"%s\") + (\"%s\" + \"%s\")", getRandString(), getRandString(), getRandString(), getRandString())
 
 	evaluateTestCases := testcases.MultiEvaluateTestCase{
 		FileContents: []string{concat1, concat2, concat3, concat4},
