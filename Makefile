@@ -18,7 +18,7 @@ test_and_watch:
 
 copy_course_file:
 	hub api \
-		repos/codecrafters-io/build-your-own-interpreter/contents/course-definition.yml \
+		repos/codecrafters-io/build-your-own-interpreter/course-definition.yml \
 		| jq -r .content \
 		| base64 -d \
 		> internal/test_helpers/course_definition.yml
@@ -93,7 +93,16 @@ test_evaluation_w_jlox: build
 		{\"slug\":\"iz6\",\"tester_log_prefix\":\"stage_301\",\"title\":\"Stage #301: Evaluation: Literals: Booleans & Nil\"}, \
 		{\"slug\":\"lv1\",\"tester_log_prefix\":\"stage_302\",\"title\":\"Stage #302: Evaluation: Literals: Strings & Numbers\"}, \
 		{\"slug\":\"oq9\",\"tester_log_prefix\":\"stage_303\",\"title\":\"Stage #303: Evaluation: Parentheses\"}, \
-		{\"slug\":\"dc1\",\"tester_log_prefix\":\"stage_304\",\"title\":\"Stage #304: Evaluation: Unary operators\"} \
+		{\"slug\":\"dc1\",\"tester_log_prefix\":\"stage_304\",\"title\":\"Stage #304: Evaluation: Unary operators\"}, \
+		{\"slug\":\"bp3\",\"tester_log_prefix\":\"stage_305\",\"title\":\"Stage #305: Evaluation: Multiplicative operators\"}, \
+		{\"slug\":\"jy2\",\"tester_log_prefix\":\"stage_306\",\"title\":\"Stage #306: Evaluation: Additive operators\"}, \
+		{\"slug\":\"jx8\",\"tester_log_prefix\":\"stage_307\",\"title\":\"Stage #307: Evaluation: Concatenation operator\"}, \
+		{\"slug\":\"et4\",\"tester_log_prefix\":\"stage_308\",\"title\":\"Stage #308: Evaluation: Relational operators\"}, \
+		{\"slug\":\"hw7\",\"tester_log_prefix\":\"stage_309\",\"title\":\"Stage #309: Evaluation: Equality operators\"}, \
+		{\"slug\":\"gj9\",\"tester_log_prefix\":\"stage_310\",\"title\":\"Stage #310: Evaluation: Runtime errors: Unary\"}, \
+		{\"slug\":\"yu6\",\"tester_log_prefix\":\"stage_311\",\"title\":\"Stage #311: Evaluation: Runtime errors: Multiplication\"}, \
+		{\"slug\":\"cq1\",\"tester_log_prefix\":\"stage_312\",\"title\":\"Stage #312: Evaluation: Runtime errors: Addition\"}, \
+		{\"slug\":\"ib5\",\"tester_log_prefix\":\"stage_313\",\"title\":\"Stage #313: Evaluation: Runtime errors: Comparisons\"} \
 	]" \
 	$(shell pwd)/dist/main.out
 

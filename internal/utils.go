@@ -17,3 +17,7 @@ func getRandIntAsString() string {
 func getRandString() string {
 	return random.RandomElementFromArray(STRINGS)
 }
+
+func getRandBoolean() string {
+	return random.RandomElementFromArray(BOOLEANS)
+}

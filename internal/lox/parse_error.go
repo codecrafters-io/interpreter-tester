@@ -20,7 +20,7 @@ func LogParseError(err error) {
 	HadParseError = true
 }
 
-// MakeParseError renders an parsing error as a string
+// MakeParseError renders a parsing error as a string
 func MakeParseError(tok Token, message string) error {
 	if tok.Type == EOF {
 		return fmt.Errorf("[line %v] Error at end: %s", tok.Line, message)

@@ -2,7 +2,6 @@ package internal
 
 import (
 	"fmt"
-	"strings"
 
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
@@ -11,18 +10,21 @@ import (
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
-func testEvaluateParens(stageHarness *test_case_harness.TestCaseHarness) error {
+func testEvaluateEquality(stageHarness *test_case_harness.TestCaseHarness) error {
 	b := interpreter_executable.NewInterpreterExecutable(stageHarness)
 
 	logger := stageHarness.Logger
 
-	parens1 := "(true)"
-	parens2 := fmt.Sprintf("(%d)", getRandInt())
-	parens3 := fmt.Sprintf("(\"%s\")", strings.Join(random.RandomElementsFromArray(STRINGS, 2), " "))
-	parens4 := fmt.Sprintf("((%s))", getRandBoolean())
+	strings := random.RandomElementsFromArray(STRINGS, 2)
+	s1, s2 := strings[0], strings[1]
+	n1, n2, n3 := getRandInt(), getRandInt(), getRandInt()
+	equality1 := fmt.Sprintf("\"%s\" != \"%s\"", s1, s2)
+	equality2 := fmt.Sprintf("\"%s\" == \"%s\"", s1, s1)
+	equality3 := fmt.Sprintf("%d == \"%d\"", n1, n1)
+	equality4 := fmt.Sprintf("%d == (%d + %d)", n2+n3, n2, n3)
 
 	evaluateTestCases := testcases.MultiEvaluateTestCase{
-		FileContents: []string{parens1, parens2, parens3, parens4},
+		FileContents: []string{equality1, equality2, equality3, equality4},
 	}
 	return evaluateTestCases.RunAll(b, logger)
 }

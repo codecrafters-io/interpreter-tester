@@ -9,18 +9,18 @@ import (
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
-func testEvaluateUnary(stageHarness *test_case_harness.TestCaseHarness) error {
+func testEvaluateUnaryErrors(stageHarness *test_case_harness.TestCaseHarness) error {
 	b := interpreter_executable.NewInterpreterExecutable(stageHarness)
 
 	logger := stageHarness.Logger
 
-	unary1 := fmt.Sprintf("-%d", getRandInt())
-	unary2 := fmt.Sprintf("!%s", getRandBoolean())
-	unary3 := "!nil"
-	unary4 := fmt.Sprintf("(!!%d)", getRandInt())
+	error1 := fmt.Sprintf("-\"%s\"", getRandString())
+	error2 := "-true"
+	error3 := "-false"
+	error4 := fmt.Sprintf("-(\"%s\" + \"%s\")", getRandString(), getRandString())
 
 	evaluateTestCases := testcases.MultiEvaluateTestCase{
-		FileContents: []string{unary1, unary2, unary3, unary4},
+		FileContents: []string{error1, error2, error3, error4},
 	}
 	return evaluateTestCases.RunAll(b, logger)
 }
