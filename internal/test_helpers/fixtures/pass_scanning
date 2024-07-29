@@ -295,21 +295,18 @@ Debug = true
 [33m[stage-12] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-12] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-12] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-12] [test-4] [0m[33m[test.lox][0m "hello"+"baz""perseverance" && "Success" != "Failure"
+[33m[stage-12] [test-4] [0m[33m[test.lox][0m ("hello"+"baz") != "other_string"
 [33m[stage-12] [test-4] [0m[94m$ ./your_program.sh tokenize test.lox[0m
-[33m[your_program] [0m[line 1] Error: Unexpected character: &
-[33m[your_program] [0m[line 1] Error: Unexpected character: &
+[33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mSTRING "hello" hello
 [33m[your_program] [0mPLUS + null
 [33m[your_program] [0mSTRING "baz" baz
-[33m[your_program] [0mSTRING "perseverance" perseverance
-[33m[your_program] [0mSTRING "Success" Success
+[33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mBANG_EQUAL != null
-[33m[your_program] [0mSTRING "Failure" Failure
+[33m[your_program] [0mSTRING "other_string" other_string
 [33m[your_program] [0mEOF  null
-[33m[stage-12] [test-4] [0m[92m✓ 2 line(s) match on stderr[0m
 [33m[stage-12] [test-4] [0m[92m✓ 8 line(s) match on stdout[0m
-[33m[stage-12] [test-4] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-12] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-12] [0m[92mTest passed.[0m
 
 [33m[stage-11] [0m[94mRunning tests for Stage #11: tz7[0m
