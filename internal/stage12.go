@@ -17,7 +17,7 @@ func testStrings(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	string1 := random.RandomElementFromArray(QUOTED_STRINGS) + " " + "\"unterminated"
 	string2 := `"foo 	bar 123 // hello world!"`
-	shuffledString2 := strings.Join(random.RandomElementsFromArray(QUOTED_STRINGS, 2), "+") + `"perseverance" && "Success" != "Failure"`
+	shuffledString2 := "(" + strings.Join(random.RandomElementsFromArray(QUOTED_STRINGS, 2), "+") + `) != "other_string"`
 
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{QUOTED_STRINGS[0], string1, string2, shuffledString2},
