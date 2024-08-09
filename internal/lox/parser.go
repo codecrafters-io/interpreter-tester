@@ -1,13 +1,28 @@
 package lox
 
 /*
-expression -> equality ;
+program    -> declaration* EOF ;
+declaration-> varDecl
+			| stmt ;
+varDecl    -> "var" IDENTIFIER ( "=" expression )? ";" ;
+stmt       -> exprStmt
+			| printStmt ;
+			| block ;
+block      -> "{" declaration* "}" ;
+exprStmt   -> expression ";" ;
+printStmt  -> "print" expression ";" ;
+expression -> assignment ;
+assignment -> IDENTIFIER "=" assignment
+			| equality ;
 equality   -> comparison ( ( "!=" | "==") comparison )* ;
 comparison -> term ( ( ">" | ">=" | "<" | "<=") term )* ;
 term   -> factor ( ( "+" | "-" ) factor )* ;
 factor -> unary ( ( "/" | "*" ) unary )* ;
 unary      -> ( "!" | "-" ) unary | primary ;
-primary    -> NUMBER | STRING | "true" | "false" | "nil" | "(" expression ")" ;
+primary    -> "true" | "false" | "nil"
+			| NUMBER | STRING
+			| "(" expression ")"
+			IDENTIFIER ;
 */
 
 // Parser will transform an array of tokens to an AST.
