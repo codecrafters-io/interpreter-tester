@@ -106,4 +106,11 @@ test_evaluation_w_jlox: build
 	]" \
 	$(shell pwd)/dist/main.out
 
-test_all: test_scanning_w_jlox test_parsing_w_jlox
+test_statements_w_jlox: build
+	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap08_statements \
+	CODECRAFTERS_TEST_CASES_JSON="[ \
+		{\"slug\":\"xy1\",\"tester_log_prefix\":\"stage_401\",\"title\":\"Stage #401: Statements: Print statements\"} \
+	]" \
+	$(shell pwd)/dist/main.out
+
+test_all: test_scanning_w_jlox test_parsing_w_jlox test_evaluation_w_jlox test_statements_w_jlox
