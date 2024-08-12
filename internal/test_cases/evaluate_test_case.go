@@ -39,10 +39,6 @@ func (t *EvaluateTestCase) Run(executable *interpreter_executable.InterpreterExe
 		return fmt.Errorf("expected exit code %v, got %v", exitCode, result.ExitCode)
 	}
 
-	// ToDo: Confirm
-	// We are intentionally not testing the errors lines printed to stderr
-	// We will just check the exitCode here
-
 	expectedStdoutLines := []string{expectedStdout}
 	if err = assertions.NewStdoutAssertion(expectedStdoutLines).Run(result, logger); err != nil {
 		return err

@@ -15,4 +15,7 @@ sed -i '' 's/Lox\.error(line, "Unexpected character\.");/Lox\.error(line, "Unexp
 make java_chapters
 cd ..
 cp -r ./internal/test_helpers/jlox04/* ./craftinginterpreters/build/gen/chap04_scanning
+cp -r ./internal/test_helpers/jlox06/* ./craftinginterpreters/build/gen/chap06_parsing
+cp -r ./internal/test_helpers/jlox07/* ./craftinginterpreters/build/gen/chap07_evaluating
+cp -r ./internal/test_helpers/jlox08/* ./craftinginterpreters/build/gen/chap08_statements
 make test
