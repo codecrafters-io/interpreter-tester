@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"regexp"
 	"runtime"
 	"strings"
 
@@ -56,4 +57,26 @@ func GetTestProgramsForCurrentStage() []string {
 		testPrograms = append(testPrograms, string(contents))
 	}
 	return testPrograms
+}
+
+func replace(program string) string {
+	rePlaceholder := regexp.MustCompile(`<<(RANDOM_QUOTED_STRING|RANDOM_BOOLEAN|RANDOM_INTEGER)>>`)
+
+	// Replace placeholders with random values
+	result := rePlaceholder.ReplaceAllStringFunc(program, func(match string) string {
+		switch match {
+		case "<<RANDOM_STRING>>":
+			return random.RandomElementFromArray(STRINGS)
+		case "<<RANDOM_QUOTED_STRING>>":
+			return random.RandomElementFromArray(QUOTED_STRINGS)
+		case "<<RANDOM_BOOLEAN>>":
+			return random.RandomElementFromArray(BOOLEANS)
+		case "<<RANDOM_INTEGER>>":
+			return getRandIntAsString()
+		default:
+			return match
+		}
+	})
+
+	return result
 }
