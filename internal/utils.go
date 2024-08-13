@@ -59,11 +59,11 @@ func GetTestProgramsForCurrentStage() []string {
 	return testPrograms
 }
 
-func replace(program string) string {
-	rePlaceholder := regexp.MustCompile(`<<(RANDOM_QUOTED_STRING|RANDOM_BOOLEAN|RANDOM_INTEGER)>>`)
+func ReplacePlaceholdersWithRandomValues(program string) string {
+	regexPlaceholder := regexp.MustCompile(`<<(RANDOM_STRING|RANDOM_QUOTED_STRING|RANDOM_BOOLEAN|RANDOM_INTEGER)>>`)
 
 	// Replace placeholders with random values
-	result := rePlaceholder.ReplaceAllStringFunc(program, func(match string) string {
+	result := regexPlaceholder.ReplaceAllStringFunc(program, func(match string) string {
 		switch match {
 		case "<<RANDOM_STRING>>":
 			return random.RandomElementFromArray(STRINGS)
@@ -79,4 +79,14 @@ func replace(program string) string {
 	})
 
 	return result
+}
+
+func GetTestProgramsForCurrentStageWithRandomValues() []string {
+	var testPrograms []string
+
+	for _, program := range GetTestProgramsForCurrentStage() {
+		testPrograms = append(testPrograms, ReplacePlaceholdersWithRandomValues(program))
+	}
+
+	return testPrograms
 }

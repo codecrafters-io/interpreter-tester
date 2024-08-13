@@ -14,9 +14,11 @@ func testStatements1(stageHarness *test_case_harness.TestCaseHarness) error {
 	fileContents := GetTestProgramsForCurrentStage()
 	var replacedFileContents []string
 	for _, fileContent := range fileContents {
-		replacedFileContent := replace(fileContent)
+		replacedFileContent := ReplacePlaceholdersWithRandomValues(fileContent)
 		replacedFileContents = append(replacedFileContents, replacedFileContent)
 	}
+
+	// fileContents = GetTestProgramsForCurrentStageWithRandomValues()
 
 	runTestCases := testcases.MultiRunTestCase{
 		FileContents: replacedFileContents,
