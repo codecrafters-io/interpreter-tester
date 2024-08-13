@@ -25,17 +25,17 @@ func Run(source string) (string, int, string) {
 	}
 
 	results, err := Interpret(statements, NewGlobal())
-	if err != nil {
-		return "", 70, existingErrors + err.Error()
-	}
-
-	if results == nil {
-		return "nil", exitCode, existingErrors
-	}
-
 	resultsString := []string{}
 	for _, res := range results {
-		resultsString = append(resultsString, fmt.Sprintf("%v", res))
+		if res != nil {
+			resultsString = append(resultsString, fmt.Sprintf("%v", res))
+		}
 	}
-	return strings.Join(resultsString, "\n"), exitCode, existingErrors
+	output := strings.Join(resultsString, "\n")
+
+	if err != nil {
+		return output, 70, existingErrors + err.Error()
+	}
+
+	return output, exitCode, existingErrors
 }

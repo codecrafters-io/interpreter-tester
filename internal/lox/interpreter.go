@@ -24,7 +24,7 @@ func Interpret(statements []Stmt, env *Environment) ([]interface{}, error) {
 	for _, stmt := range statements {
 		result, err := Eval(stmt, env)
 		if err != nil {
-			return nil, err
+			return results, err
 		}
 		results = append(results, result)
 	}
