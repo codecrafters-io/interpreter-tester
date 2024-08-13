@@ -62,22 +62,42 @@ func GetTestProgramsForCurrentStage() []string {
 }
 
 func ReplacePlaceholdersWithRandomValues(program string) string {
-	regexPlaceholder := regexp.MustCompile(`<<(RANDOM_STRING|RANDOM_QUOTED_STRING|RANDOM_BOOLEAN|RANDOM_INTEGER)>>`)
+	regexPlaceholder := regexp.MustCompile(`<<(RANDOM_STRING|RANDOM_QUOTEDSTRING|RANDOM_BOOLEAN|RANDOM_INTEGER)(_\d+)?>>`)
+
+	generatedValues := make(map[string]string)
 
 	// Replace placeholders with random values
 	result := regexPlaceholder.ReplaceAllStringFunc(program, func(match string) string {
-		switch match {
-		case "<<RANDOM_STRING>>":
-			return random.RandomElementFromArray(STRINGS)
-		case "<<RANDOM_QUOTED_STRING>>":
-			return random.RandomElementFromArray(QUOTED_STRINGS)
-		case "<<RANDOM_BOOLEAN>>":
-			return random.RandomElementFromArray(BOOLEANS)
-		case "<<RANDOM_INTEGER>>":
-			return getRandIntAsString()
+		// match looks like: <<RANDOM_DTYPE_N>>
+		parts := strings.Split(match[2:len(match)-2], "_")
+		placeholderType := strings.Join(parts[0:2], "_") // first 2 parts are guaranteed to be RANDOM & DTYPE
+		placeholderID := ""
+
+		if len(parts) > 2 {
+			placeholderID = parts[2]
+		}
+
+		key := placeholderType + placeholderID
+		if value, exists := generatedValues[key]; exists {
+			return value
+		}
+
+		var newValue string
+		switch placeholderType {
+		case "RANDOM_STRING":
+			newValue = random.RandomElementFromArray(STRINGS)
+		case "RANDOM_QUOTEDSTRING":
+			newValue = random.RandomElementFromArray(QUOTED_STRINGS)
+		case "RANDOM_BOOLEAN":
+			newValue = random.RandomElementFromArray(BOOLEANS)
+		case "RANDOM_INTEGER":
+			newValue = getRandIntAsString()
 		default:
 			return match
 		}
+
+		generatedValues[key] = newValue
+		return newValue
 	})
 
 	return result
