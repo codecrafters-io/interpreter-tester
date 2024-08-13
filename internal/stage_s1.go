@@ -11,17 +11,10 @@ func testStatements1(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	fileContents := GetTestProgramsForCurrentStage()
-	var replacedFileContents []string
-	for _, fileContent := range fileContents {
-		replacedFileContent := ReplacePlaceholdersWithRandomValues(fileContent)
-		replacedFileContents = append(replacedFileContents, replacedFileContent)
-	}
-
-	// fileContents = GetTestProgramsForCurrentStageWithRandomValues()
+	fileContents := GetTestProgramsForCurrentStageWithRandomValues()
 
 	runTestCases := testcases.MultiRunTestCase{
-		FileContents: replacedFileContents,
+		FileContents: fileContents,
 	}
 
 	return runTestCases.RunAll(b, logger)

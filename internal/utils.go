@@ -34,8 +34,10 @@ func getRandBoolean() string {
 func GetTestProgramsForCurrentStage() []string {
 	var testPrograms []string
 
-	// Get caller info for the caller of this function
-	_, file, no, ok := runtime.Caller(1)
+	// Get caller info for the caller of this function (testStatements1())
+	// GetTestProgramsForCurrentStage() <- GetTestProgramsForCurrentStageWithRandomValues() <- testStatements1()
+	// We skip over 2 frames, to get to testStatements1()
+	_, file, no, ok := runtime.Caller(2)
 	if !ok {
 		panic(fmt.Sprintf("CodeCrafters Internal Error: Encountered error while getting caller info: %s#%d", file, no))
 	}
