@@ -1,0 +1,6 @@
+{
+    var a = <<RANDOM_INTEGER>>;
+    var b = <<RANDOM_INTEGER>>;
+    {
+        print a + b;
+}
