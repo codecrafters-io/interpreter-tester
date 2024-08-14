@@ -109,7 +109,16 @@ test_evaluation_w_jlox: build
 test_statements_w_jlox: build
 	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap08_statements \
 	CODECRAFTERS_TEST_CASES_JSON="[ \
-		{\"slug\":\"xy1\",\"tester_log_prefix\":\"stage_401\",\"title\":\"Stage #401: Statements: Print statements\"} \
+		{\"slug\":\"xy1\",\"tester_log_prefix\":\"stage_401\",\"title\":\"Stage #401: Statements: Single print statements\"}, \
+		{\"slug\":\"oe4\",\"tester_log_prefix\":\"stage_402\",\"title\":\"Stage #402: Statements: Multiple print statements\"}, \
+		{\"slug\":\"fi3\",\"tester_log_prefix\":\"stage_403\",\"title\":\"Stage #403: Statements: Expression statements\"}, \
+		{\"slug\":\"yg2\",\"tester_log_prefix\":\"stage_404\",\"title\":\"Stage #404: Statements: Variable: declaration\"}, \
+		{\"slug\":\"sv7\",\"tester_log_prefix\":\"stage_405\",\"title\":\"Stage #405: Statements: Variable: runtime errors\"}, \
+		{\"slug\":\"bc1\",\"tester_log_prefix\":\"stage_406\",\"title\":\"Stage #406: Statements: Variable: initialization\"}, \
+		{\"slug\":\"dw9\",\"tester_log_prefix\":\"stage_407\",\"title\":\"Stage #407: Statements: Variable: redeclaration\"}, \
+		{\"slug\":\"pl3\",\"tester_log_prefix\":\"stage_408\",\"title\":\"Stage #408: Statements: Assignment operation\"}, \
+		{\"slug\":\"vr5\",\"tester_log_prefix\":\"stage_409\",\"title\":\"Stage #409: Statements: Block syntax\"}, \
+		{\"slug\":\"fb4\",\"tester_log_prefix\":\"stage_410\",\"title\":\"Stage #410: Statements: Scope: nested & shadowing\"} \
 	]" \
 	$(shell pwd)/dist/main.out
 

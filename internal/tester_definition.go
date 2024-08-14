@@ -163,7 +163,43 @@ var testerDefinition = tester_definition.TesterDefinition{
 		},
 		{
 			Slug:     "xy1",
-			TestFunc: testStatements1,
+			TestFunc: createTestStatementFunction("s1"),
+		},
+		{
+			Slug:     "oe4",
+			TestFunc: createTestStatementFunction("s2"),
+		},
+		{
+			Slug:     "fi3",
+			TestFunc: createTestStatementFunction("s3"),
+		},
+		{
+			Slug:     "yg2",
+			TestFunc: createTestStatementFunction("s4"),
+		},
+		{
+			Slug:     "sv7",
+			TestFunc: createTestStatementFunction("s5"),
+		},
+		{
+			Slug:     "bc1",
+			TestFunc: createTestStatementFunction("s6"),
+		},
+		{
+			Slug:     "dw9",
+			TestFunc: createTestStatementFunction("s7"),
+		},
+		{
+			Slug:     "pl3",
+			TestFunc: createTestStatementFunction("s8"),
+		},
+		{
+			Slug:     "vr5",
+			TestFunc: createTestStatementFunction("s9"),
+		},
+		{
+			Slug:     "fb4",
+			TestFunc: createTestStatementFunction("s10"),
 		},
 	},
 }
