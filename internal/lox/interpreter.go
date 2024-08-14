@@ -2,6 +2,8 @@ package lox
 
 import (
 	"fmt"
+	"io"
+	"os"
 	"reflect"
 )
 
@@ -11,32 +13,33 @@ const (
 )
 
 func BasicInterpret(expression Expr) (interface{}, error) {
-	result, err := Eval(expression, NewGlobal())
+	result, err := Eval(expression, NewGlobal(), os.Stdout, os.Stderr)
 	if err != nil {
 		return "", err
 	}
 	return result, nil
 }
 
-func Interpret(statements []Stmt) {
+func Interpret(statements []Stmt, stdout io.Writer, stderr io.Writer) {
 	env := NewGlobal()
 	for _, stmt := range statements {
-		_, err := Eval(stmt, env)
+		_, err := Eval(stmt, env, stdout, stderr)
 		if err != nil {
-			LogRuntimeError(err)
+			LogRuntimeError(err, stderr)
+			return
 		}
 	}
 }
 
 // Eval evaluates the given AST
-func Eval(node Node, environment *Environment) (interface{}, error) {
+func Eval(node Node, environment *Environment, stdout io.Writer, stderr io.Writer) (interface{}, error) {
 	switch n := node.(type) {
 	case *Literal:
 		return n.Value, nil
 	case *Grouping:
-		return Eval(n.Expression, environment)
+		return Eval(n.Expression, environment, stdout, stderr)
 	case *Unary:
-		right, err := Eval(n.Right, environment)
+		right, err := Eval(n.Right, environment, stdout, stderr)
 		if err != nil {
 			return right, err
 		} else if n.Operator.Type == MINUS {
@@ -49,11 +52,11 @@ func Eval(node Node, environment *Environment) (interface{}, error) {
 			return !isTruthy(right), nil
 		}
 	case *Binary:
-		left, err := Eval(n.Left, environment)
+		left, err := Eval(n.Left, environment, stdout, stderr)
 		if err != nil {
 			return left, err
 		}
-		right, err := Eval(n.Right, environment)
+		right, err := Eval(n.Right, environment, stdout, stderr)
 		if err != nil {
 			return right, err
 		}
@@ -148,21 +151,21 @@ func Eval(node Node, environment *Environment) (interface{}, error) {
 			return isEqual(left, right), nil
 		}
 	case *Print:
-		value, err := Eval(n.Expression, environment)
+		value, err := Eval(n.Expression, environment, stdout, stderr)
 		if err != nil {
 			return value, err
 		}
-		fmt.Println(value)
+		fmt.Fprintln(stdout, value)
 		return nil, nil
 	case *Expression:
-		r, err := Eval(n.Expression, environment)
+		r, err := Eval(n.Expression, environment, stdout, stderr)
 		if err != nil {
 			return r, err
 		}
 		return nil, nil
 	case *Var:
 		if n.Initializer != nil {
-			value, err := Eval(n.Initializer, environment)
+			value, err := Eval(n.Initializer, environment, stdout, stderr)
 			if err != nil {
 				return nil, err
 			}
@@ -175,7 +178,7 @@ func Eval(node Node, environment *Environment) (interface{}, error) {
 	case *Variable:
 		return environment.Get(n.Name)
 	case *Assign:
-		value, err := Eval(n.Value, environment)
+		value, err := Eval(n.Value, environment, stdout, stderr)
 		if err != nil {
 			return nil, err
 		}
@@ -186,7 +189,7 @@ func Eval(node Node, environment *Environment) (interface{}, error) {
 	case *Block:
 		newEnvironment := New(environment)
 		for _, stmt := range n.Statements {
-			_, err := Eval(stmt, newEnvironment)
+			_, err := Eval(stmt, newEnvironment, stdout, stderr)
 			if err != nil {
 				return nil, err
 			}
@@ -223,4 +226,9 @@ func checkNumberOperand(operator Token, value interface{}, msg string) error {
 		return nil
 	}
 	return MakeRuntimeError(operator, msg)
+}
+
+func ClearErrorFlags() {
+	HadParseError = false
+	HadRuntimeError = false
 }
