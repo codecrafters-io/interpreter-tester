@@ -14,10 +14,11 @@ func testEvaluateTerm(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
+	n1 := getRandInt()
 	term1 := fmt.Sprintf("%d - %d", getRandInt(), getRandInt())
 	term2 := fmt.Sprintf("%d + %d - %d", getRandInt(), getRandInt(), getRandInt())
 	term3 := fmt.Sprintf("%d + %d - (-(%d - %d))", getRandInt(), getRandInt(), getRandInt(), getRandInt())
-	term4 := fmt.Sprintf("-(-%d + %d) * (%d * %d) / (1 + 4)", getRandInt(), getRandInt(), getRandInt(), getRandInt())
+	term4 := fmt.Sprintf("(-%d + %d) * (%d * %d) / (1 + 4)", n1, n1, getRandInt(), getRandInt())
 
 	evaluateTestCases := testcases.MultiEvaluateTestCase{
 		FileContents: []string{term1, term2, term3, term4},
