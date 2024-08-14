@@ -3,11 +3,12 @@ package lox
 import (
 	"fmt"
 	"os"
+	"strings"
 )
 
 // PrintRuntimeError reports a runtime error
 func LogRuntimeError(err error) {
-	fmt.Fprintf(os.Stderr, "%v\n", err.Error())
+	fmt.Fprintf(os.Stderr, "%v\n", strings.TrimSpace(err.Error()))
 	HadRuntimeError = true
 }
 

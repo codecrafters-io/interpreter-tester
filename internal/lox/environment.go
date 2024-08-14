@@ -38,7 +38,7 @@ func (e *Environment) Get(name Token) (interface{}, error) {
 	if e.enclosing != nil {
 		return e.enclosing.Get(name)
 	}
-	return nil, fmt.Errorf("Undefined variable '%v'", name.Lexeme)
+	return nil, MakeRuntimeError(name, fmt.Sprintf("Undefined variable '%s'.", name.Lexeme))
 }
 
 // Assign sets a new value to an old variable

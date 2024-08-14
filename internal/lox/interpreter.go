@@ -81,7 +81,7 @@ func Eval(node Node, environment *Environment) (interface{}, error) {
 					return lhs + rhs, nil
 				}
 			}
-			return nil, fmt.Errorf("%s", OPERANDS_MUST_BE_TWO_NUMBERS_OR_TWO_STRINGS)
+			return nil, MakeRuntimeError(n.Operator, OPERANDS_MUST_BE_TWO_NUMBERS_OR_TWO_STRINGS)
 		case SLASH:
 			err := checkNumberOperand(n.Operator, left, OPERAND_MUST_BE_A_NUMBER)
 			if err != nil {
@@ -193,7 +193,7 @@ func Eval(node Node, environment *Environment) (interface{}, error) {
 		}
 		return nil, nil
 	case nil:
-		return nil, MakeRuntimeError(Token{Lexeme: ""}, "Fatal interpreter error.")
+		return nil, nil
 	}
 	panic(fmt.Sprintf("CodeCrafters Internal Error: Unexpected node type in interpreter: %s", reflect.TypeOf(node).String()))
 }
@@ -222,5 +222,5 @@ func checkNumberOperand(operator Token, value interface{}, msg string) error {
 	case int, float64:
 		return nil
 	}
-	return fmt.Errorf("%v\n[line %v]", msg, operator.Line)
+	return MakeRuntimeError(operator, msg)
 }
