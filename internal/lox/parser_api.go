@@ -1,25 +1,30 @@
 package lox
 
-import "os"
+import (
+	"bytes"
+)
 
 func Parse(source string) (string, int, string) {
+	ClearErrorFlags()
+	mockStdout := &bytes.Buffer{}
+	mockStderr := &bytes.Buffer{}
+
 	scanner := NewScanner(source)
-	tokens := scanner.ScanTokens(os.Stdout, os.Stderr)
-
-	var existingErrors string
-	exitCode := 0
-	// if len(errors) > 0 {
-	// 	for _, err := range errors {
-	// 		existingErrors += err + "\n"
-	// 	}
-	// 	exitCode = 65
-	// }
-
+	tokens := scanner.ScanTokens(mockStdout, mockStderr)
 	parser := NewParser(tokens)
-	expression, err := parser.BasicParse()
-	if err != nil {
-		return "", 65, existingErrors + err.Error()
+	expression := parser.BasicParse(mockStdout, mockStderr)
+	capturedStderr := mockStderr.String()
+
+	exitCode := 0
+	if HadParseError {
+		exitCode = 65
+	} else if HadRuntimeError {
+		exitCode = 70
 	}
 
-	return expression.String(), exitCode, ""
+	if HadParseError {
+		return "", exitCode, capturedStderr
+	}
+
+	return expression.String(), exitCode, capturedStderr
 }
