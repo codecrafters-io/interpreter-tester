@@ -1,0 +1,6 @@
+var a;
+var b;
+
+a = b = 2 + 3 * 4;
+print a;
+print b;

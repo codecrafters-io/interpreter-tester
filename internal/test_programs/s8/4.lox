@@ -1,0 +1,8 @@
+var x = 5;
+var y;
+var z;
+
+x = y = z = x * 2;
+print x;
+print y;
+print z;
