@@ -1,0 +1,4 @@
+var a = <<RANDOM_INTEGER>>;
+var b;
+var c;
+print a + b;

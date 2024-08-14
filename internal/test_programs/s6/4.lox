@@ -1,0 +1,6 @@
+var a = <<RANDOM_INTEGER>> + <<RANDOM_INTEGER>> * <<RANDOM_INTEGER>>;
+print a;
+var b = <<RANDOM_INTEGER>> * <<RANDOM_INTEGER>>;
+print a + b;
+var c;
+print b + c;
