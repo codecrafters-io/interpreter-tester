@@ -1,0 +1,3 @@
+print "the expression below is invalid";
+<<RANDOM_INTEGER>> + <<RANDOM_QUOTEDSTRING>>;
+print "this should not be printed";
