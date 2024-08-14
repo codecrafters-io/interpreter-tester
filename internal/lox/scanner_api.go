@@ -8,12 +8,11 @@ import (
 )
 
 func ScanTokens(source string) ([]string, []string, int, error) {
+	ClearErrorFlags()
 	scanner := NewScanner(source)
 	tokens := scanner.ScanTokens(os.Stdout, os.Stderr)
-	exitCode := 0
 
 	var tokenLines []string
-	// errorLines := errors
 
 	for _, token := range tokens {
 		literal := token.Literal
@@ -25,9 +24,12 @@ func ScanTokens(source string) ([]string, []string, int, error) {
 		tokenLines = append(tokenLines, fmt.Sprintf("%s %s %s", getTokenName(token.Type), token.Lexeme, literal))
 	}
 
-	// if len(errorLines) > 0 {
-	// 	exitCode = 65
-	// }
+	exitCode := 0
+	if HadParseError {
+		exitCode = 65
+	} else if HadRuntimeError {
+		exitCode = 70
+	}
 
 	return tokenLines, nil, exitCode, nil
 }
