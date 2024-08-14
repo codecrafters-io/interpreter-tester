@@ -1,5 +1,9 @@
 package lox
 
+import (
+	"io"
+)
+
 /*
 program    -> declaration* EOF ;
 declaration-> varDecl
@@ -41,31 +45,33 @@ func (p *Parser) BasicParse() (Expr, error) {
 	return p.expression()
 }
 
-func (p *Parser) Parse() []Stmt {
+func (p *Parser) Parse(stdout, stderr io.Writer) []Stmt {
 	statements := make([]Stmt, 0)
 	for !p.isAtEnd() {
-		statements = append(statements, p.declaration())
+		stmt, err := p.declaration()
+		if err != nil {
+			LogParseError(err, stderr)
+		}
+		statements = append(statements, stmt)
 	}
 	return statements
 }
 
-func (p *Parser) declaration() Stmt {
+func (p *Parser) declaration() (Stmt, error) {
 	if p.match(VAR) {
 		stmt, err := p.varDeclaration()
 		if err != nil {
 			p.synchronize()
-			LogParseError(err)
-			return nil
+			return nil, err
 		}
-		return stmt
+		return stmt, nil
 	}
 	stmt, err := p.statement()
 	if err != nil {
 		p.synchronize()
-		LogParseError(err)
-		return nil
+		return nil, err
 	}
-	return stmt
+	return stmt, nil
 }
 
 func (p *Parser) varDeclaration() (Stmt, error) {
@@ -92,8 +98,8 @@ func (p *Parser) statement() (Stmt, error) {
 	if p.match(PRINT) {
 		return p.printStatement()
 	} else if p.match(LEFTBRACE) {
-		var err error
-		if statements, err := p.block(); err == nil {
+		statements, err := p.block()
+		if err == nil {
 			return &Block{Statements: statements}, nil
 		}
 		return nil, err
@@ -104,13 +110,16 @@ func (p *Parser) statement() (Stmt, error) {
 func (p *Parser) block() ([]Stmt, error) {
 	statements := make([]Stmt, 0)
 	for !p.check(RIGHTBRACE) && !p.isAtEnd() {
-		stmt := p.declaration() // ToDo: propagate declaration error ?
-		if stmt == nil {
-			return nil, nil
+		stmt, err := p.declaration()
+		if err != nil {
+			return nil, err
 		}
 		statements = append(statements, stmt)
 	}
-	p.consume(RIGHTBRACE, "Expected '}' after block.")
+	_, err := p.consume(RIGHTBRACE, "Expected '}' after block.")
+	if err != nil {
+		return nil, err
+	}
 	return statements, nil
 }
 
