@@ -1,0 +1,2 @@
+print <<RANDOM_QUOTEDSTRING>>;
+print <<RANDOM_BOOLEAN>>;
