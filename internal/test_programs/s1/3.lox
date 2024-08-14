@@ -1,2 +1,1 @@
-<<RANDOM_INTEGER>> + <<RANDOM_INTEGER>>;
-print "this is valid";
+print <<RANDOM_BOOLEAN>>;
