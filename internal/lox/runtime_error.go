@@ -2,13 +2,13 @@ package lox
 
 import (
 	"fmt"
-	"os"
+	"io"
 	"strings"
 )
 
 // PrintRuntimeError reports a runtime error
-func LogRuntimeError(err error) {
-	fmt.Fprintf(os.Stderr, "%v\n", strings.TrimSpace(err.Error()))
+func LogRuntimeError(err error, stderr io.Writer) {
+	fmt.Fprintf(stderr, "%v\n", strings.TrimSpace(err.Error()))
 	HadRuntimeError = true
 }
 
@@ -20,6 +20,6 @@ func MakeRuntimeError(token Token, message string) error {
 // HadRuntimeError is true if an evaluation error was encountered
 var HadRuntimeError = false
 
-func ReportRuntimeError(token Token, message string) {
-	LogRuntimeError(MakeRuntimeError(token, message))
+func ReportRuntimeError(token Token, message string, stderr io.Writer) {
+	LogRuntimeError(MakeRuntimeError(token, message), stderr)
 }

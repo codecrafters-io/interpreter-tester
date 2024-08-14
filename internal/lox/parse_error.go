@@ -2,15 +2,15 @@ package lox
 
 import (
 	"fmt"
-	"os"
+	"io"
 )
 
 // HadParseError is true if a scanner/parser error was encountered
 var HadParseError = false
 
 // LogParseError reports in stderr an error encountered during parsing
-func LogParseError(err error) {
-	fmt.Fprintf(os.Stderr, "%v\n", err.Error())
+func LogParseError(err error, stderr io.Writer) {
+	fmt.Fprintf(stderr, "%v\n", err.Error())
 	HadParseError = true
 }
 
@@ -22,6 +22,6 @@ func MakeParseError(tok Token, message string) error {
 	return fmt.Errorf("[line %v] Error at '%s': %s", tok.Line, tok.Lexeme, message)
 }
 
-func ReportParseError(line int, where string, message string) {
-	LogParseError(MakeParseError(Token{Line: line, Lexeme: where}, message))
+func ReportParseError(line int, where string, message string, stderr io.Writer) {
+	LogParseError(MakeParseError(Token{Line: line, Lexeme: where}, message), stderr)
 }
