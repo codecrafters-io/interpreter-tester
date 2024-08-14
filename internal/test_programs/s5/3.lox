@@ -1,0 +1,3 @@
+var y = <<RANDOM_INTEGER>>;
+var result = y + z;
+print result;
