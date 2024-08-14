@@ -1,0 +1,2 @@
+var result = (8 * (<<RANDOM_INTEGER>> + <<RANDOM_INTEGER>>)) / 4 + <<RANDOM_INTEGER>>;
+print result;
