@@ -5,7 +5,6 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
-	"runtime"
 	"strings"
 
 	"github.com/codecrafters-io/tester-utils/random"
@@ -31,20 +30,11 @@ func getRandBoolean() string {
 // To make it easier to work with and track changes, all the test programs are stored in the test_programs directory.
 // Every stage has its own directory. (For example, stage_s1.go has a test_programs/s1 directory.)
 // This function reads all the files in the test_programs/<<stage_id>> directory and returns their contents as a slice of strings.
-func GetTestProgramsForCurrentStage() []string {
+func GetTestProgramsForCurrentStage(stageIdentifier string) []string {
 	var testPrograms []string
 
-	// Get caller info for the caller of this function (testStatements1())
-	// GetTestProgramsForCurrentStage() <- GetTestProgramsForCurrentStageWithRandomValues() <- testStatements1()
-	// We skip over 2 frames, to get to testStatements1()
-	_, file, no, ok := runtime.Caller(2)
-	if !ok {
-		panic(fmt.Sprintf("CodeCrafters Internal Error: Encountered error while getting caller info: %s#%d", file, no))
-	}
-
-	parentDir := filepath.Dir(file)
-	stageIdentifier := strings.Split(strings.Split(file, ".")[0], "_")[1]
-	testDir := filepath.Join(parentDir, "test_programs", stageIdentifier)
+	parentDir := "./internal/test_programs"
+	testDir := filepath.Join(parentDir, stageIdentifier)
 	files, err := os.ReadDir(testDir)
 	if err != nil {
 		panic(fmt.Sprintf("CodeCrafters Internal Error: Encountered error while reading test directory: %s", err))
@@ -103,10 +93,10 @@ func ReplacePlaceholdersWithRandomValues(program string) string {
 	return result
 }
 
-func GetTestProgramsForCurrentStageWithRandomValues() []string {
+func GetTestProgramsForCurrentStageWithRandomValues(stageIdentifier string) []string {
 	var testPrograms []string
 
-	for _, program := range GetTestProgramsForCurrentStage() {
+	for _, program := range GetTestProgramsForCurrentStage(stageIdentifier) {
 		testPrograms = append(testPrograms, ReplacePlaceholdersWithRandomValues(program))
 	}
 
