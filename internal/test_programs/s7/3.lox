@@ -1,0 +1,8 @@
+var z = 2;
+print z;
+z = 3;
+print z;
+var x = 5;
+print x;
+z = x;
+print z;
