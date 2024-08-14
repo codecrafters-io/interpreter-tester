@@ -18,17 +18,14 @@ func BasicInterpret(expression Expr) (interface{}, error) {
 	return result, nil
 }
 
-func Interpret(statements []Stmt, env *Environment) ([]interface{}, error) {
-	var results []interface{}
-
+func Interpret(statements []Stmt) {
+	env := NewGlobal()
 	for _, stmt := range statements {
-		result, err := Eval(stmt, env)
+		_, err := Eval(stmt, env)
 		if err != nil {
-			return results, err
+			LogRuntimeError(err)
 		}
-		results = append(results, result)
 	}
-	return results, nil
 }
 
 // Eval evaluates the given AST
@@ -155,8 +152,8 @@ func Eval(node Node, environment *Environment) (interface{}, error) {
 		if err != nil {
 			return value, err
 		}
-		// fmt.Println(value) // Commented out, or would interfere with logs
-		return value, nil
+		fmt.Println(value)
+		return nil, nil
 	case *Expression:
 		r, err := Eval(n.Expression, environment)
 		if err != nil {

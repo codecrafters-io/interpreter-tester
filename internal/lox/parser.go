@@ -41,35 +41,31 @@ func (p *Parser) BasicParse() (Expr, error) {
 	return p.expression()
 }
 
-func (p *Parser) Parse() ([]Stmt, error) {
+func (p *Parser) Parse() []Stmt {
 	statements := make([]Stmt, 0)
 	for !p.isAtEnd() {
-		stmt, err := p.declaration()
-		if stmt == nil {
-			return nil, err
-		}
-		statements = append(statements, stmt)
+		statements = append(statements, p.declaration())
 	}
-	return statements, nil
+	return statements
 }
 
-func (p *Parser) declaration() (Stmt, error) {
+func (p *Parser) declaration() Stmt {
 	if p.match(VAR) {
 		stmt, err := p.varDeclaration()
 		if err != nil {
 			p.synchronize()
 			LogParseError(err)
-			return nil, err
+			return nil
 		}
-		return stmt, nil
+		return stmt
 	}
 	stmt, err := p.statement()
 	if err != nil {
 		p.synchronize()
 		LogParseError(err)
-		return nil, err
+		return nil
 	}
-	return stmt, nil
+	return stmt
 }
 
 func (p *Parser) varDeclaration() (Stmt, error) {
@@ -108,9 +104,9 @@ func (p *Parser) statement() (Stmt, error) {
 func (p *Parser) block() ([]Stmt, error) {
 	statements := make([]Stmt, 0)
 	for !p.check(RIGHTBRACE) && !p.isAtEnd() {
-		stmt, err := p.declaration()
+		stmt := p.declaration() // ToDo: propagate declaration error ?
 		if stmt == nil {
-			return nil, err
+			return nil, nil
 		}
 		statements = append(statements, stmt)
 	}
