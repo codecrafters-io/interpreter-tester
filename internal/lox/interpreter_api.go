@@ -1,30 +1,35 @@
 package lox
 
 import (
-	"fmt"
-	"os"
+	"bytes"
 )
 
 func Evaluate(source string) (string, int, string) {
+	ClearErrorFlags()
+	mockStdout := &bytes.Buffer{}
+	mockStderr := &bytes.Buffer{}
+
 	scanner := NewScanner(source)
-	tokens := scanner.ScanTokens(os.Stdout, os.Stderr)
-
-	var existingErrors string
-	exitCode := 0
-
+	tokens := scanner.ScanTokens(mockStdout, mockStderr)
 	parser := NewParser(tokens)
-	expression, err := parser.BasicParse()
-	if err != nil {
-		return "", 65, existingErrors + err.Error()
+	expression := parser.BasicParse(mockStdout, mockStderr)
+	BasicInterpret(expression, mockStdout, mockStderr)
+
+	exitCode := 0
+	if HadParseError {
+		exitCode = 65
+	} else if HadRuntimeError {
+		exitCode = 70
 	}
 
-	result, err := BasicInterpret(expression)
-	if err != nil {
-		return "", 70, existingErrors + err.Error()
+	capturedStdout := mockStdout.String()
+	if len(capturedStdout) > 0 {
+		capturedStdout = capturedStdout[:len(capturedStdout)-1]
+	}
+	capturedStderr := mockStderr.String()
+	if len(capturedStderr) > 0 {
+		capturedStderr = capturedStderr[:len(capturedStderr)-1]
 	}
 
-	if result == nil {
-		return "nil", exitCode, existingErrors
-	}
-	return fmt.Sprintf("%v", result), exitCode, existingErrors
+	return capturedStdout, exitCode, capturedStderr
 }

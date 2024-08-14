@@ -3,7 +3,6 @@ package lox
 import (
 	"fmt"
 	"io"
-	"os"
 	"reflect"
 )
 
@@ -12,12 +11,16 @@ const (
 	OPERANDS_MUST_BE_TWO_NUMBERS_OR_TWO_STRINGS = "Operands must be two numbers or two strings"
 )
 
-func BasicInterpret(expression Expr) (interface{}, error) {
-	result, err := Eval(expression, NewGlobal(), os.Stdout, os.Stderr)
+func BasicInterpret(expression Expr, stdout io.Writer, stderr io.Writer) {
+	result, err := Eval(expression, NewGlobal(), stdout, stderr)
 	if err != nil {
-		return "", err
+		LogRuntimeError(err, stderr)
+		return
 	}
-	return result, nil
+	if result == nil {
+		result = "nil"
+	}
+	fmt.Fprintln(stdout, result)
 }
 
 func Interpret(statements []Stmt, stdout io.Writer, stderr io.Writer) {
