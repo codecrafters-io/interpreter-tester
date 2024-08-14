@@ -1,41 +1,35 @@
 package lox
 
 import (
-	"fmt"
-	"strings"
+	"bytes"
 )
 
 func Run(source string) (string, int, string) {
+	ClearErrorFlags()
+	mockStdout := &bytes.Buffer{}
+	mockStderr := &bytes.Buffer{}
+
 	scanner := NewScanner(source)
-	tokens, errors := scanner.ScanTokens()
-
-	var existingErrors string
-	exitCode := 0
-	if len(errors) > 0 {
-		for _, err := range errors {
-			existingErrors += err + "\n"
-		}
-		exitCode = 65
-	}
-
+	tokens := scanner.ScanTokens(mockStdout, mockStderr)
 	parser := NewParser(tokens)
-	statements, err := parser.Parse()
-	if err != nil {
-		return "", 65, existingErrors + err.Error()
+	statements := parser.Parse(mockStdout, mockStderr)
+	Interpret(statements, mockStdout, mockStderr)
+
+	exitCode := 0
+	if HadParseError {
+		exitCode = 65
+	} else if HadRuntimeError {
+		exitCode = 70
 	}
 
-	results, err := Interpret(statements, NewGlobal())
-	resultsString := []string{}
-	for _, res := range results {
-		if res != nil {
-			resultsString = append(resultsString, fmt.Sprintf("%v", res))
-		}
+	capturedStdout := mockStdout.String()
+	if len(capturedStdout) > 0 {
+		capturedStdout = capturedStdout[:len(capturedStdout)-1]
 	}
-	output := strings.Join(resultsString, "\n")
-
-	if err != nil {
-		return output, 70, existingErrors + err.Error()
+	capturedStderr := mockStderr.String()
+	if len(capturedStderr) > 0 {
+		capturedStderr = capturedStderr[:len(capturedStderr)-1]
 	}
 
-	return output, exitCode, existingErrors
+	return capturedStdout, exitCode, capturedStderr
 }
