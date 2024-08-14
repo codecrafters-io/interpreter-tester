@@ -41,8 +41,12 @@ func NewParser(tokens []Token) Parser {
 	return Parser{tokens, 0}
 }
 
-func (p *Parser) BasicParse() (Expr, error) {
-	return p.expression()
+func (p *Parser) BasicParse(stdout, stderr io.Writer) Expr {
+	expr, err := p.expression()
+	if err != nil {
+		LogParseError(err, stderr)
+	}
+	return expr
 }
 
 func (p *Parser) Parse(stdout, stderr io.Writer) []Stmt {
