@@ -1,1 +1,1 @@
-print <<RANDOM_QUOTEDSTRING>>;
+print "<<RANDOM_STRING_1>>";
