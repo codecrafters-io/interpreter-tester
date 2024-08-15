@@ -64,7 +64,7 @@ func (l *Literal) String() string {
 	if l.Value == nil {
 		sb.WriteString("nil")
 	} else if reflect.TypeOf(l.Value).Kind() == reflect.Float64 {
-		sb.WriteString(formatFloat(l.Value.(float64)))
+		sb.WriteString(FormatFloat(l.Value.(float64)))
 	} else {
 		sb.WriteString(fmt.Sprintf("%v", l.Value))
 	}
@@ -214,4 +214,24 @@ func (v *Var) String() string {
 	}
 	sb.WriteString(")")
 	return sb.String()
+}
+
+func FormatFloat(num float64) string {
+	str := fmt.Sprintf("%f", num)
+	parts := strings.Split(str, ".")
+	if len(parts) != 2 {
+		return str
+	}
+	integerPart := parts[0]
+	decimalPart := parts[1]
+
+	// Remove trailing zeros from the decimal part
+	decimalPart = strings.TrimRight(decimalPart, "0")
+
+	// Ensure at least one decimal place
+	if decimalPart == "" {
+		decimalPart = "0"
+	}
+
+	return integerPart + "." + decimalPart
 }

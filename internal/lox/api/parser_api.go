@@ -1,28 +1,30 @@
-package lox
+package loxapi
 
 import (
 	"bytes"
+
+	"github.com/codecrafters-io/interpreter-tester/internal/lox"
 )
 
 func Parse(source string) (string, int, string) {
-	ClearErrorFlags()
+	lox.ClearErrorFlags()
 	mockStdout := &bytes.Buffer{}
 	mockStderr := &bytes.Buffer{}
 
-	scanner := NewScanner(source)
+	scanner := lox.NewScanner(source)
 	tokens := scanner.ScanTokens(mockStdout, mockStderr)
-	parser := NewParser(tokens)
+	parser := lox.NewParser(tokens)
 	expression := parser.BasicParse(mockStdout, mockStderr)
 	capturedStderr := mockStderr.String()
 
 	exitCode := 0
-	if HadParseError {
+	if lox.HadParseError {
 		exitCode = 65
-	} else if HadRuntimeError {
+	} else if lox.HadRuntimeError {
 		exitCode = 70
 	}
 
-	if HadParseError {
+	if lox.HadParseError {
 		return "", exitCode, capturedStderr
 	}
 
