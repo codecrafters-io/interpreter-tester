@@ -26,7 +26,6 @@ type Binary struct {
 
 // String pretty prints the operator
 func (b *Binary) String() string {
-	// fmt.Println("Binary")
 	var sb strings.Builder
 	sb.WriteString("(")
 	sb.WriteString(b.Operator.Lexeme)
@@ -46,7 +45,6 @@ type Grouping struct {
 
 // String pretty prints the expression grouping
 func (g *Grouping) String() string {
-	// fmt.Println("Grouping")
 	var sb strings.Builder
 	sb.WriteString("(group ")
 	sb.WriteString(g.Expression.String())
@@ -62,7 +60,6 @@ type Literal struct {
 
 // String pretty prints the literal
 func (l *Literal) String() string {
-	// fmt.Println("Literal")
 	var sb strings.Builder
 	if l.Value == nil {
 		sb.WriteString("nil")
@@ -83,7 +80,6 @@ type Unary struct {
 
 // String pretty prints the unary operator
 func (u *Unary) String() string {
-	// fmt.Println("Unary")
 	var sb strings.Builder
 	sb.WriteString("(")
 	sb.WriteString(u.Operator.Lexeme)
@@ -93,17 +89,129 @@ func (u *Unary) String() string {
 	return sb.String()
 }
 
+// Statements and state
+
+// Assign is used for variable assignment
+// name = value
+type Assign struct {
+	Expr
+	Name     Token
+	Value    Expr
+	EnvIndex int
+	EnvDepth int
+}
+
+// String pretty prints the assignment statement
+func (a *Assign) String() string {
+	var sb strings.Builder
+	sb.WriteString("(")
+	sb.WriteString("=")
+	sb.WriteString(" ")
+	sb.WriteString(a.Name.Lexeme)
+	sb.WriteString(" ")
+	sb.WriteString(a.Value.String())
+	sb.WriteString(")")
+	return sb.String()
+}
+
+// Variable access expression
+// print x
+type Variable struct {
+	Expr
+	Name     Token
+	EnvIndex int
+	EnvDepth int
+}
+
+// String pretty prints the assignment expression
+func (v *Variable) String() string {
+	var sb strings.Builder
+	sb.WriteString(v.Name.Lexeme)
+	return sb.String()
+}
+
+// Stmt form a second hierarchy of syntax nodes independent of expressions
+type Stmt interface {
+	Node
+}
+
+// Block is a curly-braced block statement that defines a local scope
+//
+//	{
+//	  ...
+//	}
+type Block struct {
+	Stmt
+	Statements []Stmt
+	EnvSize    int
+}
+
+// String pretty prints the block statement
+func (b *Block) String() string {
+	var sb strings.Builder
+	sb.WriteString("(")
+	for _, stmt := range b.Statements {
+		sb.WriteString(stmt.String())
+	}
+	sb.WriteString(")")
+	return sb.String()
+}
+
 // Expression statement
 type Expression struct {
+	Stmt
 	Expression Expr
 }
 
 // String pretty prints the expression statement
 func (e *Expression) String() string {
-	// fmt.Println("Expression")
 	var sb strings.Builder
 	sb.WriteString("(")
 	sb.WriteString(e.Expression.String())
+	sb.WriteString(")")
+	return sb.String()
+}
+
+// Print statement
+// print 1 + 2
+type Print struct {
+	Stmt
+	Expression Expr
+}
+
+// String pretty prints the print statement
+func (p *Print) String() string {
+	var sb strings.Builder
+	sb.WriteString("(")
+	sb.WriteString("print")
+	sb.WriteString(" ")
+	sb.WriteString(p.Expression.String())
+	sb.WriteString(")")
+	return sb.String()
+}
+
+// Var is the variable declaration statement
+// var <name> = <initializer>
+type Var struct {
+	Stmt
+	Name        Token
+	Initializer Expr
+	EnvIndex    int
+}
+
+// String pretty prints the var declaration
+func (v *Var) String() string {
+	var sb strings.Builder
+	sb.WriteString("(")
+	sb.WriteString("var")
+	sb.WriteString(" ")
+	sb.WriteString(v.Name.Lexeme)
+	sb.WriteString(" ")
+	if v.Initializer != nil {
+		sb.WriteString(v.Initializer.String())
+	} else {
+		sb.WriteString("nil")
+	}
 	sb.WriteString(")")
 	return sb.String()
 }

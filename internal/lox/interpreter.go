@@ -10,23 +10,36 @@ const (
 	OPERANDS_MUST_BE_TWO_NUMBERS_OR_TWO_STRINGS = "Operands must be two numbers or two strings"
 )
 
-func Interpret(expression Expr) (interface{}, error) {
-	result, err := Eval(expression)
+func BasicInterpret(expression Expr) (interface{}, error) {
+	result, err := Eval(expression, NewGlobal())
 	if err != nil {
 		return "", err
 	}
 	return result, nil
 }
 
+func Interpret(statements []Stmt, env *Environment) ([]interface{}, error) {
+	var results []interface{}
+
+	for _, stmt := range statements {
+		result, err := Eval(stmt, env)
+		if err != nil {
+			return results, err
+		}
+		results = append(results, result)
+	}
+	return results, nil
+}
+
 // Eval evaluates the given AST
-func Eval(node Node) (interface{}, error) {
+func Eval(node Node, environment *Environment) (interface{}, error) {
 	switch n := node.(type) {
 	case *Literal:
 		return n.Value, nil
 	case *Grouping:
-		return Eval(n.Expression)
+		return Eval(n.Expression, environment)
 	case *Unary:
-		right, err := Eval(n.Right)
+		right, err := Eval(n.Right, environment)
 		if err != nil {
 			return right, err
 		} else if n.Operator.Type == MINUS {
@@ -39,11 +52,11 @@ func Eval(node Node) (interface{}, error) {
 			return !isTruthy(right), nil
 		}
 	case *Binary:
-		left, err := Eval(n.Left)
+		left, err := Eval(n.Left, environment)
 		if err != nil {
 			return left, err
 		}
-		right, err := Eval(n.Right)
+		right, err := Eval(n.Right, environment)
 		if err != nil {
 			return right, err
 		}
@@ -137,10 +150,49 @@ func Eval(node Node) (interface{}, error) {
 		case EQUALEQUAL:
 			return isEqual(left, right), nil
 		}
+	case *Print:
+		value, err := Eval(n.Expression, environment)
+		if err != nil {
+			return value, err
+		}
+		// fmt.Println(value) // Commented out, or would interfere with logs
+		return value, nil
 	case *Expression:
-		r, err := Eval(n.Expression)
+		r, err := Eval(n.Expression, environment)
 		if err != nil {
 			return r, err
+		}
+		return nil, nil
+	case *Var:
+		if n.Initializer != nil {
+			value, err := Eval(n.Initializer, environment)
+			if err != nil {
+				return nil, err
+			}
+			environment.Define(n.Name.Lexeme, value)
+		} else {
+			// We initialize uninitialized variables with nil
+			environment.Define(n.Name.Lexeme, nil)
+		}
+		return nil, nil
+	case *Variable:
+		return environment.Get(n.Name)
+	case *Assign:
+		value, err := Eval(n.Value, environment)
+		if err != nil {
+			return nil, err
+		}
+		if err = environment.Assign(n.Name, value); err == nil {
+			return value, nil
+		}
+		return nil, err
+	case *Block:
+		newEnvironment := New(environment)
+		for _, stmt := range n.Statements {
+			_, err := Eval(stmt, newEnvironment)
+			if err != nil {
+				return nil, err
+			}
 		}
 		return nil, nil
 	case nil:

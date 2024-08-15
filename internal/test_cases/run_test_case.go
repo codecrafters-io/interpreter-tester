@@ -3,6 +3,7 @@ package testcases
 import (
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/codecrafters-io/interpreter-tester/internal/assertions"
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
@@ -10,17 +11,17 @@ import (
 	"github.com/codecrafters-io/tester-utils/logger"
 )
 
-// EvaluateTestCase is a test case for testing the
-// "evaluate" functionality of the interpreter executable.
+// RunTestCase is a test case for testing the
+// "run" functionality of the interpreter executable.
 // A temporary file is created with R.FileContents,
-// It is sent to the "evaluate" command of the executable,
-// the expected outputs are generated using the lox.Evaluate function,
+// It is sent to the "run" command of the executable,
+// the expected outputs are generated using the lox.Run function,
 // With that the output of the executable is matched.
-type EvaluateTestCase struct {
+type RunTestCase struct {
 	FileContents string
 }
 
-func (t *EvaluateTestCase) Run(executable *interpreter_executable.InterpreterExecutable, logger *logger.Logger) error {
+func (t *RunTestCase) Run(executable *interpreter_executable.InterpreterExecutable, logger *logger.Logger) error {
 	tmpFileName, err := createTempFileWithContents(t.FileContents)
 	if err != nil {
 		return err
@@ -29,17 +30,18 @@ func (t *EvaluateTestCase) Run(executable *interpreter_executable.InterpreterExe
 
 	logReadableFileContents(logger, t.FileContents)
 
-	result, err := executable.Run("evaluate", tmpFileName)
+	result, err := executable.Run("run", tmpFileName)
 	if err != nil {
 		return err
 	}
 
-	expectedStdout, exitCode, _ := lox.Evaluate(t.FileContents)
+	expectedStdout, exitCode, _ := lox.Run(t.FileContents)
 	if result.ExitCode != exitCode {
 		return fmt.Errorf("expected exit code %v, got %v", exitCode, result.ExitCode)
 	}
+	// XXX: Stderr is not checked
 
-	expectedStdoutLines := []string{expectedStdout}
+	expectedStdoutLines := strings.Split(expectedStdout, "\n")
 	if err = assertions.NewStdoutAssertion(expectedStdoutLines).Run(result, logger); err != nil {
 		return err
 	}

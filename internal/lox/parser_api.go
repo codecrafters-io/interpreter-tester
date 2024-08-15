@@ -14,7 +14,7 @@ func Parse(source string) (string, int, string) {
 	}
 
 	parser := NewParser(tokens)
-	expression, err := parser.Parse()
+	expression, err := parser.BasicParse()
 	if err != nil {
 		return "", 65, existingErrors + err.Error()
 	}

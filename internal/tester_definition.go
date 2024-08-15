@@ -161,5 +161,9 @@ var testerDefinition = tester_definition.TesterDefinition{
 			Slug:     "ib5",
 			TestFunc: testEvaluateCompErrors,
 		},
+		{
+			Slug:     "xy1",
+			TestFunc: testStatements1,
+		},
 	},
 }
