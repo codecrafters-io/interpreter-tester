@@ -72,7 +72,7 @@ func (sc *Scanner) scanString(stdout, stderr io.Writer) {
 
 	// unterminated string
 	if sc.isAtEnd() {
-		ReportParseError(sc.line, sc.source[sc.start:sc.current], "Unterminated string.", stderr)
+		LogParseError(fmt.Errorf("[line %d] Error: Unterminated string.", sc.line), stderr)
 		return
 	}
 
@@ -193,7 +193,7 @@ func (sc *Scanner) scanToken(stdout, stderr io.Writer) {
 		} else if sc.isAlpha(c) {
 			sc.scanIdentifier()
 		} else {
-			ReportParseError(sc.line, fmt.Sprintf("Unexpected character: %c", c), "", stderr)
+			LogParseError(fmt.Errorf("[line %d] Error: Unexpected character: %c", sc.line, c), stderr)
 		}
 	}
 }

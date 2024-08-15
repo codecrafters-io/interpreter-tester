@@ -1,17 +1,21 @@
 package loxapi
 
 import (
+	"bytes"
 	"fmt"
-	"os"
 	"reflect"
+	"strings"
 
 	"github.com/codecrafters-io/interpreter-tester/internal/lox"
 )
 
 func ScanTokens(source string) ([]string, []string, int, error) {
 	lox.ClearErrorFlags()
+	mockStdout := &bytes.Buffer{}
+	mockStderr := &bytes.Buffer{}
+
 	scanner := lox.NewScanner(source)
-	tokens := scanner.ScanTokens(os.Stdout, os.Stderr)
+	tokens := scanner.ScanTokens(mockStdout, mockStderr)
 
 	var tokenLines []string
 
@@ -32,5 +36,15 @@ func ScanTokens(source string) ([]string, []string, int, error) {
 		exitCode = 70
 	}
 
-	return tokenLines, nil, exitCode, nil
+	stderr := mockStderr.String()
+
+	var stderrLines []string
+
+	if len(stderr) > 0 {
+		stderr = stderr[:len(stderr)-1]
+		stderrLines = strings.Split(stderr, "\n")
+	} else {
+		stderrLines = []string{}
+	}
+	return tokenLines, stderrLines, exitCode, nil
 }
