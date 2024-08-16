@@ -111,9 +111,9 @@ Debug = true
 [33m[stage-7] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-7] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-4] [0m[33m[test.lox][0m -(-99 + 91) * (10 * 69) / (52 + 20)
+[33m[stage-7] [test-4] [0m[33m[test.lox][0m (-99 + 91) * (10 * 69) / (52 + 20)
 [33m[stage-7] [test-4] [0m[94m$ ./your_program.sh parse test.lox[0m
-[33m[your_program] [0m(/ (* (- (group (+ (- 99.0) 91.0))) (group (* 10.0 69.0))) (group (+ 52.0 20.0)))
+[33m[your_program] [0m(/ (* (group (+ (- 99.0) 91.0)) (group (* 10.0 69.0))) (group (+ 52.0 20.0)))
 [33m[stage-7] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-7] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [0m[92mTest passed.[0m
