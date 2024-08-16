@@ -2,6 +2,7 @@ package lox
 
 import (
 	"fmt"
+	"io"
 	"strconv"
 )
 
@@ -30,7 +31,6 @@ type Scanner struct {
 	current int
 	line    int
 	tokens  []Token
-	errors  []string
 }
 
 func NewScanner(source string) Scanner {
@@ -40,9 +40,9 @@ func NewScanner(source string) Scanner {
 
 // ScanTokens transforms the source into an array of tokens.
 // The last token is always an EOF
-func (sc *Scanner) ScanTokens() ([]Token, []string) {
+func (sc *Scanner) ScanTokens(stdout, stderr io.Writer) []Token {
 	for !sc.isAtEnd() {
-		sc.scanToken()
+		sc.scanToken(stdout, stderr)
 
 		// We're at the beginning of the next lexeme
 		sc.start = sc.current
@@ -50,7 +50,7 @@ func (sc *Scanner) ScanTokens() ([]Token, []string) {
 
 	sc.addToken(EOF)
 
-	return sc.tokens, sc.errors
+	return sc.tokens
 }
 
 func (sc *Scanner) addToken(tp Type) {
@@ -62,7 +62,7 @@ func (sc *Scanner) addTokenWithLiteral(tp Type, literal interface{}) {
 	sc.tokens = append(sc.tokens, Token{Type: tp, Lexeme: text, Literal: literal, Line: sc.line})
 }
 
-func (sc *Scanner) scanString() {
+func (sc *Scanner) scanString(stdout, stderr io.Writer) {
 	for sc.peek() != '"' && !sc.isAtEnd() {
 		if sc.peek() == '\n' {
 			sc.line++
@@ -72,7 +72,7 @@ func (sc *Scanner) scanString() {
 
 	// unterminated string
 	if sc.isAtEnd() {
-		sc.LogError(sc.line, "Unterminated string.")
+		LogParseError(fmt.Errorf("[line %d] Error: Unterminated string.", sc.line), stderr)
 		return
 	}
 
@@ -120,7 +120,7 @@ func (sc *Scanner) scanIdentifier() {
 	}
 }
 
-func (sc *Scanner) scanToken() {
+func (sc *Scanner) scanToken(stdout, stderr io.Writer) {
 	c := sc.advance()
 
 	switch c {
@@ -186,14 +186,14 @@ func (sc *Scanner) scanToken() {
 	case ' ', '\r', '\t':
 		// do nothing
 	case '"':
-		sc.scanString()
+		sc.scanString(stdout, stderr)
 	default:
 		if sc.isDigit(c) {
 			sc.scanNumber()
 		} else if sc.isAlpha(c) {
 			sc.scanIdentifier()
 		} else {
-			sc.LogError(sc.line, fmt.Sprintf("Unexpected character: %c", c))
+			LogParseError(fmt.Errorf("[line %d] Error: Unexpected character: %c", sc.line, c), stderr)
 		}
 	}
 }
@@ -245,8 +245,4 @@ func (sc *Scanner) peekNext() byte {
 		return 0
 	}
 	return sc.source[sc.current+1]
-}
-
-func (sc *Scanner) LogError(line int, message string) {
-	sc.errors = append(sc.errors, fmt.Sprintf("[line %d] Error: %s", line, message))
 }

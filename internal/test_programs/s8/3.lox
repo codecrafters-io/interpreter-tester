@@ -1,6 +1,6 @@
-var a;
-var b;
+var <<RANDOM_STRING_1>>;
+var <<RANDOM_STRING_2>>;
 
-a = b = 2 + 3 * 4;
-print a;
-print b;
+<<RANDOM_STRING_1>> = <<RANDOM_STRING_2>> = <<RANDOM_INTEGER_1>> + <<RANDOM_INTEGER_2>> * <<RANDOM_INTEGER_3>>;
+print <<RANDOM_STRING_1>>;
+print <<RANDOM_STRING_2>>;

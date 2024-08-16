@@ -1,4 +1,4 @@
 {
-    var a = 1;
-    print a;
+    var <<RANDOM_STRING_2>> = "<<RANDOM_STRING_3>>";
+    print <<RANDOM_STRING_2>>;
 }

@@ -7,7 +7,7 @@ import (
 
 	"github.com/codecrafters-io/interpreter-tester/internal/assertions"
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
-	"github.com/codecrafters-io/interpreter-tester/internal/lox"
+	loxapi "github.com/codecrafters-io/interpreter-tester/internal/lox/api"
 	"github.com/codecrafters-io/tester-utils/logger"
 )
 
@@ -35,7 +35,7 @@ func (t *RunTestCase) Run(executable *interpreter_executable.InterpreterExecutab
 		return err
 	}
 
-	expectedStdout, exitCode, _ := lox.Run(t.FileContents)
+	expectedStdout, exitCode, _ := loxapi.Run(t.FileContents)
 	if result.ExitCode != exitCode {
 		return fmt.Errorf("expected exit code %v, got %v", exitCode, result.ExitCode)
 	}

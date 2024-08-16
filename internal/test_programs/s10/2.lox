@@ -1,8 +1,8 @@
 {
-    var a = "before";
+    var <<RANDOM_STRING_3>> = "before";
     {
-        var a = "after";
-        print a;
+        var <<RANDOM_STRING_3>> = "after";
+        print <<RANDOM_STRING_3>>;
     }
-    print a;
+    print <<RANDOM_STRING_3>>;
 }

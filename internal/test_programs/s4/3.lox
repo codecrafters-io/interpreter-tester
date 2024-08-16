@@ -1,2 +1,2 @@
-var result = (8 * (<<RANDOM_INTEGER>> + <<RANDOM_INTEGER>>)) / 4 + <<RANDOM_INTEGER>>;
-print result;
+var <<RANDOM_STRING_1>> = (8 * (<<RANDOM_INTEGER>> + <<RANDOM_INTEGER>>)) / 4 + <<RANDOM_INTEGER>>;
+print <<RANDOM_STRING_1>>;

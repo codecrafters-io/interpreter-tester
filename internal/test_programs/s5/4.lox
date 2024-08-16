@@ -1,4 +1,4 @@
-var a = <<RANDOM_INTEGER>>;
-var b = <<RANDOM_INTEGER>>;
-var c = <<RANDOM_INTEGER>>;
-print a + b + c + d;
+var <<RANDOM_STRING_1>> = <<RANDOM_INTEGER_1>>;
+var <<RANDOM_STRING_2>> = <<RANDOM_INTEGER_2>>;
+var <<RANDOM_STRING_3>> = <<RANDOM_INTEGER_3>>;
+print <<RANDOM_STRING_1>> + <<RANDOM_STRING_2>> + <<RANDOM_STRING_3>> + <<RANDOM_STRING_4>>; print <<RANDOM_INTEGER_4>>;
