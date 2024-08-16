@@ -1,1 +1,1 @@
-print (<<RANDOM_INTEGER>> + <<RANDOM_INTEGER>>) * <<RANDOM_INTEGER>>;
+print;

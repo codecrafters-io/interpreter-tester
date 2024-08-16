@@ -1,5 +1,5 @@
-var a = <<RANDOM_INTEGER>>;
-var b = <<RANDOM_INTEGER>>;
-b = a;
-a = b;
-print a + b;
+var <<RANDOM_STRING_1>> = <<RANDOM_INTEGER>>;
+var <<RANDOM_STRING_2>> = <<RANDOM_INTEGER>>;
+<<RANDOM_STRING_2>> = <<RANDOM_STRING_1>>;
+<<RANDOM_STRING_1>> = <<RANDOM_STRING_2>>;
+print <<RANDOM_STRING_1>> + <<RANDOM_STRING_2>>;

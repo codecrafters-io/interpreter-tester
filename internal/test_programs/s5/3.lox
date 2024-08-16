@@ -1,3 +1,3 @@
-var y = <<RANDOM_INTEGER>>;
-var result = y + z;
+var <<RANDOM_STRING_1>> = <<RANDOM_INTEGER>>;
+var result = (<<RANDOM_STRING_1>> + <<RANDOM_STRING_2>>) / <<RANDOM_STRING_3>>;
 print result;

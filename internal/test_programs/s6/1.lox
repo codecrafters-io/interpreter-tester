@@ -1,2 +1,2 @@
-var a;
-print a;
+var <<RANDOM_STRING_1>>;
+print <<RANDOM_STRING_1>>;

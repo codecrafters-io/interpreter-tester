@@ -1,9 +1,9 @@
 {
-  var a = "outer a";
+  var <<RANDOM_STRING_2>> = "outer <<RANDOM_STRING_2>>";
   {
-    var a = "inner a";
-    print a;
+    var <<RANDOM_STRING_2>> = "inner <<RANDOM_STRING_2>>";
+    print <<RANDOM_STRING_2>>;
   }
-  print a;
+  print <<RANDOM_STRING_2>>;
 }
-print a;
+print <<RANDOM_STRING_2>>;

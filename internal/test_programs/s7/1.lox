@@ -1,4 +1,4 @@
-var a = "before";
-print a;
-var a = "after";
-print a;
+var <<RANDOM_STRING_1>> = "before";
+print <<RANDOM_STRING_1>>;
+var <<RANDOM_STRING_1>> = "after";
+print <<RANDOM_STRING_1>>;

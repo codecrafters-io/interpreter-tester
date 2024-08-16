@@ -1,10 +1,10 @@
 {
-    var a = <<RANDOM_INTEGER>>;
-    var b = <<RANDOM_INTEGER>>;
+    var <<RANDOM_STRING_4>> = <<RANDOM_INTEGER>>;
+    var <<RANDOM_STRING_3>> = <<RANDOM_INTEGER>>;
     {
-        var a = <<RANDOM_INTEGER>>;
-        var b = <<RANDOM_INTEGER>>;
-        print a + b;
+        var <<RANDOM_STRING_4>> = <<RANDOM_INTEGER>>;
+        var <<RANDOM_STRING_3>> = <<RANDOM_INTEGER>>;
+        print <<RANDOM_STRING_4>> + <<RANDOM_STRING_3>>;
     }
-    print a + b;
+    print <<RANDOM_STRING_4>> + <<RANDOM_STRING_3>>;
 }

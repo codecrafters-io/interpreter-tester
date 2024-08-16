@@ -1,19 +1,19 @@
-var a = "global a";
-var b = "global b";
-var c = "global c";
+var <<RANDOM_STRING_3>> = "global <<RANDOM_STRING_3>>";
+var <<RANDOM_STRING_4>> = "global <<RANDOM_STRING_4>>";
+var <<RANDOM_STRING_2>> = "global <<RANDOM_STRING_2>>";
 {
-  var a = "outer a";
-  var b = "outer b";
+  var <<RANDOM_STRING_3>> = "outer <<RANDOM_STRING_3>>";
+  var <<RANDOM_STRING_4>> = "outer <<RANDOM_STRING_4>>";
   {
-    var a = "inner a";
-    print a;
-    print b;
-    print c;
+    var <<RANDOM_STRING_3>> = "inner <<RANDOM_STRING_3>>";
+    print <<RANDOM_STRING_3>>;
+    print <<RANDOM_STRING_4>>;
+    print <<RANDOM_STRING_2>>;
   }
-  print a;
-  print b;
-  print c;
+  print <<RANDOM_STRING_3>>;
+  print <<RANDOM_STRING_4>>;
+  print <<RANDOM_STRING_2>>;
 }
-print a;
-print b;
-print c;
+print <<RANDOM_STRING_3>>;
+print <<RANDOM_STRING_4>>;
+print <<RANDOM_STRING_2>>;

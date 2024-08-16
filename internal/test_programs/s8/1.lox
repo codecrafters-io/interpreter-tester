@@ -1,5 +1,5 @@
-var a;
-a = 1;
-print a;
-print a = 2;
-print a;
+var <<RANDOM_STRING_4>>;
+<<RANDOM_STRING_4>> = 1;
+print <<RANDOM_STRING_4>>;
+print <<RANDOM_STRING_4>> = 2;
+print <<RANDOM_STRING_4>>;
