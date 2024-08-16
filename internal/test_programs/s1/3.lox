@@ -1,2 +1,1 @@
-<<RANDOM_INTEGER>> + <<RANDOM_INTEGER>>;
-print "this is valid";
+print (<<RANDOM_INTEGER_1>> * 2 + <<RANDOM_INTEGER_2>> * 2) / (2);

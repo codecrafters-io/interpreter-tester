@@ -1,0 +1,9 @@
+{
+  var <<RANDOM_STRING_2>> = "outer <<RANDOM_STRING_2>>";
+  {
+    var <<RANDOM_STRING_2>> = "inner <<RANDOM_STRING_2>>";
+    print <<RANDOM_STRING_2>>;
+  }
+  print <<RANDOM_STRING_2>>;
+}
+print <<RANDOM_STRING_2>>;

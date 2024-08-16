@@ -6,7 +6,7 @@ import (
 
 	"github.com/codecrafters-io/interpreter-tester/internal/assertions"
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
-	"github.com/codecrafters-io/interpreter-tester/internal/lox"
+	loxapi "github.com/codecrafters-io/interpreter-tester/internal/lox/api"
 	"github.com/codecrafters-io/tester-utils/logger"
 )
 
@@ -34,7 +34,7 @@ func (t *TokenizeTestCase) Run(executable *interpreter_executable.InterpreterExe
 		return err
 	}
 
-	expectedStdout, expectedStderr, exitCode, err := lox.ScanTokens(t.FileContents)
+	expectedStdout, expectedStderr, exitCode, err := loxapi.ScanTokens(t.FileContents)
 	if err != nil {
 		return fmt.Errorf("CodeCrafters internal error: %v", err)
 	}

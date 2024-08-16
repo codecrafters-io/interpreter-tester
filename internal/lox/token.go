@@ -128,8 +128,8 @@ func (token *Token) String() string {
 	return fmt.Sprintf("%s %s %v", token.Type, token.Lexeme, token.Literal)
 }
 
-// getTokenName returns the name of the token given its value
-func getTokenName(value Type) string {
+// GetTokenName returns the name of the token given its value
+func GetTokenName(value Type) string {
 	if name, exists := tokenNames[value]; exists {
 		return name
 	}

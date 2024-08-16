@@ -1,0 +1,5 @@
+var <<RANDOM_STRING_4>>;
+<<RANDOM_STRING_4>> = 1;
+print <<RANDOM_STRING_4>>;
+print <<RANDOM_STRING_4>> = 2;
+print <<RANDOM_STRING_4>>;

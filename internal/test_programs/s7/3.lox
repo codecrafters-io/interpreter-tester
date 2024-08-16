@@ -1,0 +1,8 @@
+var <<RANDOM_STRING_2>> = 2;
+print <<RANDOM_STRING_2>>;
+<<RANDOM_STRING_2>> = 3;
+print <<RANDOM_STRING_2>>;
+var <<RANDOM_STRING_3>> = 5;
+print <<RANDOM_STRING_3>>;
+<<RANDOM_STRING_2>> = <<RANDOM_STRING_3>>;
+print <<RANDOM_STRING_2>>;

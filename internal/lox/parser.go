@@ -1,5 +1,9 @@
 package lox
 
+import (
+	"io"
+)
+
 /*
 program    -> declaration* EOF ;
 declaration-> varDecl
@@ -37,20 +41,24 @@ func NewParser(tokens []Token) Parser {
 	return Parser{tokens, 0}
 }
 
-func (p *Parser) BasicParse() (Expr, error) {
-	return p.expression()
+func (p *Parser) BasicParse(stdout, stderr io.Writer) Expr {
+	expr, err := p.expression()
+	if err != nil {
+		LogParseError(err, stderr)
+	}
+	return expr
 }
 
-func (p *Parser) Parse() ([]Stmt, error) {
+func (p *Parser) Parse(stdout, stderr io.Writer) []Stmt {
 	statements := make([]Stmt, 0)
 	for !p.isAtEnd() {
 		stmt, err := p.declaration()
-		if stmt == nil {
-			return nil, err
+		if err != nil {
+			LogParseError(err, stderr)
 		}
 		statements = append(statements, stmt)
 	}
-	return statements, nil
+	return statements
 }
 
 func (p *Parser) declaration() (Stmt, error) {
@@ -58,7 +66,6 @@ func (p *Parser) declaration() (Stmt, error) {
 		stmt, err := p.varDeclaration()
 		if err != nil {
 			p.synchronize()
-			LogParseError(err)
 			return nil, err
 		}
 		return stmt, nil
@@ -66,7 +73,6 @@ func (p *Parser) declaration() (Stmt, error) {
 	stmt, err := p.statement()
 	if err != nil {
 		p.synchronize()
-		LogParseError(err)
 		return nil, err
 	}
 	return stmt, nil
@@ -96,8 +102,8 @@ func (p *Parser) statement() (Stmt, error) {
 	if p.match(PRINT) {
 		return p.printStatement()
 	} else if p.match(LEFTBRACE) {
-		var err error
-		if statements, err := p.block(); err == nil {
+		statements, err := p.block()
+		if err == nil {
 			return &Block{Statements: statements}, nil
 		}
 		return nil, err
@@ -109,12 +115,15 @@ func (p *Parser) block() ([]Stmt, error) {
 	statements := make([]Stmt, 0)
 	for !p.check(RIGHTBRACE) && !p.isAtEnd() {
 		stmt, err := p.declaration()
-		if stmt == nil {
+		if err != nil {
 			return nil, err
 		}
 		statements = append(statements, stmt)
 	}
-	p.consume(RIGHTBRACE, "Expected '}' after block.")
+	_, err := p.consume(RIGHTBRACE, "Expected '}' after block.")
+	if err != nil {
+		return nil, err
+	}
 	return statements, nil
 }
 

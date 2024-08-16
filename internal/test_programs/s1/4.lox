@@ -1,3 +1,1 @@
-print "the expression below is invalid";
-<<RANDOM_INTEGER>> + <<RANDOM_QUOTED_STRING>>;
-print "this should not be printed";
+print;
