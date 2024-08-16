@@ -61,13 +61,33 @@ func ReplacePlaceholdersWithRandomValues(program string) string {
 	regexPlaceholder := regexp.MustCompile(`<<(RANDOM_STRING|RANDOM_QUOTEDSTRING|RANDOM_BOOLEAN|RANDOM_INTEGER)(_\d+)?>>`)
 
 	generatedValues := make(map[string]string)
+	seenValues := make(map[string]bool)
+
+	placeholderTypes := []string{"RANDOM_STRING", "RANDOM_QUOTEDSTRING", "RANDOM_BOOLEAN", "RANDOM_INTEGER"}
+	placeholderIDs := []string{"0", "1", "2", "3", "4"}
+	for _, placeholderID := range placeholderIDs {
+		for _, placeholderType := range placeholderTypes {
+			var value string
+
+			for {
+				value = generateRandomValueForPlaceholderType(placeholderType)
+				// until we get a value that wasn't seen before we keep on generating new values
+				// There are only 2 unique booleans, so we don't need to worry about that
+				if !seenValues[value] || placeholderType == "RANDOM_BOOLEAN" {
+					break
+				}
+			}
+			seenValues[value] = true
+			generatedValues[placeholderType+placeholderID] = value
+		}
+	}
 
 	// Replace placeholders with random values
 	result := regexPlaceholder.ReplaceAllStringFunc(program, func(match string) string {
 		// match looks like: <<RANDOM_DTYPE_N>>
 		parts := strings.Split(match[2:len(match)-2], "_")
 		placeholderType := strings.Join(parts[0:2], "_") // first 2 parts are guaranteed to be RANDOM & DTYPE
-		placeholderID := ""
+		placeholderID := "0"
 
 		if len(parts) > 2 {
 			placeholderID = parts[2]
@@ -76,27 +96,31 @@ func ReplacePlaceholdersWithRandomValues(program string) string {
 		key := placeholderType + placeholderID
 		if value, exists := generatedValues[key]; exists {
 			return value
+		} else {
+			panic(fmt.Sprintf("CodeCrafters Internal Error: Placeholder %s not found in generated values", key))
 		}
 
-		var newValue string
-		switch placeholderType {
-		case "RANDOM_STRING":
-			newValue = random.RandomElementFromArray(STRINGS)
-		case "RANDOM_QUOTEDSTRING":
-			newValue = random.RandomElementFromArray(QUOTED_STRINGS)
-		case "RANDOM_BOOLEAN":
-			newValue = random.RandomElementFromArray(BOOLEANS)
-		case "RANDOM_INTEGER":
-			newValue = getRandIntAsString()
-		default:
-			return match
-		}
-
-		generatedValues[key] = newValue
-		return newValue
 	})
 
 	return result
+}
+
+func generateRandomValueForPlaceholderType(placeholderType string) string {
+	var value string
+
+	switch placeholderType {
+	case "RANDOM_STRING":
+		value = random.RandomElementFromArray(STRINGS)
+	case "RANDOM_QUOTEDSTRING":
+		value = random.RandomElementFromArray(QUOTED_STRINGS)
+	case "RANDOM_BOOLEAN":
+		value = random.RandomElementFromArray(BOOLEANS)
+	case "RANDOM_INTEGER":
+		value = getRandIntAsString()
+	default:
+		value = placeholderType
+	}
+	return value
 }
 
 func GetTestProgramsForCurrentStageWithRandomValues(stageIdentifier string) []string {
