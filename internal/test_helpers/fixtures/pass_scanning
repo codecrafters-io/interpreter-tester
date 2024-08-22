@@ -11,11 +11,42 @@ Debug = true
 [33m[stage-15] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-15] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-15] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-15] [test-2] [0m[33m[test.lox][0m print
+[33m[stage-15] [test-2] [0m[33m[test.lox][0m print else IF FALSE if FOR FUN CLASS or var false VAR AND fun SUPER RETURN while return and TRUE OR true super this THIS PRINT NIL nil WHILE for ELSE class
 [33m[stage-15] [test-2] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mPRINT print null
+[33m[your_program] [0mELSE else null
+[33m[your_program] [0mIDENTIFIER IF null
+[33m[your_program] [0mIDENTIFIER FALSE null
+[33m[your_program] [0mIF if null
+[33m[your_program] [0mIDENTIFIER FOR null
+[33m[your_program] [0mIDENTIFIER FUN null
+[33m[your_program] [0mIDENTIFIER CLASS null
+[33m[your_program] [0mOR or null
+[33m[your_program] [0mVAR var null
+[33m[your_program] [0mFALSE false null
+[33m[your_program] [0mIDENTIFIER VAR null
+[33m[your_program] [0mIDENTIFIER AND null
+[33m[your_program] [0mFUN fun null
+[33m[your_program] [0mIDENTIFIER SUPER null
+[33m[your_program] [0mIDENTIFIER RETURN null
+[33m[your_program] [0mWHILE while null
+[33m[your_program] [0mRETURN return null
+[33m[your_program] [0mAND and null
+[33m[your_program] [0mIDENTIFIER TRUE null
+[33m[your_program] [0mIDENTIFIER OR null
+[33m[your_program] [0mTRUE true null
+[33m[your_program] [0mSUPER super null
+[33m[your_program] [0mTHIS this null
+[33m[your_program] [0mIDENTIFIER THIS null
+[33m[your_program] [0mIDENTIFIER PRINT null
+[33m[your_program] [0mIDENTIFIER NIL null
+[33m[your_program] [0mNIL nil null
+[33m[your_program] [0mIDENTIFIER WHILE null
+[33m[your_program] [0mFOR for null
+[33m[your_program] [0mIDENTIFIER ELSE null
+[33m[your_program] [0mCLASS class null
 [33m[your_program] [0mEOF  null
-[33m[stage-15] [test-2] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-15] [test-2] [0m[92m✓ 33 line(s) match on stdout[0m
 [33m[stage-15] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-15] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-15] [test-3] [0m[94mWriting contents to ./test.lox:[0m

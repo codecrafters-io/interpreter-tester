@@ -2,5 +2,8 @@ dist
 .history/
 .idea/
 .vscode/
+
 *.class
 craftinginterpreters/
+
+tmp.lox
