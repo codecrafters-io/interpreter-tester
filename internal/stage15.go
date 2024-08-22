@@ -2,6 +2,7 @@ package internal
 
 import (
 	"slices"
+	"strings"
 
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
@@ -15,8 +16,9 @@ func testReservedWords(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
+	allKeywords := slices.Concat(KEYWORDS, CAPITALIZED_KEYWORDS)
 	k1 := random.RandomElementFromArray(KEYWORDS)
-	k2 := random.RandomElementFromArray(slices.Concat(KEYWORDS, CAPITALIZED_KEYWORDS))
+	k2 := strings.Join(random.RandomElementsFromArray(allKeywords, len(allKeywords)), " ")
 	k3 := `var greeting = "Hello"
 if (greeting == "Hello") {
     return true
