@@ -197,11 +197,11 @@ Debug = true
 [33m[stage-4] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-4] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m ()
+[33m[stage-4] [test-3] [0m[33m[test.lox][0m (nil)
 [33m[stage-4] [test-3] [0m[94m$ ./your_program.sh parse test.lox[0m
-[33m[your_program] [0m[line 1] Error at ')': Expect expression.
+[33m[your_program] [0m(group nil)
 [33m[stage-4] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
-[33m[stage-4] [test-3] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-4] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-4] [test-4] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-4] [test-4] [0m[33m[test.lox][0m ("foo"
