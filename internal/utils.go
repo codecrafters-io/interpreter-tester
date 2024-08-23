@@ -5,7 +5,6 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
-	"runtime"
 	"strings"
 
 	"github.com/codecrafters-io/tester-utils/random"
@@ -34,12 +33,8 @@ func getRandBoolean() string {
 func GetTestProgramsForCurrentStage(stageIdentifier string) []string {
 	var testPrograms []string
 
-	// Get the directory of the current file
-	_, currentFilePath, _, _ := runtime.Caller(2)
-	currentDir := filepath.Dir(currentFilePath)
-
 	// Construct the path to the test_programs directory
-	parentDir := filepath.Join(currentDir, "test_programs")
+	parentDir := filepath.Join(os.Getenv("TESTER_DIR"), "test_programs")
 	testDir := filepath.Join(parentDir, stageIdentifier)
 	files, err := os.ReadDir(testDir)
 	if err != nil {
