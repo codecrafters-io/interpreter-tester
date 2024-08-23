@@ -1,6 +1,8 @@
 package internal
 
 import (
+	"fmt"
+
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
 
@@ -12,11 +14,11 @@ func testNumbers(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	shuffledString1 := `"Hello" = "Hello" && 42 == 42`
-	shuffledString2 := `(5+3) > 7 ; "Success" != "Failure" & 10 >= 5`
+	shuffledString1 := fmt.Sprintf(`"%s" = "%s" && %d == %d`, getRandString(), getRandString(), getRandInt(), getRandInt())
+	shuffledString2 := fmt.Sprintf(`(%d+%d) > %d ; "Success" != "Failure" & %d >= %d`, getRandInt(), getRandInt(), getRandInt(), getRandInt(), getRandInt())
 
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
-		FileContents: []string{"1234.1234", "1234.1234.1234.", shuffledString1, shuffledString2},
+		FileContents: []string{getRandIntAsString(), fmt.Sprintf("%d.%d", getRandInt(), getRandInt()), shuffledString1, shuffledString2},
 	}
 	return tokenizeTestCases.RunAll(b, logger)
 }
