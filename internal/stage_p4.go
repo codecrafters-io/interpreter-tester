@@ -13,7 +13,7 @@ func testParseParens(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	parens1 := "(\"foo\")"
 	parens2 := "((true))"
-	parens3 := "()" // TODO: Fix
+	parens3 := "(nil)"
 	parens4 := "(\"foo\""
 	parseTestCase := testcases.MultiParseTestCase{
 		TestCases: []testcases.ParseTestCase{
