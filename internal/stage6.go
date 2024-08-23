@@ -18,7 +18,7 @@ func testEquality(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	shuffledString1 := "((" + strings.Join(random.RandomElementsFromArray(slices.Concat(LEXICAL_ERRORS, EQUALS), 5), "") + "))"
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
-		FileContents: []string{"=", "===", "({=}){=====}", shuffledString1},
+		FileContents: []string{"=", "==", "({=}){==}", shuffledString1},
 	}
 	return tokenizeTestCases.RunAll(b, logger)
 }

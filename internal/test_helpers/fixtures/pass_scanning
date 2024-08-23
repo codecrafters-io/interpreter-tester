@@ -615,16 +615,15 @@ Debug = true
 [33m[stage-6] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-6] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-6] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-2] [0m[33m[test.lox][0m ===
+[33m[stage-6] [test-2] [0m[33m[test.lox][0m ==
 [33m[stage-6] [test-2] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mEQUAL_EQUAL == null
-[33m[your_program] [0mEQUAL = null
 [33m[your_program] [0mEOF  null
-[33m[stage-6] [test-2] [0m[92m✓ 3 line(s) match on stdout[0m
+[33m[stage-6] [test-2] [0m[92m✓ 2 line(s) match on stdout[0m
 [33m[stage-6] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-6] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-6] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-3] [0m[33m[test.lox][0m ({=}){=====}
+[33m[stage-6] [test-3] [0m[33m[test.lox][0m ({=}){==}
 [33m[stage-6] [test-3] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mLEFT_BRACE { null
@@ -633,11 +632,9 @@ Debug = true
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mLEFT_BRACE { null
 [33m[your_program] [0mEQUAL_EQUAL == null
-[33m[your_program] [0mEQUAL_EQUAL == null
-[33m[your_program] [0mEQUAL = null
 [33m[your_program] [0mRIGHT_BRACE } null
 [33m[your_program] [0mEOF  null
-[33m[stage-6] [test-3] [0m[92m✓ 11 line(s) match on stdout[0m
+[33m[stage-6] [test-3] [0m[92m✓ 9 line(s) match on stdout[0m
 [33m[stage-6] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-6] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-6] [test-4] [0m[94mWriting contents to ./test.lox:[0m
