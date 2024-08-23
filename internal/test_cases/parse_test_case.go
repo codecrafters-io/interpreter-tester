@@ -21,8 +21,9 @@ type ParseTestCase struct {
 
 	// ExpectsError is true if this test case expects the parse command to raise an error.
 	//
-	// We raise an error if ExpectsError doesn't match the expected ExitCode from lox.Parse. This
-	// helps prevent against us accidentally testing error cases when we mean to test success cases.
+	// We raise an "internal" error if ExpectsError doesn't match the expected ExitCode from
+	// our parser implementation. This helps prevent against us accidentally testing error cases
+	// when we mean to test success cases.
 	ExpectsError bool
 }
 
