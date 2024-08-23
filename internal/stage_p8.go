@@ -20,7 +20,12 @@ func testParseComparison(stageHarness *test_case_harness.TestCaseHarness) error 
 	comparisonExpr3 := fmt.Sprintf("%d < %d < %d", randomInteger1, randomInteger1+randomInteger2, randomInteger1+2*randomInteger2)
 	comparisonExpr4 := fmt.Sprintf("(%d - %d) >= -(%d / %d + %d)", getRandInt(), getRandInt(), getRandInt(), getRandInt(), getRandInt())
 	parseTestCase := testcases.MultiParseTestCase{
-		FileContents: []string{comparisonExpr1, comparisonExpr2, comparisonExpr3, comparisonExpr4},
+		TestCases: []testcases.ParseTestCase{
+			{FileContents: comparisonExpr1, ExpectsError: false},
+			{FileContents: comparisonExpr2, ExpectsError: false},
+			{FileContents: comparisonExpr3, ExpectsError: false},
+			{FileContents: comparisonExpr4, ExpectsError: false},
+		},
 	}
 	return parseTestCase.RunAll(b, logger)
 }

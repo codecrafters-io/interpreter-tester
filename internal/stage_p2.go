@@ -17,7 +17,11 @@ func testParseNumbers(stageHarness *test_case_harness.TestCaseHarness) error {
 	numberLiteral1 := fmt.Sprint(random.RandomInt(10, 100))
 	numberLiteral2 := fmt.Sprint(random.RandomInt(10, 100)) + "." + fmt.Sprint(random.RandomInt(10, 100))
 	parseTestCase := testcases.MultiParseTestCase{
-		FileContents: []string{numberLiteral1, "0.0", numberLiteral2},
+		TestCases: []testcases.ParseTestCase{
+			{FileContents: numberLiteral1, ExpectsError: false},
+			{FileContents: "0.0", ExpectsError: false},
+			{FileContents: numberLiteral2, ExpectsError: false},
+		},
 	}
 	return parseTestCase.RunAll(b, logger)
 }

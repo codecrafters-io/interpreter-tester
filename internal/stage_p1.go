@@ -13,7 +13,11 @@ func testParseBooleans(stageHarness *test_case_harness.TestCaseHarness) error {
 	logger := stageHarness.Logger
 
 	parseTestCase := testcases.MultiParseTestCase{
-		FileContents: []string{"true", "false", "nil"},
+		TestCases: []testcases.ParseTestCase{
+			{FileContents: "true", ExpectsError: false},
+			{FileContents: "false", ExpectsError: false},
+			{FileContents: "nil", ExpectsError: false},
+		},
 	}
 	return parseTestCase.RunAll(b, logger)
 }

@@ -18,6 +18,12 @@ import (
 // With that the output of the executable is matched.
 type ParseTestCase struct {
 	FileContents string
+
+	// ExpectsError is true if this test case expects the parse command to raise an error.
+	//
+	// We raise an error if ExpectsError doesn't match the expected ExitCode from lox.Parse. This
+	// helps prevent against us accidentally testing error cases when we mean to test success cases.
+	ExpectsError bool
 }
 
 func (t *ParseTestCase) Run(executable *interpreter_executable.InterpreterExecutable, logger *logger.Logger) error {
@@ -35,6 +41,15 @@ func (t *ParseTestCase) Run(executable *interpreter_executable.InterpreterExecut
 	}
 
 	expectedStdout, exitCode, _ := loxapi.Parse(t.FileContents)
+
+	if t.ExpectsError && exitCode == 0 {
+		return fmt.Errorf("CodeCrafters internal error: faulty test case, expected this test case to raise an error, but it didn't.")
+	}
+
+	if !t.ExpectsError && exitCode != 0 {
+		return fmt.Errorf("CodeCrafters internal error: faulty test case, expected this test case to not raise an error, but it did.")
+	}
+
 	if result.ExitCode != exitCode {
 		return fmt.Errorf("expected exit code %v, got %v", exitCode, result.ExitCode)
 	}
