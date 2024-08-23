@@ -19,7 +19,12 @@ func testParseUnary(stageHarness *test_case_harness.TestCaseHarness) error {
 	unaryExpr3 := "!!" + getRandBoolean()
 	unaryExpr4 := "(!!(" + getRandBoolean() + "))"
 	parseTestCase := testcases.MultiParseTestCase{
-		FileContents: []string{unaryExpr1, unaryExpr2, unaryExpr3, unaryExpr4},
+		TestCases: []testcases.ParseTestCase{
+			{FileContents: unaryExpr1, ExpectsError: false},
+			{FileContents: unaryExpr2, ExpectsError: false},
+			{FileContents: unaryExpr3, ExpectsError: false},
+			{FileContents: unaryExpr4, ExpectsError: false},
+		},
 	}
 	return parseTestCase.RunAll(b, logger)
 }
