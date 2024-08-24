@@ -14,14 +14,24 @@ func testParseErrors(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
+	// Unterminated string
 	error1 := fmt.Sprintf("\"%s", random.RandomElementFromArray(STRINGS))
-	error2 := fmt.Sprintf("(%d +)", getRandInt())
-	error3 := "+"
+
+	// Unbalanced parentheses
+	error2 := "(foo"
+
+	// Missing operand
+	error3 := fmt.Sprintf("(%d +)", getRandInt())
+
+	// Missing operands
+	error4 := "+"
+
 	parseTestCase := testcases.MultiParseTestCase{
 		TestCases: []testcases.ParseTestCase{
 			{FileContents: error1, ExpectsError: true},
 			{FileContents: error2, ExpectsError: true},
 			{FileContents: error3, ExpectsError: true},
+			{FileContents: error4, ExpectsError: true},
 		},
 	}
 	return parseTestCase.RunAll(b, logger)
