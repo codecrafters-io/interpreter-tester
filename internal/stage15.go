@@ -25,7 +25,7 @@ if (greeting == "Hello") {
 } else {
     return false
 }`
-	k4 := `var result = (a + b) > 7 && "Success" != "Failure" or x >= 5
+	k4 := `var result = (a + b) > 7 or "Success" != "Failure" or x >= 5
 while (result) {
     var counter = 0
     counter = counter + 1
@@ -34,6 +34,7 @@ while (result) {
     }
 }`
 
+	// TODO: Add ExpectError, ensure none of these trigger errors
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
 		FileContents: []string{k1, k2, k3, k4},
 	}
