@@ -179,16 +179,13 @@ Debug = true
 [33m[stage-14] [test-4] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-14] [test-4] [0m[33m[test.lox][0m {
 [33m[stage-14] [test-4] [0m[33m[test.lox][0m // This is a complex test case
-[33m[stage-14] [test-4] [0m[33m[test.lox][0m str1 = "Test"<|SPACE|>str2 = "Case"
+[33m[stage-14] [test-4] [0m[33m[test.lox][0m str1 = "Test"
+[33m[stage-14] [test-4] [0m[33m[test.lox][0m str2 = "Case"
 [33m[stage-14] [test-4] [0m[33m[test.lox][0m num1 = 100
 [33m[stage-14] [test-4] [0m[33m[test.lox][0m num2 = 200.00
-[33m[stage-14] [test-4] [0m[33m[test.lox][0m result = (str1 == "Test" , str2 != "Fail") && (num1 + num2) >= 300 && (a - b) < 10
+[33m[stage-14] [test-4] [0m[33m[test.lox][0m result = (str1 == str2) != ((num1 + num2) >= 300)
 [33m[stage-14] [test-4] [0m[33m[test.lox][0m }
 [33m[stage-14] [test-4] [0m[94m$ ./your_program.sh tokenize test.lox[0m
-[33m[your_program] [0m[line 7] Error: Unexpected character: &
-[33m[your_program] [0m[line 7] Error: Unexpected character: &
-[33m[your_program] [0m[line 7] Error: Unexpected character: &
-[33m[your_program] [0m[line 7] Error: Unexpected character: &
 [33m[your_program] [0mLEFT_BRACE { null
 [33m[your_program] [0mIDENTIFIER str1 null
 [33m[your_program] [0mEQUAL = null
@@ -207,12 +204,10 @@ Debug = true
 [33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mIDENTIFIER str1 null
 [33m[your_program] [0mEQUAL_EQUAL == null
-[33m[your_program] [0mSTRING "Test" Test
-[33m[your_program] [0mCOMMA , null
 [33m[your_program] [0mIDENTIFIER str2 null
-[33m[your_program] [0mBANG_EQUAL != null
-[33m[your_program] [0mSTRING "Fail" Fail
 [33m[your_program] [0mRIGHT_PAREN ) null
+[33m[your_program] [0mBANG_EQUAL != null
+[33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mIDENTIFIER num1 null
 [33m[your_program] [0mPLUS + null
@@ -220,18 +215,11 @@ Debug = true
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mGREATER_EQUAL >= null
 [33m[your_program] [0mNUMBER 300 300.0
-[33m[your_program] [0mLEFT_PAREN ( null
-[33m[your_program] [0mIDENTIFIER a null
-[33m[your_program] [0mMINUS - null
-[33m[your_program] [0mIDENTIFIER b null
 [33m[your_program] [0mRIGHT_PAREN ) null
-[33m[your_program] [0mLESS < null
-[33m[your_program] [0mNUMBER 10 10.0
 [33m[your_program] [0mRIGHT_BRACE } null
 [33m[your_program] [0mEOF  null
-[33m[stage-14] [test-4] [0m[92m✓ 4 line(s) match on stderr[0m
-[33m[stage-14] [test-4] [0m[92m✓ 40 line(s) match on stdout[0m
-[33m[stage-14] [test-4] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-14] [test-4] [0m[92m✓ 32 line(s) match on stdout[0m
+[33m[stage-14] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-14] [0m[92mTest passed.[0m
 
 [33m[stage-13] [0m[94mRunning tests for Stage #13: kj0[0m
@@ -253,25 +241,24 @@ Debug = true
 [33m[stage-13] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-13] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-13] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-13] [test-3] [0m[33m[test.lox][0m "bar" = "world" && 30 == 52
+[33m[stage-13] [test-3] [0m[33m[test.lox][0m "bar" = "world" != (30 == 52)
 [33m[stage-13] [test-3] [0m[94m$ ./your_program.sh tokenize test.lox[0m
-[33m[your_program] [0m[line 1] Error: Unexpected character: &
-[33m[your_program] [0m[line 1] Error: Unexpected character: &
 [33m[your_program] [0mSTRING "bar" bar
 [33m[your_program] [0mEQUAL = null
 [33m[your_program] [0mSTRING "world" world
+[33m[your_program] [0mBANG_EQUAL != null
+[33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mNUMBER 30 30.0
 [33m[your_program] [0mEQUAL_EQUAL == null
 [33m[your_program] [0mNUMBER 52 52.0
+[33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mEOF  null
-[33m[stage-13] [test-3] [0m[92m✓ 2 line(s) match on stderr[0m
-[33m[stage-13] [test-3] [0m[92m✓ 7 line(s) match on stdout[0m
-[33m[stage-13] [test-3] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-13] [test-3] [0m[92m✓ 10 line(s) match on stdout[0m
+[33m[stage-13] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-13] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-13] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-13] [test-4] [0m[33m[test.lox][0m (30+89) > 29 ; "Success" != "Failure" & 17 >= 54
+[33m[stage-13] [test-4] [0m[33m[test.lox][0m (30+89) > 29 != ("Success" != "Failure") != (17 >= 54)
 [33m[stage-13] [test-4] [0m[94m$ ./your_program.sh tokenize test.lox[0m
-[33m[your_program] [0m[line 1] Error: Unexpected character: &
 [33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mNUMBER 30 30.0
 [33m[your_program] [0mPLUS + null
@@ -279,17 +266,21 @@ Debug = true
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mGREATER > null
 [33m[your_program] [0mNUMBER 29 29.0
-[33m[your_program] [0mSEMICOLON ; null
+[33m[your_program] [0mBANG_EQUAL != null
+[33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mSTRING "Success" Success
 [33m[your_program] [0mBANG_EQUAL != null
 [33m[your_program] [0mSTRING "Failure" Failure
+[33m[your_program] [0mRIGHT_PAREN ) null
+[33m[your_program] [0mBANG_EQUAL != null
+[33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mNUMBER 17 17.0
 [33m[your_program] [0mGREATER_EQUAL >= null
 [33m[your_program] [0mNUMBER 54 54.0
+[33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mEOF  null
-[33m[stage-13] [test-4] [0m[92m✓ 1 line(s) match on stderr[0m
-[33m[stage-13] [test-4] [0m[92m✓ 15 line(s) match on stdout[0m
-[33m[stage-13] [test-4] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-13] [test-4] [0m[92m✓ 20 line(s) match on stdout[0m
+[33m[stage-13] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-13] [0m[92mTest passed.[0m
 
 [33m[stage-12] [0m[94mRunning tests for Stage #12: ue7[0m
