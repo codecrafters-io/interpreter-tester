@@ -21,11 +21,11 @@ func testIdentifier(stageHarness *test_case_harness.TestCaseHarness) error {
 number = 123`
 	identifier4 := `{
 // This is a complex test case
-str1 = "Test" 
+str1 = "Test"
 str2 = "Case"
 num1 = 100
 num2 = 200.00
-result = (str1 == "Test" , str2 != "Fail") && (num1 + num2) >= 300 && (a - b) < 10
+result = (str1 == str2) != ((num1 + num2) >= 300)
 }`
 
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
