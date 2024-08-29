@@ -17,9 +17,13 @@ func testNumbers(stageHarness *test_case_harness.TestCaseHarness) error {
 	shuffledString1 := fmt.Sprintf(`"%s" = "%s" != (%d == %d)`, getRandString(), getRandString(), getRandInt(), getRandInt())
 	shuffledString2 := fmt.Sprintf(`(%d+%d) > %d != ("Success" != "Failure") != (%d >= %d)`, getRandInt(), getRandInt(), getRandInt(), getRandInt(), getRandInt())
 
-	// TODO: Add ExpectError here, ensure we aren't testing error cases
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
-		FileContents: []string{getRandIntAsString(), fmt.Sprintf("%d.%d", getRandInt(), getRandInt()), shuffledString1, shuffledString2},
+		TestCases: []testcases.TokenizeTestCase{
+			{FileContents: getRandIntAsString(), ExpectsError: false},
+			{FileContents: fmt.Sprintf("%d.%d", getRandInt(), getRandInt()), ExpectsError: false},
+			{FileContents: shuffledString1, ExpectsError: false},
+			{FileContents: shuffledString2, ExpectsError: false},
+		},
 	}
 	return tokenizeTestCases.RunAll(b, logger)
 }

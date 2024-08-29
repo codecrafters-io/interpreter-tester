@@ -20,7 +20,12 @@ func testStrings(stageHarness *test_case_harness.TestCaseHarness) error {
 	shuffledString2 := "(" + strings.Join(random.RandomElementsFromArray(QUOTED_STRINGS, 2), "+") + `) != "other_string"`
 
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
-		FileContents: []string{QUOTED_STRINGS[0], string1, string2, shuffledString2},
+		TestCases: []testcases.TokenizeTestCase{
+			{FileContents: QUOTED_STRINGS[0], ExpectsError: false},
+			{FileContents: string1, ExpectsError: true},
+			{FileContents: string2, ExpectsError: false},
+			{FileContents: shuffledString2, ExpectsError: false},
+		},
 	}
 	return tokenizeTestCases.RunAll(b, logger)
 }

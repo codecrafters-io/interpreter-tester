@@ -15,10 +15,15 @@ func testEquality(stageHarness *test_case_harness.TestCaseHarness) error {
 	b := interpreter_executable.NewInterpreterExecutable(stageHarness)
 
 	logger := stageHarness.Logger
-
+	// A test string of length 5 is longer than the length of EQUALS (2), so it's certain the test case raises error.
 	shuffledString1 := "((" + strings.Join(random.RandomElementsFromArray(slices.Concat(LEXICAL_ERRORS, EQUALS), 5), "") + "))"
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
-		FileContents: []string{"=", "==", "({=}){==}", shuffledString1},
+		TestCases: []testcases.TokenizeTestCase{
+			{FileContents: "=", ExpectsError: false},
+			{FileContents: "==", ExpectsError: false},
+			{FileContents: "({=}){==}", ExpectsError: false},
+			{FileContents: shuffledString1, ExpectsError: true},
+		},
 	}
 	return tokenizeTestCases.RunAll(b, logger)
 }

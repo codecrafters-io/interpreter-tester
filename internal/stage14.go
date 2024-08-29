@@ -29,7 +29,12 @@ result = (str1 == str2) != ((num1 + num2) >= 300)
 }`
 
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
-		FileContents: []string{identifier1, identifier2, identifier3, identifier4},
+		TestCases: []testcases.TokenizeTestCase{
+			{FileContents: identifier1, ExpectsError: false},
+			{FileContents: identifier2, ExpectsError: false},
+			{FileContents: identifier3, ExpectsError: false},
+			{FileContents: identifier4, ExpectsError: false},
+		},
 	}
 	return tokenizeTestCases.RunAll(b, logger)
 }

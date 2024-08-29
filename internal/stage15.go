@@ -34,9 +34,13 @@ while (result) {
     }
 }`
 
-	// TODO: Add ExpectError, ensure none of these trigger errors
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
-		FileContents: []string{k1, k2, k3, k4},
+		TestCases: []testcases.TokenizeTestCase{
+			{FileContents: k1, ExpectsError: false},
+			{FileContents: k2, ExpectsError: false},
+			{FileContents: k3, ExpectsError: false},
+			{FileContents: k4, ExpectsError: false},
+		},
 	}
 	return tokenizeTestCases.RunAll(b, logger)
 }
