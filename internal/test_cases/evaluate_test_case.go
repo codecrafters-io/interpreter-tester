@@ -18,6 +18,7 @@ import (
 // With that the output of the executable is matched.
 type EvaluateTestCase struct {
 	FileContents string
+	ExpectsError bool
 }
 
 func (t *EvaluateTestCase) Run(executable *interpreter_executable.InterpreterExecutable, logger *logger.Logger) error {
@@ -35,6 +36,14 @@ func (t *EvaluateTestCase) Run(executable *interpreter_executable.InterpreterExe
 	}
 
 	expectedStdout, exitCode, _ := loxapi.Evaluate(t.FileContents)
+
+	if t.ExpectsError && exitCode == 0 {
+		return fmt.Errorf("CodeCrafters internal error: faulty test case, expected this test case to raise an error, but it didn't")
+	}
+
+	if !t.ExpectsError && exitCode != 0 {
+		return fmt.Errorf("CodeCrafters internal error: faulty test case, expected this test case to not raise an error, but it did")
+	}
 	if result.ExitCode != exitCode {
 		return fmt.Errorf("expected exit code %v, got %v", exitCode, result.ExitCode)
 	}

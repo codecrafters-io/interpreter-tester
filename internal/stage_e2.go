@@ -22,7 +22,12 @@ func testEvaluateLiterals(stageHarness *test_case_harness.TestCaseHarness) error
 	stringLiteral2 := "\"" + getRandIntAsString() + "\""
 
 	evaluateTestCases := testcases.MultiEvaluateTestCase{
-		FileContents: []string{numberLiteral1, numberLiteral2, stringLiteral1, stringLiteral2},
+		TestCases: []testcases.EvaluateTestCase{
+			{FileContents: numberLiteral1, ExpectsError: false},
+			{FileContents: numberLiteral2, ExpectsError: false},
+			{FileContents: stringLiteral1, ExpectsError: false},
+			{FileContents: stringLiteral2, ExpectsError: false},
+		},
 	}
 	return evaluateTestCases.RunAll(b, logger)
 }

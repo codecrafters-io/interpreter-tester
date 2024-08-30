@@ -13,7 +13,11 @@ func testEvaluateBooleans(stageHarness *test_case_harness.TestCaseHarness) error
 	logger := stageHarness.Logger
 
 	evaluateTestCases := testcases.MultiEvaluateTestCase{
-		FileContents: []string{"true", "false", "nil"},
+		TestCases: []testcases.EvaluateTestCase{
+			{FileContents: "true", ExpectsError: false},
+			{FileContents: "false", ExpectsError: false},
+			{FileContents: "nil", ExpectsError: false},
+		},
 	}
 	return evaluateTestCases.RunAll(b, logger)
 }
