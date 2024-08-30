@@ -7,6 +7,7 @@ import (
 	"regexp"
 	"strings"
 
+	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
 	"github.com/codecrafters-io/tester-utils/random"
 )
 
@@ -30,8 +31,8 @@ func getRandBoolean() string {
 // To make it easier to work with and track changes, all the test programs are stored in the test_programs directory.
 // Every stage has its own directory. (For example, stage_s1.go has a test_programs/s1 directory.)
 // This function reads all the files in the test_programs/<<stage_id>> directory and returns their contents as a slice of strings.
-func GetTestProgramsForCurrentStage(stageIdentifier string) []string {
-	var testPrograms []string
+func GetTestCasesForCurrentStage(stageIdentifier string) []testcases.RunTestCase {
+	var testCases []testcases.RunTestCase
 
 	// Construct the path to the test_programs directory
 	parentDir := filepath.Join(os.Getenv("TESTER_DIR"), "test_programs")
@@ -47,9 +48,10 @@ func GetTestProgramsForCurrentStage(stageIdentifier string) []string {
 		if err != nil {
 			panic(fmt.Sprintf("CodeCrafters Internal Error: Encountered error while reading test file: %s", err))
 		}
-		testPrograms = append(testPrograms, string(contents))
+		t := testcases.NewRunTestCaseFromFileContents(contents, filePath)
+		testCases = append(testCases, t)
 	}
-	return testPrograms
+	return testCases
 }
 
 func ReplacePlaceholdersWithRandomValues(program string) string {
@@ -118,12 +120,12 @@ func generateRandomValueForPlaceholderType(placeholderType string) string {
 	return value
 }
 
-func GetTestProgramsForCurrentStageWithRandomValues(stageIdentifier string) []string {
-	var testPrograms []string
+func GetTestCasesForCurrentStageWithRandomValues(stageIdentifier string) []testcases.RunTestCase {
+	var testCases []testcases.RunTestCase
 
-	for _, program := range GetTestProgramsForCurrentStage(stageIdentifier) {
-		testPrograms = append(testPrograms, ReplacePlaceholdersWithRandomValues(program))
+	for _, t := range GetTestCasesForCurrentStage(stageIdentifier) {
+		t.FileContents = ReplacePlaceholdersWithRandomValues(t.FileContents)
+		testCases = append(testCases, t)
 	}
-
-	return testPrograms
+	return testCases
 }

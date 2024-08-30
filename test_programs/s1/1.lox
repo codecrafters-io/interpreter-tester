@@ -1,1 +1,4 @@
+---
+error_type: none
+---
 print <<RANDOM_BOOLEAN>>;

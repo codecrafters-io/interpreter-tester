@@ -1,3 +1,6 @@
+---
+error_type: none
+---
 {
     var <<RANDOM_STRING_3>> = "before";
     {

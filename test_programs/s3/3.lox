@@ -1,3 +1,6 @@
+---
+error_type: runtime
+---
 print "the expression below is invalid";
 <<RANDOM_INTEGER>> + "<<RANDOM_STRING>>";
 print "this should not be printed";

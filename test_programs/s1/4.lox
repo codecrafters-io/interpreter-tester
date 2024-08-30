@@ -1,1 +1,4 @@
+---
+error_type: compile
+---
 print;

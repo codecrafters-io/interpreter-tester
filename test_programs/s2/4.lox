@@ -1,3 +1,6 @@
+---
+error_type: none
+---
 print <<RANDOM_BOOLEAN_1>> != <<RANDOM_BOOLEAN_2>>;
 
 print "<<RANDOM_INTEGER_1>>

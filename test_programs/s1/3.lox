@@ -1,1 +1,4 @@
+---
+error_type: none
+---
 print (<<RANDOM_INTEGER_1>> * 2 + <<RANDOM_INTEGER_2>> * 2) / (2);

@@ -1,1 +1,4 @@
+---
+error_type: compile
+---
 <<RANDOM_STRING_2>> + <<RANDOM_STRING_3>> = <<RANDOM_STRING_4>>;

@@ -1,3 +1,6 @@
+---
+error_type: none
+---
 var <<RANDOM_STRING_1>> = "before";
 print <<RANDOM_STRING_1>>;
 var <<RANDOM_STRING_1>> = "after";

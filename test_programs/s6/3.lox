@@ -1,3 +1,6 @@
+---
+error_type: none
+---
 var <<RANDOM_STRING_1>> = <<RANDOM_INTEGER>>;
 var <<RANDOM_STRING_2>>;
 var <<RANDOM_STRING_3>>;
