@@ -8,15 +8,13 @@ import (
 )
 
 type MultiTokenizeTestCase struct {
-	FileContents []string
+	TestCases []TokenizeTestCase
 }
 
 func (t *MultiTokenizeTestCase) RunAll(executable *interpreter_executable.InterpreterExecutable, logger *logger.Logger) error {
-	for i, fileContents := range t.FileContents {
+	for i, testCase := range t.TestCases {
 		logger.UpdateSecondaryPrefix(fmt.Sprintf("test-%d", i+1))
 		logger.Infof("Running test case: %d", i+1)
-		testCase := TokenizeTestCase{
-			FileContents: fileContents}
 		if err := testCase.Run(executable, logger); err != nil {
 			return err
 		}

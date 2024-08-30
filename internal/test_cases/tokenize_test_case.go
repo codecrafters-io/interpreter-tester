@@ -18,6 +18,7 @@ import (
 // With that the output of the executable is matched.
 type TokenizeTestCase struct {
 	FileContents string
+	ExpectsError bool
 }
 
 func (t *TokenizeTestCase) Run(executable *interpreter_executable.InterpreterExecutable, logger *logger.Logger) error {
@@ -37,6 +38,14 @@ func (t *TokenizeTestCase) Run(executable *interpreter_executable.InterpreterExe
 	expectedStdout, expectedStderr, exitCode, err := loxapi.ScanTokens(t.FileContents)
 	if err != nil {
 		return fmt.Errorf("CodeCrafters internal error: %v", err)
+	}
+
+	if t.ExpectsError && exitCode == 0 {
+		return fmt.Errorf("CodeCrafters internal error: faulty test case, expected this test case to raise an error, but it didn't")
+	}
+
+	if !t.ExpectsError && exitCode != 0 {
+		return fmt.Errorf("CodeCrafters internal error: faulty test case, expected this test case to not raise an error, but it did")
 	}
 
 	if result.ExitCode != exitCode {

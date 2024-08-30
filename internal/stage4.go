@@ -19,7 +19,12 @@ func testSingleChars(stageHarness *test_case_harness.TestCaseHarness) error {
 	shuffledString1 := strings.Join(random.RandomElementsFromArray(SINGLE_CHAR_OPERATORS, 7), "")
 	shuffledString2 := "({" + strings.Join(random.RandomElementsFromArray(slices.Concat(SINGLE_CHAR_OPERATORS), 5), "") + "})"
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
-		FileContents: []string{"+-", "++--**..,,;;", shuffledString1, shuffledString2},
+		TestCases: []testcases.TokenizeTestCase{
+			{FileContents: "+-", ExpectsError: false},
+			{FileContents: "++--**..,,;;", ExpectsError: false},
+			{FileContents: shuffledString1, ExpectsError: false},
+			{FileContents: shuffledString2, ExpectsError: false},
+		},
 	}
 	return tokenizeTestCases.RunAll(b, logger)
 }

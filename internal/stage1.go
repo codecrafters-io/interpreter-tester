@@ -13,7 +13,7 @@ func testEOF(stageHarness *test_case_harness.TestCaseHarness) error {
 	logger := stageHarness.Logger
 
 	tokenizeTestCase := testcases.TokenizeTestCase{
-		FileContents: "",
+		FileContents: "", ExpectsError: false,
 	}
 
 	return tokenizeTestCase.Run(b, logger)

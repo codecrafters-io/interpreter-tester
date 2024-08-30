@@ -17,10 +17,15 @@ func testRelational(stageHarness *test_case_harness.TestCaseHarness) error {
 	logger := stageHarness.Logger
 
 	shuffledString1 := strings.Join(random.RandomElementsFromArray(RELATIONALS, 5), "")
-	shuffledString2 := "(){" + strings.Join(random.RandomElementsFromArray(slices.Concat(LEXICAL_ERRORS, EQUALS, NEGATIONS, RELATIONALS), 3), "") + "}"
+	shuffledString2 := "(){" + strings.Join(random.RandomElementsFromArray(slices.Concat(EQUALS, NEGATIONS, RELATIONALS), 3), "") + "}"
 
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
-		FileContents: []string{">=", "<<<=>>>=", shuffledString1, shuffledString2},
+		TestCases: []testcases.TokenizeTestCase{
+			{FileContents: ">=", ExpectsError: false},
+			{FileContents: "<<<=>>>=", ExpectsError: false},
+			{FileContents: shuffledString1, ExpectsError: false},
+			{FileContents: shuffledString2, ExpectsError: false},
+		},
 	}
 	return tokenizeTestCases.RunAll(b, logger)
 }

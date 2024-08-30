@@ -18,7 +18,8 @@ func testErrorsMulti(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	multiLineErrors1 := `() 
 	@`
-	multiLineErrors2 := strings.Join(random.RandomElementsFromArray(slices.Concat(LEXICAL_ERRORS, WHITESPACES), 3), "")
+	// A test string of length 4 is longer than the length of WHITESPACES (3), making sure the test case raises error.
+	multiLineErrors2 := strings.Join(random.RandomElementsFromArray(slices.Concat(LEXICAL_ERRORS, WHITESPACES), 4), "")
 	multiLineErrors3 := `()  #	{}
 @
 $
@@ -28,7 +29,12 @@ $
 #`
 	multiLineErrors4 := "({" + random.RandomElementFromArray(SINGLE_CHAR_OPERATORS) + random.RandomElementFromArray(WHITESPACES) + random.RandomElementFromArray(LEXICAL_ERRORS) + "})"
 	tokenizeTestCases := testcases.MultiTokenizeTestCase{
-		FileContents: []string{multiLineErrors1, multiLineErrors2, multiLineErrors3, multiLineErrors4},
+		TestCases: []testcases.TokenizeTestCase{
+			{FileContents: multiLineErrors1, ExpectsError: true},
+			{FileContents: multiLineErrors2, ExpectsError: true},
+			{FileContents: multiLineErrors3, ExpectsError: true},
+			{FileContents: multiLineErrors4, ExpectsError: true},
+		},
 	}
 	return tokenizeTestCases.RunAll(b, logger)
 }
