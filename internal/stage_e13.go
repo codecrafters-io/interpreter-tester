@@ -20,7 +20,12 @@ func testEvaluateCompErrors(stageHarness *test_case_harness.TestCaseHarness) err
 	error4 := fmt.Sprintf("%s >= %s", getRandBoolean(), getRandBoolean())
 
 	evaluateTestCases := testcases.MultiEvaluateTestCase{
-		FileContents: []string{error1, error2, error3, error4},
+		TestCases: []testcases.EvaluateTestCase{
+			{FileContents: error1, ExpectsError: true},
+			{FileContents: error2, ExpectsError: true},
+			{FileContents: error3, ExpectsError: true},
+			{FileContents: error4, ExpectsError: true},
+		},
 	}
 	return evaluateTestCases.RunAll(b, logger)
 }

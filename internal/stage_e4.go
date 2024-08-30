@@ -20,7 +20,12 @@ func testEvaluateUnary(stageHarness *test_case_harness.TestCaseHarness) error {
 	unary4 := fmt.Sprintf("(!!%d)", getRandInt())
 
 	evaluateTestCases := testcases.MultiEvaluateTestCase{
-		FileContents: []string{unary1, unary2, unary3, unary4},
+		TestCases: []testcases.EvaluateTestCase{
+			{FileContents: unary1, ExpectsError: false},
+			{FileContents: unary2, ExpectsError: false},
+			{FileContents: unary3, ExpectsError: false},
+			{FileContents: unary4, ExpectsError: false},
+		},
 	}
 	return evaluateTestCases.RunAll(b, logger)
 }

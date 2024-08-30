@@ -8,15 +8,14 @@ import (
 )
 
 type MultiEvaluateTestCase struct {
-	FileContents []string
+	TestCases []EvaluateTestCase
 }
 
 func (t *MultiEvaluateTestCase) RunAll(executable *interpreter_executable.InterpreterExecutable, logger *logger.Logger) error {
-	for i, fileContents := range t.FileContents {
+	for i, testCase := range t.TestCases {
+
 		logger.UpdateSecondaryPrefix(fmt.Sprintf("test-%d", i+1))
 		logger.Infof("Running test case: %d", i+1)
-		testCase := EvaluateTestCase{
-			FileContents: fileContents}
 		if err := testCase.Run(executable, logger); err != nil {
 			return err
 		}
