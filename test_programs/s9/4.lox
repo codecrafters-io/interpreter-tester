@@ -1,5 +1,5 @@
 ---
-error_type: compile
+expected_error_type: compile
 ---
 {
     var <<RANDOM_STRING_2>> = <<RANDOM_INTEGER>>;

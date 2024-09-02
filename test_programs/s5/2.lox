@@ -1,5 +1,5 @@
 ---
-error_type: runtime
+expected_error_type: runtime
 ---
 var <<RANDOM_STRING_1>> = <<RANDOM_INTEGER>>;
 print <<RANDOM_STRING_2>>;

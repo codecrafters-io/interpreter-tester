@@ -1,5 +1,5 @@
 ---
-error_type: runtime
+expected_error_type: runtime
 ---
 {
   var <<RANDOM_STRING_2>> = "outer <<RANDOM_STRING_2>>";

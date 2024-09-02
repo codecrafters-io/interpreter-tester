@@ -1,5 +1,5 @@
 ---
-error_type: none
+expected_error_type: none
 ---
 print <<RANDOM_INTEGER_1>>;
     print <<RANDOM_INTEGER_1>> + <<RANDOM_INTEGER_2>>;

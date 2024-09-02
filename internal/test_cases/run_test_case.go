@@ -1,6 +1,7 @@
 package testcases
 
 import (
+	"bytes"
 	"fmt"
 	"os"
 	"strings"
@@ -18,43 +19,45 @@ import (
 // It is sent to the "run" command of the executable,
 // the expected outputs are generated using the lox.Run function,
 // With that the output of the executable is matched.
-
 type RunTestCase struct {
 	FileContents string
-	FrontMatter  RunTestCaseFrontMater
+	FrontMatter  RunTestCaseFrontMatter
 }
 
-type RunTestCaseFrontMater struct {
-	ExpectedErrorType string `yaml:"error_type"`
+type RunTestCaseFrontMatter struct {
+	ExpectedErrorType string `yaml:"expected_error_type"`
 }
 
 func NewRunTestCaseFromFileContents(fileContents []byte, filePath string) RunTestCase {
-	contents := string(fileContents)
-
-	if contents[:4] != "---\n" {
+	if !bytes.HasPrefix(fileContents, []byte("---\n")) {
 		panic(fmt.Sprintf("CodeCrafters Internal Error: %s has malformed frontmatter: no beginning triple dashes", filePath))
 	}
 
-	contents = contents[4:]
-	endingTripleDashIndex := strings.Index(contents, "\n---\n")
+	fileContents = fileContents[4:]
+	endingTripleDashIndex := bytes.Index(fileContents, []byte("\n---\n"))
 	if endingTripleDashIndex == -1 {
 		panic(fmt.Sprintf("CodeCrafters Internal Error: %s has malformed frontmatter: no ending triple dashes", filePath))
 	}
 
-	frontMatterBytes := []byte(contents[:endingTripleDashIndex])
-	contents = contents[endingTripleDashIndex+5:]
+	frontMatterRaw := fileContents[:endingTripleDashIndex]
+	fileContents = fileContents[endingTripleDashIndex+5:]
 
-	var frontMatter RunTestCaseFrontMater
-	err := yaml.Unmarshal(frontMatterBytes, &frontMatter)
+	var frontMatter RunTestCaseFrontMatter
+	err := yaml.Unmarshal(frontMatterRaw, &frontMatter)
 	if err != nil {
 		panic(fmt.Sprintf("CodeCrafters Internal Error: %s has malformed frontmatter: can't unmarshal", filePath))
 	}
 	if frontMatter.ExpectedErrorType == "" {
-		panic(fmt.Sprintf("CodeCrafters Internal Error: %s has malformed frontmatter: no error_type field", filePath))
+		panic(fmt.Sprintf("CodeCrafters Internal Error: %s has malformed frontmatter: missing expected_error_type field", filePath))
+	}
+	if !(frontMatter.ExpectedErrorType == "none" ||
+		frontMatter.ExpectedErrorType == "compile" ||
+		frontMatter.ExpectedErrorType == "runtime") {
+		panic(fmt.Sprintf("CodeCrafters Internal Error: %s has malformed frontmatter field: expected_error_type shouldn't be %s", filePath, frontMatter.ExpectedErrorType))
 	}
 
 	return RunTestCase{
-		FileContents: contents,
+		FileContents: string(fileContents),
 		FrontMatter:  frontMatter,
 	}
 }
@@ -73,19 +76,19 @@ func (t *RunTestCase) Run(executable *interpreter_executable.InterpreterExecutab
 		return err
 	}
 
-	expectedStdout, exitCode, _ := loxapi.Run(t.FileContents)
+	expectedStdout, expectedExitCode, _ := loxapi.Run(t.FileContents)
 
-	if t.FrontMatter.ExpectedErrorType == "none" && exitCode != 0 {
-		return fmt.Errorf("CodeCrafters internal error: faulty test case, expected this test case to not raise an error, but it did.")
+	if t.FrontMatter.ExpectedErrorType == "none" && expectedExitCode != 0 {
+		return fmt.Errorf("CodeCrafters internal error: faulty test case, expected this test case to not raise an error, but it did")
 	}
-	if t.FrontMatter.ExpectedErrorType == "compile" && exitCode != 65 {
+	if t.FrontMatter.ExpectedErrorType == "compile" && expectedExitCode != 65 {
 		return fmt.Errorf("CodeCrafters internal error: faulty test case, expected this test case to raise a compile time error, but it didn't")
 	}
-	if t.FrontMatter.ExpectedErrorType == "runtime" && exitCode != 70 {
+	if t.FrontMatter.ExpectedErrorType == "runtime" && expectedExitCode != 70 {
 		return fmt.Errorf("CodeCrafters internal error: faulty test case, expected this test case to raise a runtime error, but it didn't")
 	}
-	if result.ExitCode != exitCode {
-		return fmt.Errorf("expected exit code %v, got %v", exitCode, result.ExitCode)
+	if result.ExitCode != expectedExitCode {
+		return fmt.Errorf("expected exit code %v, got %v", expectedExitCode, result.ExitCode)
 	}
 	// XXX: Stderr is not checked
 
@@ -94,7 +97,7 @@ func (t *RunTestCase) Run(executable *interpreter_executable.InterpreterExecutab
 		return err
 	}
 
-	logger.Successf("✓ Received exit code %d.", exitCode)
+	logger.Successf("✓ Received exit code %d.", expectedExitCode)
 
 	return nil
 }
