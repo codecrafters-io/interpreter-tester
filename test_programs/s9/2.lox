@@ -1,3 +1,6 @@
+---
+expected_error_type: none
+---
 {
     var <<RANDOM_STRING_3>> = "before";
     print <<RANDOM_STRING_3>>;

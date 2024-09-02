@@ -1,3 +1,6 @@
+---
+expected_error_type: none
+---
 {
     var <<RANDOM_STRING_4>> = <<RANDOM_INTEGER>>;
     {

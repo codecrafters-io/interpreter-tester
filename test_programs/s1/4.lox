@@ -1,1 +1,4 @@
+---
+expected_error_type: compile
+---
 print;

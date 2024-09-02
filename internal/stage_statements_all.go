@@ -14,10 +14,8 @@ func createTestStatementFunction(stageId string) func(*test_case_harness.TestCas
 
 		logger := stageHarness.Logger
 
-		fileContents := GetTestProgramsForCurrentStageWithRandomValues(stageId)
-
 		runTestCases := testcases.MultiRunTestCase{
-			FileContents: fileContents,
+			TestCases: GetTestCasesForCurrentStageWithRandomValues(stageId),
 		}
 
 		return runTestCases.RunAll(b, logger)

@@ -1,2 +1,5 @@
+---
+expected_error_type: runtime
+---
 print <<RANDOM_INTEGER>>;
 print x;
