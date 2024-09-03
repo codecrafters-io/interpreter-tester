@@ -1,4 +1,4 @@
 ---
-expected_error_type: compile
+expected_error_type: runtime
 ---
 var <<RANDOM_STRING_2>> = <<RANDOM_STRING_4>>;
