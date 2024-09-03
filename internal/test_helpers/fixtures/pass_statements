@@ -293,11 +293,11 @@ Debug = true
 [33m[stage-4] [test-3] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-4] [test-3] [0m[33m[test.lox][0m var world = 2;
 [33m[stage-4] [test-3] [0m[33m[test.lox][0m print world;
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m world = 3;
+[33m[stage-4] [test-3] [0m[33m[test.lox][0m var world = 3;
 [33m[stage-4] [test-3] [0m[33m[test.lox][0m print world;
 [33m[stage-4] [test-3] [0m[33m[test.lox][0m var bar = 5;
 [33m[stage-4] [test-3] [0m[33m[test.lox][0m print bar;
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m world = bar;
+[33m[stage-4] [test-3] [0m[33m[test.lox][0m var world = bar;
 [33m[stage-4] [test-3] [0m[33m[test.lox][0m print world;
 [33m[stage-4] [test-3] [0m[33m[test.lox][0m 
 [33m[stage-4] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -309,11 +309,13 @@ Debug = true
 [33m[stage-4] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-4] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-4] [0m[33m[test.lox][0m bar + baz = hello;
+[33m[stage-4] [test-4] [0m[33m[test.lox][0m var bar = hello;
+[33m[stage-4] [test-4] [0m[33m[test.lox][0m 
 [33m[stage-4] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m[line 1] Error at '=': Invalid assignment target.
+[33m[your_program] [0mUndefined variable 'hello'.
+[33m[your_program] [0m[line 1]
 [33m[stage-4] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
-[33m[stage-4] [test-4] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-4] [test-4] [0m[92m✓ Received exit code 70.[0m
 [33m[stage-4] [0m[92mTest passed.[0m
 
 [33m[stage-3] [0m[94mRunning tests for Stage #3: pl3[0m
