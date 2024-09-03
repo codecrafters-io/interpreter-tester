@@ -8,6 +8,8 @@ print "<<RANDOM_INTEGER_1>>
 <<RANDOM_INTEGER_3>>
 ";
 
+print "There should be an empty line above this.";
+
 print "(" + "" + ")";
 
 print "non-ascii: ॐ";

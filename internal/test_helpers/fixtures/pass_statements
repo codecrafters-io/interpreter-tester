@@ -76,6 +76,8 @@ Debug = true
 [33m[stage-9] [test-4] [0m[33m[test.lox][0m 64
 [33m[stage-9] [test-4] [0m[33m[test.lox][0m ";
 [33m[stage-9] [test-4] [0m[33m[test.lox][0m 
+[33m[stage-9] [test-4] [0m[33m[test.lox][0m print "There should be an empty line above this.";
+[33m[stage-9] [test-4] [0m[33m[test.lox][0m 
 [33m[stage-9] [test-4] [0m[33m[test.lox][0m print "(" + "" + ")";
 [33m[stage-9] [test-4] [0m[33m[test.lox][0m 
 [33m[stage-9] [test-4] [0m[33m[test.lox][0m print "non-ascii: ॐ";
@@ -86,9 +88,10 @@ Debug = true
 [33m[your_program] [0m77
 [33m[your_program] [0m64
 [33m[your_program] [0m
+[33m[your_program] [0mThere should be an empty line above this.
 [33m[your_program] [0m()
 [33m[your_program] [0mnon-ascii: ॐ
-[33m[stage-9] [test-4] [0m[92m✓ 7 line(s) match on stdout[0m
+[33m[stage-9] [test-4] [0m[92m✓ 8 line(s) match on stdout[0m
 [33m[stage-9] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [0m[92mTest passed.[0m
 
