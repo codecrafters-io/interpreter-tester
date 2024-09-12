@@ -21,6 +21,7 @@ func testNumbers(stageHarness *test_case_harness.TestCaseHarness) error {
 		TestCases: []testcases.TokenizeTestCase{
 			{FileContents: getRandIntAsString(), ExpectsError: false},
 			{FileContents: fmt.Sprintf("%d.%d", getRandInt(), getRandInt()), ExpectsError: false},
+			{FileContents: fmt.Sprintf("%d.0000", getRandInt()), ExpectsError: false},
 			{FileContents: shuffledString1, ExpectsError: false},
 			{FileContents: shuffledString2, ExpectsError: false},
 		},
