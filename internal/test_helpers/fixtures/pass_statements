@@ -496,20 +496,26 @@ Debug = true
 [33m[stage-1] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-1] [test-4] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-1] [test-4] [0m[33m[test.lox][0m {
+[33m[stage-1] [test-4] [0m[33m[test.lox][0m   var world = "outer world";
 [33m[stage-1] [test-4] [0m[33m[test.lox][0m   var bar = "outer bar";
 [33m[stage-1] [test-4] [0m[33m[test.lox][0m   {
+[33m[stage-1] [test-4] [0m[33m[test.lox][0m     world = "modified world";
 [33m[stage-1] [test-4] [0m[33m[test.lox][0m     var bar = "inner bar";
+[33m[stage-1] [test-4] [0m[33m[test.lox][0m     print world;
 [33m[stage-1] [test-4] [0m[33m[test.lox][0m     print bar;
 [33m[stage-1] [test-4] [0m[33m[test.lox][0m   }
+[33m[stage-1] [test-4] [0m[33m[test.lox][0m   print world;
 [33m[stage-1] [test-4] [0m[33m[test.lox][0m   print bar;
 [33m[stage-1] [test-4] [0m[33m[test.lox][0m }
 [33m[stage-1] [test-4] [0m[33m[test.lox][0m print bar;
 [33m[stage-1] [test-4] [0m[33m[test.lox][0m 
 [33m[stage-1] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mmodified world
 [33m[your_program] [0minner bar
+[33m[your_program] [0mmodified world
 [33m[your_program] [0mouter bar
 [33m[your_program] [0mUndefined variable 'bar'.
-[33m[your_program] [0m[line 9]
-[33m[stage-1] [test-4] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[your_program] [0m[line 13]
+[33m[stage-1] [test-4] [0m[92m✓ 4 line(s) match on stdout[0m
 [33m[stage-1] [test-4] [0m[92m✓ Received exit code 70.[0m
 [33m[stage-1] [0m[92mTest passed.[0m
