@@ -2,11 +2,15 @@
 expected_error_type: runtime
 ---
 {
+  var <<RANDOM_STRING_1>> = "outer <<RANDOM_STRING_1>>";
   var <<RANDOM_STRING_2>> = "outer <<RANDOM_STRING_2>>";
   {
+    <<RANDOM_STRING_1>> = "modified <<RANDOM_STRING_1>>";
     var <<RANDOM_STRING_2>> = "inner <<RANDOM_STRING_2>>";
+    print <<RANDOM_STRING_1>>;
     print <<RANDOM_STRING_2>>;
   }
+  print <<RANDOM_STRING_1>>;
   print <<RANDOM_STRING_2>>;
 }
 print <<RANDOM_STRING_2>>;
