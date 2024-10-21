@@ -241,6 +241,28 @@ func (i *If) String() string {
 	return sb.String()
 }
 
+
+// Logical is used for "or" and "and" operators.
+type Logical struct {
+	Expr
+	Left     Expr
+	Operator Token
+	Right    Expr
+}
+
+// String pretty prints the unary operator
+func (l *Logical) String() string {
+	var sb strings.Builder
+	sb.WriteString("(")
+	sb.WriteString(l.Operator.Lexeme)
+	sb.WriteString(" ")
+	sb.WriteString(l.Left.String())
+	sb.WriteString(" ")
+	sb.WriteString(l.Right.String())
+	sb.WriteString(")")
+	return sb.String()
+}
+
 func FormatFloat(num float64) string {
 	str := fmt.Sprintf("%f", num)
 	parts := strings.Split(str, ".")
