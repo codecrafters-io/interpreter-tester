@@ -198,6 +198,18 @@ func Eval(node Node, environment *Environment, stdout io.Writer, stderr io.Write
 			}
 		}
 		return nil, nil
+	case *If:
+		condition, err := Eval(n.Condition, environment, stdout, stderr)
+		if err != nil {
+			return nil, err
+		}
+
+		if isTruthy(condition) {
+			return Eval(n.ThenBranch, environment, stdout, stderr)
+		} else if n.ElseBranch != nil {
+			return Eval(n.ElseBranch, environment, stdout, stderr)
+		}
+		return nil, nil
 	case nil:
 		return nil, nil
 	}
