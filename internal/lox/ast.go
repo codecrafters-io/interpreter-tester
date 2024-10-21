@@ -241,6 +241,37 @@ func (i *If) String() string {
 	return sb.String()
 }
 
+// For is the for statement
+type For struct {
+	Stmt
+	Initializer Expr
+	Condition   Expr
+	Increment   Expr
+	Statement   Stmt
+}
+
+// String pretty prints the for statement
+func (f *For) String() string {
+	var sb strings.Builder
+	sb.WriteString("(")
+	sb.WriteString("for")
+	sb.WriteString(" ")
+	sb.WriteString("(")
+	sb.WriteString(f.Initializer.String())
+	sb.WriteString(")")
+	sb.WriteString(" ")
+	sb.WriteString("(")
+	sb.WriteString(f.Condition.String())
+	sb.WriteString(")")
+	sb.WriteString(" ")
+	sb.WriteString("(")
+	sb.WriteString(f.Increment.String())
+	sb.WriteString(")")
+	sb.WriteString(" ")
+	sb.WriteString(f.Statement.String())
+	sb.WriteString(")")
+	return sb.String()
+}
 
 // While is the classic while statement
 type While struct {
