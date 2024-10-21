@@ -198,6 +198,48 @@ func Eval(node Node, environment *Environment, stdout io.Writer, stderr io.Write
 			}
 		}
 		return nil, nil
+	case *If:
+		condition, err := Eval(n.Condition, environment, stdout, stderr)
+		if err != nil {
+			return nil, err
+		}
+		if isTruthy(condition) {
+			return Eval(n.ThenBranch, environment, stdout, stderr)
+		} else if n.ElseBranch != nil {
+			return Eval(n.ElseBranch, environment, stdout, stderr)
+		}
+		return nil, nil
+	case *Logical:
+		left, err := Eval(n.Left, environment, stdout, stderr)
+		if err != nil {
+			return nil, err
+		}
+		switch n.Operator.Type {
+		case OR:
+			if isTruthy(left) {
+				return left, nil
+			}
+		case AND:
+			if !isTruthy(left) {
+				return left, nil
+			}
+		}
+		return Eval(n.Right, environment, stdout, stderr)
+	case *While:
+		for {
+			condition, err := Eval(n.Condition, environment, stdout, stderr)
+			if err != nil {
+				return nil, err
+			}
+			if !isTruthy(condition) {
+				break
+			}
+			_, err = Eval(n.Statement, environment, stdout, stderr)
+			if err != nil {
+				return nil, err
+			}
+		}
+		return nil, nil
 	case nil:
 		return nil, nil
 	}

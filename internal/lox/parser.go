@@ -10,14 +10,24 @@ declaration-> varDecl
 			| stmt ;
 varDecl    -> "var" IDENTIFIER ( "=" expression )? ";" ;
 stmt       -> exprStmt
-			| printStmt ;
+			| forStmt
+			| ifStmt
+			| printStmt
+			| whileStmt
 			| block ;
 block      -> "{" declaration* "}" ;
 exprStmt   -> expression ";" ;
+forStmt    -> "for" "(" ( varDecl | exprStmt | ";" )
+              expression? ";"
+              expression? ")" statement ;
+ifStmt     -> "if" "(" expression ")" statement ( "else" statement )? ;
 printStmt  -> "print" expression ";" ;
+whileStmt  -> "while" "(" expression ")" statement ;
 expression -> assignment ;
 assignment -> IDENTIFIER "=" assignment
-			| equality ;
+			| logic_or ;
+logic_or   -> logic_and ( "or" logic_and )* ;
+logic_and  -> equality ( "and" equality )* ;
 equality   -> comparison ( ( "!=" | "==") comparison )* ;
 comparison -> term ( ( ">" | ">=" | "<" | "<=") term )* ;
 term   -> factor ( ( "+" | "-" ) factor )* ;
@@ -99,8 +109,14 @@ func (p *Parser) varDeclaration() (Stmt, error) {
 }
 
 func (p *Parser) statement() (Stmt, error) {
-	if p.match(PRINT) {
+	if p.match(FOR) {
+		return p.forStatement()
+	} else if p.match(IF) {
+		return p.ifStatement()
+	} else if p.match(PRINT) {
 		return p.printStatement()
+	} else if p.match(WHILE) {
+		return p.whileStatement()
 	} else if p.match(LEFTBRACE) {
 		statements, err := p.block()
 		if err == nil {
@@ -151,12 +167,122 @@ func (p *Parser) expressionStatement() (Stmt, error) {
 	return &Expression{Expression: expr}, nil
 }
 
+func (p *Parser) forStatement() (Stmt, error) {
+	if _, err := p.consume(LEFTPAREN, "Expected '(' after 'for'."); err != nil {
+		return nil, err
+	}
+
+	var err error
+	var initializer Stmt
+
+	if p.match(SEMICOLON) {
+		initializer = nil
+	} else if p.match(VAR) {
+		initializer, err = p.varDeclaration()
+	} else {
+		initializer, err = p.expressionStatement()
+	}
+
+	if err != nil {
+		return nil, err
+	}
+
+	var condition Expr
+	if !p.check(SEMICOLON) {
+		condition, err = p.expression()
+		if err != nil {
+			return nil, err
+		}
+	}
+	_, err = p.consume(SEMICOLON, "Expected ';' after loop condition.")
+	if err != nil {
+		return nil, err
+	}
+
+	var increment Expr
+	if !p.check(RIGHTPAREN) {
+		increment, err = p.expression()
+		if err != nil {
+			return nil, err
+		}
+	}
+	_, err = p.consume(RIGHTPAREN, "Expected ')' after for clauses.")
+	if err != nil {
+		return nil, err
+	}
+
+	body, err := p.statement()
+	if err != nil {
+		return nil, err
+	}
+
+	if increment != nil {
+		body = &Block{Statements: []Stmt{body, &Expression{Expression: increment}}}
+	}
+
+	if condition == nil {
+		condition = &Literal{Value: true}
+	}
+	body = &While{Condition: condition, Statement: body}
+
+	if initializer != nil {
+		body = &Block{Statements: []Stmt{initializer, body}}
+	}
+
+	return body, nil
+}
+
+func (p *Parser) ifStatement() (Stmt, error) {
+	if _, err := p.consume(LEFTPAREN, "Expected '(' after 'if'."); err != nil {
+		return nil, err
+	}
+	condition, err := p.expression()
+	if err != nil {
+		return nil, err
+	}
+	if _, err := p.consume(RIGHTPAREN, "Expected ')' after 'if' condition."); err != nil {
+		return nil, err
+	}
+	thenBranch, err := p.statement()
+	if err != nil {
+		return nil, err
+	}
+	if p.match(ELSE) {
+		elseBranch, err := p.statement()
+		if err != nil {
+			return nil, err
+		}
+		return &If{Condition: condition, ThenBranch: thenBranch, ElseBranch: elseBranch}, nil
+	}
+	return &If{Condition: condition, ThenBranch: thenBranch}, nil
+}
+
+func (p *Parser) whileStatement() (Stmt, error) {
+	_, err := p.consume(LEFTPAREN, "Expected '(' after 'while'.")
+	if err != nil {
+		return nil, err
+	}
+	condition, err := p.expression()
+	if err != nil {
+		return nil, err
+	}
+	_, err = p.consume(RIGHTPAREN, "Expected ')' after condition.")
+	if err != nil {
+		return nil, err
+	}
+	body, err := p.statement()
+	if err != nil {
+		return nil, err
+	}
+	return &While{Condition: condition, Statement: body}, nil
+}
+
 func (p *Parser) expression() (Expr, error) {
 	return p.assignment()
 }
 
 func (p *Parser) assignment() (Expr, error) {
-	expr, err := p.equality()
+	expr, err := p.or()
 	if err != nil {
 		return nil, err
 	}
@@ -172,6 +298,39 @@ func (p *Parser) assignment() (Expr, error) {
 			return &Assign{Name: variable.Name, Value: value}, nil
 		}
 		return nil, MakeParseError(equals, "Invalid assignment target.")
+	}
+	return expr, nil
+}
+
+func (p *Parser) or() (Expr, error) {
+	expr, err := p.and()
+	if err != nil {
+		return nil, err
+	}
+
+	for p.match(OR) {
+		operator := p.previous()
+		right, err := p.and()
+		if err != nil {
+			return nil, err
+		}
+		expr = &Logical{Left: expr, Operator: operator, Right: right}
+	}
+	return expr, nil
+}
+
+func (p *Parser) and() (Expr, error) {
+	expr, err := p.equality()
+	if err != nil {
+		return nil, err
+	}
+	for p.match(AND) {
+		operator := p.previous()
+		right, err := p.equality()
+		if err != nil {
+			return nil, err
+		}
+		expr = &Logical{Left: expr, Operator: operator, Right: right}
 	}
 	return expr, nil
 }
