@@ -225,6 +225,21 @@ func Eval(node Node, environment *Environment, stdout io.Writer, stderr io.Write
 			}
 		}
 		return Eval(n.Right, environment, stdout, stderr)
+	case *While:
+		for {
+			condition, err := Eval(n.Condition, environment, stdout, stderr)
+			if err != nil {
+				return nil, err
+			}
+			if !isTruthy(condition) {
+				break
+			}
+			_, err = Eval(n.Statement, environment, stdout, stderr)
+			if err != nil {
+				return nil, err
+			}
+		}
+		return nil, nil
 	case nil:
 		return nil, nil
 	}
