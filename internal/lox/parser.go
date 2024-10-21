@@ -11,12 +11,14 @@ declaration-> varDecl
 varDecl    -> "var" IDENTIFIER ( "=" expression )? ";" ;
 stmt       -> exprStmt
 			| ifStmt
-			| printStmt ;
+			| printStmt
+			| whileStmt
 			| block ;
 block      -> "{" declaration* "}" ;
 exprStmt   -> expression ";" ;
 ifStmt     -> "if" "(" expression ")" statement ( "else" statement )? ;
 printStmt  -> "print" expression ";" ;
+whileStmt  -> "while" "(" expression ")" statement ;
 expression -> assignment ;
 assignment -> IDENTIFIER "=" assignment
 			| logic_or ;
@@ -107,6 +109,8 @@ func (p *Parser) statement() (Stmt, error) {
 		return p.ifStatement()
 	} else if p.match(PRINT) {
 		return p.printStatement()
+	} else if p.match(WHILE) {
+		return p.whileStatement()
 	} else if p.match(LEFTBRACE) {
 		statements, err := p.block()
 		if err == nil {
@@ -180,6 +184,26 @@ func (p *Parser) ifStatement() (Stmt, error) {
 		return &If{Condition: condition, ThenBranch: thenBranch, ElseBranch: elseBranch}, nil
 	}
 	return &If{Condition: condition, ThenBranch: thenBranch}, nil
+}
+
+func (p *Parser) whileStatement() (Stmt, error) {
+	_, err := p.consume(LEFTPAREN, "Expected '(' after 'while'.")
+	if err != nil {
+		return nil, err
+	}
+	condition, err := p.expression()
+	if err != nil {
+		return nil, err
+	}
+	_, err = p.consume(RIGHTPAREN, "Expected ')' after condition.")
+	if err != nil {
+		return nil, err
+	}
+	body, err := p.statement()
+	if err != nil {
+		return nil, err
+	}
+	return &While{Condition: condition, Statement: body}, nil
 }
 
 func (p *Parser) expression() (Expr, error) {
