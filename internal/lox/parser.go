@@ -10,10 +10,12 @@ declaration-> varDecl
 			| stmt ;
 varDecl    -> "var" IDENTIFIER ( "=" expression )? ";" ;
 stmt       -> exprStmt
+			| ifStmt
 			| printStmt ;
 			| block ;
 block      -> "{" declaration* "}" ;
 exprStmt   -> expression ";" ;
+ifStmt     -> "if" "(" expression ")" statement ( "else" statement )? ;
 printStmt  -> "print" expression ";" ;
 expression -> assignment ;
 assignment -> IDENTIFIER "=" assignment
@@ -99,7 +101,9 @@ func (p *Parser) varDeclaration() (Stmt, error) {
 }
 
 func (p *Parser) statement() (Stmt, error) {
-	if p.match(PRINT) {
+	if p.match(IF) {
+		return p.ifStatement()
+	} else if p.match(PRINT) {
 		return p.printStatement()
 	} else if p.match(LEFTBRACE) {
 		statements, err := p.block()
@@ -149,6 +153,31 @@ func (p *Parser) expressionStatement() (Stmt, error) {
 		return nil, err
 	}
 	return &Expression{Expression: expr}, nil
+}
+
+func (p *Parser) ifStatement() (Stmt, error) {
+	if _, err := p.consume(LEFTPAREN, "Expected '(' after 'if'."); err != nil {
+		return nil, err
+	}
+	condition, err := p.expression()
+	if err != nil {
+		return nil, err
+	}
+	if _, err := p.consume(RIGHTPAREN, "Expected ')' after 'if' condition."); err != nil {
+		return nil, err
+	}
+	thenBranch, err := p.statement()
+	if err != nil {
+		return nil, err
+	}
+	if p.match(ELSE) {
+		elseBranch, err := p.statement()
+		if err != nil {
+			return nil, err
+		}
+		return &If{Condition: condition, ThenBranch: thenBranch, ElseBranch: elseBranch}, nil
+	}
+	return &If{Condition: condition, ThenBranch: thenBranch}, nil
 }
 
 func (p *Parser) expression() (Expr, error) {
