@@ -8,7 +8,7 @@ import (
 
 // For each stage, we need to create a test function that will be used to test the user submissions for that stage.
 // This function will be called by the tester_definition.go file, to create the test function for that stage.
-func createTestStatementFunction(stageId string) func(*test_case_harness.TestCaseHarness) error {
+func createTestForRunCommandStage(stageId string) func(*test_case_harness.TestCaseHarness) error {
 	return func(stageHarness *test_case_harness.TestCaseHarness) error {
 		b := interpreter_executable.NewInterpreterExecutable(stageHarness)
 
