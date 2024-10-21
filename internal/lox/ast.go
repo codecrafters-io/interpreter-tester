@@ -216,6 +216,31 @@ func (v *Var) String() string {
 	return sb.String()
 }
 
+// Control Flow
+
+// If is the classic if statement
+type If struct {
+	Stmt
+	Condition  Expr
+	ThenBranch Stmt
+	ElseBranch Stmt
+}
+
+// String pretty prints the if statement
+func (i *If) String() string {
+	var sb strings.Builder
+	sb.WriteString("(")
+	sb.WriteString("if")
+	sb.WriteString(" ")
+	sb.WriteString(i.Condition.String())
+	sb.WriteString(" ")
+	sb.WriteString(i.ThenBranch.String())
+	sb.WriteString(" ")
+	sb.WriteString(i.ElseBranch.String())
+	sb.WriteString(")")
+	return sb.String()
+}
+
 func FormatFloat(num float64) string {
 	str := fmt.Sprintf("%f", num)
 	parts := strings.Split(str, ".")
