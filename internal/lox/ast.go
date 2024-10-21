@@ -242,6 +242,26 @@ func (i *If) String() string {
 }
 
 
+// While is the classic while statement
+type While struct {
+	Stmt
+	Condition Expr
+	Statement Stmt
+}
+
+// String pretty prints the while statement
+func (w *While) String() string {
+	var sb strings.Builder
+	sb.WriteString("(")
+	sb.WriteString("while")
+	sb.WriteString(" ")
+	sb.WriteString(w.Condition.String())
+	sb.WriteString(" ")
+	sb.WriteString(w.Statement.String())
+	sb.WriteString(")")
+	return sb.String()
+}
+
 // Logical is used for "or" and "and" operators.
 type Logical struct {
 	Expr
