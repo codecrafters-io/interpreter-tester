@@ -1,0 +1,4 @@
+---
+expected_error_type: none
+---
+if (true) if (true) print "nested true";

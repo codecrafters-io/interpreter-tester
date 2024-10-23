@@ -1,0 +1,41 @@
+---
+expected_error_type: none
+---
+var stage = "unknown";
+var age = <<RANDOM_INTEGER>>;
+if (age < 18) {
+    if (age < 13) { stage = "child"; }
+    else if (age < 16) { stage = "young teenager"; }
+    else { stage = "teenager"; }
+}
+else if (age < 65) {
+    if (age < 30) { stage = "young adult"; }
+    else if (age < 50) { stage = "adult"; }
+    else { stage = "middle-aged adult"; }
+}
+else { stage = "senior"; }
+print stage;
+
+var isAdult = age >= 18;
+if (isAdult) {
+    print "eligible for voting: true";
+    if (age < 25) {
+        print "first-time voter: likely";
+    }
+    else { print "first-time voter: unlikely"; }
+}
+else { print "eligible for voting: false"; }
+
+if (age < 16) { print "eligible for driving: false"; }
+else if (age < 18) {
+    print "eligible for driving: learner's permit";
+    if (age < 17) { print "supervised driving required"; }
+    else { print "unsupervised driving allowed with restrictions"; }
+}
+else { print "eligible for driving: full license"; }
+
+if (age < 21) { print "eligible for drinking (US): false"; }
+else {
+    print "eligible for drinking (US): true";
+    if (age < 25) { print "remember: drink responsibly!"; }
+}
