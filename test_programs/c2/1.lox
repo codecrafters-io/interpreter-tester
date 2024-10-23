@@ -1,0 +1,4 @@
+---
+expected_error_type: none
+---
+if (<<RANDOM_BOOLEAN>>) print "if branch"; else print "else branch";
