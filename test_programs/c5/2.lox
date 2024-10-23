@@ -1,0 +1,10 @@
+---
+expected_error_type: none
+---
+print <<RANDOM_INTEGER>> or true;
+print false or <<RANDOM_INTEGER>>;
+print false or false or true;
+
+print false or false;
+print false or false or false;
+print <<RANDOM_BOOLEAN>> or <<RANDOM_BOOLEAN>> or <<RANDOM_BOOLEAN>> or <<RANDOM_BOOLEAN>>;

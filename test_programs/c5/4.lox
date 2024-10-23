@@ -1,0 +1,12 @@
+---
+expected_error_type: none
+---
+var stage = "unknown";
+var age = <<RANDOM_INTEGER>>;
+if (age < 18) { stage = "child"; }
+if (age >= 18) { stage = "adult"; }
+print stage;
+
+var isAdult = age >= 18;
+if (isAdult) { print "eligible for voting: true"; }
+if (!isAdult) { print "eligible for voting: false"; }
