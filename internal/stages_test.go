@@ -40,7 +40,7 @@ func TestStages(t *testing.T) {
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 		"pass_control_flow_jlox": {
-			StageSlugs:          []string{"c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9"},
+			StageSlugs:          []string{"ne3", "st5", "fh8", "xj4", "wk8", "jx4", "qy3", "bw6", "vt1"},
 			CodePath:            "../craftinginterpreters/build/gen/chap09_control",
 			ExpectedExitCode:    0,
 			StdoutFixturePath:   "./test_helpers/fixtures/pass_control_flow",
