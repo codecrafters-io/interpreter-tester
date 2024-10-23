@@ -1,0 +1,24 @@
+---
+expected_error_type: none
+---
+var <<RANDOM_STRING_1>> = "after";
+{
+  var <<RANDOM_STRING_1>> = "before";
+
+  for (var <<RANDOM_STRING_1>> = 0; <<RANDOM_STRING_1>> < 1; <<RANDOM_STRING_1>> = <<RANDOM_STRING_1>> + 1) {
+    print <<RANDOM_STRING_1>>;
+    var <<RANDOM_STRING_1>> = -1;
+    print <<RANDOM_STRING_1>>;
+  }
+}
+
+{
+  for (var <<RANDOM_STRING_1>> = 0; <<RANDOM_STRING_1>> > 0; <<RANDOM_STRING_1>> = <<RANDOM_STRING_1>> + 1) {}
+
+  var <<RANDOM_STRING_1>> = "after";
+  print <<RANDOM_STRING_1>>;
+
+  for (<<RANDOM_STRING_1>> = 0; <<RANDOM_STRING_1>> < 1; <<RANDOM_STRING_1>> = <<RANDOM_STRING_1>> + 1) {
+    print <<RANDOM_STRING_1>>;
+  }
+}

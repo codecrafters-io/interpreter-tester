@@ -1,0 +1,4 @@
+---
+expected_error_type: none
+---
+for (var <<RANDOM_STRING_1>> = 0; <<RANDOM_STRING_1>> < 3;) print <<RANDOM_STRING_1>> = <<RANDOM_STRING_1>> + 1;
