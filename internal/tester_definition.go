@@ -199,7 +199,43 @@ var testerDefinition = tester_definition.TesterDefinition{
 		},
 		{
 			Slug:     "fb4",
-			TestFunc: createTestStatementFunction("s10"),
+			TestFunc: createTestForRunCommandStage("s10"),
+		},
+		{
+			Slug:     "c1",
+			TestFunc: createTestForRunCommandStage("c1"),
+		},
+		{
+			Slug:     "c2",
+			TestFunc: createTestForRunCommandStage("c2"),
+		},
+		{
+			Slug:     "c3",
+			TestFunc: createTestForRunCommandStage("c3"),
+		},
+		{
+			Slug:     "c4",
+			TestFunc: createTestForRunCommandStage("c4"),
+		},
+		{
+			Slug:     "c5",
+			TestFunc: createTestForRunCommandStage("c5"),
+		},
+		{
+			Slug:     "c6",
+			TestFunc: createTestForRunCommandStage("c6"),
+		},
+		{
+			Slug:     "c7",
+			TestFunc: createTestForRunCommandStage("c7"),
+		},
+		{
+			Slug:     "c8",
+			TestFunc: createTestForRunCommandStage("c8"),
+		},
+		{
+			Slug:     "c9",
+			TestFunc: createTestForRunCommandStage("c9"),
 		},
 	},
 }
