@@ -1,0 +1,8 @@
+---
+expected_error_type: none
+---
+var a = "<<RANDOM_STRING>>";
+var b = "<<RANDOM_STRING>>";
+(a = true) and (b = false) and (a = "bad");
+print a;
+print b;

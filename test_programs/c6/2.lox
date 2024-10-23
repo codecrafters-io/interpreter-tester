@@ -1,0 +1,9 @@
+---
+expected_error_type: none
+---
+print false and 1;
+print true and 1;
+print <<RANDOM_INTEGER>> and "<<RANDOM_STRING>>" and false;
+
+print <<RANDOM_INTEGER>> and true;
+print <<RANDOM_INTEGER>> and "<<RANDOM_STRING>>" and <<RANDOM_INTEGER>>;
