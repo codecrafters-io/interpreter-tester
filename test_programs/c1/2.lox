@@ -1,0 +1,6 @@
+---
+expected_error_type: none
+---
+if (<<RANDOM_BOOLEAN>>) {
+  print "block body";
+}

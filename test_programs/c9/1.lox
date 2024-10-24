@@ -1,0 +1,4 @@
+---
+expected_error_type: compile
+---
+for (;;) var foo;

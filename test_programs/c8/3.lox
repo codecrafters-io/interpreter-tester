@@ -1,0 +1,10 @@
+---
+expected_error_type: none
+---
+var <<RANDOM_STRING_2>> = 0;
+for (; <<RANDOM_STRING_2>> < 2; <<RANDOM_STRING_2>> = <<RANDOM_STRING_2>> + 1) print <<RANDOM_STRING_2>>;
+
+for (var <<RANDOM_STRING_3>> = 0; <<RANDOM_STRING_3>> < 2;) {
+  print <<RANDOM_STRING_3>>;
+  <<RANDOM_STRING_3>> = <<RANDOM_STRING_3>> + 1;
+}

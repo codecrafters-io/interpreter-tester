@@ -1,0 +1,10 @@
+---
+expected_error_type: none
+---
+if (false and "bad") print "<<RANDOM_STRING_1>>";
+if (nil and "bad") print "<<RANDOM_STRING_1>>";
+
+if (true and "<<RANDOM_STRING_2>>") print "<<RANDOM_STRING_2>>";
+if (<<RANDOM_INTEGER_1>> and "<<RANDOM_STRING_3>>") print "<<RANDOM_STRING_3>>";
+if ("<<RANDOM_STRING_3>>" and "<<RANDOM_STRING_3>>") print "<<RANDOM_STRING_3>>";
+if ("" and "<<RANDOM_STRING_4>>") print "<<RANDOM_STRING_4>>";

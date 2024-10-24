@@ -1,0 +1,7 @@
+---
+expected_error_type: none
+---
+var a = false;
+if (a = true) {
+  print (a == <<RANDOM_BOOLEAN>>);
+}

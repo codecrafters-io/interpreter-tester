@@ -1,0 +1,10 @@
+---
+expected_error_type: none
+---
+if (<<RANDOM_BOOLEAN>>) {
+  print "<<RANDOM_STRING>>";
+} else if (<<RANDOM_BOOLEAN>>) print "<<RANDOM_STRING>>";
+
+if (<<RANDOM_BOOLEAN>>) print "<<RANDOM_STRING>>"; else if (<<RANDOM_BOOLEAN>>) {
+  print "<<RANDOM_STRING>>";
+}

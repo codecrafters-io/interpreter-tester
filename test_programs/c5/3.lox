@@ -1,0 +1,8 @@
+---
+expected_error_type: none
+---
+var a = "<<RANDOM_STRING>>";
+var b = "<<RANDOM_STRING>>";
+(a = false) or (b = true) or (a = "<<RANDOM_STRING>>");
+print a;
+print b;

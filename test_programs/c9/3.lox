@@ -1,0 +1,5 @@
+---
+expected_error_type: compile
+---
+// Invalid condition for increment
+for (var a = 1; a < 2; {}) {}

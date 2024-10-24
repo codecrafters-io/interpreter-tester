@@ -1,0 +1,5 @@
+---
+expected_error_type: none
+---
+var age = <<RANDOM_INTEGER>>;
+if (age > 18) print "adult"; else print "child";

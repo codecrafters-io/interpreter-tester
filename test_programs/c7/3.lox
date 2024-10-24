@@ -1,0 +1,14 @@
+---
+expected_error_type: none
+---
+while (false) { print "should not print"; }
+
+var product = 1;
+var i = 1;
+
+while (i <= 5) {
+  product = product * i;
+  i = i + 1;
+}
+
+print "Factorial of 5: "; print product;

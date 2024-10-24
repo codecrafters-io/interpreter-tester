@@ -1,0 +1,5 @@
+---
+expected_error_type: compile
+---
+// Invalid condition for initialization
+for ({}; a < 2; a = a + 1) {}

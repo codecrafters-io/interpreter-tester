@@ -163,43 +163,79 @@ var testerDefinition = tester_definition.TesterDefinition{
 		},
 		{
 			Slug:     "xy1",
-			TestFunc: createTestStatementFunction("s1"),
+			TestFunc: createTestForRunCommandStage("s1"),
 		},
 		{
 			Slug:     "oe4",
-			TestFunc: createTestStatementFunction("s2"),
+			TestFunc: createTestForRunCommandStage("s2"),
 		},
 		{
 			Slug:     "fi3",
-			TestFunc: createTestStatementFunction("s3"),
+			TestFunc: createTestForRunCommandStage("s3"),
 		},
 		{
 			Slug:     "yg2",
-			TestFunc: createTestStatementFunction("s4"),
+			TestFunc: createTestForRunCommandStage("s4"),
 		},
 		{
 			Slug:     "sv7",
-			TestFunc: createTestStatementFunction("s5"),
+			TestFunc: createTestForRunCommandStage("s5"),
 		},
 		{
 			Slug:     "bc1",
-			TestFunc: createTestStatementFunction("s6"),
+			TestFunc: createTestForRunCommandStage("s6"),
 		},
 		{
 			Slug:     "dw9",
-			TestFunc: createTestStatementFunction("s7"),
+			TestFunc: createTestForRunCommandStage("s7"),
 		},
 		{
 			Slug:     "pl3",
-			TestFunc: createTestStatementFunction("s8"),
+			TestFunc: createTestForRunCommandStage("s8"),
 		},
 		{
 			Slug:     "vr5",
-			TestFunc: createTestStatementFunction("s9"),
+			TestFunc: createTestForRunCommandStage("s9"),
 		},
 		{
 			Slug:     "fb4",
-			TestFunc: createTestStatementFunction("s10"),
+			TestFunc: createTestForRunCommandStage("s10"),
+		},
+		{
+			Slug:     "ne3",
+			TestFunc: createTestForRunCommandStage("c1"),
+		},
+		{
+			Slug:     "st5",
+			TestFunc: createTestForRunCommandStage("c2"),
+		},
+		{
+			Slug:     "fh8",
+			TestFunc: createTestForRunCommandStage("c3"),
+		},
+		{
+			Slug:     "xj4",
+			TestFunc: createTestForRunCommandStage("c4"),
+		},
+		{
+			Slug:     "wk8",
+			TestFunc: createTestForRunCommandStage("c5"),
+		},
+		{
+			Slug:     "jx4",
+			TestFunc: createTestForRunCommandStage("c6"),
+		},
+		{
+			Slug:     "qy3",
+			TestFunc: createTestForRunCommandStage("c7"),
+		},
+		{
+			Slug:     "bw6",
+			TestFunc: createTestForRunCommandStage("c8"),
+		},
+		{
+			Slug:     "vt1",
+			TestFunc: createTestForRunCommandStage("c9"),
 		},
 	},
 }
