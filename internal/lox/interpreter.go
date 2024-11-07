@@ -273,7 +273,7 @@ func Eval(node Node, environment *Environment, stdout io.Writer, stderr io.Write
 		}
 		return nil, nil
 	case *Function:
-		function := NewUserFunction(n)
+		function := NewUserFunction(n, environment)
 		environment.Define(n.Name.Lexeme, function)
 		return nil, nil
 	case *Return:

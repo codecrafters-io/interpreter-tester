@@ -36,16 +36,18 @@ func (n *NativeFunction) String() string {
 type UserFunction struct {
 	Callable
 	Declaration *Function
+	Closure     *Environment
 }
 
 // NewUserFunction creates a new UserFunction
-func NewUserFunction(def *Function) *UserFunction {
-	return &UserFunction{Declaration: def}
+func NewUserFunction(declaration *Function, closure *Environment) *UserFunction {
+	return &UserFunction{Declaration: declaration, Closure: closure}
 }
 
 // Call executes a user-defined Lox function
 func (u *UserFunction) Call(arguments []interface{}, globalEnv *Environment, stdout io.Writer, stderr io.Writer) (interface{}, error) {
-	env := New(globalEnv)
+	// ToDo: Will the closure always encapsulate all global vars ?
+	env := New(u.Closure)
 
 	for i, param := range u.Declaration.Params {
 		env.Define(param.Lexeme, arguments[i])
