@@ -125,15 +125,15 @@ test_statements_w_jlox: build
 test_control_flow_w_jlox: build
 	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap09_control \
 	CODECRAFTERS_TEST_CASES_JSON="[ \
-		{\"slug\":\"c1\",\"tester_log_prefix\":\"stage_501\",\"title\":\"Stage #501: Control flow: If statements\"}, \
-		{\"slug\":\"c2\",\"tester_log_prefix\":\"stage_502\",\"title\":\"Stage #502: Control flow: Else statements\"}, \
-		{\"slug\":\"c3\",\"tester_log_prefix\":\"stage_503\",\"title\":\"Stage #503: Control flow: If-else if-else statements\"}, \
-		{\"slug\":\"c4\",\"tester_log_prefix\":\"stage_504\",\"title\":\"Stage #504: Control flow: Nested if statements\"}, \
-		{\"slug\":\"c5\",\"tester_log_prefix\":\"stage_505\",\"title\":\"Stage #505: Control flow: Logical OR operator\"}, \
-		{\"slug\":\"c6\",\"tester_log_prefix\":\"stage_506\",\"title\":\"Stage #506: Control flow: Logical AND operator\"}, \
-		{\"slug\":\"c7\",\"tester_log_prefix\":\"stage_507\",\"title\":\"Stage #507: Control flow: While statements\"}, \
-		{\"slug\":\"c8\",\"tester_log_prefix\":\"stage_508\",\"title\":\"Stage #508: Control flow: For statements\"}, \
-		{\"slug\":\"c9\",\"tester_log_prefix\":\"stage_509\",\"title\":\"Stage #509: Control flow: Errors\"} \
+		{\"slug\":\"ne3\",\"tester_log_prefix\":\"stage_501\",\"title\":\"Stage #501: Control flow: If statements\"}, \
+		{\"slug\":\"st5\",\"tester_log_prefix\":\"stage_502\",\"title\":\"Stage #502: Control flow: Else statements\"}, \
+		{\"slug\":\"fh8\",\"tester_log_prefix\":\"stage_503\",\"title\":\"Stage #503: Control flow: If-else if-else statements\"}, \
+		{\"slug\":\"xj4\",\"tester_log_prefix\":\"stage_504\",\"title\":\"Stage #504: Control flow: Nested if statements\"}, \
+		{\"slug\":\"wk8\",\"tester_log_prefix\":\"stage_505\",\"title\":\"Stage #505: Control flow: Logical OR operator\"}, \
+		{\"slug\":\"jx4\",\"tester_log_prefix\":\"stage_506\",\"title\":\"Stage #506: Control flow: Logical AND operator\"}, \
+		{\"slug\":\"qy3\",\"tester_log_prefix\":\"stage_507\",\"title\":\"Stage #507: Control flow: While statements\"}, \
+		{\"slug\":\"bw6\",\"tester_log_prefix\":\"stage_508\",\"title\":\"Stage #508: Control flow: For statements\"}, \
+		{\"slug\":\"vt1\",\"tester_log_prefix\":\"stage_509\",\"title\":\"Stage #509: Control flow: Errors\"} \
 	]" \
 	$(shell pwd)/dist/main.out
 
