@@ -91,6 +91,8 @@ func (p *Parser) declaration() (Stmt, error) {
 
 	if p.match(VAR) {
 		stmt, err = p.varDeclaration()
+	} else if p.match(FUN) {
+		stmt, err = p.funDeclaration("function")
 	} else {
 		stmt, err = p.statement()
 	}
@@ -116,6 +118,60 @@ func (p *Parser) varDeclaration() (Stmt, error) {
 		return nil, err
 	}
 	return &Var{Name: name, Initializer: initializer}, nil
+}
+
+func (p *Parser) funDeclaration(kind string) (*Function, error) {
+	name, err := p.consume(IDENTIFIER, "Expected variable name.")
+	if err != nil {
+		return nil, err
+	}
+
+	parameters, err := p.functionArguments(kind)
+	if err != nil {
+		return nil, err
+	}
+
+	_, err = p.consume(LEFTBRACE, "Expect '{' before "+kind+" body.")
+	if err != nil {
+		return nil, err
+	}
+
+	body, err := p.block()
+	if err != nil {
+		return nil, err
+	}
+
+	return &Function{Name: name, Params: parameters, Body: body}, nil
+}
+
+func (p *Parser) functionArguments(kind string) ([]Token, error) {
+	_, err := p.consume(LEFTPAREN, "Expect '(' after "+kind+" name.")
+	if err != nil {
+		return nil, err
+	}
+
+	parameters := make([]Token, 0)
+	if !p.check(RIGHTPAREN) {
+		for {
+			if len(parameters) >= 255 {
+				return nil, MakeParseError(p.peek(), "Cannot have more than 255 parameters.")
+			}
+
+			param, err2 := p.consume(IDENTIFIER, "Expect parameter name.")
+			if err2 != nil {
+				return nil, err2
+			}
+
+			parameters = append(parameters, param)
+
+			if !p.match(COMMA) {
+				break
+			}
+		}
+	}
+
+	_, err = p.consume(RIGHTPAREN, "Expect ')' after parameters.")
+	return parameters, err
 }
 
 func (p *Parser) statement() (Stmt, error) {
