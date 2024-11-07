@@ -55,6 +55,9 @@ func (u *UserFunction) Call(arguments []interface{}, globalEnv *Environment, std
 		_, err := Eval(stmt, env, stdout, stderr)
 
 		if err != nil {
+			if r, ok := err.(ReturnError); ok {
+				return r.value, nil
+			}
 			return nil, err
 		}
 	}

@@ -17,6 +17,7 @@ stmt       -> exprStmt
 			| forStmt
 			| ifStmt
 			| printStmt
+			| returnStmt
 			| whileStmt
 			| block ;
 block      -> "{" declaration* "}" ;
@@ -26,6 +27,7 @@ forStmt    -> "for" "(" ( varDecl | exprStmt | ";" )
               expression? ")" statement ;
 ifStmt     -> "if" "(" expression ")" statement ( "else" statement )? ;
 printStmt  -> "print" expression ";" ;
+returnStmt -> "return" expression? ";" ;
 whileStmt  -> "while" "(" expression ")" statement ;
 expression -> assignment ;
 assignment -> IDENTIFIER "=" assignment
@@ -183,6 +185,8 @@ func (p *Parser) statement() (Stmt, error) {
 		return p.printStatement()
 	} else if p.match(WHILE) {
 		return p.whileStatement()
+	} else if p.match(RETURN) {
+		return p.returnStatement()
 	} else if p.match(LEFTBRACE) {
 		statements, err := p.block()
 		if err == nil {
@@ -341,6 +345,25 @@ func (p *Parser) whileStatement() (Stmt, error) {
 		return nil, err
 	}
 	return &While{Condition: condition, Statement: body}, nil
+}
+
+func (p *Parser) returnStatement() (Stmt, error) {
+	keyword := p.previous()
+
+	var value Expr
+	var err error
+	if !p.check(SEMICOLON) {
+		value, err = p.expression()
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	_, err = p.consume(SEMICOLON, "Expected ';' after return value.")
+	if err != nil {
+		return nil, err
+	}
+	return &Return{Keyword: keyword, Value: value}, nil
 }
 
 func (p *Parser) expression() (Expr, error) {

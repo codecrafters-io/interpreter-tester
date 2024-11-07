@@ -11,6 +11,11 @@ const (
 	OPERANDS_MUST_BE_TWO_NUMBERS_OR_TWO_STRINGS = "Operands must be two numbers or two strings"
 )
 
+type ReturnError struct {
+	error
+	value interface{}
+}
+
 func BasicInterpret(expression Expr, stdout io.Writer, stderr io.Writer) {
 	result, err := Eval(expression, NewGlobal(), stdout, stderr)
 	if err != nil {
@@ -271,6 +276,16 @@ func Eval(node Node, environment *Environment, stdout io.Writer, stderr io.Write
 		function := NewUserFunction(n)
 		environment.Define(n.Name.Lexeme, function)
 		return nil, nil
+	case *Return:
+		var value interface{}
+		var err error
+		if n.Value != nil {
+			value, err = Eval(n.Value, environment, stdout, stderr)
+			if err != nil {
+				return nil, err
+			}
+		}
+		return nil, ReturnError{value: value}
 	case nil:
 		return nil, nil
 	}
