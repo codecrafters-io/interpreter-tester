@@ -6,8 +6,12 @@ import (
 
 /*
 program    -> declaration* EOF ;
-declaration-> varDecl
+declaration-> funDecl
+			| varDecl
 			| stmt ;
+funDecl    -> "fun" function ;
+function   -> IDENTIFIER "(" parameters? ")" block ;
+parameters -> IDENTIFIER ( "," IDENTIFIER )* ;
 varDecl    -> "var" IDENTIFIER ( "=" expression )? ";" ;
 stmt       -> exprStmt
 			| forStmt
@@ -74,20 +78,24 @@ func (p *Parser) Parse(stdout, stderr io.Writer) []Stmt {
 }
 
 func (p *Parser) declaration() (Stmt, error) {
-	if p.match(VAR) {
-		stmt, err := p.varDeclaration()
+	var stmt Stmt
+	var err error
+
+	checkError := func(stmt Stmt, err error) (Stmt, error) {
 		if err != nil {
 			p.synchronize()
 			return nil, err
 		}
 		return stmt, nil
 	}
-	stmt, err := p.statement()
-	if err != nil {
-		p.synchronize()
-		return nil, err
+
+	if p.match(VAR) {
+		stmt, err = p.varDeclaration()
+	} else {
+		stmt, err = p.statement()
 	}
-	return stmt, nil
+
+	return checkError(stmt, err)
 }
 
 func (p *Parser) varDeclaration() (Stmt, error) {
