@@ -32,7 +32,9 @@ equality   -> comparison ( ( "!=" | "==") comparison )* ;
 comparison -> term ( ( ">" | ">=" | "<" | "<=") term )* ;
 term   -> factor ( ( "+" | "-" ) factor )* ;
 factor -> unary ( ( "/" | "*" ) unary )* ;
-unary      -> ( "!" | "-" ) unary | primary ;
+unary      -> ( "!" | "-" ) unary | call ;
+call       -> primary ( "(" arguments? ")" )* ;
+arguments  -> expression ( "," expression )* ;
 primary    -> "true" | "false" | "nil"
 			| NUMBER | STRING
 			| "(" expression ")"
@@ -417,7 +419,53 @@ func (p *Parser) unary() (Expr, error) {
 		return &Unary{Operator: operator, Right: right}, nil
 	}
 
-	return p.primary()
+	return p.call()
+}
+
+func (p *Parser) call() (Expr, error) {
+	expr, err := p.primary()
+	if err != nil {
+		return nil, err
+	}
+
+	for {
+		if p.match(LEFTPAREN) {
+			expr, err = p.finishCall(expr)
+			if err != nil {
+				return nil, err
+			}
+		} else {
+			break
+		}
+	}
+
+	return expr, nil
+}
+
+func (p *Parser) finishCall(callee Expr) (Expr, error) {
+	// Parse argument list
+	args := make([]Expr, 0)
+	if !p.check(RIGHTPAREN) {
+		for {
+			arg, err := p.assignment() // we don't want the comma operator here
+			if err != nil {
+				return nil, err
+			}
+			if len(args) >= 255 {
+				return nil, MakeParseError(p.peek(), "Cannot have more than 255 arguments.")
+			}
+			args = append(args, arg)
+			if !p.match(COMMA) {
+				break
+			}
+		}
+	}
+
+	paren, err := p.consume(RIGHTPAREN, "Expected ')' after arguments.")
+	if err != nil {
+		return nil, err
+	}
+	return &Call{Callee: callee, Paren: paren, Arguments: args}, nil
 }
 
 func (p *Parser) primary() (Expr, error) {

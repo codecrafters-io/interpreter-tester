@@ -11,6 +11,11 @@ const (
 	OPERANDS_MUST_BE_TWO_NUMBERS_OR_TWO_STRINGS = "Operands must be two numbers or two strings"
 )
 
+type LoxCallable interface {
+	Call(args []interface{}) (interface{}, error)
+	Arity() int
+}
+
 func BasicInterpret(expression Expr, stdout io.Writer, stderr io.Writer) {
 	result, err := Eval(expression, NewGlobal(), stdout, stderr)
 	if err != nil {
@@ -225,6 +230,32 @@ func Eval(node Node, environment *Environment, stdout io.Writer, stderr io.Write
 			}
 		}
 		return Eval(n.Right, environment, stdout, stderr)
+	case *Call:
+		callee, err := Eval(n.Callee, environment, stdout, stderr)
+		if err != nil {
+			return nil, err
+		}
+
+		args := make([]interface{}, 0)
+		for _, arg := range n.Arguments {
+			a, err := Eval(arg, environment, stdout, stderr)
+			if err == nil {
+				args = append(args, a)
+			} else {
+				return nil, err
+			}
+		}
+
+		function, ok := callee.(LoxCallable)
+		if !ok {
+			return nil, MakeRuntimeError(n.Paren, "Can only call functions and classes.")
+		}
+
+		if function.Arity() != len(args) {
+			return nil, MakeRuntimeError(n.Paren, fmt.Sprintf("Expected %d arguments but got %d.", function.Arity(), len(args)))
+		}
+
+		return function.Call(args)
 	case *While:
 		for {
 			condition, err := Eval(n.Condition, environment, stdout, stderr)
