@@ -251,7 +251,7 @@ func Eval(node Node, environment *Environment, stdout io.Writer, stderr io.Write
 			return nil, MakeRuntimeError(n.Paren, fmt.Sprintf("Expected %d arguments but got %d.", function.Arity(), len(args)))
 		}
 
-		return function.Call(args)
+		return function.Call(args, stdout, stderr)
 	case *While:
 		for {
 			condition, err := Eval(n.Condition, environment, stdout, stderr)
@@ -266,6 +266,10 @@ func Eval(node Node, environment *Environment, stdout io.Writer, stderr io.Write
 				return nil, err
 			}
 		}
+		return nil, nil
+	case *Function:
+		function := NewUserFunction(n)
+		environment.Define(n.Name.Lexeme, function)
 		return nil, nil
 	case nil:
 		return nil, nil
