@@ -5,10 +5,10 @@ import (
 )
 
 func InitializeNativeFunctions(env *Environment) {
-	env.Define("clock", &nativeFunction{
-		Arity: func() int { return 0 },
-		Call: func(args []interface{}) (interface{}, error) {
-			return time.Now().Second(), nil
+	env.Define("clock", &NativeFunction{
+		arity: 0,
+		nativeCall: func(args []interface{}) (interface{}, error) {
+			return time.Now().Unix(), nil
 		},
 	})
 }
