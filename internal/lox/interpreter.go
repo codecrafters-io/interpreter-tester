@@ -34,7 +34,8 @@ func BasicInterpret(expression Expr, stdout io.Writer, stderr io.Writer) {
 }
 
 func Interpret(statements []Stmt, stdout io.Writer, stderr io.Writer) {
-	env := GlobalEnv
+	env := NewGlobal()
+	InitializeNativeFunctions(env)
 	for _, stmt := range statements {
 		_, err := Eval(stmt, env, stdout, stderr)
 		if err != nil {
