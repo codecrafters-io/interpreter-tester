@@ -7,7 +7,7 @@ type loxCallable func([]interface{}) (interface{}, error)
 // Callable is the generic interface for functions/classes in Lox
 type Callable interface {
 	Arity() int
-	Call([]interface{}, io.Writer, io.Writer) (interface{}, error)
+	Call([]interface{}, *Environment, io.Writer, io.Writer) (interface{}, error)
 }
 
 // NativeFunction is a builtin Lox function
@@ -18,7 +18,7 @@ type NativeFunction struct {
 }
 
 // Call is the operation that executes a builtin function
-func (n *NativeFunction) Call(arguments []interface{}, stdout io.Writer, stderr io.Writer) (interface{}, error) {
+func (n *NativeFunction) Call(arguments []interface{}, globalEnv *Environment, stdout io.Writer, stderr io.Writer) (interface{}, error) {
 	return n.nativeCall(arguments)
 }
 
@@ -44,8 +44,8 @@ func NewUserFunction(def *Function) *UserFunction {
 }
 
 // Call executes a user-defined Lox function
-func (u *UserFunction) Call(arguments []interface{}, stdout io.Writer, stderr io.Writer) (interface{}, error) {
-	env := NewEnvironment()
+func (u *UserFunction) Call(arguments []interface{}, globalEnv *Environment, stdout io.Writer, stderr io.Writer) (interface{}, error) {
+	env := New(globalEnv)
 
 	for i, param := range u.Declaration.Params {
 		env.Define(param.Lexeme, arguments[i])

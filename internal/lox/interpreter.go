@@ -251,7 +251,7 @@ func Eval(node Node, environment *Environment, stdout io.Writer, stderr io.Write
 			return nil, MakeRuntimeError(n.Paren, fmt.Sprintf("Expected %d arguments but got %d.", function.Arity(), len(args)))
 		}
 
-		return function.Call(args, stdout, stderr)
+		return function.Call(args, environment, stdout, stderr)
 	case *While:
 		for {
 			condition, err := Eval(n.Condition, environment, stdout, stderr)
