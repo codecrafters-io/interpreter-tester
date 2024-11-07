@@ -16,6 +16,11 @@ type LoxCallable interface {
 	Arity() int
 }
 
+type nativeFunction struct {
+	Arity func() int
+	Call  func(args []interface{}) (interface{}, error)
+}
+
 func BasicInterpret(expression Expr, stdout io.Writer, stderr io.Writer) {
 	result, err := Eval(expression, NewGlobal(), stdout, stderr)
 	if err != nil {
@@ -29,7 +34,7 @@ func BasicInterpret(expression Expr, stdout io.Writer, stderr io.Writer) {
 }
 
 func Interpret(statements []Stmt, stdout io.Writer, stderr io.Writer) {
-	env := NewGlobal()
+	env := GlobalEnv
 	for _, stmt := range statements {
 		_, err := Eval(stmt, env, stdout, stderr)
 		if err != nil {
