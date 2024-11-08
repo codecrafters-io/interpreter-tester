@@ -18,12 +18,12 @@ func testParseUnary(stageHarness *test_case_harness.TestCaseHarness) error {
 	unaryExpr2 := "-" + fmt.Sprint(random.RandomInt(10, 100))
 	unaryExpr3 := "!!" + getRandBoolean()
 	unaryExpr4 := "(!!(" + getRandBoolean() + "))"
-	parseTestCase := testcases.MultiParseTestCase{
-		TestCases: []testcases.ParseTestCase{
-			{FileContents: unaryExpr1, ExpectsError: false},
-			{FileContents: unaryExpr2, ExpectsError: false},
-			{FileContents: unaryExpr3, ExpectsError: false},
-			{FileContents: unaryExpr4, ExpectsError: false},
+	parseTestCase := testcases.MultiTestCase{
+		TestCases: []testcases.TestCase{
+			&testcases.ParseTestCase{FileContents: unaryExpr1, ExpectsError: false},
+			&testcases.ParseTestCase{FileContents: unaryExpr2, ExpectsError: false},
+			&testcases.ParseTestCase{FileContents: unaryExpr3, ExpectsError: false},
+			&testcases.ParseTestCase{FileContents: unaryExpr4, ExpectsError: false},
 		},
 	}
 	return parseTestCase.RunAll(b, logger)
