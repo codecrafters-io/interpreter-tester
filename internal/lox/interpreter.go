@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"reflect"
+	"strconv"
 )
 
 const (
@@ -164,7 +165,13 @@ func Eval(node Node, environment *Environment, stdout io.Writer, stderr io.Write
 		if err != nil {
 			return value, err
 		}
-		fmt.Fprintln(stdout, value)
+		switch value := value.(type) {
+		case float64:
+			// Print without exponent notation
+			fmt.Fprintln(stdout, strconv.FormatFloat(value, 'f', -1, 64))
+		default:
+			fmt.Fprintln(stdout, value) // Uses the Format()/String() method of the interface value
+		}
 		return nil, nil
 	case *Expression:
 		r, err := Eval(n.Expression, environment, stdout, stderr)
