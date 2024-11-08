@@ -34,12 +34,12 @@ while (result) {
     }
 }`
 
-	tokenizeTestCases := testcases.MultiTokenizeTestCase{
-		TestCases: []testcases.TokenizeTestCase{
-			{FileContents: k1, ExpectsError: false},
-			{FileContents: k2, ExpectsError: false},
-			{FileContents: k3, ExpectsError: false},
-			{FileContents: k4, ExpectsError: false},
+	tokenizeTestCases := testcases.MultiTestCase{
+		TestCases: []testcases.TestCase{
+			&testcases.TokenizeTestCase{FileContents: k1, ExpectsError: false},
+			&testcases.TokenizeTestCase{FileContents: k2, ExpectsError: false},
+			&testcases.TokenizeTestCase{FileContents: k3, ExpectsError: false},
+			&testcases.TokenizeTestCase{FileContents: k4, ExpectsError: false},
 		},
 	}
 	return tokenizeTestCases.RunAll(b, logger)
