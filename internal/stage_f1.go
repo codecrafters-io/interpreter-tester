@@ -2,6 +2,7 @@ package internal
 
 import (
 	"fmt"
+	"math/rand"
 	"strconv"
 	"strings"
 
@@ -12,12 +13,12 @@ import (
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
-const (
+var (
 	firstTestCaseFileContents = `
-print 1 + 2 * 3
+print clock() + <<RANDOM_INTEGER>>;
 `
 	secondTestCaseFileContents = `
-print 1 + 2 * 3
+print clock() / 1000;
 `
 )
 
@@ -25,6 +26,7 @@ func testClock(stageHarness *test_case_harness.TestCaseHarness) error {
 	b := interpreter_executable.NewInterpreterExecutable(stageHarness)
 	logger := stageHarness.Logger
 
+	firstTestCaseFileContents = strings.Replace(firstTestCaseFileContents, "<<RANDOM_INTEGER>>", fmt.Sprintf("%d", rand.Intn(1000)), -1)
 	firstTestCase := buildSingleLineClockOutputTestCase(firstTestCaseFileContents)
 	secondTestCase := buildSingleLineClockOutputTestCase(secondTestCaseFileContents)
 	otherTestCases := GetTestCasesForCurrentStageWithRandomValues("f1")
