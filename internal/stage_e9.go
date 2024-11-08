@@ -23,12 +23,12 @@ func testEvaluateEquality(stageHarness *test_case_harness.TestCaseHarness) error
 	equality3 := fmt.Sprintf("%d == \"%d\"", n1, n1)
 	equality4 := fmt.Sprintf("%d == (%d + %d)", n2+n3, n2, n3)
 
-	evaluateTestCases := testcases.MultiEvaluateTestCase{
-		TestCases: []testcases.EvaluateTestCase{
-			{FileContents: equality1, ExpectsError: false},
-			{FileContents: equality2, ExpectsError: false},
-			{FileContents: equality3, ExpectsError: false},
-			{FileContents: equality4, ExpectsError: false},
+	evaluateTestCases := testcases.MultiTestCase{
+		TestCases: []testcases.TestCase{
+			&testcases.EvaluateTestCase{FileContents: equality1, ExpectsError: false},
+			&testcases.EvaluateTestCase{FileContents: equality2, ExpectsError: false},
+			&testcases.EvaluateTestCase{FileContents: equality3, ExpectsError: false},
+			&testcases.EvaluateTestCase{FileContents: equality4, ExpectsError: false},
 		},
 	}
 	return evaluateTestCases.RunAll(b, logger)

@@ -20,12 +20,12 @@ func testEvaluateTerm(stageHarness *test_case_harness.TestCaseHarness) error {
 	term3 := fmt.Sprintf("%d + %d - (-(%d - %d))", getRandInt(), getRandInt(), getRandInt(), getRandInt())
 	term4 := fmt.Sprintf("(-%d + %d) * (%d * %d) / (1 + 4)", n1, n1, getRandInt(), getRandInt())
 
-	evaluateTestCases := testcases.MultiEvaluateTestCase{
-		TestCases: []testcases.EvaluateTestCase{
-			{FileContents: term1, ExpectsError: false},
-			{FileContents: term2, ExpectsError: false},
-			{FileContents: term3, ExpectsError: false},
-			{FileContents: term4, ExpectsError: false},
+	evaluateTestCases := testcases.MultiTestCase{
+		TestCases: []testcases.TestCase{
+			&testcases.EvaluateTestCase{FileContents: term1, ExpectsError: false},
+			&testcases.EvaluateTestCase{FileContents: term2, ExpectsError: false},
+			&testcases.EvaluateTestCase{FileContents: term3, ExpectsError: false},
+			&testcases.EvaluateTestCase{FileContents: term4, ExpectsError: false},
 		},
 	}
 	return evaluateTestCases.RunAll(b, logger)

@@ -19,12 +19,12 @@ func testEvaluateAddErrors(stageHarness *test_case_harness.TestCaseHarness) erro
 	error3 := fmt.Sprintf("%d - %s", getRandInt(), getRandBoolean())
 	error4 := fmt.Sprintf("%s - (\"%s\" + \"%s\")", getRandBoolean(), getRandString(), getRandString())
 
-	evaluateTestCases := testcases.MultiEvaluateTestCase{
-		TestCases: []testcases.EvaluateTestCase{
-			{FileContents: error1, ExpectsError: true},
-			{FileContents: error2, ExpectsError: true},
-			{FileContents: error3, ExpectsError: true},
-			{FileContents: error4, ExpectsError: true},
+	evaluateTestCases := testcases.MultiTestCase{
+		TestCases: []testcases.TestCase{
+			&testcases.EvaluateTestCase{FileContents: error1, ExpectsError: true},
+			&testcases.EvaluateTestCase{FileContents: error2, ExpectsError: true},
+			&testcases.EvaluateTestCase{FileContents: error3, ExpectsError: true},
+			&testcases.EvaluateTestCase{FileContents: error4, ExpectsError: true},
 		},
 	}
 	return evaluateTestCases.RunAll(b, logger)
