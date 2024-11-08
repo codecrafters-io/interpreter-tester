@@ -22,12 +22,12 @@ func (a IntegerAssertion) Run(result executable.ExecutableResult, logger *logger
 	stdOutput := getStdoutLinesFromExecutableResult(result)
 
 	if len(stdOutput) != 1 {
-		return fmt.Errorf("Expected a single line of output (TODO), got %d lines", len(stdOutput))
+		return fmt.Errorf("Expected a single line of output (%d), got %d lines", a.minValue, len(stdOutput))
 	}
 
 	actualValue, err := strconv.Atoi(stdOutput[0])
 	if err != nil {
-		return fmt.Errorf("Expected a single line of output to be an integer, got %q", stdOutput[0])
+		return fmt.Errorf("Expected a single line of output to be an integer (%d), got %q", a.minValue, stdOutput[0])
 	}
 
 	if actualValue < a.minValue || actualValue > a.maxValue {
@@ -36,8 +36,8 @@ func (a IntegerAssertion) Run(result executable.ExecutableResult, logger *logger
 	} else {
 		logger.Successf("✓ %d", actualValue)
 	}
-	// If all lines match, we don't want to print all the lines again
-	// We just want to print a single line summary
+
+	// Keep parity with all other stage outputs
 	logger.Successf("✓ %d line(s) match on stdout", 1)
 
 	return nil
