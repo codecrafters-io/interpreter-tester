@@ -25,16 +25,17 @@ func (a IntegerAssertion) Run(result executable.ExecutableResult, logger *logger
 		return fmt.Errorf("Expected a single line of output (%d), got %d lines", a.minValue, len(stdOutput))
 	}
 
-	actualValue, err := strconv.Atoi(stdOutput[0])
+	actualValue, err := strconv.ParseFloat(stdOutput[0], 64)
 	if err != nil {
 		return fmt.Errorf("Expected a single line of output to be an integer (%d), got %q", a.minValue, stdOutput[0])
 	}
+	actualValueInt := int(actualValue)
 
-	if actualValue < a.minValue || actualValue > a.maxValue {
-		logger.Errorf("𐄂 %d", actualValue)
-		return fmt.Errorf("Expected integer to be between %d and %d, got %d", a.minValue, a.maxValue, actualValue)
+	if actualValueInt < a.minValue || actualValueInt > a.maxValue {
+		logger.Errorf("𐄂 %d", actualValueInt)
+		return fmt.Errorf("Expected integer to be between %d and %d, got %d", a.minValue, a.maxValue, actualValueInt)
 	} else {
-		logger.Successf("✓ %d", actualValue)
+		logger.Successf("✓ %f", actualValue)
 	}
 
 	// Keep parity with all other stage outputs
