@@ -4060,3 +4060,6 @@ stages:
       - This output format matches the spec in the [book's repository](https://github.com/munificent/craftinginterpreters/blob/4a840f70f69c6ddd17cfef4f6964f8e1bcd8c3d4/test/if/dangling_else.lox)
     marketing_md: |-
       In this stage, you'll handle several syntactic errors in your interpreter.
+
+  - slug: "f1"
+  - slug: "f2"

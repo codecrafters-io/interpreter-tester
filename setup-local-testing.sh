@@ -19,4 +19,6 @@ cp -r ./internal/test_helpers/jlox06/* ./craftinginterpreters/build/gen/chap06_p
 cp -r ./internal/test_helpers/jlox07/* ./craftinginterpreters/build/gen/chap07_evaluating
 cp -r ./internal/test_helpers/jlox08/* ./craftinginterpreters/build/gen/chap08_statements
 cp -r ./internal/test_helpers/jlox08/* ./craftinginterpreters/build/gen/chap09_control
+cp -r ./internal/test_helpers/jlox08/* ./craftinginterpreters/build/gen/chap10_functions
+cp -r ./internal/test_helpers/jlox08/* ./craftinginterpreters/build/gen/chap13_inheritance
 make test

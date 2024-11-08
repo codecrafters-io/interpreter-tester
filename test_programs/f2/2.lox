@@ -1,0 +1,5 @@
+---
+expected_error_type: none
+---
+fun f() {}
+f(); // expect: nil

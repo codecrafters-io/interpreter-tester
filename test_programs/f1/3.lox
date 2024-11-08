@@ -1,0 +1,9 @@
+---
+expected_error_type: none
+---
+var a = clock();
+if ((clock() > (a - 5)) and (clock() < (a + 5))) {
+  print "in range";
+} else {
+  print "not in range";
+}

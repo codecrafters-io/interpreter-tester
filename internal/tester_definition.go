@@ -237,5 +237,13 @@ var testerDefinition = tester_definition.TesterDefinition{
 			Slug:     "vt1",
 			TestFunc: createTestForRunCommandStage("c9"),
 		},
+		{
+			Slug:     "f1",
+			TestFunc: testClock,
+		},
+		{
+			Slug:     "f2",
+			TestFunc: testFunctionsNoArgs,
+		},
 	},
 }

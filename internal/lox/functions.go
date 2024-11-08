@@ -74,5 +74,5 @@ func (u *UserFunction) Arity() int {
 
 // String returns the name of the user-function
 func (u *UserFunction) String() string {
-	return u.Declaration.Name.Lexeme
+	return "<fn " + u.Declaration.Name.Lexeme + ">"
 }
