@@ -1,0 +1,5 @@
+---
+expected_error_type: none
+---
+fun foo() {}
+print foo; // expect: <fn foo>

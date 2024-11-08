@@ -1,0 +1,5 @@
+---
+expected_error_type: none
+---
+fun bar() { print 123; }
+bar(); // expect: 123
