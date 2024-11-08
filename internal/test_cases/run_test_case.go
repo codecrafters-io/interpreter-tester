@@ -105,7 +105,7 @@ func (t *RunTestCase) Run(executable *interpreter_executable.InterpreterExecutab
 		return fmt.Errorf("expected exit code %v, got %v", t.ExpectedExitCode, result.ExitCode)
 	}
 
-	if t.OutputAssertion != nil {
+	if t.OutputAssertion == nil {
 		expectedStdoutLines := strings.Split(ourLoxStdout, "\n")
 		t.OutputAssertion = assertions.NewStdoutAssertion(expectedStdoutLines)
 	}
