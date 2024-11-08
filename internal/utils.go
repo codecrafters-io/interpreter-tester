@@ -115,12 +115,13 @@ func generateRandomValueForPlaceholderType(placeholderType string) string {
 	return value
 }
 
-func GetTestCasesForCurrentStageWithRandomValues(stageIdentifier string) []testcases.RunTestCase {
-	var testCases []testcases.RunTestCase
+func GetTestCasesForCurrentStageWithRandomValues(stageIdentifier string) []testcases.TestCase {
+	var testCases []testcases.TestCase
 
 	for _, t := range GetTestCasesForCurrentStage(stageIdentifier) {
 		t.FileContents = ReplacePlaceholdersWithRandomValues(t.FileContents)
-		testCases = append(testCases, t)
+		testCases = append(testCases, &t)
 	}
+
 	return testCases
 }

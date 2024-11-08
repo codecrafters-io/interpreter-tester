@@ -15,17 +15,9 @@ func createTestForRunCommandStage(stageId string) func(*test_case_harness.TestCa
 		logger := stageHarness.Logger
 
 		runTestCases := testcases.MultiTestCase{
-			TestCases: ToTestCases(GetTestCasesForCurrentStageWithRandomValues(stageId)),
+			TestCases: GetTestCasesForCurrentStageWithRandomValues(stageId),
 		}
 
 		return runTestCases.RunAll(b, logger)
 	}
-}
-
-func ToTestCases(cases []testcases.RunTestCase) []testcases.TestCase {
-	result := make([]testcases.TestCase, len(cases))
-	for i, c := range cases {
-		result[i] = &c
-	}
-	return result
 }
