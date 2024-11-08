@@ -44,12 +44,7 @@ func GetTestCasesForCurrentStage(stageIdentifier string) []testcases.RunTestCase
 
 	for _, file := range files {
 		filePath := filepath.Join(testDir, file.Name())
-		contents, err := os.ReadFile(filePath)
-		if err != nil {
-			panic(fmt.Sprintf("CodeCrafters Internal Error: Encountered error while reading test file: %s", err))
-		}
-		t := testcases.NewRunTestCaseFromFileContents(contents, filePath)
-		testCases = append(testCases, t)
+		testCases = append(testCases, testcases.NewRunTestCaseFromFilePath(filePath))
 	}
 	return testCases
 }
