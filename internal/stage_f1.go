@@ -17,7 +17,7 @@ func testClock(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	parsedTestCases := GetTestCasesForCurrentStage("f1") // This parses the files in f1 and returns the fileContents and parsed frontMatter
+	parsedTestCases := GetTestCasesForCurrentStageWithRandomValues("f1") // This parses the files in f1 and returns the fileContents and parsed frontMatter
 
 	firstTestCase := parsedTestCases[0]
 	firstTestExecutionResult := executeWithGolox(firstTestCase.FileContents)
@@ -28,7 +28,7 @@ func testClock(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	runTestCases := testcases.MultiTestCase{
 		TestCases: []testcases.TestCase{
-			&testcases.CustomAssertionRunTestCase{FileContents: GetTestCasesForCurrentStage("f1")[0].FileContents, FrontMatter: GetTestCasesForCurrentStage("f1")[0].FrontMatter, Assertion: firstAssertion, ExpectedResult: firstTestExecutionResult},
+			&testcases.CustomAssertionRunTestCase{FileContents: firstTestCase.FileContents, FrontMatter: firstTestCase.FrontMatter, Assertion: firstAssertion, ExpectedResult: firstTestExecutionResult},
 		},
 	}
 
