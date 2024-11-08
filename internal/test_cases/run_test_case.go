@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"os"
+	"slices"
 	"strings"
 
 	"github.com/codecrafters-io/interpreter-tester/internal/assertions"
@@ -78,6 +79,9 @@ func (t *RunTestCase) Run(executable *interpreter_executable.InterpreterExecutab
 
 	expectedStdout, expectedExitCode, _ := loxapi.Run(t.FileContents)
 
+	if !slices.Contains([]string{"none", "compile", "runtime"}, t.FrontMatter.ExpectedErrorType) {
+		return fmt.Errorf("CodeCrafters internal error: Unknown expected_error_type value: %s", t.FrontMatter.ExpectedErrorType)
+	}
 	if t.FrontMatter.ExpectedErrorType == "none" && expectedExitCode != 0 {
 		return fmt.Errorf("CodeCrafters internal error: faulty test case, expected this test case to not raise an error, but it did")
 	}
