@@ -32,18 +32,46 @@ func TestStages(t *testing.T) {
 			StdoutFixturePath:   "./test_helpers/fixtures/pass_evaluating",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
-		"pass_statements_jlox": {
+		"pass_statements_inprogress_jlox": {
 			StageSlugs:          []string{"xy1", "oe4", "fi3", "yg2", "sv7", "bc1", "dw9", "pl3", "vr5", "fb4"},
 			CodePath:            "../craftinginterpreters/build/gen/chap08_statements",
 			ExpectedExitCode:    0,
 			StdoutFixturePath:   "./test_helpers/fixtures/pass_statements",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
-		"pass_control_flow_jlox": {
+		"pass_statements_completed_jlox": {
+			StageSlugs:          []string{"xy1", "oe4", "fi3", "yg2", "sv7", "bc1", "dw9", "pl3", "vr5", "fb4"},
+			CodePath:            "../craftinginterpreters/build/gen/chap13_inheritance",
+			ExpectedExitCode:    0,
+			StdoutFixturePath:   "./test_helpers/fixtures/pass_statements_final",
+			NormalizeOutputFunc: normalizeTesterOutput,
+		},
+		"pass_control_flow_inprogress_jlox": {
 			StageSlugs:          []string{"ne3", "st5", "fh8", "xj4", "wk8", "jx4", "qy3", "bw6", "vt1"},
 			CodePath:            "../craftinginterpreters/build/gen/chap09_control",
 			ExpectedExitCode:    0,
 			StdoutFixturePath:   "./test_helpers/fixtures/pass_control_flow",
+			NormalizeOutputFunc: normalizeTesterOutput,
+		},
+		"pass_control_flow_completed_jlox": {
+			StageSlugs:          []string{"ne3", "st5", "fh8", "xj4", "wk8", "jx4", "qy3", "bw6", "vt1"},
+			CodePath:            "../craftinginterpreters/build/gen/chap13_inheritance",
+			ExpectedExitCode:    0,
+			StdoutFixturePath:   "./test_helpers/fixtures/pass_control_flow_final",
+			NormalizeOutputFunc: normalizeTesterOutput,
+		},
+		"pass_functions_inprogress_jlox": {
+			StageSlugs:          []string{"f1", "f2", "f3"},
+			CodePath:            "../craftinginterpreters/build/gen/chap10_functions",
+			ExpectedExitCode:    0,
+			StdoutFixturePath:   "./test_helpers/fixtures/pass_functions",
+			NormalizeOutputFunc: normalizeTesterOutput,
+		},
+		"pass_functions_completed_jlox": {
+			StageSlugs:          []string{"f1", "f2", "f3"},
+			CodePath:            "../craftinginterpreters/build/gen/chap13_inheritance",
+			ExpectedExitCode:    0,
+			StdoutFixturePath:   "./test_helpers/fixtures/pass_functions_final",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 	}
