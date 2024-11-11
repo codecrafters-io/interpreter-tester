@@ -237,5 +237,17 @@ var testerDefinition = tester_definition.TesterDefinition{
 			Slug:     "vt1",
 			TestFunc: createTestForRunCommandStage("c9"),
 		},
+		{
+			Slug:     "f1",
+			TestFunc: testClock, // This needs a special test function because it has an integer assertion, for clock()
+		},
+		{
+			Slug:     "f2",
+			TestFunc: createTestForRunCommandStage("f2"),
+		},
+		{
+			Slug:     "f3",
+			TestFunc: createTestForRunCommandStage("f3"),
+		},
 	},
 }

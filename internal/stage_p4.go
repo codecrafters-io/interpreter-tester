@@ -17,12 +17,12 @@ func testParseParens(stageHarness *test_case_harness.TestCaseHarness) error {
 	parens2 := "((true))"
 	parens3 := "(nil)"
 	parens4 := fmt.Sprintf("(%d.%d)", getRandInt(), getRandInt())
-	parseTestCase := testcases.MultiParseTestCase{
-		TestCases: []testcases.ParseTestCase{
-			{FileContents: parens1, ExpectsError: false},
-			{FileContents: parens2, ExpectsError: false},
-			{FileContents: parens3, ExpectsError: false},
-			{FileContents: parens4, ExpectsError: false},
+	parseTestCase := testcases.MultiTestCase{
+		TestCases: []testcases.TestCase{
+			&testcases.ParseTestCase{FileContents: parens1, ExpectsError: false},
+			&testcases.ParseTestCase{FileContents: parens2, ExpectsError: false},
+			&testcases.ParseTestCase{FileContents: parens3, ExpectsError: false},
+			&testcases.ParseTestCase{FileContents: parens4, ExpectsError: false},
 		},
 	}
 	return parseTestCase.RunAll(b, logger)

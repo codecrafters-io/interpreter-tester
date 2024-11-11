@@ -20,6 +20,11 @@ func NewGlobal() *Environment {
 	return New(nil)
 }
 
+// NewEnvironment creates a new local environment
+func NewEnvironment() *Environment {
+	return New(nil)
+}
+
 // Define binds a name to a new value
 func (e *Environment) Define(name string, value interface{}) {
 	e.values[name] = value

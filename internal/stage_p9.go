@@ -20,12 +20,12 @@ func testParseEquality(stageHarness *test_case_harness.TestCaseHarness) error {
 	equalityExpr2 := randomWord + " == " + randomWord
 	equalityExpr3 := fmt.Sprintf("%d == %d", getRandInt(), getRandInt())
 	equalityExpr4 := fmt.Sprintf("(%d != %d) == ((-%d + %d) >= (%d * %d))", getRandInt(), getRandInt(), getRandInt(), getRandInt(), getRandInt(), getRandInt())
-	parseTestCase := testcases.MultiParseTestCase{
-		TestCases: []testcases.ParseTestCase{
-			{FileContents: equalityExpr1, ExpectsError: false},
-			{FileContents: equalityExpr2, ExpectsError: false},
-			{FileContents: equalityExpr3, ExpectsError: false},
-			{FileContents: equalityExpr4, ExpectsError: false},
+	parseTestCase := testcases.MultiTestCase{
+		TestCases: []testcases.TestCase{
+			&testcases.ParseTestCase{FileContents: equalityExpr1, ExpectsError: false},
+			&testcases.ParseTestCase{FileContents: equalityExpr2, ExpectsError: false},
+			&testcases.ParseTestCase{FileContents: equalityExpr3, ExpectsError: false},
+			&testcases.ParseTestCase{FileContents: equalityExpr4, ExpectsError: false},
 		},
 	}
 	return parseTestCase.RunAll(b, logger)

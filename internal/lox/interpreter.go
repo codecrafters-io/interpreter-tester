@@ -4,12 +4,18 @@ import (
 	"fmt"
 	"io"
 	"reflect"
+	"strconv"
 )
 
 const (
 	OPERAND_MUST_BE_A_NUMBER                    = "Operand must be a number"
 	OPERANDS_MUST_BE_TWO_NUMBERS_OR_TWO_STRINGS = "Operands must be two numbers or two strings"
 )
+
+type ReturnError struct {
+	error
+	value interface{}
+}
 
 func BasicInterpret(expression Expr, stdout io.Writer, stderr io.Writer) {
 	result, err := Eval(expression, NewGlobal(), stdout, stderr)
@@ -25,6 +31,7 @@ func BasicInterpret(expression Expr, stdout io.Writer, stderr io.Writer) {
 
 func Interpret(statements []Stmt, stdout io.Writer, stderr io.Writer) {
 	env := NewGlobal()
+	InitializeNativeFunctions(env)
 	for _, stmt := range statements {
 		_, err := Eval(stmt, env, stdout, stderr)
 		if err != nil {
@@ -158,7 +165,13 @@ func Eval(node Node, environment *Environment, stdout io.Writer, stderr io.Write
 		if err != nil {
 			return value, err
 		}
-		fmt.Fprintln(stdout, value)
+		switch value := value.(type) {
+		case float64:
+			// Print without exponent notation
+			fmt.Fprintln(stdout, strconv.FormatFloat(value, 'f', -1, 64))
+		default:
+			fmt.Fprintln(stdout, value) // Uses the Format()/String() method of the interface value
+		}
 		return nil, nil
 	case *Expression:
 		r, err := Eval(n.Expression, environment, stdout, stderr)
@@ -225,6 +238,32 @@ func Eval(node Node, environment *Environment, stdout io.Writer, stderr io.Write
 			}
 		}
 		return Eval(n.Right, environment, stdout, stderr)
+	case *Call:
+		callee, err := Eval(n.Callee, environment, stdout, stderr)
+		if err != nil {
+			return nil, err
+		}
+
+		args := make([]interface{}, 0)
+		for _, arg := range n.Arguments {
+			a, err := Eval(arg, environment, stdout, stderr)
+			if err == nil {
+				args = append(args, a)
+			} else {
+				return nil, err
+			}
+		}
+
+		function, ok := callee.(Callable)
+		if !ok {
+			return nil, MakeRuntimeError(n.Paren, "Can only call functions and classes.")
+		}
+
+		if function.Arity() != len(args) {
+			return nil, MakeRuntimeError(n.Paren, fmt.Sprintf("Expected %d arguments but got %d.", function.Arity(), len(args)))
+		}
+
+		return function.Call(args, environment, stdout, stderr)
 	case *While:
 		for {
 			condition, err := Eval(n.Condition, environment, stdout, stderr)
@@ -240,6 +279,20 @@ func Eval(node Node, environment *Environment, stdout io.Writer, stderr io.Write
 			}
 		}
 		return nil, nil
+	case *Function:
+		function := NewUserFunction(n, environment)
+		environment.Define(n.Name.Lexeme, function)
+		return nil, nil
+	case *Return:
+		var value interface{}
+		var err error
+		if n.Value != nil {
+			value, err = Eval(n.Value, environment, stdout, stderr)
+			if err != nil {
+				return nil, err
+			}
+		}
+		return nil, ReturnError{value: value}
 	case nil:
 		return nil, nil
 	}

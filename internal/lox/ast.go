@@ -282,6 +282,82 @@ func (l *Logical) String() string {
 	return sb.String()
 }
 
+// Functions
+
+// Call is the node of a function call
+type Call struct {
+	Callee    Expr
+	Paren     Token
+	Arguments []Expr
+}
+
+// String pretty prints the call operator
+func (c *Call) String() string {
+	var sb strings.Builder
+	sb.WriteString("(")
+	sb.WriteString("call")
+	sb.WriteString(" ")
+	sb.WriteString(c.Callee.String())
+	sb.WriteString(" ")
+	for _, e := range c.Arguments {
+		sb.WriteString(e.String())
+		sb.WriteString(" ")
+	}
+	sb.WriteString(")")
+	return sb.String()
+}
+
+// Function is the function definition node
+type Function struct {
+	Name   Token
+	Params []Token
+	Body   []Stmt
+}
+
+// String pretty prints the function
+func (f *Function) String() string {
+	var sb strings.Builder
+	sb.WriteString("(")
+	sb.WriteString("fun")
+	sb.WriteString(" ")
+	sb.WriteString(f.Name.String())
+	sb.WriteString(" ")
+	sb.WriteString("(")
+	for _, p := range f.Params {
+		sb.WriteString(p.String())
+		sb.WriteString(" ")
+	}
+	sb.WriteString(")")
+	sb.WriteString(" ")
+	sb.WriteString("(")
+	for _, stmt := range f.Body {
+		sb.WriteString(stmt.String())
+		sb.WriteString(" ")
+	}
+	sb.WriteString(")")
+	sb.WriteString(")")
+	return sb.String()
+}
+
+// Return is used to return from a function
+type Return struct {
+	Stmt
+	Keyword Token
+	Value   Expr
+}
+
+// String pretty prints the function
+func (r *Return) String() string {
+	var sb strings.Builder
+	sb.WriteString("(")
+	sb.WriteString("return")
+	sb.WriteString(" ")
+	sb.WriteString(r.Value.String())
+	sb.WriteString(" ")
+	sb.WriteString(")")
+	return sb.String()
+}
+
 func FormatFloat(num float64) string {
 	str := fmt.Sprintf("%f", num)
 	parts := strings.Split(str, ".")

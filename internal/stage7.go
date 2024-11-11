@@ -18,12 +18,12 @@ func testNegation(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	// A test string of length 5 is longer than the combined length of EQUALS + NEGATIONS (4), so it's certain the test case raises error.
 	shuffledString1 := "{(" + strings.Join(random.RandomElementsFromArray(slices.Concat(LEXICAL_ERRORS, EQUALS, NEGATIONS), 5), "") + ")}"
-	tokenizeTestCases := testcases.MultiTokenizeTestCase{
-		TestCases: []testcases.TokenizeTestCase{
-			{FileContents: "!=", ExpectsError: false},
-			{FileContents: "!!===", ExpectsError: false},
-			{FileContents: "!{!}(!===)=", ExpectsError: false},
-			{FileContents: shuffledString1, ExpectsError: true},
+	tokenizeTestCases := testcases.MultiTestCase{
+		TestCases: []testcases.TestCase{
+			&testcases.TokenizeTestCase{FileContents: "!=", ExpectsError: false},
+			&testcases.TokenizeTestCase{FileContents: "!!===", ExpectsError: false},
+			&testcases.TokenizeTestCase{FileContents: "!{!}(!===)=", ExpectsError: false},
+			&testcases.TokenizeTestCase{FileContents: shuffledString1, ExpectsError: true},
 		},
 	}
 	return tokenizeTestCases.RunAll(b, logger)

@@ -21,12 +21,12 @@ func testEvaluateLiterals(stageHarness *test_case_harness.TestCaseHarness) error
 	stringLiteral1 := "\"" + strings.Join(random.RandomElementsFromArray(STRINGS, 2), " ") + "\""
 	stringLiteral2 := "\"" + getRandIntAsString() + "\""
 
-	evaluateTestCases := testcases.MultiEvaluateTestCase{
-		TestCases: []testcases.EvaluateTestCase{
-			{FileContents: numberLiteral1, ExpectsError: false},
-			{FileContents: numberLiteral2, ExpectsError: false},
-			{FileContents: stringLiteral1, ExpectsError: false},
-			{FileContents: stringLiteral2, ExpectsError: false},
+	evaluateTestCases := testcases.MultiTestCase{
+		TestCases: []testcases.TestCase{
+			&testcases.EvaluateTestCase{FileContents: numberLiteral1, ExpectsError: false},
+			&testcases.EvaluateTestCase{FileContents: numberLiteral2, ExpectsError: false},
+			&testcases.EvaluateTestCase{FileContents: stringLiteral1, ExpectsError: false},
+			&testcases.EvaluateTestCase{FileContents: stringLiteral2, ExpectsError: false},
 		},
 	}
 	return evaluateTestCases.RunAll(b, logger)

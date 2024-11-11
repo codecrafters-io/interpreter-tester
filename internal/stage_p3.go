@@ -20,12 +20,12 @@ func testParseStrings(stageHarness *test_case_harness.TestCaseHarness) error {
 	stringLiteral3 := "\"// " + random.RandomElementFromArray(STRINGS) + "\""
 	stringLiteral4 := "\"" + fmt.Sprint(random.RandomInt(10, 100)) + "\""
 
-	parseTestCase := testcases.MultiParseTestCase{
-		TestCases: []testcases.ParseTestCase{
-			{FileContents: stringLiteral1, ExpectsError: false},
-			{FileContents: stringLiteral2, ExpectsError: false},
-			{FileContents: stringLiteral3, ExpectsError: false},
-			{FileContents: stringLiteral4, ExpectsError: false},
+	parseTestCase := testcases.MultiTestCase{
+		TestCases: []testcases.TestCase{
+			&testcases.ParseTestCase{FileContents: stringLiteral1, ExpectsError: false},
+			&testcases.ParseTestCase{FileContents: stringLiteral2, ExpectsError: false},
+			&testcases.ParseTestCase{FileContents: stringLiteral3, ExpectsError: false},
+			&testcases.ParseTestCase{FileContents: stringLiteral4, ExpectsError: false},
 		},
 	}
 	return parseTestCase.RunAll(b, logger)

@@ -18,12 +18,12 @@ func testParseFactor(stageHarness *test_case_harness.TestCaseHarness) error {
 	factorExpr3 := fmt.Sprintf("%d * %d * %d / %d", getRandInt(), getRandInt(), getRandInt(), getRandInt())
 	factorExpr4 := fmt.Sprintf("(%d * -%d / (%d * %d))", getRandInt(), getRandInt(), getRandInt(), getRandInt())
 
-	parseTestCase := testcases.MultiParseTestCase{
-		TestCases: []testcases.ParseTestCase{
-			{FileContents: factorExpr1, ExpectsError: false},
-			{FileContents: factorExpr2, ExpectsError: false},
-			{FileContents: factorExpr3, ExpectsError: false},
-			{FileContents: factorExpr4, ExpectsError: false},
+	parseTestCase := testcases.MultiTestCase{
+		TestCases: []testcases.TestCase{
+			&testcases.ParseTestCase{FileContents: factorExpr1, ExpectsError: false},
+			&testcases.ParseTestCase{FileContents: factorExpr2, ExpectsError: false},
+			&testcases.ParseTestCase{FileContents: factorExpr3, ExpectsError: false},
+			&testcases.ParseTestCase{FileContents: factorExpr4, ExpectsError: false},
 		},
 	}
 	return parseTestCase.RunAll(b, logger)

@@ -21,12 +21,12 @@ func testEvaluateParens(stageHarness *test_case_harness.TestCaseHarness) error {
 	parens3 := fmt.Sprintf("(\"%s\")", strings.Join(random.RandomElementsFromArray(STRINGS, 2), " "))
 	parens4 := fmt.Sprintf("((%s))", getRandBoolean())
 
-	evaluateTestCases := testcases.MultiEvaluateTestCase{
-		TestCases: []testcases.EvaluateTestCase{
-			{FileContents: parens1, ExpectsError: false},
-			{FileContents: parens2, ExpectsError: false},
-			{FileContents: parens3, ExpectsError: false},
-			{FileContents: parens4, ExpectsError: false},
+	evaluateTestCases := testcases.MultiTestCase{
+		TestCases: []testcases.TestCase{
+			&testcases.EvaluateTestCase{FileContents: parens1, ExpectsError: false},
+			&testcases.EvaluateTestCase{FileContents: parens2, ExpectsError: false},
+			&testcases.EvaluateTestCase{FileContents: parens3, ExpectsError: false},
+			&testcases.EvaluateTestCase{FileContents: parens4, ExpectsError: false},
 		},
 	}
 	return evaluateTestCases.RunAll(b, logger)

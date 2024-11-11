@@ -6,13 +6,18 @@ import (
 
 /*
 program    -> declaration* EOF ;
-declaration-> varDecl
+declaration-> funDecl
+			| varDecl
 			| stmt ;
+funDecl    -> "fun" function ;
+function   -> IDENTIFIER "(" parameters? ")" block ;
+parameters -> IDENTIFIER ( "," IDENTIFIER )* ;
 varDecl    -> "var" IDENTIFIER ( "=" expression )? ";" ;
 stmt       -> exprStmt
 			| forStmt
 			| ifStmt
 			| printStmt
+			| returnStmt
 			| whileStmt
 			| block ;
 block      -> "{" declaration* "}" ;
@@ -22,6 +27,7 @@ forStmt    -> "for" "(" ( varDecl | exprStmt | ";" )
               expression? ")" statement ;
 ifStmt     -> "if" "(" expression ")" statement ( "else" statement )? ;
 printStmt  -> "print" expression ";" ;
+returnStmt -> "return" expression? ";" ;
 whileStmt  -> "while" "(" expression ")" statement ;
 expression -> assignment ;
 assignment -> IDENTIFIER "=" assignment
@@ -32,7 +38,9 @@ equality   -> comparison ( ( "!=" | "==") comparison )* ;
 comparison -> term ( ( ">" | ">=" | "<" | "<=") term )* ;
 term   -> factor ( ( "+" | "-" ) factor )* ;
 factor -> unary ( ( "/" | "*" ) unary )* ;
-unary      -> ( "!" | "-" ) unary | primary ;
+unary      -> ( "!" | "-" ) unary | call ;
+call       -> primary ( "(" arguments? ")" )* ;
+arguments  -> expression ( "," expression )* ;
 primary    -> "true" | "false" | "nil"
 			| NUMBER | STRING
 			| "(" expression ")"
@@ -72,20 +80,26 @@ func (p *Parser) Parse(stdout, stderr io.Writer) []Stmt {
 }
 
 func (p *Parser) declaration() (Stmt, error) {
-	if p.match(VAR) {
-		stmt, err := p.varDeclaration()
+	var stmt Stmt
+	var err error
+
+	checkError := func(stmt Stmt, err error) (Stmt, error) {
 		if err != nil {
 			p.synchronize()
 			return nil, err
 		}
 		return stmt, nil
 	}
-	stmt, err := p.statement()
-	if err != nil {
-		p.synchronize()
-		return nil, err
+
+	if p.match(VAR) {
+		stmt, err = p.varDeclaration()
+	} else if p.match(FUN) {
+		stmt, err = p.funDeclaration("function")
+	} else {
+		stmt, err = p.statement()
 	}
-	return stmt, nil
+
+	return checkError(stmt, err)
 }
 
 func (p *Parser) varDeclaration() (Stmt, error) {
@@ -108,6 +122,60 @@ func (p *Parser) varDeclaration() (Stmt, error) {
 	return &Var{Name: name, Initializer: initializer}, nil
 }
 
+func (p *Parser) funDeclaration(kind string) (*Function, error) {
+	name, err := p.consume(IDENTIFIER, "Expected variable name.")
+	if err != nil {
+		return nil, err
+	}
+
+	parameters, err := p.functionArguments(kind)
+	if err != nil {
+		return nil, err
+	}
+
+	_, err = p.consume(LEFTBRACE, "Expect '{' before "+kind+" body.")
+	if err != nil {
+		return nil, err
+	}
+
+	body, err := p.block()
+	if err != nil {
+		return nil, err
+	}
+
+	return &Function{Name: name, Params: parameters, Body: body}, nil
+}
+
+func (p *Parser) functionArguments(kind string) ([]Token, error) {
+	_, err := p.consume(LEFTPAREN, "Expect '(' after "+kind+" name.")
+	if err != nil {
+		return nil, err
+	}
+
+	parameters := make([]Token, 0)
+	if !p.check(RIGHTPAREN) {
+		for {
+			if len(parameters) >= 255 {
+				return nil, MakeParseError(p.peek(), "Cannot have more than 255 parameters.")
+			}
+
+			param, err2 := p.consume(IDENTIFIER, "Expect parameter name.")
+			if err2 != nil {
+				return nil, err2
+			}
+
+			parameters = append(parameters, param)
+
+			if !p.match(COMMA) {
+				break
+			}
+		}
+	}
+
+	_, err = p.consume(RIGHTPAREN, "Expect ')' after parameters.")
+	return parameters, err
+}
+
 func (p *Parser) statement() (Stmt, error) {
 	if p.match(FOR) {
 		return p.forStatement()
@@ -117,6 +185,8 @@ func (p *Parser) statement() (Stmt, error) {
 		return p.printStatement()
 	} else if p.match(WHILE) {
 		return p.whileStatement()
+	} else if p.match(RETURN) {
+		return p.returnStatement()
 	} else if p.match(LEFTBRACE) {
 		statements, err := p.block()
 		if err == nil {
@@ -277,6 +347,25 @@ func (p *Parser) whileStatement() (Stmt, error) {
 	return &While{Condition: condition, Statement: body}, nil
 }
 
+func (p *Parser) returnStatement() (Stmt, error) {
+	keyword := p.previous()
+
+	var value Expr
+	var err error
+	if !p.check(SEMICOLON) {
+		value, err = p.expression()
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	_, err = p.consume(SEMICOLON, "Expected ';' after return value.")
+	if err != nil {
+		return nil, err
+	}
+	return &Return{Keyword: keyword, Value: value}, nil
+}
+
 func (p *Parser) expression() (Expr, error) {
 	return p.assignment()
 }
@@ -417,7 +506,53 @@ func (p *Parser) unary() (Expr, error) {
 		return &Unary{Operator: operator, Right: right}, nil
 	}
 
-	return p.primary()
+	return p.call()
+}
+
+func (p *Parser) call() (Expr, error) {
+	expr, err := p.primary()
+	if err != nil {
+		return nil, err
+	}
+
+	for {
+		if p.match(LEFTPAREN) {
+			expr, err = p.finishCall(expr)
+			if err != nil {
+				return nil, err
+			}
+		} else {
+			break
+		}
+	}
+
+	return expr, nil
+}
+
+func (p *Parser) finishCall(callee Expr) (Expr, error) {
+	// Parse argument list
+	args := make([]Expr, 0)
+	if !p.check(RIGHTPAREN) {
+		for {
+			arg, err := p.assignment() // we don't want the comma operator here
+			if err != nil {
+				return nil, err
+			}
+			if len(args) >= 255 {
+				return nil, MakeParseError(p.peek(), "Cannot have more than 255 arguments.")
+			}
+			args = append(args, arg)
+			if !p.match(COMMA) {
+				break
+			}
+		}
+	}
+
+	paren, err := p.consume(RIGHTPAREN, "Expected ')' after arguments.")
+	if err != nil {
+		return nil, err
+	}
+	return &Call{Callee: callee, Paren: paren, Arguments: args}, nil
 }
 
 func (p *Parser) primary() (Expr, error) {

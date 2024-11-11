@@ -1,0 +1,121 @@
+Debug = true
+
+[33m[stage-3] [0m[94mRunning tests for Stage #3: f1[0m
+[33m[stage-3] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-3] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-3] [test-1] [0m[33m[test.lox][0m 
+[33m[stage-3] [test-1] [0m[33m[test.lox][0m print clock() + 623;
+[33m[stage-3] [test-1] [0m[33m[test.lox][0m 
+[33m[stage-3] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m1.731312298705E9
+[33m[stage-3] [test-1] [0m[92m✓ 1731312298.705000[0m
+[33m[stage-3] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-3] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-3] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-3] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-3] [test-2] [0m[33m[test.lox][0m 
+[33m[stage-3] [test-2] [0m[33m[test.lox][0m print clock() / 1000;
+[33m[stage-3] [test-2] [0m[33m[test.lox][0m 
+[33m[stage-3] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m1731311.675789
+[33m[stage-3] [test-2] [0m[92m✓ 1731311.675789[0m
+[33m[stage-3] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-3] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-3] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-3] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-3] [test-3] [0m[33m[test.lox][0m var a = clock();
+[33m[stage-3] [test-3] [0m[33m[test.lox][0m if ((clock() > (a - 5)) and (clock() < (a + 5))) {
+[33m[stage-3] [test-3] [0m[33m[test.lox][0m   print "in range";
+[33m[stage-3] [test-3] [0m[33m[test.lox][0m } else {
+[33m[stage-3] [test-3] [0m[33m[test.lox][0m   print "not in range";
+[33m[stage-3] [test-3] [0m[33m[test.lox][0m }
+[33m[stage-3] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0min range
+[33m[stage-3] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-3] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-3] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-3] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-3] [test-4] [0m[33m[test.lox][0m var a = clock();
+[33m[stage-3] [test-4] [0m[33m[test.lox][0m print (clock() > (a - 5));
+[33m[stage-3] [test-4] [0m[33m[test.lox][0m print (clock() < (a + 5));
+[33m[stage-3] [test-4] [0m[33m[test.lox][0m if ((clock() > (a - 5)) and (clock() < (a + 5))) {
+[33m[stage-3] [test-4] [0m[33m[test.lox][0m   print "in range";
+[33m[stage-3] [test-4] [0m[33m[test.lox][0m } else {
+[33m[stage-3] [test-4] [0m[33m[test.lox][0m   print "not in range";
+[33m[stage-3] [test-4] [0m[33m[test.lox][0m }
+[33m[stage-3] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mtrue
+[33m[your_program] [0mtrue
+[33m[your_program] [0min range
+[33m[stage-3] [test-4] [0m[92m✓ 3 line(s) match on stdout[0m
+[33m[stage-3] [test-4] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-3] [0m[92mTest passed.[0m
+
+[33m[stage-2] [0m[94mRunning tests for Stage #2: f2[0m
+[33m[stage-2] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-2] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-1] [0m[33m[test.lox][0m fun bar() { print 123; }
+[33m[stage-2] [test-1] [0m[33m[test.lox][0m bar(); // expect: 123
+[33m[stage-2] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m123
+[33m[stage-2] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-2] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-2] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-2] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-2] [0m[33m[test.lox][0m fun f() {}
+[33m[stage-2] [test-2] [0m[33m[test.lox][0m f(); // expect: nil
+[33m[stage-2] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[stage-2] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-2] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-2] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-2] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-3] [0m[33m[test.lox][0m fun foo() {}
+[33m[stage-2] [test-3] [0m[33m[test.lox][0m print foo; // expect: <fn foo>
+[33m[stage-2] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m<fn foo>
+[33m[stage-2] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-2] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-2] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-2] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-4] [0m[33m[test.lox][0m fun foo() {}
+[33m[stage-2] [test-4] [0m[33m[test.lox][0m print foo; // expect: <fn foo>
+[33m[stage-2] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m<fn foo>
+[33m[stage-2] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-2] [test-4] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-2] [0m[92mTest passed.[0m
+
+[33m[stage-1] [0m[94mRunning tests for Stage #1: f3[0m
+[33m[stage-1] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-1] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-1] [test-1] [0m[33m[test.lox][0m fun f1(a) { print a; }
+[33m[stage-1] [test-1] [0m[33m[test.lox][0m f1(1); // expect: 1
+[33m[stage-1] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m1
+[33m[stage-1] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-1] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-1] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-1] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-1] [test-2] [0m[33m[test.lox][0m fun f3(a, b, c) { print a + b + c; }
+[33m[stage-1] [test-2] [0m[33m[test.lox][0m f3(1, 2, 3); // expect: 6
+[33m[stage-1] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m6
+[33m[stage-1] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-1] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-1] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-1] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-1] [test-3] [0m[33m[test.lox][0m fun f8(a, b, c, d, e, f, g, h) { print a + b + c + d + e + f + g + h; }
+[33m[stage-1] [test-3] [0m[33m[test.lox][0m f8(1, 2, 3, 4, 5, 6, 7, 8); // expect: 36
+[33m[stage-1] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m36
+[33m[stage-1] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-1] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-1] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-1] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-1] [test-4] [0m[33m[test.lox][0m fun f8(a, b, c, d, e, f, g, h) { print a + b + c + d + e + f + g + h; }
+[33m[stage-1] [test-4] [0m[33m[test.lox][0m f8(1, 2, 3, 4, 5, 6, 7, 8); // expect: 36
+[33m[stage-1] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m36
+[33m[stage-1] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-1] [test-4] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-1] [0m[92mTest passed.[0m
