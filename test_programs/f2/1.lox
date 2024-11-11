@@ -1,5 +1,6 @@
 ---
 expected_error_type: none
 ---
-fun bar() { print 123; }
-bar(); // expect: 123
+// This function, when invoked should print <<RANDOM_INTEGER>>
+fun <<RANDOM_STRING>>() { print <<RANDOM_INTEGER>>; }
+<<RANDOM_STRING>>();

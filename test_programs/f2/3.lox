@@ -1,5 +1,6 @@
 ---
 expected_error_type: none
 ---
+// This program should print <fn foo>
 fun foo() {}
-print foo; // expect: <fn foo>
+print foo;
