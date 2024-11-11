@@ -47,7 +47,7 @@ func buildSingleLineClockOutputTestCase(fileContents string) testcases.RunTestCa
 		panic(fmt.Sprintf("CodeCrafters internal error: expected exit code 0 from golox, got %d", ourLoxExitCode))
 	}
 
-	assertion, err := buildIntegerAssertion(ourLoxStdout)
+	assertion, err := buildNumberWithinRangeAssertion(ourLoxStdout)
 	if err != nil {
 		panic(err)
 	}
@@ -58,7 +58,7 @@ func buildSingleLineClockOutputTestCase(fileContents string) testcases.RunTestCa
 	}
 }
 
-func buildIntegerAssertion(ourLoxStdout string) (assertions.Assertion, error) {
+func buildNumberWithinRangeAssertion(ourLoxStdout string) (assertions.Assertion, error) {
 	expectedStdoutLines := strings.Split(ourLoxStdout, "\n")
 	if len(expectedStdoutLines) != 1 {
 		return nil, fmt.Errorf("CodeCrafters internal error: expected a single line of output from golox, got %d lines", len(expectedStdoutLines))
@@ -70,5 +70,5 @@ func buildIntegerAssertion(ourLoxStdout string) (assertions.Assertion, error) {
 	}
 
 	tolerance := 5
-	return assertions.NewIntegerAssertion(int(value)-tolerance, int(value)+tolerance), nil
+	return assertions.NewNumberWithinRangeAssertion(int(value)-tolerance, int(value)+tolerance), nil
 }

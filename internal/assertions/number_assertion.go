@@ -8,16 +8,16 @@ import (
 	"github.com/codecrafters-io/tester-utils/logger"
 )
 
-type IntegerAssertion struct {
+type NumberWithinRangeAssertion struct {
 	minValue int
 	maxValue int
 }
 
-func NewIntegerAssertion(minValue int, maxValue int) IntegerAssertion {
-	return IntegerAssertion{minValue: minValue, maxValue: maxValue}
+func NewNumberWithinRangeAssertion(minValue int, maxValue int) NumberWithinRangeAssertion {
+	return NumberWithinRangeAssertion{minValue: minValue, maxValue: maxValue}
 }
 
-func (a IntegerAssertion) Run(result executable.ExecutableResult, logger *logger.Logger) error {
+func (a NumberWithinRangeAssertion) Run(result executable.ExecutableResult, logger *logger.Logger) error {
 	// We expect a single line of output, which would be cast to an integer and compared to the min and max values
 	stdOutput := getStdoutLinesFromExecutableResult(result)
 
