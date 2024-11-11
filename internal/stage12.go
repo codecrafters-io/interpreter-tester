@@ -19,12 +19,12 @@ func testStrings(stageHarness *test_case_harness.TestCaseHarness) error {
 	string2 := `"foo 	bar 123 // hello world!"`
 	shuffledString2 := "(" + strings.Join(random.RandomElementsFromArray(QUOTED_STRINGS, 2), "+") + `) != "other_string"`
 
-	tokenizeTestCases := testcases.MultiTokenizeTestCase{
-		TestCases: []testcases.TokenizeTestCase{
-			{FileContents: QUOTED_STRINGS[0], ExpectsError: false},
-			{FileContents: string1, ExpectsError: true},
-			{FileContents: string2, ExpectsError: false},
-			{FileContents: shuffledString2, ExpectsError: false},
+	tokenizeTestCases := testcases.MultiTestCase{
+		TestCases: []testcases.TestCase{
+			&testcases.TokenizeTestCase{FileContents: QUOTED_STRINGS[0], ExpectsError: false},
+			&testcases.TokenizeTestCase{FileContents: string1, ExpectsError: true},
+			&testcases.TokenizeTestCase{FileContents: string2, ExpectsError: false},
+			&testcases.TokenizeTestCase{FileContents: shuffledString2, ExpectsError: false},
 		},
 	}
 	return tokenizeTestCases.RunAll(b, logger)

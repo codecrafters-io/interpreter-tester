@@ -26,12 +26,12 @@ func testParseErrors(stageHarness *test_case_harness.TestCaseHarness) error {
 	// Missing operands
 	error4 := "+"
 
-	parseTestCase := testcases.MultiParseTestCase{
-		TestCases: []testcases.ParseTestCase{
-			{FileContents: error1, ExpectsError: true},
-			{FileContents: error2, ExpectsError: true},
-			{FileContents: error3, ExpectsError: true},
-			{FileContents: error4, ExpectsError: true},
+	parseTestCase := testcases.MultiTestCase{
+		TestCases: []testcases.TestCase{
+			&testcases.ParseTestCase{FileContents: error1, ExpectsError: true},
+			&testcases.ParseTestCase{FileContents: error2, ExpectsError: true},
+			&testcases.ParseTestCase{FileContents: error3, ExpectsError: true},
+			&testcases.ParseTestCase{FileContents: error4, ExpectsError: true},
 		},
 	}
 	return parseTestCase.RunAll(b, logger)

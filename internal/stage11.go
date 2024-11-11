@@ -28,12 +28,12 @@ $
 +++
 #`
 	multiLineErrors4 := "({" + random.RandomElementFromArray(SINGLE_CHAR_OPERATORS) + random.RandomElementFromArray(WHITESPACES) + random.RandomElementFromArray(LEXICAL_ERRORS) + "})"
-	tokenizeTestCases := testcases.MultiTokenizeTestCase{
-		TestCases: []testcases.TokenizeTestCase{
-			{FileContents: multiLineErrors1, ExpectsError: true},
-			{FileContents: multiLineErrors2, ExpectsError: true},
-			{FileContents: multiLineErrors3, ExpectsError: true},
-			{FileContents: multiLineErrors4, ExpectsError: true},
+	tokenizeTestCases := testcases.MultiTestCase{
+		TestCases: []testcases.TestCase{
+			&testcases.TokenizeTestCase{FileContents: multiLineErrors1, ExpectsError: true},
+			&testcases.TokenizeTestCase{FileContents: multiLineErrors2, ExpectsError: true},
+			&testcases.TokenizeTestCase{FileContents: multiLineErrors3, ExpectsError: true},
+			&testcases.TokenizeTestCase{FileContents: multiLineErrors4, ExpectsError: true},
 		},
 	}
 	return tokenizeTestCases.RunAll(b, logger)

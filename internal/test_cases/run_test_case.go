@@ -20,15 +20,26 @@ import (
 // the expected outputs are generated using the lox.Run function,
 // With that the output of the executable is matched.
 type RunTestCase struct {
+	// FileContents is the contents of the .lox file to run
 	FileContents string
-	FrontMatter  RunTestCaseFrontMatter
+
+	// ExpectedExitCode is the expected exit code after running the file
+	ExpectedExitCode int
+
+	// OutputAssertion is the assertion to check the output of the executable
+	OutputAssertion assertions.Assertion
 }
 
 type RunTestCaseFrontMatter struct {
 	ExpectedErrorType string `yaml:"expected_error_type"`
 }
 
-func NewRunTestCaseFromFileContents(fileContents []byte, filePath string) RunTestCase {
+func NewRunTestCaseFromFilePath(filePath string) RunTestCase {
+	fileContents, err := os.ReadFile(filePath)
+	if err != nil {
+		panic(fmt.Sprintf("CodeCrafters Internal Error: Encountered error while reading test file: %s", err))
+	}
+
 	if !bytes.HasPrefix(fileContents, []byte("---\n")) {
 		panic(fmt.Sprintf("CodeCrafters Internal Error: %s has malformed frontmatter: no beginning triple dashes", filePath))
 	}
@@ -43,22 +54,30 @@ func NewRunTestCaseFromFileContents(fileContents []byte, filePath string) RunTes
 	fileContents = fileContents[endingTripleDashIndex+5:]
 
 	var frontMatter RunTestCaseFrontMatter
-	err := yaml.Unmarshal(frontMatterRaw, &frontMatter)
+	err = yaml.Unmarshal(frontMatterRaw, &frontMatter)
 	if err != nil {
 		panic(fmt.Sprintf("CodeCrafters Internal Error: %s has malformed frontmatter: can't unmarshal", filePath))
 	}
+
 	if frontMatter.ExpectedErrorType == "" {
 		panic(fmt.Sprintf("CodeCrafters Internal Error: %s has malformed frontmatter: missing expected_error_type field", filePath))
 	}
+
 	if !(frontMatter.ExpectedErrorType == "none" ||
 		frontMatter.ExpectedErrorType == "compile" ||
 		frontMatter.ExpectedErrorType == "runtime") {
 		panic(fmt.Sprintf("CodeCrafters Internal Error: %s has malformed frontmatter field: expected_error_type shouldn't be %s", filePath, frontMatter.ExpectedErrorType))
 	}
 
+	expectedExitCode := map[string]int{
+		"none":    0,
+		"compile": 65,
+		"runtime": 70,
+	}[frontMatter.ExpectedErrorType]
+
 	return RunTestCase{
-		FileContents: string(fileContents),
-		FrontMatter:  frontMatter,
+		FileContents:     string(fileContents),
+		ExpectedExitCode: expectedExitCode,
 	}
 }
 
@@ -76,28 +95,26 @@ func (t *RunTestCase) Run(executable *interpreter_executable.InterpreterExecutab
 		return err
 	}
 
-	expectedStdout, expectedExitCode, _ := loxapi.Run(t.FileContents)
+	ourLoxStdout, ourLoxExitCode, _ := loxapi.Run(t.FileContents)
 
-	if t.FrontMatter.ExpectedErrorType == "none" && expectedExitCode != 0 {
-		return fmt.Errorf("CodeCrafters internal error: faulty test case, expected this test case to not raise an error, but it did")
+	if t.ExpectedExitCode != ourLoxExitCode {
+		return fmt.Errorf("CodeCrafters internal error: faulty test case, expected %d exit code, our lox returned %d", t.ExpectedExitCode, ourLoxExitCode)
 	}
-	if t.FrontMatter.ExpectedErrorType == "compile" && expectedExitCode != 65 {
-		return fmt.Errorf("CodeCrafters internal error: faulty test case, expected this test case to raise a compile time error, but it didn't")
-	}
-	if t.FrontMatter.ExpectedErrorType == "runtime" && expectedExitCode != 70 {
-		return fmt.Errorf("CodeCrafters internal error: faulty test case, expected this test case to raise a runtime error, but it didn't")
-	}
-	if result.ExitCode != expectedExitCode {
-		return fmt.Errorf("expected exit code %v, got %v", expectedExitCode, result.ExitCode)
-	}
-	// XXX: Stderr is not checked
 
-	expectedStdoutLines := strings.Split(expectedStdout, "\n")
-	if err = assertions.NewStdoutAssertion(expectedStdoutLines).Run(result, logger); err != nil {
+	if result.ExitCode != t.ExpectedExitCode {
+		return fmt.Errorf("expected exit code %v, got %v", t.ExpectedExitCode, result.ExitCode)
+	}
+
+	if t.OutputAssertion == nil {
+		expectedStdoutLines := strings.Split(ourLoxStdout, "\n")
+		t.OutputAssertion = assertions.NewStdoutAssertion(expectedStdoutLines)
+	}
+
+	if err = t.OutputAssertion.Run(result, logger); err != nil {
 		return err
 	}
 
-	logger.Successf("✓ Received exit code %d.", expectedExitCode)
+	logger.Successf("✓ Received exit code %d.", t.ExpectedExitCode)
 
 	return nil
 }

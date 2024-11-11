@@ -1,0 +1,5 @@
+---
+expected_error_type: none
+---
+fun f1(a) { print a; }
+f1(1); // expect: 1

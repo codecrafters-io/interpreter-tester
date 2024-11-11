@@ -137,4 +137,13 @@ test_control_flow_w_jlox: build
 	]" \
 	$(shell pwd)/dist/main.out
 
+
+test_functions_w_jlox: build
+	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap10_functions \
+	CODECRAFTERS_TEST_CASES_JSON="[ \
+		{\"slug\":\"f1\",\"tester_log_prefix\":\"stage_601\",\"title\":\"Stage #601: Functions: Native Functions\"}, \
+		{\"slug\":\"f2\",\"tester_log_prefix\":\"stage_602\",\"title\":\"Stage #602: Functions: No arguments\"} \
+	]" \
+	$(shell pwd)/dist/main.out
+
 test_all: test_scanning_w_jlox test_parsing_w_jlox test_evaluation_w_jlox test_statements_w_jlox test_control_flow_w_jlox

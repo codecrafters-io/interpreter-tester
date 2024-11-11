@@ -21,12 +21,12 @@ func testEvaluateFactor(stageHarness *test_case_harness.TestCaseHarness) error {
 	factor3 := fmt.Sprintf("7 * %d / 7 / 1", n1)
 	factor4 := fmt.Sprintf("(18 * %d / (3 * 6))", n1)
 
-	evaluateTestCases := testcases.MultiEvaluateTestCase{
-		TestCases: []testcases.EvaluateTestCase{
-			{FileContents: factor1, ExpectsError: false},
-			{FileContents: factor2, ExpectsError: false},
-			{FileContents: factor3, ExpectsError: false},
-			{FileContents: factor4, ExpectsError: false},
+	evaluateTestCases := testcases.MultiTestCase{
+		TestCases: []testcases.TestCase{
+			&testcases.EvaluateTestCase{FileContents: factor1, ExpectsError: false},
+			&testcases.EvaluateTestCase{FileContents: factor2, ExpectsError: false},
+			&testcases.EvaluateTestCase{FileContents: factor3, ExpectsError: false},
+			&testcases.EvaluateTestCase{FileContents: factor4, ExpectsError: false},
 		},
 	}
 	return evaluateTestCases.RunAll(b, logger)
