@@ -7,8 +7,8 @@ Debug = true
 [33m[stage-3] [test-1] [0m[33m[test.lox][0m print clock() + 623;
 [33m[stage-3] [test-1] [0m[33m[test.lox][0m 
 [33m[stage-3] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1.731311180412E9
-[33m[stage-3] [test-1] [0m[92m✓ 1731311180.412000[0m
+[33m[your_program] [0m1.731312298705E9
+[33m[stage-3] [test-1] [0m[92m✓ 1731312298.705000[0m
 [33m[stage-3] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-3] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-3] [test-2] [0m[94mRunning test case: 2[0m
@@ -17,8 +17,8 @@ Debug = true
 [33m[stage-3] [test-2] [0m[33m[test.lox][0m print clock() / 1000;
 [33m[stage-3] [test-2] [0m[33m[test.lox][0m 
 [33m[stage-3] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1731310.557487
-[33m[stage-3] [test-2] [0m[92m✓ 1731310.557487[0m
+[33m[your_program] [0m1731311.675789
+[33m[stage-3] [test-2] [0m[92m✓ 1731311.675789[0m
 [33m[stage-3] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-3] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-3] [test-3] [0m[94mRunning test case: 3[0m
