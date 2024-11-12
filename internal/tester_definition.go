@@ -238,39 +238,39 @@ var testerDefinition = tester_definition.TesterDefinition{
 			TestFunc: createTestForRunCommandStage("c9"),
 		},
 		{
-			Slug:     "f1",
+			Slug:     "av4",
 			TestFunc: testClock, // This needs a special test function because it has an integer assertion, for clock()
 		},
 		{
-			Slug:     "f2",
+			Slug:     "pg8",
 			TestFunc: createTestForRunCommandStage("f2"),
 		},
 		{
-			Slug:     "f3",
+			Slug:     "lb6",
 			TestFunc: createTestForRunCommandStage("f3"),
 		},
 		{
-			Slug:     "f4",
+			Slug:     "px4",
 			TestFunc: createTestForRunCommandStage("f4"),
 		},
 		{
-			Slug:     "f5",
+			Slug:     "rd2",
 			TestFunc: createTestForRunCommandStage("f5"),
 		},
 		{
-			Slug:     "f6",
+			Slug:     "ey3",
 			TestFunc: createTestForRunCommandStage("f6"),
 		},
 		{
-			Slug:     "f7",
+			Slug:     "fj7",
 			TestFunc: createTestForRunCommandStage("f7"),
 		},
 		{
-			Slug:     "f8",
+			Slug:     "bz4",
 			TestFunc: createTestForRunCommandStage("f8"),
 		},
 		{
-			Slug:     "f9",
+			Slug:     "gg6",
 			TestFunc: createTestForRunCommandStage("f9"),
 		},
 	},

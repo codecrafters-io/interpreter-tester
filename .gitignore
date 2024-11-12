@@ -7,3 +7,5 @@ dist
 craftinginterpreters/
 
 tmp.lox
+main.go
+tests.lox
