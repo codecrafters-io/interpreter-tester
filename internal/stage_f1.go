@@ -14,12 +14,8 @@ import (
 )
 
 var (
-	firstTestCaseFileContents = `
-print clock() + <<RANDOM_INTEGER>>;
-`
-	secondTestCaseFileContents = `
-print clock() / 1000;
-`
+	firstTestCaseFileContents  = `print clock() + <<RANDOM_INTEGER>>;`
+	secondTestCaseFileContents = `print clock() / 1000;`
 )
 
 func testClock(stageHarness *test_case_harness.TestCaseHarness) error {
