@@ -50,12 +50,12 @@ func GetTestCasesForCurrentStage(stageIdentifier string) []testcases.RunTestCase
 }
 
 func ReplacePlaceholdersWithRandomValues(program string) string {
-	regexPlaceholder := regexp.MustCompile(`<<(RANDOM_STRING|RANDOM_QUOTEDSTRING|RANDOM_BOOLEAN|RANDOM_INTEGER)(_\d+)?>>`)
+	regexPlaceholder := regexp.MustCompile(`<<(RANDOM_STRING|RANDOM_QUOTEDSTRING|RANDOM_BOOLEAN|RANDOM_INTEGER|RANDOM_DIGIT)(_\d+)?>>`)
 
 	generatedValues := make(map[string]string)
 	seenValues := make(map[string]bool)
 
-	placeholderTypes := []string{"RANDOM_STRING", "RANDOM_QUOTEDSTRING", "RANDOM_BOOLEAN", "RANDOM_INTEGER"}
+	placeholderTypes := []string{"RANDOM_STRING", "RANDOM_QUOTEDSTRING", "RANDOM_BOOLEAN", "RANDOM_INTEGER", "RANDOM_DIGIT"}
 	placeholderIDs := []string{"0", "1", "2", "3", "4"}
 	for _, placeholderID := range placeholderIDs {
 		for _, placeholderType := range placeholderTypes {
@@ -91,7 +91,6 @@ func ReplacePlaceholdersWithRandomValues(program string) string {
 		} else {
 			panic(fmt.Sprintf("CodeCrafters Internal Error: Placeholder %s not found in generated values", key))
 		}
-
 	})
 
 	return result
@@ -107,8 +106,11 @@ func generateRandomValueForPlaceholderType(placeholderType string) string {
 		value = random.RandomElementFromArray(QUOTED_STRINGS)
 	case "RANDOM_BOOLEAN":
 		value = random.RandomElementFromArray(BOOLEANS)
-	case "RANDOM_INTEGER":
+	case "RANDOM_INTEGER": // Between 10 - 100
 		value = getRandIntAsString()
+	case "RANDOM_DIGIT": // Between 2 - 6
+		// ToDo
+		value = fmt.Sprintf("%d", random.RandomInt(2, 7))
 	default:
 		value = placeholderType
 	}
