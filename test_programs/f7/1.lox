@@ -1,0 +1,4 @@
+---
+expected_error_type: runtime
+---
+<<RANDOM_INTEGER>>();
