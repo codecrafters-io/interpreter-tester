@@ -1,0 +1,38 @@
+---
+expected_error_type: none
+---
+fun makeAccumulator(label) {
+  var sum = 0;
+  var count = 0;
+  
+  fun accumulate(value) {
+    sum = sum + value;
+    count = count + 1;
+    
+    print label;
+    print count;
+    print sum;
+    print sum;
+
+    if (count > 3) {
+      print "reset";
+      sum = 0;
+      count = 0;
+    }
+    
+    return sum;
+  }
+  
+  return accumulate;
+}
+
+var acc1 = makeAccumulator("First:");
+var acc2 = makeAccumulator("Second:");
+
+acc1(5);
+acc1(3);
+acc1(2);
+acc1(1);
+
+acc2(10);
+acc2(20);

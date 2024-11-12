@@ -1,0 +1,32 @@
+---
+expected_error_type: none
+---
+// This program demonstrates the use of closures to create a logger function.
+// The inner function log() has access to the outer function's local variable logCount.
+// This is an example of how closures can be used to create private variables and methods.
+fun makeLogger(prefix) {
+  var logCount = 0;
+
+  fun log(message) {
+    logCount = logCount + 1;
+    print prefix + ": " + message;
+
+    if (logCount > 3) {
+      print prefix + ": Too many log lines!";
+      logCount = 0;
+    }
+  }
+
+  return log;
+}
+
+var debugLog = makeLogger("<<RANDOM_STRING_1>>");
+var errorLog = makeLogger("<<RANDOM_STRING_2>>");
+
+debugLog("Starting");
+debugLog("Processing");
+debugLog("Finishing");
+debugLog("Extra line");
+
+errorLog("Failed!");
+errorLog("Retrying...");
