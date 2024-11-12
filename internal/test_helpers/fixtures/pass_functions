@@ -3,22 +3,18 @@ Debug = true
 [33m[stage-9] [0m[94mRunning tests for Stage #9: av4[0m
 [33m[stage-9] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-9] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test-1] [0m[33m[test.lox][0m 
 [33m[stage-9] [test-1] [0m[33m[test.lox][0m print clock() + 23;
-[33m[stage-9] [test-1] [0m[33m[test.lox][0m 
 [33m[stage-9] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1.731410223241E9
-[33m[stage-9] [test-1] [0m[92m✓ 1731410223.241000[0m
+[33m[your_program] [0m1.731410441286E9
+[33m[stage-9] [test-1] [0m[92m✓ 1731410441.286000[0m
 [33m[stage-9] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-9] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-9] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test-2] [0m[33m[test.lox][0m 
 [33m[stage-9] [test-2] [0m[33m[test.lox][0m print clock() / 1000;
-[33m[stage-9] [test-2] [0m[33m[test.lox][0m 
 [33m[stage-9] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1731410.200312
-[33m[stage-9] [test-2] [0m[92m✓ 1731410.200312[0m
+[33m[your_program] [0m1731410.418358
+[33m[stage-9] [test-2] [0m[92m✓ 1731410.418358[0m
 [33m[stage-9] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-9] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-3] [0m[94mRunning test case: 3[0m
