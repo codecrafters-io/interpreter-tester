@@ -1,0 +1,9 @@
+---
+expected_error_type: none
+---
+// This program uses a return statement inside an if statement to return "ok" if the condition is false
+fun f() {
+  if (<<RANDOM_BOOLEAN>>) return "no"; else return "ok";
+}
+
+print f();

@@ -1,0 +1,10 @@
+---
+expected_error_type: none
+---
+// This program relies on the return statement returning nil by default
+fun f() {
+  return;
+  print "bad";
+}
+
+print f();
