@@ -1,0 +1,21 @@
+---
+expected_error_type: none
+---
+// This program creates a function that returns another function
+// and uses it to apply a function twice to a value
+fun makeAdder(x) {
+  fun add(y) {
+    return x + y;
+  }
+  return add;
+}
+
+fun applyTwice(f, x) {
+  return f(f(x));
+}
+
+var add5 = makeAdder(5);
+var add10 = makeAdder(10);
+
+print applyTwice(add5, 1);    // Prints: 11 (adds 5 twice)
+print applyTwice(add10, 0);   // Prints: 20 (adds 10 twice)
