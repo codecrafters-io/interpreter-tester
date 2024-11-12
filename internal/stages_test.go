@@ -62,14 +62,14 @@ func TestStages(t *testing.T) {
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 		"pass_functions_inprogress_jlox": {
-			StageSlugs:          []string{"f1", "f2", "f3"},
+			StageSlugs:          []string{"f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9"},
 			CodePath:            "../craftinginterpreters/build/gen/chap10_functions",
 			ExpectedExitCode:    0,
 			StdoutFixturePath:   "./test_helpers/fixtures/pass_functions",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 		"pass_functions_completed_jlox": {
-			StageSlugs:          []string{"f1", "f2", "f3"},
+			StageSlugs:          []string{"f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9"},
 			CodePath:            "../craftinginterpreters/build/gen/chap13_inheritance",
 			ExpectedExitCode:    0,
 			StdoutFixturePath:   "./test_helpers/fixtures/pass_functions_final",
