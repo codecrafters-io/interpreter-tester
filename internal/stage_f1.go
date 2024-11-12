@@ -26,7 +26,7 @@ func testClock(stageHarness *test_case_harness.TestCaseHarness) error {
 	b := interpreter_executable.NewInterpreterExecutable(stageHarness)
 	logger := stageHarness.Logger
 
-	firstTestCaseFileContents = strings.ReplaceAll(firstTestCaseFileContents, "<<RANDOM_INTEGER>>", fmt.Sprintf("%d", rand.Intn(1000)))
+	firstTestCaseFileContents = strings.ReplaceAll(firstTestCaseFileContents, "<<RANDOM_INTEGER>>", fmt.Sprintf("%d", rand.Intn(100)))
 	firstTestCase := buildSingleLineClockOutputTestCase(firstTestCaseFileContents)
 	secondTestCase := buildSingleLineClockOutputTestCase(secondTestCaseFileContents)
 	otherTestCases := GetTestCasesForCurrentStageWithRandomValues("f1")
