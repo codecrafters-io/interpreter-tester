@@ -62,14 +62,14 @@ func TestStages(t *testing.T) {
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 		"pass_functions_inprogress_jlox": {
-			StageSlugs:          []string{"f1", "f2", "f3"},
+			StageSlugs:          []string{"av4", "pg8", "lb6", "px4", "rd2", "ey3", "fj7", "bz4", "gg6"},
 			CodePath:            "../craftinginterpreters/build/gen/chap10_functions",
 			ExpectedExitCode:    0,
 			StdoutFixturePath:   "./test_helpers/fixtures/pass_functions",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 		"pass_functions_completed_jlox": {
-			StageSlugs:          []string{"f1", "f2", "f3"},
+			StageSlugs:          []string{"av4", "pg8", "lb6", "px4", "rd2", "ey3", "fj7", "bz4", "gg6"},
 			CodePath:            "../craftinginterpreters/build/gen/chap13_inheritance",
 			ExpectedExitCode:    0,
 			StdoutFixturePath:   "./test_helpers/fixtures/pass_functions_final",
@@ -83,7 +83,7 @@ func TestStages(t *testing.T) {
 func normalizeTesterOutput(testerOutput []byte) []byte {
 	replacements := map[string][]*regexp.Regexp{
 		"clock_exponent_notation": {regexp.MustCompile(`1.[0-9]*E[0-9]`)},
-		"clock_decimal_notation":  {regexp.MustCompile(`[0-9]{7,10}\.[0-9]{6}`)}, // This is much more restrictive so as to not match any other numbers
+		"clock_decimal_notation":  {regexp.MustCompile(`[0-9]{7,10}\.[0-9]{4,10}`)}, // This is much more restrictive so as to not match any other numbers
 	}
 
 	for replacement, regexes := range replacements {

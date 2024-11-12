@@ -9,27 +9,26 @@ Debug = true
 [33m[stage-9] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-9] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test-2] [0m[33m[test.lox][0m if (true) {
+[33m[stage-9] [test-2] [0m[33m[test.lox][0m if (false) {
 [33m[stage-9] [test-2] [0m[33m[test.lox][0m   print "block body";
 [33m[stage-9] [test-2] [0m[33m[test.lox][0m }
 [33m[stage-9] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0mblock body
 [33m[stage-9] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-9] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-9] [test-3] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-9] [test-3] [0m[33m[test.lox][0m var a = false;
 [33m[stage-9] [test-3] [0m[33m[test.lox][0m if (a = true) {
-[33m[stage-9] [test-3] [0m[33m[test.lox][0m   print (a == false);
+[33m[stage-9] [test-3] [0m[33m[test.lox][0m   print (a == true);
 [33m[stage-9] [test-3] [0m[33m[test.lox][0m }
 [33m[stage-9] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0mfalse
+[33m[your_program] [0mtrue
 [33m[stage-9] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-9] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-9] [test-4] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-9] [test-4] [0m[33m[test.lox][0m var stage = "unknown";
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m var age = 84;
+[33m[stage-9] [test-4] [0m[33m[test.lox][0m var age = 73;
 [33m[stage-9] [test-4] [0m[33m[test.lox][0m if (age < 18) { stage = "child"; }
 [33m[stage-9] [test-4] [0m[33m[test.lox][0m if (age >= 18) { stage = "adult"; }
 [33m[stage-9] [test-4] [0m[33m[test.lox][0m print stage;
@@ -47,14 +46,14 @@ Debug = true
 [33m[stage-8] [0m[94mRunning tests for Stage #8: st5[0m
 [33m[stage-8] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-8] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-1] [0m[33m[test.lox][0m if (false) print "if branch"; else print "else branch";
+[33m[stage-8] [test-1] [0m[33m[test.lox][0m if (true) print "if branch"; else print "else branch";
 [33m[stage-8] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0melse branch
+[33m[your_program] [0mif branch
 [33m[stage-8] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-8] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-8] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-2] [0m[33m[test.lox][0m var age = 19;
+[33m[stage-8] [test-2] [0m[33m[test.lox][0m var age = 64;
 [33m[stage-8] [test-2] [0m[33m[test.lox][0m if (age > 18) print "adult"; else print "child";
 [33m[stage-8] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0madult
@@ -76,7 +75,7 @@ Debug = true
 [33m[stage-8] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-8] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m var celsius = 44;
+[33m[stage-8] [test-4] [0m[33m[test.lox][0m var celsius = 82;
 [33m[stage-8] [test-4] [0m[33m[test.lox][0m var fahrenheit = 0;
 [33m[stage-8] [test-4] [0m[33m[test.lox][0m var isHot = false;
 [33m[stage-8] [test-4] [0m[33m[test.lox][0m 
@@ -94,8 +93,8 @@ Debug = true
 [33m[stage-8] [test-4] [0m[33m[test.lox][0m   if (isHot) { print "Remember to use sunscreen!"; }
 [33m[stage-8] [test-4] [0m[33m[test.lox][0m }
 [33m[stage-8] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m44
-[33m[your_program] [0m111.2
+[33m[your_program] [0m82
+[33m[your_program] [0m179.6
 [33m[your_program] [0mIt's a hot day. Stay hydrated!
 [33m[your_program] [0mRemember to use sunscreen!
 [33m[stage-8] [test-4] [0m[92m✓ 4 line(s) match on stdout[0m
@@ -111,22 +110,20 @@ Debug = true
 [33m[stage-7] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-7] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-2] [0m[33m[test.lox][0m if (true) {
-[33m[stage-7] [test-2] [0m[33m[test.lox][0m   print "world";
-[33m[stage-7] [test-2] [0m[33m[test.lox][0m } else if (true) print "world";
+[33m[stage-7] [test-2] [0m[33m[test.lox][0m if (false) {
+[33m[stage-7] [test-2] [0m[33m[test.lox][0m   print "bar";
+[33m[stage-7] [test-2] [0m[33m[test.lox][0m } else if (false) print "bar";
 [33m[stage-7] [test-2] [0m[33m[test.lox][0m 
-[33m[stage-7] [test-2] [0m[33m[test.lox][0m if (true) print "world"; else if (true) {
-[33m[stage-7] [test-2] [0m[33m[test.lox][0m   print "world";
+[33m[stage-7] [test-2] [0m[33m[test.lox][0m if (false) print "bar"; else if (false) {
+[33m[stage-7] [test-2] [0m[33m[test.lox][0m   print "bar";
 [33m[stage-7] [test-2] [0m[33m[test.lox][0m }
 [33m[stage-7] [test-2] [0m[33m[test.lox][0m 
 [33m[stage-7] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0mworld
-[33m[your_program] [0mworld
-[33m[stage-7] [test-2] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-7] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-7] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-7] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-3] [0m[33m[test.lox][0m var age = 70;
+[33m[stage-7] [test-3] [0m[33m[test.lox][0m var age = 62;
 [33m[stage-7] [test-3] [0m[33m[test.lox][0m var stage = "unknown";
 [33m[stage-7] [test-3] [0m[33m[test.lox][0m if (age < 18) { stage = "child"; }
 [33m[stage-7] [test-3] [0m[33m[test.lox][0m else if (age >= 18) { stage = "adult"; }
@@ -139,7 +136,7 @@ Debug = true
 [33m[stage-7] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-7] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-4] [0m[33m[test.lox][0m var age = 18;
+[33m[stage-7] [test-4] [0m[33m[test.lox][0m var age = 79;
 [33m[stage-7] [test-4] [0m[33m[test.lox][0m 
 [33m[stage-7] [test-4] [0m[33m[test.lox][0m var isAdult = age >= 18;
 [33m[stage-7] [test-4] [0m[33m[test.lox][0m if (isAdult) { print "eligible for voting: true"; }
@@ -154,7 +151,7 @@ Debug = true
 [33m[stage-7] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0meligible for voting: true
 [33m[your_program] [0meligible for driving: full license
-[33m[your_program] [0meligible for drinking (US): false
+[33m[your_program] [0meligible for drinking (US): true
 [33m[stage-7] [test-4] [0m[92m✓ 3 line(s) match on stdout[0m
 [33m[stage-7] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [0m[92mTest passed.[0m
@@ -171,16 +168,16 @@ Debug = true
 [33m[stage-6] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-6] [test-2] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-6] [test-2] [0m[33m[test.lox][0m if (true) {
-[33m[stage-6] [test-2] [0m[33m[test.lox][0m   if (true) print "hello"; else print "hello";
+[33m[stage-6] [test-2] [0m[33m[test.lox][0m   if (true) print "baz"; else print "baz";
 [33m[stage-6] [test-2] [0m[33m[test.lox][0m }
 [33m[stage-6] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0mhello
+[33m[your_program] [0mbaz
 [33m[stage-6] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-6] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-6] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-6] [test-3] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-6] [test-3] [0m[33m[test.lox][0m var stage = "unknown";
-[33m[stage-6] [test-3] [0m[33m[test.lox][0m var age = 43;
+[33m[stage-6] [test-3] [0m[33m[test.lox][0m var age = 68;
 [33m[stage-6] [test-3] [0m[33m[test.lox][0m if (age < 18) {
 [33m[stage-6] [test-3] [0m[33m[test.lox][0m     if (age < 13) { stage = "child"; }
 [33m[stage-6] [test-3] [0m[33m[test.lox][0m     else if (age < 16) { stage = "young teenager"; }
@@ -218,7 +215,7 @@ Debug = true
 [33m[stage-6] [test-3] [0m[33m[test.lox][0m     if (age < 25) { print "remember: drink responsibly!"; }
 [33m[stage-6] [test-3] [0m[33m[test.lox][0m }
 [33m[stage-6] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0madult
+[33m[your_program] [0msenior
 [33m[your_program] [0meligible for voting: true
 [33m[your_program] [0mfirst-time voter: unlikely
 [33m[your_program] [0meligible for driving: full license
@@ -227,9 +224,9 @@ Debug = true
 [33m[stage-6] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-6] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-6] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-4] [0m[33m[test.lox][0m if (true) if (false) print "quz"; else print "hello";
+[33m[stage-6] [test-4] [0m[33m[test.lox][0m if (true) if (false) print "bar"; else print "foo";
 [33m[stage-6] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0mhello
+[33m[your_program] [0mfoo
 [33m[stage-6] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-6] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-6] [0m[92mTest passed.[0m
@@ -243,33 +240,33 @@ Debug = true
 [33m[stage-5] [test-1] [0m[33m[test.lox][0m if (false or false) print "bar";
 [33m[stage-5] [test-1] [0m[33m[test.lox][0m if (true or "bar") print "bar";
 [33m[stage-5] [test-1] [0m[33m[test.lox][0m 
-[33m[stage-5] [test-1] [0m[33m[test.lox][0m if (10 or "baz") print "baz";
-[33m[stage-5] [test-1] [0m[33m[test.lox][0m if ("baz" or "baz") print "baz";
+[33m[stage-5] [test-1] [0m[33m[test.lox][0m if (67 or "hello") print "hello";
+[33m[stage-5] [test-1] [0m[33m[test.lox][0m if ("hello" or "hello") print "hello";
 [33m[stage-5] [test-1] [0m[33m[test.lox][0m 
 [33m[stage-5] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mworld
 [33m[your_program] [0mworld
 [33m[your_program] [0mbar
-[33m[your_program] [0mbaz
-[33m[your_program] [0mbaz
+[33m[your_program] [0mhello
+[33m[your_program] [0mhello
 [33m[stage-5] [test-1] [0m[92m✓ 5 line(s) match on stdout[0m
 [33m[stage-5] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-5] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-5] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test-2] [0m[33m[test.lox][0m print 49 or true;
-[33m[stage-5] [test-2] [0m[33m[test.lox][0m print false or 49;
+[33m[stage-5] [test-2] [0m[33m[test.lox][0m print 16 or true;
+[33m[stage-5] [test-2] [0m[33m[test.lox][0m print false or 16;
 [33m[stage-5] [test-2] [0m[33m[test.lox][0m print false or false or true;
 [33m[stage-5] [test-2] [0m[33m[test.lox][0m 
 [33m[stage-5] [test-2] [0m[33m[test.lox][0m print false or false;
 [33m[stage-5] [test-2] [0m[33m[test.lox][0m print false or false or false;
-[33m[stage-5] [test-2] [0m[33m[test.lox][0m print true or true or true or true;
+[33m[stage-5] [test-2] [0m[33m[test.lox][0m print false or false or false or false;
 [33m[stage-5] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m49
-[33m[your_program] [0m49
+[33m[your_program] [0m16
+[33m[your_program] [0m16
 [33m[your_program] [0mtrue
 [33m[your_program] [0mfalse
 [33m[your_program] [0mfalse
-[33m[your_program] [0mtrue
+[33m[your_program] [0mfalse
 [33m[stage-5] [test-2] [0m[92m✓ 6 line(s) match on stdout[0m
 [33m[stage-5] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-5] [test-3] [0m[94mRunning test case: 3[0m
@@ -287,7 +284,7 @@ Debug = true
 [33m[stage-5] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-5] [test-4] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-5] [test-4] [0m[33m[test.lox][0m var stage = "unknown";
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m var age = 69;
+[33m[stage-5] [test-4] [0m[33m[test.lox][0m var age = 79;
 [33m[stage-5] [test-4] [0m[33m[test.lox][0m if (age < 18) { stage = "child"; }
 [33m[stage-5] [test-4] [0m[33m[test.lox][0m if (age >= 18) { stage = "adult"; }
 [33m[stage-5] [test-4] [0m[33m[test.lox][0m print stage;
@@ -305,34 +302,34 @@ Debug = true
 [33m[stage-4] [0m[94mRunning tests for Stage #4: jx4[0m
 [33m[stage-4] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-4] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-1] [0m[33m[test.lox][0m if (false and "bad") print "baz";
-[33m[stage-4] [test-1] [0m[33m[test.lox][0m if (nil and "bad") print "baz";
+[33m[stage-4] [test-1] [0m[33m[test.lox][0m if (false and "bad") print "hello";
+[33m[stage-4] [test-1] [0m[33m[test.lox][0m if (nil and "bad") print "hello";
 [33m[stage-4] [test-1] [0m[33m[test.lox][0m 
-[33m[stage-4] [test-1] [0m[33m[test.lox][0m if (true and "quz") print "quz";
-[33m[stage-4] [test-1] [0m[33m[test.lox][0m if (63 and "hello") print "hello";
-[33m[stage-4] [test-1] [0m[33m[test.lox][0m if ("hello" and "hello") print "hello";
-[33m[stage-4] [test-1] [0m[33m[test.lox][0m if ("" and "bar") print "bar";
+[33m[stage-4] [test-1] [0m[33m[test.lox][0m if (true and "baz") print "baz";
+[33m[stage-4] [test-1] [0m[33m[test.lox][0m if (77 and "quz") print "quz";
+[33m[stage-4] [test-1] [0m[33m[test.lox][0m if ("quz" and "quz") print "quz";
+[33m[stage-4] [test-1] [0m[33m[test.lox][0m if ("" and "world") print "world";
 [33m[stage-4] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mbaz
 [33m[your_program] [0mquz
-[33m[your_program] [0mhello
-[33m[your_program] [0mhello
-[33m[your_program] [0mbar
+[33m[your_program] [0mquz
+[33m[your_program] [0mworld
 [33m[stage-4] [test-1] [0m[92m✓ 4 line(s) match on stdout[0m
 [33m[stage-4] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-4] [test-2] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-4] [test-2] [0m[33m[test.lox][0m print false and 1;
 [33m[stage-4] [test-2] [0m[33m[test.lox][0m print true and 1;
-[33m[stage-4] [test-2] [0m[33m[test.lox][0m print 65 and "baz" and false;
+[33m[stage-4] [test-2] [0m[33m[test.lox][0m print 59 and "quz" and false;
 [33m[stage-4] [test-2] [0m[33m[test.lox][0m 
-[33m[stage-4] [test-2] [0m[33m[test.lox][0m print 65 and true;
-[33m[stage-4] [test-2] [0m[33m[test.lox][0m print 65 and "baz" and 65;
+[33m[stage-4] [test-2] [0m[33m[test.lox][0m print 59 and true;
+[33m[stage-4] [test-2] [0m[33m[test.lox][0m print 59 and "quz" and 59;
 [33m[stage-4] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mfalse
 [33m[your_program] [0m1
 [33m[your_program] [0mfalse
 [33m[your_program] [0mtrue
-[33m[your_program] [0m65
+[33m[your_program] [0m59
 [33m[stage-4] [test-2] [0m[92m✓ 5 line(s) match on stdout[0m
 [33m[stage-4] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-3] [0m[94mRunning test case: 3[0m
@@ -350,7 +347,7 @@ Debug = true
 [33m[stage-4] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-4] [test-4] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-4] [test-4] [0m[33m[test.lox][0m var stage = "unknown";
-[33m[stage-4] [test-4] [0m[33m[test.lox][0m var age = 55;
+[33m[stage-4] [test-4] [0m[33m[test.lox][0m var age = 62;
 [33m[stage-4] [test-4] [0m[33m[test.lox][0m if (age < 18) { stage = "child"; }
 [33m[stage-4] [test-4] [0m[33m[test.lox][0m if (age >= 18) { stage = "adult"; }
 [33m[stage-4] [test-4] [0m[33m[test.lox][0m print stage;
@@ -368,8 +365,8 @@ Debug = true
 [33m[stage-3] [0m[94mRunning tests for Stage #3: qy3[0m
 [33m[stage-3] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-3] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-1] [0m[33m[test.lox][0m var foo = 0;
-[33m[stage-3] [test-1] [0m[33m[test.lox][0m while (foo < 3) print foo = foo + 1;
+[33m[stage-3] [test-1] [0m[33m[test.lox][0m var baz = 0;
+[33m[stage-3] [test-1] [0m[33m[test.lox][0m while (baz < 3) print baz = baz + 1;
 [33m[stage-3] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m1
 [33m[your_program] [0m2
@@ -378,10 +375,10 @@ Debug = true
 [33m[stage-3] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-3] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-3] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-2] [0m[33m[test.lox][0m var world = 0;
-[33m[stage-3] [test-2] [0m[33m[test.lox][0m while (world < 3) {
-[33m[stage-3] [test-2] [0m[33m[test.lox][0m   print world;
-[33m[stage-3] [test-2] [0m[33m[test.lox][0m   world = world + 1;
+[33m[stage-3] [test-2] [0m[33m[test.lox][0m var baz = 0;
+[33m[stage-3] [test-2] [0m[33m[test.lox][0m while (baz < 3) {
+[33m[stage-3] [test-2] [0m[33m[test.lox][0m   print baz;
+[33m[stage-3] [test-2] [0m[33m[test.lox][0m   baz = baz + 1;
 [33m[stage-3] [test-2] [0m[33m[test.lox][0m }
 [33m[stage-3] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m0
@@ -440,7 +437,7 @@ Debug = true
 [33m[stage-2] [0m[94mRunning tests for Stage #2: bw6[0m
 [33m[stage-2] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-2] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-1] [0m[33m[test.lox][0m for (var baz = 0; baz < 3;) print baz = baz + 1;
+[33m[stage-2] [test-1] [0m[33m[test.lox][0m for (var hello = 0; hello < 3;) print hello = hello + 1;
 [33m[stage-2] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m1
 [33m[your_program] [0m2
@@ -449,8 +446,8 @@ Debug = true
 [33m[stage-2] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-2] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-2] [0m[33m[test.lox][0m for (var hello = 0; hello < 3; hello = hello + 1) {
-[33m[stage-2] [test-2] [0m[33m[test.lox][0m   print hello;
+[33m[stage-2] [test-2] [0m[33m[test.lox][0m for (var bar = 0; bar < 3; bar = bar + 1) {
+[33m[stage-2] [test-2] [0m[33m[test.lox][0m   print bar;
 [33m[stage-2] [test-2] [0m[33m[test.lox][0m }
 [33m[stage-2] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m0
@@ -460,12 +457,12 @@ Debug = true
 [33m[stage-2] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-2] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m var world = 0;
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m for (; world < 2; world = world + 1) print world;
+[33m[stage-2] [test-3] [0m[33m[test.lox][0m var baz = 0;
+[33m[stage-2] [test-3] [0m[33m[test.lox][0m for (; baz < 2; baz = baz + 1) print baz;
 [33m[stage-2] [test-3] [0m[33m[test.lox][0m 
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m for (var quz = 0; quz < 2;) {
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m   print quz;
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m   quz = quz + 1;
+[33m[stage-2] [test-3] [0m[33m[test.lox][0m for (var bar = 0; bar < 2;) {
+[33m[stage-2] [test-3] [0m[33m[test.lox][0m   print bar;
+[33m[stage-2] [test-3] [0m[33m[test.lox][0m   bar = bar + 1;
 [33m[stage-2] [test-3] [0m[33m[test.lox][0m }
 [33m[stage-2] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m0
@@ -476,25 +473,25 @@ Debug = true
 [33m[stage-2] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-2] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m var world = "after";
+[33m[stage-2] [test-4] [0m[33m[test.lox][0m var baz = "after";
 [33m[stage-2] [test-4] [0m[33m[test.lox][0m {
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m   var world = "before";
+[33m[stage-2] [test-4] [0m[33m[test.lox][0m   var baz = "before";
 [33m[stage-2] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m   for (var world = 0; world < 1; world = world + 1) {
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m     print world;
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m     var world = -1;
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m     print world;
+[33m[stage-2] [test-4] [0m[33m[test.lox][0m   for (var baz = 0; baz < 1; baz = baz + 1) {
+[33m[stage-2] [test-4] [0m[33m[test.lox][0m     print baz;
+[33m[stage-2] [test-4] [0m[33m[test.lox][0m     var baz = -1;
+[33m[stage-2] [test-4] [0m[33m[test.lox][0m     print baz;
 [33m[stage-2] [test-4] [0m[33m[test.lox][0m   }
 [33m[stage-2] [test-4] [0m[33m[test.lox][0m }
 [33m[stage-2] [test-4] [0m[33m[test.lox][0m 
 [33m[stage-2] [test-4] [0m[33m[test.lox][0m {
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m   for (var world = 0; world > 0; world = world + 1) {}
+[33m[stage-2] [test-4] [0m[33m[test.lox][0m   for (var baz = 0; baz > 0; baz = baz + 1) {}
 [33m[stage-2] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m   var world = "after";
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m   print world;
+[33m[stage-2] [test-4] [0m[33m[test.lox][0m   var baz = "after";
+[33m[stage-2] [test-4] [0m[33m[test.lox][0m   print baz;
 [33m[stage-2] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m   for (world = 0; world < 1; world = world + 1) {
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m     print world;
+[33m[stage-2] [test-4] [0m[33m[test.lox][0m   for (baz = 0; baz < 1; baz = baz + 1) {
+[33m[stage-2] [test-4] [0m[33m[test.lox][0m     print baz;
 [33m[stage-2] [test-4] [0m[33m[test.lox][0m   }
 [33m[stage-2] [test-4] [0m[33m[test.lox][0m }
 [33m[stage-2] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
