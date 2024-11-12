@@ -83,7 +83,7 @@ func TestStages(t *testing.T) {
 func normalizeTesterOutput(testerOutput []byte) []byte {
 	replacements := map[string][]*regexp.Regexp{
 		"clock_exponent_notation": {regexp.MustCompile(`1.[0-9]*E[0-9]`)},
-		"clock_decimal_notation":  {regexp.MustCompile(`[0-9]{7,10}\.[0-9]{5,6}`)}, // This is much more restrictive so as to not match any other numbers
+		"clock_decimal_notation":  {regexp.MustCompile(`[0-9]{7,10}\.[0-9]{4,6}`)}, // This is much more restrictive so as to not match any other numbers
 	}
 
 	for replacement, regexes := range replacements {
