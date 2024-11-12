@@ -19,6 +19,6 @@ fun calculateGrade(score, bonus) {
 }
 
 var score = <<RANDOM_INTEGER>>;
-var bonus = <<RANDOM_INTEGER>>;
+var bonus = <<RANDOM_DIGIT>>;
 print "Grade for given score is: ";
 calculateGrade(score, bonus);

@@ -14,8 +14,8 @@ fun applyTwice(f, x) {
   return f(f(x));
 }
 
-var add5 = makeAdder(5);
-var add10 = makeAdder(10);
+var addx = makeAdder(<<RANDOM_DIGIT>>);
+var addy = makeAdder(<<RANDOM_DIGIT>>);
 
-print applyTwice(add5, 1);    // Prints: 11 (adds 5 twice)
-print applyTwice(add10, 0);   // Prints: 20 (adds 10 twice)
+print applyTwice(addx, <<RANDOM_DIGIT>>);
+print applyTwice(addy, <<RANDOM_DIGIT>>);

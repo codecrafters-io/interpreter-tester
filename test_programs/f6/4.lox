@@ -28,7 +28,7 @@ var greaterThanX = makeFilter(<<RANDOM_INTEGER_1>>);
 var greaterThanY = makeFilter(<<RANDOM_INTEGER_2>>);
 
 print "Numbers >= <<RANDOM_INTEGER_1>>:";
-applyToNumbers(greaterThanX, <<RANDOM_INTEGER_1>> + 5);  // prints: 3, 4, 5, 6
+applyToNumbers(greaterThanX, <<RANDOM_INTEGER_1>> + <<RANDOM_DIGIT>>);
 
 print "Numbers >= <<RANDOM_INTEGER_2>>:";
-applyToNumbers(greaterThanY, <<RANDOM_INTEGER_2>> + 5);  // prints: 5, 6
+applyToNumbers(greaterThanY, <<RANDOM_INTEGER_2>> + <<RANDOM_DIGIT>>);

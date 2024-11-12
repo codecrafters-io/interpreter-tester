@@ -29,10 +29,10 @@ fun makeAccumulator(label) {
 var acc1 = makeAccumulator("First:");
 var acc2 = makeAccumulator("Second:");
 
-acc1(5);
-acc1(3);
-acc1(2);
-acc1(1);
+acc1(<<RANDOM_DIGIT_1>>);
+acc1(<<RANDOM_DIGIT_2>>);
+acc1(<<RANDOM_DIGIT_3>>);
+acc1(<<RANDOM_DIGIT_4>>);
 
-acc2(10);
-acc2(20);
+acc2(<<RANDOM_DIGIT_2>>);
+acc2(<<RANDOM_DIGIT_4>>);

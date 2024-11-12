@@ -4,17 +4,17 @@ expected_error_type: none
 // This program demonstrates variable shadowing in Lox.
 // The first counter is a global variable that is modified by the inner block.
 // The second counter is a local variable that shadows the global variable.
-var counter = 0;
+var counter = <<RANDOM_INTEGER>>;
 {
-  counter = counter + 1;
+  counter = counter + <<RANDOM_DIGIT>>;
   {
-    counter = counter + 1;
+    counter = counter + <<RANDOM_DIGIT>>;
     print counter;
   }
 }
 print counter;
 {
-  var counter = 100;
+  var counter = <<RANDOM_INTEGER>>;
   print counter;
 }
 print counter;

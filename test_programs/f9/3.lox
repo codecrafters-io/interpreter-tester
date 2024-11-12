@@ -11,7 +11,7 @@ fun makeLogger(prefix) {
     logCount = logCount + 1;
     print prefix + ": " + message;
 
-    if (logCount > 3) {
+    if (logCount > <<RANDOM_DIGIT>>) {
       print prefix + ": Too many log lines!";
       logCount = 0;
     }
