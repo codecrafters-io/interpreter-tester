@@ -1,14 +1,14 @@
 Debug = true
 
-[33m[stage-9] [0m[94mRunning tests for Stage #9: f1[0m
+[33m[stage-9] [0m[94mRunning tests for Stage #9: av4[0m
 [33m[stage-9] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-9] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-9] [test-1] [0m[33m[test.lox][0m 
 [33m[stage-9] [test-1] [0m[33m[test.lox][0m print clock() + 23;
 [33m[stage-9] [test-1] [0m[33m[test.lox][0m 
 [33m[stage-9] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1.73140857356E9
-[33m[stage-9] [test-1] [0m[92m✓ 1731408573.560000[0m
+[33m[your_program] [0m1.731410245535E9
+[33m[stage-9] [test-1] [0m[92m✓ 1731410245.535000[0m
 [33m[stage-9] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-9] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-2] [0m[94mRunning test case: 2[0m
@@ -17,8 +17,8 @@ Debug = true
 [33m[stage-9] [test-2] [0m[33m[test.lox][0m print clock() / 1000;
 [33m[stage-9] [test-2] [0m[33m[test.lox][0m 
 [33m[stage-9] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1731408.550634
-[33m[stage-9] [test-2] [0m[92m✓ 1731408.550634[0m
+[33m[your_program] [0m1731410.222608
+[33m[stage-9] [test-2] [0m[92m✓ 1731410.222608[0m
 [33m[stage-9] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-9] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-3] [0m[94mRunning test case: 3[0m
@@ -84,7 +84,7 @@ Debug = true
 [33m[stage-9] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [0m[92mTest passed.[0m
 
-[33m[stage-8] [0m[94mRunning tests for Stage #8: f2[0m
+[33m[stage-8] [0m[94mRunning tests for Stage #8: pg8[0m
 [33m[stage-8] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-8] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-8] [test-1] [0m[33m[test.lox][0m // This function, when invoked should print 55
@@ -135,7 +135,7 @@ Debug = true
 [33m[stage-8] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [0m[92mTest passed.[0m
 
-[33m[stage-7] [0m[94mRunning tests for Stage #7: f3[0m
+[33m[stage-7] [0m[94mRunning tests for Stage #7: lb6[0m
 [33m[stage-7] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-7] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-7] [test-1] [0m[33m[test.lox][0m // This is a simple function that takes one argument and prints it
@@ -194,7 +194,7 @@ Debug = true
 [33m[stage-7] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [0m[92mTest passed.[0m
 
-[33m[stage-6] [0m[94mRunning tests for Stage #6: f4[0m
+[33m[stage-6] [0m[94mRunning tests for Stage #6: px4[0m
 [33m[stage-6] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-6] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-6] [test-1] [0m[33m[test.lox][0m // This program is missing the closing parenthesis for the function call
@@ -236,7 +236,7 @@ Debug = true
 [33m[stage-6] [test-4] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-6] [0m[92mTest passed.[0m
 
-[33m[stage-5] [0m[94mRunning tests for Stage #5: f5[0m
+[33m[stage-5] [0m[94mRunning tests for Stage #5: rd2[0m
 [33m[stage-5] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-5] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-5] [test-1] [0m[33m[test.lox][0m // This program computes the 35th Fibonacci number
@@ -292,7 +292,7 @@ Debug = true
 [33m[stage-5] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-5] [0m[92mTest passed.[0m
 
-[33m[stage-4] [0m[94mRunning tests for Stage #4: f6[0m
+[33m[stage-4] [0m[94mRunning tests for Stage #4: ey3[0m
 [33m[stage-4] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-4] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-4] [test-1] [0m[33m[test.lox][0m // This program creates a function that returns another function
@@ -411,7 +411,7 @@ Debug = true
 [33m[stage-4] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [0m[92mTest passed.[0m
 
-[33m[stage-3] [0m[94mRunning tests for Stage #3: f7[0m
+[33m[stage-3] [0m[94mRunning tests for Stage #3: fj7[0m
 [33m[stage-3] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-3] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-3] [test-1] [0m[33m[test.lox][0m 25();
@@ -453,7 +453,7 @@ Debug = true
 [33m[stage-3] [test-4] [0m[92m✓ Received exit code 70.[0m
 [33m[stage-3] [0m[92mTest passed.[0m
 
-[33m[stage-2] [0m[94mRunning tests for Stage #2: f8[0m
+[33m[stage-2] [0m[94mRunning tests for Stage #2: bz4[0m
 [33m[stage-2] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-2] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-2] [test-1] [0m[33m[test.lox][0m // This program demonstrates global and local variable shadowing in Lox.
@@ -590,7 +590,7 @@ Debug = true
 [33m[stage-2] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [0m[92mTest passed.[0m
 
-[33m[stage-1] [0m[94mRunning tests for Stage #1: f9[0m
+[33m[stage-1] [0m[94mRunning tests for Stage #1: gg6[0m
 [33m[stage-1] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-1] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-1] [test-1] [0m[33m[test.lox][0m // This program demonstrates the use of closures to create a counter function.
