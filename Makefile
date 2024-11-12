@@ -142,7 +142,14 @@ test_functions_w_jlox: build
 	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap10_functions \
 	CODECRAFTERS_TEST_CASES_JSON="[ \
 		{\"slug\":\"f1\",\"tester_log_prefix\":\"stage_601\",\"title\":\"Stage #601: Functions: Native Functions\"}, \
-		{\"slug\":\"f2\",\"tester_log_prefix\":\"stage_602\",\"title\":\"Stage #602: Functions: No arguments\"} \
+		{\"slug\":\"f2\",\"tester_log_prefix\":\"stage_602\",\"title\":\"Stage #602: Functions: No arguments\"}, \
+		{\"slug\":\"f3\",\"tester_log_prefix\":\"stage_603\",\"title\":\"Stage #603: Functions: With arguments\"}, \
+		{\"slug\":\"f4\",\"tester_log_prefix\":\"stage_604\",\"title\":\"Stage #604: Functions: Syntax errors\"}, \
+		{\"slug\":\"f5\",\"tester_log_prefix\":\"stage_605\",\"title\":\"Stage #605: Functions: Return statements\"}, \
+		{\"slug\":\"f6\",\"tester_log_prefix\":\"stage_606\",\"title\":\"Stage #606: Functions: Higher order Functions\"}, \
+		{\"slug\":\"f7\",\"tester_log_prefix\":\"stage_607\",\"title\":\"Stage #607: Functions: Runtime Errors\"}, \
+		{\"slug\":\"f8\",\"tester_log_prefix\":\"stage_608\",\"title\":\"Stage #608: Functions: Scope\"}, \
+		{\"slug\":\"f9\",\"tester_log_prefix\":\"stage_609\",\"title\":\"Stage #609: Functions: Closures\"} \
 	]" \
 	$(shell pwd)/dist/main.out
 
