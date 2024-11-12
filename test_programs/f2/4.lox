@@ -1,19 +1,17 @@
 ---
 expected_error_type: none
 ---
-// This program uses a while loop to count down from 5 to 1, printing each number
-// and then decrementing the count until it reaches 0, at which point it prints
-// "Blast off!"
-var count = 5;
-
-fun tick() {
-  if (count > 0) {
-    print count;
-    count = count - 1;
-    return false;
-  }
-  print "Blast off!";
-  return true;
+// This program demonstrates the use of recursive functions to determine if a number is even or odd.
+// This is a classic example of mutual recursion.
+fun isEven(n) {
+  if (n == 0) return true;
+  return isOdd(n - 1);
 }
 
-while (!tick()) {}
+fun isOdd(n) {
+  if (n == 0) return false;
+  return isEven(n - 1);
+}
+
+print isEven(4); // expect: true
+print isOdd(3); // expect: true

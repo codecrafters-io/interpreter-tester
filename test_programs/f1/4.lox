@@ -11,7 +11,7 @@ while (!completed) {
   var currentTime = clock();
   var elapsedTime = currentTime - startTime;
   var remainingTime = totalDuration - elapsedTime;
-  
+
   // Update progress every second
   if (currentTime >= lastCheck + 1) {
     if (remainingTime >= 2) {

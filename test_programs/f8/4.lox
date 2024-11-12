@@ -20,7 +20,7 @@ fun printBoth() {
   var x = 10;
   {
     var y = 20;
-    
+
     var i = 0;
     while (i < 3) {
       x = x + 1;
@@ -31,11 +31,11 @@ fun printBoth() {
       print y;
       i = i + 1;
     }
-    
+
     if (x > y) {
       print "Local x > y";
     }
-    
+
     printBoth();
   }
 }

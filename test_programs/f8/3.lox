@@ -1,7 +1,7 @@
 ---
 expected_error_type: none
 ---
-// This program demonstrates variable shadowing in Lox. 
+// This program demonstrates variable shadowing in Lox.
 // The first counter is a global variable that is modified by the inner block.
 // The second counter is a local variable that shadows the global variable.
 var counter = 0;

@@ -4,7 +4,7 @@ expected_error_type: none
 // This function takes two arguments and prints the grade based on the score and bonus
 fun calculateGrade(score, bonus) {
   var finalScore = score + bonus;
-  
+
   if (finalScore >= 90) {
     print "A";
   } else if (finalScore >= 80) {
