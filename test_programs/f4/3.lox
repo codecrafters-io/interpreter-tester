@@ -1,0 +1,7 @@
+---
+expected_error_type: compile
+---
+// This function declaration is missing the opening and closing braces
+// The body should always be inside a block
+fun f() 123;
+print f();

@@ -1,0 +1,6 @@
+---
+expected_error_type: compile
+---
+// This program is missing the opening parenthesis for the function call,
+// and has extra closing parentheses
+print clock)));
