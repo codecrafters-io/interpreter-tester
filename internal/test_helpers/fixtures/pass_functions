@@ -5,16 +5,16 @@ Debug = true
 [33m[stage-9] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-9] [test-1] [0m[33m[test.lox][0m print clock() + 23;
 [33m[stage-9] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1.731410441286E9
-[33m[stage-9] [test-1] [0m[92m✓ 1731410441.286000[0m
+[33m[your_program] [0m1.731516408637E9
+[33m[stage-9] [test-1] [0m[92m✓ 1731516408.637000[0m
 [33m[stage-9] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-9] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-9] [test-2] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-9] [test-2] [0m[33m[test.lox][0m print clock() / 1000;
 [33m[stage-9] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1731410.418358
-[33m[stage-9] [test-2] [0m[92m✓ 1731410.418358[0m
+[33m[your_program] [0m1731516.385787
+[33m[stage-9] [test-2] [0m[92m✓ 1731516.385787[0m
 [33m[stage-9] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-9] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-3] [0m[94mRunning test case: 3[0m
@@ -34,49 +34,23 @@ Debug = true
 [33m[stage-9] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-9] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m // Store the start time
 [33m[stage-9] [test-4] [0m[33m[test.lox][0m var startTime = clock();
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m var totalDuration = 3; // 3 seconds countdown
 [33m[stage-9] [test-4] [0m[33m[test.lox][0m var lastCheck = startTime;
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m var completed = false;
+[33m[stage-9] [test-4] [0m[33m[test.lox][0m var running = true;
 [33m[stage-9] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m while (!completed) {
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m   var currentTime = clock();
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m   var elapsedTime = currentTime - startTime;
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m   var remainingTime = totalDuration - elapsedTime;
+[33m[stage-9] [test-4] [0m[33m[test.lox][0m print "Starting timer for 0.2 seconds";
+[33m[stage-9] [test-4] [0m[33m[test.lox][0m var startTime = clock();
 [33m[stage-9] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m   // Update progress every second
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m   if (currentTime >= lastCheck + 1) {
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m     if (remainingTime >= 2) {
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m       print "Plenty of time remaining: ";
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m       print remainingTime;
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m     } else if (remainingTime >= 1) {
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m       print "Getting closer: ";
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m       print remainingTime;
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m     } else if (remainingTime > 0) {
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m       print "Almost there: ";
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m       print remainingTime;
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m     }
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m     lastCheck = currentTime;
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m   }
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m   // Check for completion
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m   if (elapsedTime >= totalDuration) {
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m     completed = true;
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m     print "Countdown complete!";
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m   } else if (elapsedTime < 0) {
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m     // Handle clock overflow or system time changes
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m     print "Time error detected!";
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m     completed = true;
+[33m[stage-9] [test-4] [0m[33m[test.lox][0m while (running) {
+[33m[stage-9] [test-4] [0m[33m[test.lox][0m   if (clock() > startTime + 0.2) {
+[33m[stage-9] [test-4] [0m[33m[test.lox][0m     print "Timer ended";
+[33m[stage-9] [test-4] [0m[33m[test.lox][0m     running = false;
 [33m[stage-9] [test-4] [0m[33m[test.lox][0m   }
 [33m[stage-9] [test-4] [0m[33m[test.lox][0m }
 [33m[stage-9] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0mPlenty of time remaining: 
-[33m[your_program] [0m2
-[33m[your_program] [0mGetting closer: 
-[33m[your_program] [0m1
-[33m[your_program] [0mCountdown complete!
-[33m[stage-9] [test-4] [0m[92m✓ 5 line(s) match on stdout[0m
+[33m[your_program] [0mStarting timer for 0.2 seconds
+[33m[your_program] [0mTimer ended
+[33m[stage-9] [test-4] [0m[92m✓ 2 line(s) match on stdout[0m
 [33m[stage-9] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [0m[92mTest passed.[0m
 
@@ -242,8 +216,9 @@ Debug = true
 [33m[stage-5] [test-1] [0m[33m[test.lox][0m }
 [33m[stage-5] [test-1] [0m[33m[test.lox][0m 
 [33m[stage-5] [test-1] [0m[33m[test.lox][0m var start = clock();
-[33m[stage-5] [test-1] [0m[33m[test.lox][0m print fib(32) == 2178309;
+[33m[stage-5] [test-1] [0m[33m[test.lox][0m print fib(10) == 55;
 [33m[stage-5] [test-1] [0m[33m[test.lox][0m print (clock() - start) < 5; // 5 seconds
+[33m[stage-5] [test-1] [0m[33m[test.lox][0m 
 [33m[stage-5] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mtrue
 [33m[your_program] [0mtrue
@@ -453,17 +428,17 @@ Debug = true
 [33m[stage-2] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-2] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-2] [test-1] [0m[33m[test.lox][0m // This program demonstrates global and local variable shadowing in Lox.
-[33m[stage-2] [test-1] [0m[33m[test.lox][0m var a = 11;
+[33m[stage-2] [test-1] [0m[33m[test.lox][0m var a = 81;
 [33m[stage-2] [test-1] [0m[33m[test.lox][0m {
 [33m[stage-2] [test-1] [0m[33m[test.lox][0m   print a;
-[33m[stage-2] [test-1] [0m[33m[test.lox][0m   var a = 11;
+[33m[stage-2] [test-1] [0m[33m[test.lox][0m   var a = 59;
 [33m[stage-2] [test-1] [0m[33m[test.lox][0m   print a;
 [33m[stage-2] [test-1] [0m[33m[test.lox][0m }
 [33m[stage-2] [test-1] [0m[33m[test.lox][0m print a;
 [33m[stage-2] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m11
-[33m[your_program] [0m11
-[33m[your_program] [0m11
+[33m[your_program] [0m81
+[33m[your_program] [0m59
+[33m[your_program] [0m81
 [33m[stage-2] [test-1] [0m[92m✓ 3 line(s) match on stdout[0m
 [33m[stage-2] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [test-2] [0m[94mRunning test case: 2[0m
@@ -595,7 +570,7 @@ Debug = true
 [33m[stage-1] [test-1] [0m[33m[test.lox][0m fun makeCounter() {
 [33m[stage-1] [test-1] [0m[33m[test.lox][0m   var i = 0;
 [33m[stage-1] [test-1] [0m[33m[test.lox][0m   fun count() {
-[33m[stage-1] [test-1] [0m[33m[test.lox][0m     i = i + 1;
+[33m[stage-1] [test-1] [0m[33m[test.lox][0m     i = i + 4;
 [33m[stage-1] [test-1] [0m[33m[test.lox][0m     print i;
 [33m[stage-1] [test-1] [0m[33m[test.lox][0m   }
 [33m[stage-1] [test-1] [0m[33m[test.lox][0m 
@@ -606,8 +581,8 @@ Debug = true
 [33m[stage-1] [test-1] [0m[33m[test.lox][0m counter();
 [33m[stage-1] [test-1] [0m[33m[test.lox][0m counter();
 [33m[stage-1] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1
-[33m[your_program] [0m2
+[33m[your_program] [0m4
+[33m[your_program] [0m8
 [33m[stage-1] [test-1] [0m[92m✓ 2 line(s) match on stdout[0m
 [33m[stage-1] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-1] [test-2] [0m[94mRunning test case: 2[0m
