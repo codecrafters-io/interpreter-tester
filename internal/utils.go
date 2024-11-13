@@ -109,7 +109,6 @@ func generateRandomValueForPlaceholderType(placeholderType string) string {
 	case "RANDOM_INTEGER": // Between 10 - 100
 		value = getRandIntAsString()
 	case "RANDOM_DIGIT": // Between 2 - 6
-		// ToDo
 		value = fmt.Sprintf("%d", random.RandomInt(2, 7))
 	default:
 		value = placeholderType

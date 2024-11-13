@@ -1,39 +1,16 @@
 ---
 expected_error_type: none
 ---
-// Store the start time
 var startTime = clock();
-var totalDuration = 3; // 3 seconds countdown
 var lastCheck = startTime;
-var completed = false;
+var running = true;
 
-while (!completed) {
-  var currentTime = clock();
-  var elapsedTime = currentTime - startTime;
-  var remainingTime = totalDuration - elapsedTime;
+print "Starting timer for 0.2 seconds";
+var startTime = clock();
 
-  // Update progress every second
-  if (currentTime >= lastCheck + 1) {
-    if (remainingTime >= 2) {
-      print "Plenty of time remaining: ";
-      print remainingTime;
-    } else if (remainingTime >= 1) {
-      print "Getting closer: ";
-      print remainingTime;
-    } else if (remainingTime > 0) {
-      print "Almost there: ";
-      print remainingTime;
-    }
-    lastCheck = currentTime;
-  }
-
-  // Check for completion
-  if (elapsedTime >= totalDuration) {
-    completed = true;
-    print "Countdown complete!";
-  } else if (elapsedTime < 0) {
-    // Handle clock overflow or system time changes
-    print "Time error detected!";
-    completed = true;
+while (running) {
+  if (clock() > startTime + 0.2) {
+    print "Timer ended";
+    running = false;
   }
 }

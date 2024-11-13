@@ -27,6 +27,7 @@ func testClock(stageHarness *test_case_harness.TestCaseHarness) error {
 	secondTestCase := buildSingleLineClockOutputTestCase(secondTestCaseFileContents)
 	otherTestCases := GetTestCasesForCurrentStageWithRandomValues("f1")
 
+	// ToDo: Add integer assertion for fourthTestCase on time elapsed
 	testCases := []testcases.TestCase{}
 	testCases = append(testCases, &firstTestCase)
 	testCases = append(testCases, &secondTestCase)
