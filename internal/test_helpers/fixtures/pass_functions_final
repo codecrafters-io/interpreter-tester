@@ -5,16 +5,16 @@ Debug = true
 [33m[stage-9] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-9] [test-1] [0m[33m[test.lox][0m print clock() + 23;
 [33m[stage-9] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1.731519696285E9
-[33m[stage-9] [test-1] [0m[92m✓ 1731519696.285000[0m
+[33m[your_program] [0m1.731520075985E9
+[33m[stage-9] [test-1] [0m[92m✓ 1731520075.985000[0m
 [33m[stage-9] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-9] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-9] [test-2] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-9] [test-2] [0m[33m[test.lox][0m print clock() / 1000;
 [33m[stage-9] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1731519.673468
-[33m[stage-9] [test-2] [0m[92m✓ 1731519.673468[0m
+[33m[your_program] [0m1731520.053144
+[33m[stage-9] [test-2] [0m[92m✓ 1731520.053144[0m
 [33m[stage-9] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-9] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-3] [0m[94mRunning test case: 3[0m
@@ -427,8 +427,7 @@ Debug = true
 [33m[stage-2] [0m[94mRunning tests for Stage #2: bz4[0m
 [33m[stage-2] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-2] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-1] [0m[33m[test.lox][0m // This program demonstrates global and local variable shadowing in Lox,
-[33m[stage-2] [test-1] [0m[33m[test.lox][0m // including function scope.
+[33m[stage-2] [test-1] [0m[33m[test.lox][0m // This program demonstrates global and local variable shadowing in Lox.
 [33m[stage-2] [test-1] [0m[33m[test.lox][0m var a = 81;
 [33m[stage-2] [test-1] [0m[33m[test.lox][0m 
 [33m[stage-2] [test-1] [0m[33m[test.lox][0m fun printAndModify() {
@@ -474,7 +473,9 @@ Debug = true
 [33m[stage-2] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-2] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m // This program demonstrates variable shadowing in Lox with functions
+[33m[stage-2] [test-3] [0m[33m[test.lox][0m // This program demonstrates variable shadowing in Lox with functions.
+[33m[stage-2] [test-3] [0m[33m[test.lox][0m // The first counter is a global variable that is modified by the inner block.
+[33m[stage-2] [test-3] [0m[33m[test.lox][0m // The second counter is a local variable that shadows the global variable.
 [33m[stage-2] [test-3] [0m[33m[test.lox][0m var counter = 93;
 [33m[stage-2] [test-3] [0m[33m[test.lox][0m 
 [33m[stage-2] [test-3] [0m[33m[test.lox][0m fun incrementCounter(amount) {
