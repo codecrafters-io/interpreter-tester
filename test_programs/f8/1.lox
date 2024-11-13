@@ -2,10 +2,10 @@
 expected_error_type: none
 ---
 // This program demonstrates global and local variable shadowing in Lox.
-var a = <<RANDOM_INTEGER>>;
+var a = <<RANDOM_INTEGER_1>>;
 {
   print a;
-  var a = <<RANDOM_INTEGER>>;
+  var a = <<RANDOM_INTEGER_2>>;
   print a;
 }
 print a;
