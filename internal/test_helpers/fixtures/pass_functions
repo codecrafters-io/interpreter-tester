@@ -5,16 +5,16 @@ Debug = true
 [33m[stage-9] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-9] [test-1] [0m[33m[test.lox][0m print clock() + 23;
 [33m[stage-9] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1.731520035676E9
-[33m[stage-9] [test-1] [0m[92m✓ 1731520035.676000[0m
+[33m[your_program] [0m1.731566537833E9
+[33m[stage-9] [test-1] [0m[92m✓ 1731566537.833000[0m
 [33m[stage-9] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-9] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-9] [test-2] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-9] [test-2] [0m[33m[test.lox][0m print clock() / 1000;
 [33m[stage-9] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1731520.012833
-[33m[stage-9] [test-2] [0m[92m✓ 1731520.012833[0m
+[33m[your_program] [0m1731566.514949
+[33m[stage-9] [test-2] [0m[92m✓ 1731566.514949[0m
 [33m[stage-9] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-9] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-3] [0m[94mRunning test case: 3[0m
@@ -83,24 +83,23 @@ Debug = true
 [33m[stage-8] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-8] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m // This program demonstrates the use of recursive functions to determine if a number is even or odd.
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m // This is a classic example of mutual recursion.
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m fun isEven(n) {
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m   if (n == 0) return true;
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m   return isOdd(n - 1);
+[33m[stage-8] [test-4] [0m[33m[test.lox][0m // This program calculates the cumulative sum of numbers from 1 to n.
+[33m[stage-8] [test-4] [0m[33m[test.lox][0m fun cumulative_sum() {
+[33m[stage-8] [test-4] [0m[33m[test.lox][0m     var n = 10;  // Fixed value
+[33m[stage-8] [test-4] [0m[33m[test.lox][0m     var total = 0;
+[33m[stage-8] [test-4] [0m[33m[test.lox][0m     var i = 1;
+[33m[stage-8] [test-4] [0m[33m[test.lox][0m     while (i <= n) {
+[33m[stage-8] [test-4] [0m[33m[test.lox][0m         total = total + i;
+[33m[stage-8] [test-4] [0m[33m[test.lox][0m         i = i + 1;
+[33m[stage-8] [test-4] [0m[33m[test.lox][0m     }
+[33m[stage-8] [test-4] [0m[33m[test.lox][0m     print "The cumulative sum from 1 to 10 is: ";
+[33m[stage-8] [test-4] [0m[33m[test.lox][0m     print total;
 [33m[stage-8] [test-4] [0m[33m[test.lox][0m }
 [33m[stage-8] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m fun isOdd(n) {
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m   if (n == 0) return false;
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m   return isEven(n - 1);
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m }
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m print isEven(19);
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m print isOdd(43);
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m 
+[33m[stage-8] [test-4] [0m[33m[test.lox][0m cumulative_sum();
 [33m[stage-8] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0mfalse
-[33m[your_program] [0mtrue
+[33m[your_program] [0mThe cumulative sum from 1 to 10 is: 
+[33m[your_program] [0m55
 [33m[stage-8] [test-4] [0m[92m✓ 2 line(s) match on stdout[0m
 [33m[stage-8] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [0m[92mTest passed.[0m
