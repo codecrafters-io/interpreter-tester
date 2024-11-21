@@ -63,9 +63,9 @@ func NewRunTestCaseFromFilePath(filePath string) RunTestCase {
 		panic(fmt.Sprintf("CodeCrafters Internal Error: %s has malformed frontmatter: missing expected_error_type field", filePath))
 	}
 
-	if !(frontMatter.ExpectedErrorType == "none" ||
-		frontMatter.ExpectedErrorType == "compile" ||
-		frontMatter.ExpectedErrorType == "runtime") {
+	if frontMatter.ExpectedErrorType != "none" &&
+		frontMatter.ExpectedErrorType != "compile" &&
+		frontMatter.ExpectedErrorType != "runtime" {
 		panic(fmt.Sprintf("CodeCrafters Internal Error: %s has malformed frontmatter field: expected_error_type shouldn't be %s", filePath, frontMatter.ExpectedErrorType))
 	}
 
@@ -100,9 +100,8 @@ func (t *RunTestCase) Run(executable *interpreter_executable.InterpreterExecutab
 	if t.ExpectedExitCode != ourLoxExitCode {
 		return fmt.Errorf("CodeCrafters internal error: faulty test case, expected %d exit code, our lox returned %d", t.ExpectedExitCode, ourLoxExitCode)
 	}
-
 	if result.ExitCode != t.ExpectedExitCode {
-		return fmt.Errorf("expected exit code %v, got %v", t.ExpectedExitCode, result.ExitCode)
+		return fmt.Errorf("expected %v (exit code %v), got exit code %v", exitCodeToErrorTypeMapping[t.ExpectedExitCode], t.ExpectedExitCode, result.ExitCode)
 	}
 
 	if t.OutputAssertion == nil {
