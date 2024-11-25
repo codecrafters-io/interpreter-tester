@@ -1,6 +1,8 @@
 ---
 expected_error_type: none
 ---
+// This program relies on the fact that the assignment operation returns the value assigned,
+// So, in this case the if condition evaluates to true and prints the inner boolean expression
 var a = false;
 if (a = true) {
   print (a == <<RANDOM_BOOLEAN>>);
