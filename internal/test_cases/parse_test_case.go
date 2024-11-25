@@ -46,13 +46,11 @@ func (t *ParseTestCase) Run(executable *interpreter_executable.InterpreterExecut
 	if t.ExpectsError && exitCode == 0 {
 		return fmt.Errorf("CodeCrafters internal error: faulty test case, expected this test case to raise an error, but it didn't.")
 	}
-
 	if !t.ExpectsError && exitCode != 0 {
 		return fmt.Errorf("CodeCrafters internal error: faulty test case, expected this test case to not raise an error, but it did.")
 	}
-
 	if result.ExitCode != exitCode {
-		return fmt.Errorf("expected exit code %v, got %v", exitCode, result.ExitCode)
+		return fmt.Errorf("expected %v (exit code %v), got exit code %v", exitCodeToErrorTypeMapping[exitCode], exitCode, result.ExitCode)
 	}
 
 	// We are intentionally not testing the errors lines printed to stderr
