@@ -52,3 +52,9 @@ func logReadableFileContents(logger *logger.Logger, fileContents string) {
 		logger.Plainf(color.YellowString("[test.lox]") + " " + line)
 	}
 }
+
+var exitCodeToErrorTypeMapping = map[int]string{
+	0:  "no error",
+	65: "compile error",
+	70: "runtime error",
+}
