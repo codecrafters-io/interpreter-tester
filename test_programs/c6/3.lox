@@ -1,6 +1,10 @@
 ---
 expected_error_type: none
 ---
+// This program relies on the fact that assignments return the assigned value
+// And that the logical AND operator short-circuits
+// So, when it encounters a falsy value, it wouldn't proceed to the subsequent assignments
+// And then prints the assigned values
 var a = "<<RANDOM_STRING>>";
 var b = "<<RANDOM_STRING>>";
 (a = true) and (b = false) and (a = "bad");

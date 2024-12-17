@@ -1,6 +1,8 @@
 ---
 expected_error_type: none
 ---
+// This program uses for loops and block scopes 
+// to print the updates to the same variable
 var <<RANDOM_STRING_1>> = "after";
 {
   var <<RANDOM_STRING_1>> = "before";

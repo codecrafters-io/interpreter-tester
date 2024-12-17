@@ -1,6 +1,8 @@
 ---
 expected_error_type: none
 ---
+// This program categorizes a person into different life stages based on their age
+// Then based on the age, it prints a message about the person's eligibility for voting, driving, and drinking
 var stage = "unknown";
 var age = <<RANDOM_INTEGER>>;
 if (age < 18) {

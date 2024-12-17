@@ -1,5 +1,6 @@
 ---
 expected_error_type: compile
 ---
-// Invalid condition for initialization
+// This program would give a compile error
+// because the initialization clause is not valid
 for ({}; a < 2; a = a + 1) {}
