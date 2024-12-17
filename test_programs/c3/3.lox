@@ -1,6 +1,8 @@
 ---
 expected_error_type: none
 ---
+// This program uses multiple if statements to categorize a person
+// into different life stages based on their age
 var age = <<RANDOM_INTEGER>>;
 var stage = "unknown";
 if (age < 18) { stage = "child"; }
