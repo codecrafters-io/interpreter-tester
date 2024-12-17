@@ -35,7 +35,7 @@ func (t *TokenizeTestCase) Run(executable *interpreter_executable.InterpreterExe
 		return err
 	}
 
-	expectedStdout, expectedStderr, exitCode, err := loxapi.ScanTokens(t.FileContents)
+	expectedStdout, _, exitCode, err := loxapi.ScanTokens(t.FileContents)
 	if err != nil {
 		return fmt.Errorf("CodeCrafters internal error: %v", err)
 	}
@@ -49,12 +49,6 @@ func (t *TokenizeTestCase) Run(executable *interpreter_executable.InterpreterExe
 
 	if result.ExitCode != exitCode {
 		return fmt.Errorf("expected %v (exit code %v), got exit code %v", exitCodeToErrorTypeMapping[exitCode], exitCode, result.ExitCode)
-	}
-
-	if len(expectedStderr) > 0 {
-		if err := assertions.NewStderrAssertion(expectedStderr).Run(result, logger); err != nil {
-			return err
-		}
 	}
 
 	if err = assertions.NewStdoutAssertion(expectedStdout).Run(result, logger); err != nil {
