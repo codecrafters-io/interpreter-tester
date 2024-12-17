@@ -1,5 +1,6 @@
 ---
 expected_error_type: compile
 ---
-// Invalid condition for condition
+// This program would give a compile error
+// because the condition is not valid
 for (var a = 1; {}; a = a + 1) {}
