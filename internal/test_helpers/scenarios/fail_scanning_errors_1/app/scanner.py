@@ -54,7 +54,7 @@ class Scanner:
 
                 print(
                     f"[line {self.current_line}] Error: Unexpected character: {char}",
-                    file=sys.stderr,
+                    file=sys.stdout,
                 )
 
     def _add_token(self, type: TokenType, literal: str | int | None = None):

@@ -25,8 +25,11 @@ func (a StderrAssertion) Run(result executable.ExecutableResult, logger *logger.
 	for i, expectedLine := range a.ExpectedLines {
 		if i >= len(stderr) {
 			logAllSuccessLogs(successLogs, logger)
-			logger.Errorf("? %s", expectedLine)
-			logger.Errorf("Skipped %d lines that didn't start with [line N]", skippedLines)
+
+			if skippedLines > 0 {
+				logger.Errorf("Skipped %d lines that didn't start with [line N]", skippedLines)
+			}
+
 			return fmt.Errorf("Expected line #%d on stderr to be %q, but didn't find line", i+1, expectedLine)
 		}
 		actualValue := stderr[i]
@@ -67,6 +70,13 @@ func getStderrLinesFromExecutableResult(result executable.ExecutableResult) []st
 }
 
 func getSkippedLinesCount(result executable.ExecutableResult) int {
-	unfilteredStderr := strings.Split(strings.TrimRight(string(result.Stderr), "\n"), "\n")
-	return len(unfilteredStderr) - len(getStderrLinesFromExecutableResult(result))
+	trimmedStderr := strings.TrimRight(string(result.Stderr), "\n")
+
+	// Handle the case where strings.Split("", "\n") returns [""]
+	if trimmedStderr == "" {
+		return 0
+	}
+
+	unfilteredStderrLines := strings.Split(trimmedStderr, "\n")
+	return len(unfilteredStderrLines) - len(getStderrLinesFromExecutableResult(result))
 }
