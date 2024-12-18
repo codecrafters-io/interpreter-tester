@@ -1,0 +1,16 @@
+[33m[stage-5] [0m[94mRunning tests for Stage #5: ea6[0m
+[33m[stage-5] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-5] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-5] [test-1] [0m[33m[test.lox][0m @
+[33m[stage-5] [test-1] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[your_program] [0mTraceback (most recent call last):
+[33m[your_program] [0m  File "<frozen runpy>", line 198, in _run_module_as_main
+[33m[your_program] [0m  File "<frozen runpy>", line 88, in _run_code
+[33m[your_program] [0m  File "/Users/rohitpaulk/experiments/codecrafters/testers/interpreter-tester/internal/test_helpers/scenarios/fail_scanning_errors_1/app/main.py", line 32, in <module>
+[33m[your_program] [0m    main()
+[33m[your_program] [0m  File "/Users/rohitpaulk/experiments/codecrafters/testers/interpreter-tester/internal/test_helpers/scenarios/fail_scanning_errors_1/app/main.py", line 18, in main
+[33m[your_program] [0m    with open(filename) as file:
+[33m[your_program] [0m         ^^^^^^^^^^^^^^
+[33m[your_program] [0mFileNotFoundError: [Errno 2] No such file or directory: 'test.lox'
+[33m[stage-5] [test-1] [0m[91mexpected compile error (exit code 65), got exit code 1[0m
+[33m[stage-5] [test-1] [0m[91mTest failed (try setting 'debug: true' in your codecrafters.yml to see more details)[0m
