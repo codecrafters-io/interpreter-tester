@@ -1,6 +1,8 @@
 ---
 expected_error_type: none
 ---
+// This program utilizes the built-in clock() function
+// and runs a check to see if the operation has timed out
 var startTime = clock();
 var timeoutSeconds = 2;
 

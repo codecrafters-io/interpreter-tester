@@ -1,4 +1,5 @@
 ---
 expected_error_type: runtime
 ---
+// This program tries to execute a boolean as a function
 (<<RANDOM_BOOLEAN>> == <<RANDOM_BOOLEAN>>)();

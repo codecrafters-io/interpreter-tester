@@ -1,6 +1,11 @@
 ---
 expected_error_type: none
 ---
+// This program tests variable scoping and shadowing in Lox. It demonstrates:
+// Global variable declarations
+// Function scope access to global variables
+// Block scoping with local variables shadowing outer variables
+// Verification that global variables remain unchanged after shadowing
 var x = 1;
 var y = 2;
 

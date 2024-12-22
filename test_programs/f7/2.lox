@@ -1,6 +1,7 @@
 ---
 expected_error_type: runtime
 ---
+// This program tries to call a function with too many arguments
 fun f(a, b) {
   print a;
   print b;
