@@ -5,16 +5,16 @@ Debug = true
 [33m[stage-9] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-9] [test-1] [0m[33m[test.lox][0m print clock() + 23;
 [33m[stage-9] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1.735291633911E9
-[33m[stage-9] [test-1] [0m[92m✓ 1735291633.911000[0m
+[33m[your_program] [0m1.735294236379E9
+[33m[stage-9] [test-1] [0m[92m✓ 1735294236.379000[0m
 [33m[stage-9] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-9] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-9] [test-2] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-9] [test-2] [0m[33m[test.lox][0m print clock() / 1000;
 [33m[stage-9] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1735291.611009
-[33m[stage-9] [test-2] [0m[92m✓ 1735291.611009[0m
+[33m[your_program] [0m1735294.213473
+[33m[stage-9] [test-2] [0m[92m✓ 1735294.213473[0m
 [33m[stage-9] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-9] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-3] [0m[94mRunning test case: 3[0m
@@ -278,22 +278,25 @@ Debug = true
 [33m[stage-4] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-4] [test-1] [0m[33m[test.lox][0m // This program creates a function that returns another function
 [33m[stage-4] [test-1] [0m[33m[test.lox][0m // and uses it to greet two different people with two different greetings
-[33m[stage-4] [test-1] [0m[33m[test.lox][0m fun makeGreeter(greeting) {
+[33m[stage-4] [test-1] [0m[33m[test.lox][0m var globalGreeting = "Hello";
+[33m[stage-4] [test-1] [0m[33m[test.lox][0m 
+[33m[stage-4] [test-1] [0m[33m[test.lox][0m fun makeGreeter() {
 [33m[stage-4] [test-1] [0m[33m[test.lox][0m   fun greet(name) {
-[33m[stage-4] [test-1] [0m[33m[test.lox][0m     print greeting + " " + name;
+[33m[stage-4] [test-1] [0m[33m[test.lox][0m     print globalGreeting + " " + name;
 [33m[stage-4] [test-1] [0m[33m[test.lox][0m   }
 [33m[stage-4] [test-1] [0m[33m[test.lox][0m   return greet;
 [33m[stage-4] [test-1] [0m[33m[test.lox][0m }
 [33m[stage-4] [test-1] [0m[33m[test.lox][0m 
-[33m[stage-4] [test-1] [0m[33m[test.lox][0m var sayHello = makeGreeter("Hello");
-[33m[stage-4] [test-1] [0m[33m[test.lox][0m var sayHi = makeGreeter("Hi");
+[33m[stage-4] [test-1] [0m[33m[test.lox][0m var sayHello = makeGreeter();
 [33m[stage-4] [test-1] [0m[33m[test.lox][0m 
 [33m[stage-4] [test-1] [0m[33m[test.lox][0m sayHello("Bob");
-[33m[stage-4] [test-1] [0m[33m[test.lox][0m sayHi("Alice");
+[33m[stage-4] [test-1] [0m[33m[test.lox][0m sayHello("Alice");
+[33m[stage-4] [test-1] [0m[33m[test.lox][0m sayHello("Eve");
 [33m[stage-4] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mHello Bob
-[33m[your_program] [0mHi Alice
-[33m[stage-4] [test-1] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[your_program] [0mHello Alice
+[33m[your_program] [0mHello Eve
+[33m[stage-4] [test-1] [0m[92m✓ 3 line(s) match on stdout[0m
 [33m[stage-4] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-4] [test-2] [0m[94mWriting contents to ./test.lox:[0m
