@@ -1,8 +1,8 @@
 ---
 expected_error_type: none
 ---
-// Blocks can be used to group statements and variables
-// They are also useful for creating local scopes
+// This program tests that blocks can be used to group statements and variables
+// creating local scopes
 {
     var <<RANDOM_STRING_3>> = "before";
     print <<RANDOM_STRING_3>>;

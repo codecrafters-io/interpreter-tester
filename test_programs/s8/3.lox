@@ -1,7 +1,7 @@
 ---
 expected_error_type: none
 ---
-// The assignment operator returns the value that was assigned
+// This program tests that the assignment operator returns the value that was assigned
 // So, it can be used multiple times in a single statement
 var <<RANDOM_STRING_1>>;
 var <<RANDOM_STRING_2>>;
