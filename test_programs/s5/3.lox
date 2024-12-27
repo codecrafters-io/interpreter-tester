@@ -1,7 +1,8 @@
 ---
 expected_error_type: runtime
 ---
-// Using a variable before it is declared leads to a runtime error
+// This program tries to access a variable before it is declared
+// It leads to a runtime error
 var <<RANDOM_STRING_1>> = <<RANDOM_INTEGER>>;
 var result = (<<RANDOM_STRING_1>> + <<RANDOM_STRING_2>>) / <<RANDOM_STRING_3>>;
 print result;

@@ -1,7 +1,8 @@
 ---
 expected_error_type: none
 ---
-// When a variable is declared but not initialized, it has a default value of nil
+// This program declares a variable but doesn't initialize it
+// It prints the variable's value
 var <<RANDOM_STRING_1>> = <<RANDOM_INTEGER_1>> + <<RANDOM_INTEGER_2>> * <<RANDOM_INTEGER_3>>;
 print <<RANDOM_STRING_1>>;
 var <<RANDOM_STRING_2>> = <<RANDOM_INTEGER_2>> * <<RANDOM_INTEGER_3>>;
