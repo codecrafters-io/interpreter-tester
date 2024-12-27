@@ -1,6 +1,7 @@
 ---
 expected_error_type: none
 ---
+// We create nested scopes here and test variable shadowing
 {
     var <<RANDOM_STRING_3>> = "before";
     {

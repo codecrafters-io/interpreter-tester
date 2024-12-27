@@ -1,4 +1,5 @@
 ---
 expected_error_type: none
 ---
+// Print the result of an arithmetic expression
 print (<<RANDOM_INTEGER_1>> * 2 + <<RANDOM_INTEGER_2>> * 2) / (2);

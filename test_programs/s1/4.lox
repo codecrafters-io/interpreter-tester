@@ -1,4 +1,6 @@
 ---
 expected_error_type: compile
 ---
+// Print statement expects an expression
+// So, this leads to a compilation error
 print;

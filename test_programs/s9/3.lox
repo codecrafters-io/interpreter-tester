@@ -1,6 +1,7 @@
 ---
 expected_error_type: none
 ---
+// Scopes can also be nested
 {
     var <<RANDOM_STRING_4>> = <<RANDOM_INTEGER>>;
     {

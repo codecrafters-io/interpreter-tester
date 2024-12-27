@@ -1,6 +1,7 @@
 ---
 expected_error_type: none
 ---
+// The assignment operator returns the value that was assigned
 var <<RANDOM_STRING_4>>;
 <<RANDOM_STRING_4>> = 1;
 print <<RANDOM_STRING_4>>;

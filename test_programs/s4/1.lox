@@ -1,5 +1,6 @@
 ---
 expected_error_type: none
 ---
+// Print the value of a variable
 var <<RANDOM_STRING_1>> = 10;
 print <<RANDOM_STRING_1>>;

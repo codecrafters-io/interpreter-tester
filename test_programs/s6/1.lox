@@ -1,5 +1,6 @@
 ---
 expected_error_type: none
 ---
+// When a variable is declared but not initialized, it has a default value of nil
 var <<RANDOM_STRING_1>>;
 print <<RANDOM_STRING_1>>;

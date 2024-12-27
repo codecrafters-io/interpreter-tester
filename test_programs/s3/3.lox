@@ -1,6 +1,7 @@
 ---
 expected_error_type: runtime
 ---
+// The + operator is only supported when both operands are numbers or both are strings
 print "the expression below is invalid";
 <<RANDOM_INTEGER>> + "<<RANDOM_STRING>>";
 print "this should not be printed";

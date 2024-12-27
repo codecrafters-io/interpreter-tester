@@ -1,6 +1,7 @@
 ---
 expected_error_type: none
 ---
+// Variables can be declared and initialized with the value of another variable
 var <<RANDOM_STRING_2>> = 2;
 print <<RANDOM_STRING_2>>;
 var <<RANDOM_STRING_2>> = 3;
