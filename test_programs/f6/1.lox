@@ -3,15 +3,17 @@ expected_error_type: none
 ---
 // This program creates a function that returns another function
 // and uses it to greet two different people with two different greetings
-fun makeGreeter(greeting) {
+var globalGreeting = "Hello";
+
+fun makeGreeter() {
   fun greet(name) {
-    print greeting + " " + name;
+    print globalGreeting + " " + name;
   }
   return greet;
 }
 
-var sayHello = makeGreeter("Hello");
-var sayHi = makeGreeter("Hi");
+var sayHello = makeGreeter();
 
 sayHello("Bob");
-sayHi("Alice");
+sayHello("Alice");
+sayHello("Eve");
