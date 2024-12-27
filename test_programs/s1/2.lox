@@ -1,5 +1,5 @@
 ---
 expected_error_type: none
 ---
-// Print the result of the concatenation of three strings
+// This program prints the result of the concatenation of three strings
 print "<<RANDOM_STRING_1>>" + "<<RANDOM_STRING_2>>" + "<<RANDOM_STRING_3>>";

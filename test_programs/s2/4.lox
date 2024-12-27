@@ -1,10 +1,10 @@
 ---
 expected_error_type: none
 ---
-// Print the result of a comparison operation
+// This program prints the result of a comparison operation
+// It also tests multi-line strings and non-ASCII characters
 print <<RANDOM_BOOLEAN_1>> != <<RANDOM_BOOLEAN_2>>;
 
-// Print a multi-line string
 print "<<RANDOM_INTEGER_1>>
 <<RANDOM_INTEGER_2>>
 <<RANDOM_INTEGER_3>>
@@ -14,5 +14,4 @@ print "There should be an empty line above this.";
 
 print "(" + "" + ")";
 
-// Print a non-ASCII character
 print "non-ascii: ॐ";
