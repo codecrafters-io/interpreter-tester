@@ -3,11 +3,10 @@
 [33m[stage-11] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-11] [test-1] [0m[33m[test.lox][0m ()<|SPACE|><|TAB|>@
 [33m[stage-11] [test-1] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[your_program] [0m[line 2] Error: Unexpected character: @
 [33m[your_program] [0mLEFT_PAREN ( null
 [33m[your_program] [0mRIGHT_PAREN ) null
 [33m[your_program] [0mEOF  null
-[33m[your_program] [0mThis line will be skipped in stderr
-[33m[your_program] [0m[line 2] Error: Unexpected character: @
 [33m[stage-11] [test-1] [0m[92m✓ 1 line(s) match on stderr[0m
 [33m[stage-11] [test-1] [0m[92m✓ 3 line(s) match on stdout[0m
 [33m[stage-11] [test-1] [0m[92m✓ Received exit code 65.[0m
@@ -17,9 +16,7 @@
 [33m[stage-11] [test-2] [0m[33m[test.lox][0m <|SPACE|>
 [33m[stage-11] [test-2] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mEOF  null
-[33m[your_program] [0mThis line will be skipped in stderr
 [33m[your_program] [0m[line 1] Error: Unexpected character: @
-[33m[your_program] [0mThis line will be skipped in stderr
 [33m[your_program] [0m[line 1] eRrRr: Unexpected character: #
 [33m[stage-11] [test-2] [0m[92m✓ [line 1] Error: Unexpected character: @[0m
 [33m[stage-11] [test-2] [0m[91m[0m

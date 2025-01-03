@@ -22,13 +22,13 @@ func (a StderrAssertion) Run(result executable.ExecutableResult, logger *logger.
 	stderr := getStderrLinesFromExecutableResult(result)
 	skippedLines := getSkippedLinesCount(result)
 
+	if skippedLines > 0 {
+		logger.Plainf("[stderr] Skipped %d lines that didn't start with [line N]", skippedLines)
+	}
+
 	for i, expectedLine := range a.ExpectedLines {
 		if i >= len(stderr) {
 			logAllSuccessLogs(successLogs, logger)
-
-			if skippedLines > 0 {
-				logger.Plainf("[stderr] Skipped %d lines that didn't start with [line N]", skippedLines)
-			}
 
 			return fmt.Errorf(`
 [stderr] Missing line #%d from stderr: %q
