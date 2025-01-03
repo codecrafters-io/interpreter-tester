@@ -1,0 +1,7 @@
+name: Trigger Fixture Regeneration
+
+jobs:
+  regenerate_fixtures:
+    if: github.event.label == 'regenerate-fixtures'
+    uses: codecrafters-io/tester-utils/.github/workflows/fixtures.yml@fixture-gen-action
+    secrets: inherit
