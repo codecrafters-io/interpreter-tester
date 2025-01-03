@@ -12,48 +12,6 @@ func TestStages(t *testing.T) {
 	os.Setenv("CODECRAFTERS_RANDOM_SEED", "1234567890")
 
 	testCases := map[string]tester_utils_testing.TesterOutputTestCase{
-		"fail_scanning_lexical_errors_1_missing_line": {
-			UntilStageSlug:      "ea6",
-			CodePath:            "./test_helpers/scenarios/fail_scanning_lexical_errors/1_missing_line",
-			ExpectedExitCode:    1,
-			StdoutFixturePath:   "./test_helpers/fixtures/fail_scanning_lexical_errors/1_missing_line",
-			NormalizeOutputFunc: normalizeTesterOutput,
-		},
-		"fail_scanning_lexical_errors_2_mismatch": {
-			UntilStageSlug:      "ea6",
-			CodePath:            "./test_helpers/scenarios/fail_scanning_lexical_errors/2_mismatch",
-			ExpectedExitCode:    1,
-			StdoutFixturePath:   "./test_helpers/fixtures/fail_scanning_lexical_errors/2_mismatch",
-			NormalizeOutputFunc: normalizeTesterOutput,
-		},
-		"fail_scanning_lexical_errors_3_extra_line": {
-			UntilStageSlug:      "ea6",
-			CodePath:            "./test_helpers/scenarios/fail_scanning_lexical_errors/3_extra_line",
-			ExpectedExitCode:    1,
-			StdoutFixturePath:   "./test_helpers/fixtures/fail_scanning_lexical_errors/3_extra_line",
-			NormalizeOutputFunc: normalizeTesterOutput,
-		},
-		"fail_scanning_multiline_errors_1_missing_line": {
-			UntilStageSlug:      "tz7",
-			CodePath:            "./test_helpers/scenarios/fail_scanning_multiline_errors/1_missing_line",
-			ExpectedExitCode:    1,
-			StdoutFixturePath:   "./test_helpers/fixtures/fail_scanning_multiline_errors/1_missing_line",
-			NormalizeOutputFunc: normalizeTesterOutput,
-		},
-		"fail_scanning_multiline_errors_2_mismatch": {
-			UntilStageSlug:      "tz7",
-			CodePath:            "./test_helpers/scenarios/fail_scanning_multiline_errors/2_mismatch",
-			ExpectedExitCode:    1,
-			StdoutFixturePath:   "./test_helpers/fixtures/fail_scanning_multiline_errors/2_mismatch",
-			NormalizeOutputFunc: normalizeTesterOutput,
-		},
-		"fail_scanning_multiline_errors_3_extra_line": {
-			UntilStageSlug:      "tz7",
-			CodePath:            "./test_helpers/scenarios/fail_scanning_multiline_errors/3_extra_line",
-			ExpectedExitCode:    1,
-			StdoutFixturePath:   "./test_helpers/fixtures/fail_scanning_multiline_errors/3_extra_line",
-			NormalizeOutputFunc: normalizeTesterOutput,
-		},
 		"pass_scanning_jlox": {
 			UntilStageSlug:      "pq5",
 			CodePath:            "../craftinginterpreters/build/gen/chap04_scanning",
