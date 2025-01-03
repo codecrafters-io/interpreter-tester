@@ -1,5 +1,14 @@
 name: Trigger Fixture Regeneration
 
+permissions:
+  contents: write
+  pull-requests: write
+
+on:
+  pull_request:
+    types:
+      - labeled
+
 jobs:
   regenerate_fixtures:
     if: github.event.label == 'regenerate-fixtures'
