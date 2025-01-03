@@ -53,6 +53,8 @@ class Scanner:
             case char:
                 self.has_errors = True
 
+                print("This line will be skipped in stderr", file=sys.stderr)
+
                 print(
                     f"[line {self.current_line}] eRrOr: uNeXpEcTed cHaRaCtEr: {char}",
                     file=sys.stderr,

@@ -53,6 +53,9 @@ class Lox:
 
     def _error_report(self, line: int, where: str, message: str):
         self._had_error = True
+
+        print("This line will be skipped in stderr", file=sys.stderr)
+
         if message.endswith("@"):
             output = f"[line {line}] Error{where}: {message}"
             print(output, file=sys.stderr)
