@@ -1,0 +1,14 @@
+[33m[stage-5] [0m[94mRunning tests for Stage #5: ea6[0m
+[33m[stage-5] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-5] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-5] [test-1] [0m[33m[test.lox][0m @
+[33m[stage-5] [test-1] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[your_program] [0m[line 1] Error: Unexpected character: @
+[33m[your_program] [0mEOF  null
+[33m[your_program] [0mThis line will be skipped in stderr
+[33m[stage-5] [test-1] [0m[stderr] Skipped 1 lines that didn't start with [line N]
+[33m[stage-5] [test-1] [0m[91m[0m
+[33m[stage-5] [test-1] [0m[91m[stderr] Missing line #1 from stderr: "[line 1] Error: Unexpected character: @"[0m
+[33m[stage-5] [test-1] [0m[91m[stderr] Perhaps it's printed to stdout? It should be printed to stderr.[0m
+[33m[stage-5] [test-1] [0m[91m [0m
+[33m[stage-5] [test-1] [0m[91mTest failed (try setting 'debug: true' in your codecrafters.yml to see more details)[0m

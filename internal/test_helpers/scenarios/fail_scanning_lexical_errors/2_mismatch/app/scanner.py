@@ -1,5 +1,6 @@
-from .token import Token, TokenType
 import sys
+
+from .token import Token, TokenType
 
 
 class Scanner:
@@ -53,8 +54,8 @@ class Scanner:
                 self.has_errors = True
 
                 print(
-                    f"[line {self.current_line}] Error: Unexpected character: {char}",
-                    file=sys.stdout,
+                    f"[line {self.current_line}] eRrOr: uNeXpEcTed cHaRaCtEr: {char}",
+                    file=sys.stderr,
                 )
 
     def _add_token(self, type: TokenType, literal: str | int | None = None):
