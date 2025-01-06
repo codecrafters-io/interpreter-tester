@@ -1,6 +1,7 @@
 ---
 expected_error_type: none
 ---
+// The logical OR operator should return the first value that is truthy
 if (false or "ok") print "<<RANDOM_STRING_1>>";
 if (nil or "ok") print "<<RANDOM_STRING_1>>";
 

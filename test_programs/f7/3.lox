@@ -1,6 +1,7 @@
 ---
 expected_error_type: runtime
 ---
+// This program tries to call a function with too few arguments
 fun f(a, b) {}
 
 f(1); // expect runtime error: Expected 2 arguments but got 1.

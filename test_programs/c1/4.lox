@@ -1,6 +1,7 @@
 ---
 expected_error_type: none
 ---
+// This program should print a different string based on the value of age
 var stage = "unknown";
 var age = <<RANDOM_INTEGER>>;
 if (age < 18) { stage = "child"; }

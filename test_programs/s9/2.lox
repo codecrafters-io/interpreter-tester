@@ -1,6 +1,8 @@
 ---
 expected_error_type: none
 ---
+// This program tests that blocks can be used to group statements and variables
+// creating local scopes
 {
     var <<RANDOM_STRING_3>> = "before";
     print <<RANDOM_STRING_3>>;

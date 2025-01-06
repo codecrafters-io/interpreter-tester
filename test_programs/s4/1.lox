@@ -1,5 +1,6 @@
 ---
 expected_error_type: none
 ---
+// This program tests that variables are initialized to the correct value
 var <<RANDOM_STRING_1>> = 10;
 print <<RANDOM_STRING_1>>;

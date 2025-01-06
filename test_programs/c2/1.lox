@@ -1,4 +1,6 @@
 ---
 expected_error_type: none
 ---
+// This program uses a random boolean to decide which branch to execute, 
+// and then prints the appropriate string
 if (<<RANDOM_BOOLEAN>>) print "if branch"; else print "else branch";

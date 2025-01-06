@@ -1,6 +1,7 @@
 ---
 expected_error_type: none
 ---
+// This program tests variable shadowing across nested scopes
 {
     var <<RANDOM_STRING_3>> = "before";
     {

@@ -1,4 +1,5 @@
 ---
 expected_error_type: runtime
 ---
+// This program tries to execute an integer as a function
 <<RANDOM_INTEGER>>();

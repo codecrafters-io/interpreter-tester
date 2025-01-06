@@ -1,4 +1,5 @@
 ---
 expected_error_type: none
 ---
+// This program uses nested if statements to print a message
 if (true) if (false) print "<<RANDOM_STRING_1>>"; else print "<<RANDOM_STRING_2>>";

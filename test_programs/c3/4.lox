@@ -1,6 +1,8 @@
 ---
 expected_error_type: none
 ---
+// This program uses multiple if statements to determine eligibility for
+// voting, driving, and drinking based on a random integer age
 var age = <<RANDOM_INTEGER>>;
 
 var isAdult = age >= 18;

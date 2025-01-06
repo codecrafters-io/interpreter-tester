@@ -1,6 +1,7 @@
 ---
 expected_error_type: none
 ---
+// This program tests the syntax of multiple statements in a single line
 print "<<RANDOM_STRING_1>>"; print <<RANDOM_BOOLEAN_1>>;
 print <<RANDOM_BOOLEAN>>;
 print "<<RANDOM_STRING_2>>"; print <<RANDOM_INTEGER_2>>;

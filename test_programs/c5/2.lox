@@ -1,6 +1,7 @@
 ---
 expected_error_type: none
 ---
+// This program uses the logical OR operator to print the first value that is truthy
 print <<RANDOM_INTEGER>> or true;
 print false or <<RANDOM_INTEGER>>;
 print false or false or true;

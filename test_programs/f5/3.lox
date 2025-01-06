@@ -1,7 +1,8 @@
 ---
 expected_error_type: none
 ---
-// This program uses a return statement inside a while loop to return "ok" if the condition is false
+// This program uses a return statement inside a while loop
+// to return "ok" if the condition is false
 fun f() {
   while (!<<RANDOM_BOOLEAN>>) return "ok";
 }

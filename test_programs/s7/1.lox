@@ -1,6 +1,8 @@
 ---
 expected_error_type: none
 ---
+// This program declares a variable and prints its value
+// It then redeclares the variable and prints its value again
 var <<RANDOM_STRING_1>> = "before";
 print <<RANDOM_STRING_1>>;
 var <<RANDOM_STRING_1>> = "after";

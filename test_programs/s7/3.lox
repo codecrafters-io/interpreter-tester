@@ -1,6 +1,7 @@
 ---
 expected_error_type: none
 ---
+// This program declares and initializes multiple variables and prints their values
 var <<RANDOM_STRING_2>> = 2;
 print <<RANDOM_STRING_2>>;
 var <<RANDOM_STRING_2>> = 3;

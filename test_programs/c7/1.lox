@@ -1,5 +1,7 @@
 ---
 expected_error_type: none
 ---
+// This program uses a while loop to print the numbers from 0 to N
+// The assignment operation returns the assigned value
 var <<RANDOM_STRING_1>> = 0;
 while (<<RANDOM_STRING_1>> < 3) print <<RANDOM_STRING_1>> = <<RANDOM_STRING_1>> + 1;

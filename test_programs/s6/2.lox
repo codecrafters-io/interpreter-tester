@@ -1,6 +1,8 @@
 ---
 expected_error_type: none
 ---
+// This program declares a variable but doesn't initialize it
+// It prints the variable's value
 var <<RANDOM_STRING_1>> = "<<RANDOM_STRING_2>>";
 var <<RANDOM_STRING_3>>;
 print <<RANDOM_STRING_3>>;

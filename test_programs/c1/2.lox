@@ -1,6 +1,7 @@
 ---
 expected_error_type: none
 ---
+// This should print "block body" if the condition evaluates to True
 if (<<RANDOM_BOOLEAN>>) {
   print "block body";
 }

@@ -1,9 +1,11 @@
 ---
 expected_error_type: none
 ---
+// The logical AND operator should return the first falsy value
 if (false and "bad") print "<<RANDOM_STRING_1>>";
 if (nil and "bad") print "<<RANDOM_STRING_1>>";
 
+// If all values are truthy, it returns the last value
 if (true and "<<RANDOM_STRING_2>>") print "<<RANDOM_STRING_2>>";
 if (<<RANDOM_INTEGER_1>> and "<<RANDOM_STRING_3>>") print "<<RANDOM_STRING_3>>";
 if ("<<RANDOM_STRING_3>>" and "<<RANDOM_STRING_3>>") print "<<RANDOM_STRING_3>>";

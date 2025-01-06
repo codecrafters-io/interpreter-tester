@@ -1,6 +1,8 @@
 ---
 expected_error_type: none
 ---
+// This program prints the result of a comparison operation
+// It also tests multi-line strings and non-ASCII characters
 print <<RANDOM_BOOLEAN_1>> != <<RANDOM_BOOLEAN_2>>;
 
 print "<<RANDOM_INTEGER_1>>
