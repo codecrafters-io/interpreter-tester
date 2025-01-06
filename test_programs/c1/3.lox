@@ -1,7 +1,8 @@
 ---
 expected_error_type: none
 ---
-// This program relies on the fact that the assignment operation returns the value assigned,
+// This program tests whether the assignment operation returns the value assigned.
+// The if condition should evaluate to true and the inner boolean expression must be printed.
 // So, in this case the if condition evaluates to true and prints the inner boolean expression
 var a = false;
 if (a = true) {
