@@ -3,14 +3,14 @@ Debug = true
 [33m[stage-9] [0m[94mRunning tests for Stage #9: ne3[0m
 [33m[stage-9] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-9] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test-1] [0m[33m[test.lox][0m // This program should print the string, if the if condition evaluates to True
+[33m[stage-9] [test-1] [0m[33m[test.lox][0m // This should print the string if the condition evaluates to True
 [33m[stage-9] [test-1] [0m[33m[test.lox][0m if (false) print "foo";
 [33m[stage-9] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[stage-9] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-9] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-9] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test-2] [0m[33m[test.lox][0m // This program should execute the block body and print "block body", if the if condition evaluates to True
+[33m[stage-9] [test-2] [0m[33m[test.lox][0m // This should print "block body" if the condition evaluates to True
 [33m[stage-9] [test-2] [0m[33m[test.lox][0m if (false) {
 [33m[stage-9] [test-2] [0m[33m[test.lox][0m   print "block body";
 [33m[stage-9] [test-2] [0m[33m[test.lox][0m }
@@ -19,7 +19,8 @@ Debug = true
 [33m[stage-9] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-9] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test-3] [0m[33m[test.lox][0m // This program relies on the fact that the assignment operation returns the value assigned,
+[33m[stage-9] [test-3] [0m[33m[test.lox][0m // This program tests whether the assignment operation returns the value assigned.
+[33m[stage-9] [test-3] [0m[33m[test.lox][0m // The if condition should evaluate to true and the inner boolean expression must be printed.
 [33m[stage-9] [test-3] [0m[33m[test.lox][0m // So, in this case the if condition evaluates to true and prints the inner boolean expression
 [33m[stage-9] [test-3] [0m[33m[test.lox][0m var a = false;
 [33m[stage-9] [test-3] [0m[33m[test.lox][0m if (a = true) {
@@ -31,7 +32,7 @@ Debug = true
 [33m[stage-9] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-9] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test-4] [0m[33m[test.lox][0m // This program initializes age with random integer and then prints the stage of life based on the age
+[33m[stage-9] [test-4] [0m[33m[test.lox][0m // This program should print a different string based on the value of age
 [33m[stage-9] [test-4] [0m[33m[test.lox][0m var stage = "unknown";
 [33m[stage-9] [test-4] [0m[33m[test.lox][0m var age = 73;
 [33m[stage-9] [test-4] [0m[33m[test.lox][0m if (age < 18) { stage = "child"; }
