@@ -1,0 +1,7 @@
+name: Run Tests
+
+on: push
+
+jobs:
+  test:
+    uses: codecrafters-io/interpreter-tester/.github/workflows/test.yml@fixture-gen-action
