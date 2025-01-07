@@ -11,7 +11,7 @@ jobs:
     steps:
       - id: setup
         name: Setup test environment
-        uses: codecrafters-io/codecrafters-action@1e17bec
+        uses: codecrafters-io/codecrafters-action@1e17bec1aad5942e5a3fe745a813833658845be1
         with:
           who-to-greet: 'Mona the Octocat'
 
