@@ -1,18 +1,13 @@
 name: Test
 
-# This workflow sets up the environment required for testing & generating
-# fixtures for the interpreter tester against the official jlox implementation.
-on: 
-  workflow_call:
+on: push
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - id: setup
+      - id: setup-env
         name: Setup test environment
         uses: codecrafters-io/codecrafters-action@402e823b111453d1b288e429c52a9d4f9a9bf9ea
-        with:
-          who-to-greet: 'Mona the Octocat'
 
       - run: make test
