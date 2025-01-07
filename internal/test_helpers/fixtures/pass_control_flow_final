@@ -5,8 +5,6 @@ Debug = true
 [33m[stage-9] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-9] [test-1] [0m[33m[test.lox][0m // This should print the string if the condition evaluates to True
 [33m[stage-9] [test-1] [0m[33m[test.lox][0m if (false) print "foo";
-[33m[stage-9] [test-1] [0m[33m[test.lox][0m if (false) print "foo";
-[33m[stage-9] [test-1] [0m[33m[test.lox][0m if (false) print "foo";
 [33m[stage-9] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[stage-9] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-9] [test-1] [0m[92m✓ Received exit code 0.[0m
