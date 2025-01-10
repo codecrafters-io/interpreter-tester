@@ -178,12 +178,12 @@ setup:
 	# Compile jlox and copy test helpers
 	cd craftinginterpreters && make java_chapters
 	mkdir -p craftinginterpreters/build/gen/{chap04_scanning,chap06_parsing,chap07_evaluating,chap08_statements,chap09_control,chap10_functions,chap13_inheritance}
-	cp -r interpreter-tester/internal/test_helpers/jlox04/* craftinginterpreters/build/gen/chap04_scanning || true
-	cp -r interpreter-tester/internal/test_helpers/jlox06/* craftinginterpreters/build/gen/chap06_parsing || true
-	cp -r interpreter-tester/internal/test_helpers/jlox07/* craftinginterpreters/build/gen/chap07_evaluating || true
-	cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap08_statements || true
-	cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap09_control || true
-	cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap10_functions || true
-	cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap13_inheritance || true
+	cp -r ./internal/test_helpers/jlox04/* craftinginterpreters/build/gen/chap04_scanning || true
+	cp -r ./internal/test_helpers/jlox06/* craftinginterpreters/build/gen/chap06_parsing || true
+	cp -r ./internal/test_helpers/jlox07/* craftinginterpreters/build/gen/chap07_evaluating || true
+	cp -r ./internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap08_statements || true
+	cp -r ./internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap09_control || true
+	cp -r ./internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap10_functions || true
+	cp -r ./internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap13_inheritance || true
 	
 	echo "Setup complete!"
