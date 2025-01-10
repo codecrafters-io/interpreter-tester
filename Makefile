@@ -156,7 +156,7 @@ test_functions_w_jlox: build
 test_all: test_scanning_w_jlox test_parsing_w_jlox test_evaluation_w_jlox test_statements_w_jlox test_control_flow_w_jlox
 
 setup:
-	echo "Setting up interpreter-tester prerequisites..."
+	echo "Setting up interpreter-tester prerequisites for Linux"
 	
 	# Clone repositories
 	git clone https://github.com/munificent/craftinginterpreters.git || true
