@@ -156,4 +156,29 @@ test_functions_w_jlox: build
 test_all: test_scanning_w_jlox test_parsing_w_jlox test_evaluation_w_jlox test_statements_w_jlox test_control_flow_w_jlox
 
 setup:
-	@echo "Setup in interpreter-tester"
+	echo "Setting up interpreter-tester prerequisites..."
+	
+	# Clone repositories
+	git clone https://github.com/munificent/craftinginterpreters.git || true
+	
+	# Get Dart dependencies
+	cd craftinginterpreters && make get
+	
+	# Update Scanner implementation
+	sed -i 's/Lox\.error(line, "Unexpected character\.");/Lox\.error(line, "Unexpected character: " + c);/g' craftinginterpreters/java/com/craftinginterpreters/lox/Scanner.java
+	
+	# Compile jlox and copy test helpers
+	cd craftinginterpreters && make java_chapters
+	mkdir -p craftinginterpreters/build/gen/{chap04_scanning,chap06_parsing,chap07_evaluating,chap08_statements,chap09_control,chap10_functions,chap13_inheritance}
+	cp -r interpreter-tester/internal/test_helpers/jlox04/* craftinginterpreters/build/gen/chap04_scanning || true
+	cp -r interpreter-tester/internal/test_helpers/jlox06/* craftinginterpreters/build/gen/chap06_parsing || true
+	cp -r interpreter-tester/internal/test_helpers/jlox07/* craftinginterpreters/build/gen/chap07_evaluating || true
+	cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap08_statements || true
+	cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap09_control || true
+	cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap10_functions || true
+	cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap13_inheritance || true
+	
+	# Cleanup
+	rm -rf interpreter-tester
+	
+	echo "Setup complete!"
