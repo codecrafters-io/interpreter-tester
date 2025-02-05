@@ -1,21 +1,24 @@
 ---
 expected_error_type: none
 ---
-// This program creates a function that returns another function
-// and uses it to apply a function twice to a value
-fun makeAdder(x) {
-  fun add(y) {
-    return x + y;
+fun square(x) {
+  return x * x;
+}
+
+// This higher-order function applies a
+// function N times to a starting value x.
+fun applyTimesN(N, f, x) {
+  var i = 0;
+  while (i < N) {
+    x = f(x);
+    i = i + 1;
   }
-  return add;
+  return x;
 }
 
-fun applyTwice(f, x) {
-  return f(f(x));
-}
-
-var addx = makeAdder(<<RANDOM_DIGIT>>);
-var addy = makeAdder(<<RANDOM_DIGIT>>);
-
-print applyTwice(addx, <<RANDOM_DIGIT>>);
-print applyTwice(addy, <<RANDOM_DIGIT>>);
+// <<RANDOM_DIGIT>> is squared once
+print applyTimesN(1, square, <<RANDOM_DIGIT>>);
+// <<RANDOM_DIGIT>> is squared twice
+print applyTimesN(2, square, <<RANDOM_DIGIT>>);
+// <<RANDOM_DIGIT>> is squared thrice
+print applyTimesN(3, square, <<RANDOM_DIGIT>>);

@@ -5,16 +5,16 @@ Debug = true
 [33m[stage-9] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-9] [test-1] [0m[33m[test.lox][0m print clock() + 23;
 [33m[stage-9] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1.735294241101E9
-[33m[stage-9] [test-1] [0m[92m✓ 1735294241.101000[0m
+[33m[your_program] [0m1.738748649606E9
+[33m[stage-9] [test-1] [0m[92m✓ 1738748649.606000[0m
 [33m[stage-9] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-9] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-9] [test-2] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-9] [test-2] [0m[33m[test.lox][0m print clock() / 1000;
 [33m[stage-9] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1735294.218204
-[33m[stage-9] [test-2] [0m[92m✓ 1735294.218204[0m
+[33m[your_program] [0m1738748.6266700001
+[33m[stage-9] [test-2] [0m[92m✓ 1738748.626670[0m
 [33m[stage-9] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-9] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-3] [0m[94mRunning test case: 3[0m
@@ -321,29 +321,33 @@ Debug = true
 [33m[stage-4] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-4] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m // This program creates a function that returns another function
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m // and uses it to apply a function twice to a value
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m fun makeAdder(x) {
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m   fun add(y) {
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m     return x + y;
+[33m[stage-4] [test-3] [0m[33m[test.lox][0m fun square(x) {
+[33m[stage-4] [test-3] [0m[33m[test.lox][0m   return x * x;
+[33m[stage-4] [test-3] [0m[33m[test.lox][0m }
+[33m[stage-4] [test-3] [0m[33m[test.lox][0m 
+[33m[stage-4] [test-3] [0m[33m[test.lox][0m // This higher-order function applies a
+[33m[stage-4] [test-3] [0m[33m[test.lox][0m // function N times to a starting value x.
+[33m[stage-4] [test-3] [0m[33m[test.lox][0m fun applyTimesN(N, f, x) {
+[33m[stage-4] [test-3] [0m[33m[test.lox][0m   var i = 0;
+[33m[stage-4] [test-3] [0m[33m[test.lox][0m   while (i < N) {
+[33m[stage-4] [test-3] [0m[33m[test.lox][0m     x = f(x);
+[33m[stage-4] [test-3] [0m[33m[test.lox][0m     i = i + 1;
 [33m[stage-4] [test-3] [0m[33m[test.lox][0m   }
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m   return add;
+[33m[stage-4] [test-3] [0m[33m[test.lox][0m   return x;
 [33m[stage-4] [test-3] [0m[33m[test.lox][0m }
 [33m[stage-4] [test-3] [0m[33m[test.lox][0m 
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m fun applyTwice(f, x) {
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m   return f(f(x));
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m }
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m 
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m var addx = makeAdder(2);
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m var addy = makeAdder(2);
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m 
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m print applyTwice(addx, 2);
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m print applyTwice(addy, 2);
+[33m[stage-4] [test-3] [0m[33m[test.lox][0m // 2 is squared once
+[33m[stage-4] [test-3] [0m[33m[test.lox][0m print applyTimesN(1, square, 2);
+[33m[stage-4] [test-3] [0m[33m[test.lox][0m // 2 is squared twice
+[33m[stage-4] [test-3] [0m[33m[test.lox][0m print applyTimesN(2, square, 2);
+[33m[stage-4] [test-3] [0m[33m[test.lox][0m // 2 is squared thrice
+[33m[stage-4] [test-3] [0m[33m[test.lox][0m print applyTimesN(3, square, 2);
 [33m[stage-4] [test-3] [0m[33m[test.lox][0m 
 [33m[stage-4] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m6
-[33m[your_program] [0m6
-[33m[stage-4] [test-3] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[your_program] [0m4
+[33m[your_program] [0m16
+[33m[your_program] [0m256
+[33m[stage-4] [test-3] [0m[92m✓ 3 line(s) match on stdout[0m
 [33m[stage-4] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-4] [test-4] [0m[94mWriting contents to ./test.lox:[0m
