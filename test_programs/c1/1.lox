@@ -3,3 +3,5 @@ expected_error_type: none
 ---
 // This should print the string if the condition evaluates to True
 if (<<RANDOM_BOOLEAN>>) print "<<RANDOM_STRING>>";
+if (<<RANDOM_BOOLEAN>>) print "<<RANDOM_STRING>>";
+if (<<RANDOM_BOOLEAN>>) print "<<RANDOM_STRING>>";
