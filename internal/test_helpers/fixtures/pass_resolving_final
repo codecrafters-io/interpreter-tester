@@ -1,0 +1,306 @@
+Debug = true
+
+[33m[stage-7] [0m[94mRunning tests for Stage #7: r1[0m
+[33m[stage-7] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-7] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-7] [test-1] [0m[33m[test.lox][0m var a = "outer";
+[33m[stage-7] [test-1] [0m[33m[test.lox][0m {
+[33m[stage-7] [test-1] [0m[33m[test.lox][0m   fun foo() {
+[33m[stage-7] [test-1] [0m[33m[test.lox][0m     print a;
+[33m[stage-7] [test-1] [0m[33m[test.lox][0m   }
+[33m[stage-7] [test-1] [0m[33m[test.lox][0m 
+[33m[stage-7] [test-1] [0m[33m[test.lox][0m   foo(); // expect: outer
+[33m[stage-7] [test-1] [0m[33m[test.lox][0m   var a = "inner";
+[33m[stage-7] [test-1] [0m[33m[test.lox][0m   foo(); // expect: outer
+[33m[stage-7] [test-1] [0m[33m[test.lox][0m }
+[33m[stage-7] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mouter
+[33m[your_program] [0mouter
+[33m[stage-7] [test-1] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-7] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-7] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-7] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-7] [test-2] [0m[33m[test.lox][0m fun global() {
+[33m[stage-7] [test-2] [0m[33m[test.lox][0m   print "global";
+[33m[stage-7] [test-2] [0m[33m[test.lox][0m }
+[33m[stage-7] [test-2] [0m[33m[test.lox][0m 
+[33m[stage-7] [test-2] [0m[33m[test.lox][0m {
+[33m[stage-7] [test-2] [0m[33m[test.lox][0m   fun f() {
+[33m[stage-7] [test-2] [0m[33m[test.lox][0m     global();
+[33m[stage-7] [test-2] [0m[33m[test.lox][0m   }
+[33m[stage-7] [test-2] [0m[33m[test.lox][0m 
+[33m[stage-7] [test-2] [0m[33m[test.lox][0m   f();
+[33m[stage-7] [test-2] [0m[33m[test.lox][0m   fun global() {
+[33m[stage-7] [test-2] [0m[33m[test.lox][0m     print "local";
+[33m[stage-7] [test-2] [0m[33m[test.lox][0m   }
+[33m[stage-7] [test-2] [0m[33m[test.lox][0m   f();
+[33m[stage-7] [test-2] [0m[33m[test.lox][0m }
+[33m[stage-7] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mglobal
+[33m[your_program] [0mglobal
+[33m[stage-7] [test-2] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-7] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-7] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-7] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-7] [test-3] [0m[33m[test.lox][0m // Multiple Nested Functions with Shadowing
+[33m[stage-7] [test-3] [0m[33m[test.lox][0m var x = "global";
+[33m[stage-7] [test-3] [0m[33m[test.lox][0m 
+[33m[stage-7] [test-3] [0m[33m[test.lox][0m fun outer() {
+[33m[stage-7] [test-3] [0m[33m[test.lox][0m   var x = "outer";
+[33m[stage-7] [test-3] [0m[33m[test.lox][0m 
+[33m[stage-7] [test-3] [0m[33m[test.lox][0m   fun middle() {
+[33m[stage-7] [test-3] [0m[33m[test.lox][0m     fun inner() {
+[33m[stage-7] [test-3] [0m[33m[test.lox][0m       print x; // Should capture "outer", not "global" or "inner"
+[33m[stage-7] [test-3] [0m[33m[test.lox][0m     }
+[33m[stage-7] [test-3] [0m[33m[test.lox][0m 
+[33m[stage-7] [test-3] [0m[33m[test.lox][0m     inner();
+[33m[stage-7] [test-3] [0m[33m[test.lox][0m     var x = "middle";
+[33m[stage-7] [test-3] [0m[33m[test.lox][0m     inner(); // Should still print "outer"
+[33m[stage-7] [test-3] [0m[33m[test.lox][0m   }
+[33m[stage-7] [test-3] [0m[33m[test.lox][0m 
+[33m[stage-7] [test-3] [0m[33m[test.lox][0m   middle();
+[33m[stage-7] [test-3] [0m[33m[test.lox][0m }
+[33m[stage-7] [test-3] [0m[33m[test.lox][0m 
+[33m[stage-7] [test-3] [0m[33m[test.lox][0m outer();
+[33m[stage-7] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mouter
+[33m[your_program] [0mouter
+[33m[stage-7] [test-3] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-7] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-7] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-7] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-7] [test-4] [0m[33m[test.lox][0m // Function Returning a Function
+[33m[stage-7] [test-4] [0m[33m[test.lox][0m var count = 0;
+[33m[stage-7] [test-4] [0m[33m[test.lox][0m 
+[33m[stage-7] [test-4] [0m[33m[test.lox][0m {
+[33m[stage-7] [test-4] [0m[33m[test.lox][0m   fun makeCounter() {
+[33m[stage-7] [test-4] [0m[33m[test.lox][0m     fun counter() {
+[33m[stage-7] [test-4] [0m[33m[test.lox][0m       count = count + 1;
+[33m[stage-7] [test-4] [0m[33m[test.lox][0m       print count;
+[33m[stage-7] [test-4] [0m[33m[test.lox][0m     }
+[33m[stage-7] [test-4] [0m[33m[test.lox][0m     return counter;
+[33m[stage-7] [test-4] [0m[33m[test.lox][0m   }
+[33m[stage-7] [test-4] [0m[33m[test.lox][0m 
+[33m[stage-7] [test-4] [0m[33m[test.lox][0m   var counter1 = makeCounter();
+[33m[stage-7] [test-4] [0m[33m[test.lox][0m   counter1(); // Should print 1
+[33m[stage-7] [test-4] [0m[33m[test.lox][0m   counter1(); // Should print 2
+[33m[stage-7] [test-4] [0m[33m[test.lox][0m 
+[33m[stage-7] [test-4] [0m[33m[test.lox][0m   var count = 0;
+[33m[stage-7] [test-4] [0m[33m[test.lox][0m   counter1(); // Should print 3
+[33m[stage-7] [test-4] [0m[33m[test.lox][0m }
+[33m[stage-7] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m1
+[33m[your_program] [0m2
+[33m[your_program] [0m3
+[33m[stage-7] [test-4] [0m[92m✓ 3 line(s) match on stdout[0m
+[33m[stage-7] [test-4] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-7] [0m[92mTest passed.[0m
+
+[33m[stage-6] [0m[94mRunning tests for Stage #6: r2[0m
+[33m[stage-6] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-6] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-6] [test-1] [0m[33m[test.lox][0m 
+[33m[stage-6] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[stage-6] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-6] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-6] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-6] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-6] [test-2] [0m[33m[test.lox][0m 
+[33m[stage-6] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[stage-6] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-6] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-6] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-6] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-6] [test-3] [0m[33m[test.lox][0m 
+[33m[stage-6] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[stage-6] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-6] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-6] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-6] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-6] [test-4] [0m[33m[test.lox][0m 
+[33m[stage-6] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[stage-6] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-6] [test-4] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-6] [0m[92mTest passed.[0m
+
+[33m[stage-5] [0m[94mRunning tests for Stage #5: r3[0m
+[33m[stage-5] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-5] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-5] [test-1] [0m[33m[test.lox][0m 
+[33m[stage-5] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[stage-5] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-5] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-5] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-5] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-5] [test-2] [0m[33m[test.lox][0m 
+[33m[stage-5] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[stage-5] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-5] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-5] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-5] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-5] [test-3] [0m[33m[test.lox][0m 
+[33m[stage-5] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[stage-5] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-5] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-5] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-5] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-5] [test-4] [0m[33m[test.lox][0m 
+[33m[stage-5] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[stage-5] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-5] [test-4] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-5] [0m[92mTest passed.[0m
+
+[33m[stage-4] [0m[94mRunning tests for Stage #4: r4[0m
+[33m[stage-4] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-4] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-4] [test-1] [0m[33m[test.lox][0m var a = "value";
+[33m[stage-4] [test-1] [0m[33m[test.lox][0m var a = a; // global scope, so this is allowed
+[33m[stage-4] [test-1] [0m[33m[test.lox][0m print a; // expect: value
+[33m[stage-4] [test-1] [0m[33m[test.lox][0m 
+[33m[stage-4] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mvalue
+[33m[stage-4] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-4] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-4] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-4] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-4] [test-2] [0m[33m[test.lox][0m var a = "outer";
+[33m[stage-4] [test-2] [0m[33m[test.lox][0m {
+[33m[stage-4] [test-2] [0m[33m[test.lox][0m   var a = a; // Error at 'a': Can't read local variable in its own initializer.
+[33m[stage-4] [test-2] [0m[33m[test.lox][0m }
+[33m[stage-4] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m[line 3] Error at 'a': Can't read local variable in its own initializer.
+[33m[stage-4] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-4] [test-2] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-4] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-4] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-4] [test-3] [0m[33m[test.lox][0m 
+[33m[stage-4] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[stage-4] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-4] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-4] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-4] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-4] [test-4] [0m[33m[test.lox][0m 
+[33m[stage-4] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[stage-4] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-4] [test-4] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-4] [0m[92mTest passed.[0m
+
+[33m[stage-3] [0m[94mRunning tests for Stage #3: r5[0m
+[33m[stage-3] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-3] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-3] [test-1] [0m[33m[test.lox][0m return "foo";
+[33m[stage-3] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m[line 1] Error at 'return': Can't return from top-level code.
+[33m[stage-3] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-3] [test-1] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-3] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-3] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-3] [test-2] [0m[33m[test.lox][0m 
+[33m[stage-3] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[stage-3] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-3] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-3] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-3] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-3] [test-3] [0m[33m[test.lox][0m 
+[33m[stage-3] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[stage-3] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-3] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-3] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-3] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-3] [test-4] [0m[33m[test.lox][0m 
+[33m[stage-3] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[stage-3] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-3] [test-4] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-3] [0m[92mTest passed.[0m
+
+[33m[stage-2] [0m[94mRunning tests for Stage #2: r6[0m
+[33m[stage-2] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-2] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-1] [0m[33m[test.lox][0m if (false) {
+[33m[stage-2] [test-1] [0m[33m[test.lox][0m   print notDefined;
+[33m[stage-2] [test-1] [0m[33m[test.lox][0m }
+[33m[stage-2] [test-1] [0m[33m[test.lox][0m 
+[33m[stage-2] [test-1] [0m[33m[test.lox][0m print "ok"; // expect: ok
+[33m[stage-2] [test-1] [0m[33m[test.lox][0m 
+[33m[stage-2] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mok
+[33m[stage-2] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-2] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-2] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-2] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-2] [0m[33m[test.lox][0m print a; // expect: compile error
+[33m[stage-2] [test-2] [0m[33m[test.lox][0m var a = "value";
+[33m[stage-2] [test-2] [0m[33m[test.lox][0m print a; // expect: value
+[33m[stage-2] [test-2] [0m[33m[test.lox][0m 
+[33m[stage-2] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mUndefined variable 'a'.
+[33m[your_program] [0m[line 1]
+[33m[stage-2] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-2] [test-2] [0m[92m✓ Received exit code 70.[0m
+[33m[stage-2] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-2] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-3] [0m[33m[test.lox][0m 
+[33m[stage-2] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[stage-2] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-2] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-2] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-2] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-4] [0m[33m[test.lox][0m 
+[33m[stage-2] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[stage-2] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-2] [test-4] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-2] [0m[92mTest passed.[0m
+
+[33m[stage-1] [0m[94mRunning tests for Stage #1: r7[0m
+[33m[stage-1] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-1] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-1] [test-1] [0m[33m[test.lox][0m {
+[33m[stage-1] [test-1] [0m[33m[test.lox][0m   var a = "value";
+[33m[stage-1] [test-1] [0m[33m[test.lox][0m   var a = "other"; // Error at 'a': Already a variable with this name in this scope.
+[33m[stage-1] [test-1] [0m[33m[test.lox][0m }
+[33m[stage-1] [test-1] [0m[33m[test.lox][0m 
+[33m[stage-1] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m[line 3] Error at 'a': Already a variable with this name in this scope.
+[33m[stage-1] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-1] [test-1] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-1] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-1] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-1] [test-2] [0m[33m[test.lox][0m fun foo(a) {
+[33m[stage-1] [test-2] [0m[33m[test.lox][0m   var a; // Error at 'a': Already a variable with this name in this scope.
+[33m[stage-1] [test-2] [0m[33m[test.lox][0m }
+[33m[stage-1] [test-2] [0m[33m[test.lox][0m 
+[33m[stage-1] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m[line 2] Error at 'a': Already a variable with this name in this scope.
+[33m[stage-1] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-1] [test-2] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-1] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-1] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-1] [test-3] [0m[33m[test.lox][0m fun foo(arg,
+[33m[stage-1] [test-3] [0m[33m[test.lox][0m         arg) { // Error at 'arg': Already a variable with this name in this scope.
+[33m[stage-1] [test-3] [0m[33m[test.lox][0m   "body";
+[33m[stage-1] [test-3] [0m[33m[test.lox][0m }
+[33m[stage-1] [test-3] [0m[33m[test.lox][0m 
+[33m[stage-1] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m[line 2] Error at 'arg': Already a variable with this name in this scope.
+[33m[stage-1] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-1] [test-3] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-1] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-1] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-1] [test-4] [0m[33m[test.lox][0m var a = "1";
+[33m[stage-1] [test-4] [0m[33m[test.lox][0m print a; // expect: 1
+[33m[stage-1] [test-4] [0m[33m[test.lox][0m var a;
+[33m[stage-1] [test-4] [0m[33m[test.lox][0m print a; // expect: nil
+[33m[stage-1] [test-4] [0m[33m[test.lox][0m 
+[33m[stage-1] [test-4] [0m[33m[test.lox][0m var a = "2";
+[33m[stage-1] [test-4] [0m[33m[test.lox][0m print a; // expect: 2
+[33m[stage-1] [test-4] [0m[33m[test.lox][0m 
+[33m[stage-1] [test-4] [0m[33m[test.lox][0m {
+[33m[stage-1] [test-4] [0m[33m[test.lox][0m   var a = "1";
+[33m[stage-1] [test-4] [0m[33m[test.lox][0m   var a = "2";
+[33m[stage-1] [test-4] [0m[33m[test.lox][0m   print a; // expect: compile error
+[33m[stage-1] [test-4] [0m[33m[test.lox][0m }
+[33m[stage-1] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m[line 11] Error at 'a': Already a variable with this name in this scope.
+[33m[stage-1] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-1] [test-4] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-1] [0m[92mTest passed.[0m

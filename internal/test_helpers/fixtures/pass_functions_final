@@ -635,7 +635,7 @@ Debug = true
 [33m[stage-1] [test-2] [0m[33m[test.lox][0m     return isEven(n - 1);
 [33m[stage-1] [test-2] [0m[33m[test.lox][0m   }
 [33m[stage-1] [test-2] [0m[33m[test.lox][0m 
-[33m[stage-1] [test-2] [0m[33m[test.lox][0m   print isEven(93);
+[33m[stage-1] [test-2] [0m[33m[test.lox][0m   print isEven(75);
 [33m[stage-1] [test-2] [0m[33m[test.lox][0m }
 [33m[stage-1] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mfalse
