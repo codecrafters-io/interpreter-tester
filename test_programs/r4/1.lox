@@ -1,3 +1,6 @@
 ---
 expected_error_type: none
 ---
+var a = "value";
+var a = a;
+print a; // expect: value

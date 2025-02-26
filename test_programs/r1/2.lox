@@ -1,3 +1,18 @@
 ---
 expected_error_type: none
 ---
+fun global() {
+  print "global";
+}
+
+{
+  fun f() {
+    global();
+  }
+
+  f();
+  fun global() {
+    print "local";
+  }
+  f();
+}

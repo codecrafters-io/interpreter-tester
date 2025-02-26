@@ -1,3 +1,8 @@
 ---
 expected_error_type: none
 ---
+if (false) {
+  print notDefined;
+}
+
+print "ok"; // expect: ok

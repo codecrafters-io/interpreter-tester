@@ -1,3 +1,6 @@
 ---
-expected_error_type: none
+expected_error_type: compile
 ---
+print a; // expect: compile error
+var a = "value";
+print a; // expect: value
