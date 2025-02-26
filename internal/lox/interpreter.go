@@ -342,4 +342,5 @@ func checkNumberOperand(operator Token, value interface{}, msg string) error {
 func ClearErrorFlags() {
 	HadParseError = false
 	HadRuntimeError = false
+	HadSemanticError = false
 }
