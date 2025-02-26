@@ -13,6 +13,7 @@ func PrintSemanticError(message string) {
 
 // MakeSemanticError creates a new semantic error
 func MakeSemanticError(message string) error {
+	HadSemanticError = true
 	return fmt.Errorf("%s", message)
 }
 

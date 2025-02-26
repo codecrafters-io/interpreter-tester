@@ -42,16 +42,17 @@ func (r *Resolver) resolve(node Node, locals Locals) error {
 		}
 	case *Var:
 		if err := r.declare(n.Name); err != nil {
-			return nil
+			return MakeSemanticError("Already a variable with this name in this scope.")
 		}
 		if n.Initializer != nil {
 			if err := r.resolve(n.Initializer, locals); err != nil {
-				return err
+				return MakeSemanticError("Can't read local variable in its own initializer.")
 			}
 		}
 		r.define(n.Name)
 	case *Variable:
 		if len(r.scopes) != 0 {
+			// Local scope
 			if b, ok := r.scopes[len(r.scopes)-1][n.Name.Lexeme]; ok && !b {
 				return MakeSemanticError("Cannot read local variable in its own initializer.")
 			}
