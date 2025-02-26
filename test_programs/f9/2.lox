@@ -18,5 +18,5 @@ expected_error_type: none
     return isEven(n - 1);
   }
 
-  print isEven(<<RANDOM_INTEGER_1>>);
+  print isEven(75);
 }
