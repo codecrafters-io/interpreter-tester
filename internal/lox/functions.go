@@ -37,6 +37,7 @@ type UserFunction struct {
 	Callable
 	Declaration *Function
 	Closure     *Environment
+	Locals      Locals // TODO: Pass pointer to Locals
 }
 
 // NewUserFunction creates a new UserFunction
@@ -54,7 +55,7 @@ func (u *UserFunction) Call(arguments []interface{}, globalEnv *Environment, std
 	}
 
 	for _, stmt := range u.Declaration.Body {
-		_, err := Eval(stmt, env, stdout, stderr)
+		_, err := Eval(stmt, env, u.Locals, stdout, stderr)
 
 		if err != nil {
 			if r, ok := err.(ReturnError); ok {

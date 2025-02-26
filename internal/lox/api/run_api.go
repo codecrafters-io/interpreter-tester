@@ -15,10 +15,14 @@ func Run(source string) (string, int, string) {
 	tokens := scanner.ScanTokens(mockStdout, mockStderr)
 	parser := lox.NewParser(tokens)
 	statements := parser.Parse(mockStdout, mockStderr)
-	lox.Interpret(statements, mockStdout, mockStderr)
+	locals, err := lox.Resolve(statements)
+	if err != nil || lox.HadSemanticError {
+		return "", 65, err.Error()
+	}
+	lox.Interpret(statements, locals, mockStdout, mockStderr)
 
 	exitCode := 0
-	if lox.HadParseError {
+	if lox.HadParseError || lox.HadSemanticError {
 		exitCode = 65
 	} else if lox.HadRuntimeError {
 		exitCode = 70
