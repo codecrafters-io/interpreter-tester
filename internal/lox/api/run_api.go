@@ -16,7 +16,7 @@ func Run(source string) (string, int, string) {
 	parser := lox.NewParser(tokens)
 	statements := parser.Parse(mockStdout, mockStderr)
 	locals, err := lox.Resolve(statements)
-	if err != nil || lox.HadSemanticError {
+	if err != nil && lox.HadSemanticError {
 		return "", 65, err.Error()
 	}
 	lox.Interpret(statements, locals, mockStdout, mockStderr)
