@@ -13,14 +13,21 @@ type Scope = map[string]bool
 // Resolve performs name resolution to the given statements
 func Resolve(statements []Stmt) (Locals, error) {
 	locals := make(Locals)
-	resolver := &Resolver{scopes: make([]Scope, 0)}
+	resolver := &Resolver{scopes: make([]Scope, 0), currentFunctionType: ftNone}
 	err := resolver.resolveStatements(statements, locals)
 	return locals, err
 }
 
+// FunctionType represents the type of a function
+const (
+	ftNone     = iota
+	ftFunction = iota
+)
+
 // Resolver performs variable resolution on an AST
 type Resolver struct {
-	scopes []Scope
+	scopes              []Scope
+	currentFunctionType int
 }
 
 func (r *Resolver) resolve(node Node, locals Locals) error {
@@ -60,7 +67,7 @@ func (r *Resolver) resolve(node Node, locals Locals) error {
 			return err
 		}
 		r.define(n.Name)
-		if err := r.resolveFunction(n, locals); err != nil {
+		if err := r.resolveFunction(n, locals, ftFunction); err != nil {
 			return err
 		}
 	case *Expression:
@@ -84,6 +91,9 @@ func (r *Resolver) resolve(node Node, locals Locals) error {
 			return err
 		}
 	case *Return:
+		if r.currentFunctionType == ftNone {
+			return MakeSemanticError("Cannot return from top-level code.")
+		}
 		if n.Value != nil {
 			if err := r.resolve(n.Value, locals); err != nil {
 				return err
@@ -141,7 +151,16 @@ func (r *Resolver) resolveStatements(statements []Stmt, locals Locals) error {
 	return nil
 }
 
-func (r *Resolver) resolveFunction(function *Function, locals Locals) error {
+func (r *Resolver) resolveFunction(function *Function, locals Locals, functionType int) error {
+	enclosingFunctionType := r.currentFunctionType
+	r.currentFunctionType = functionType
+
+	resetCurrentFunction := func() {
+		r.currentFunctionType = enclosingFunctionType
+	}
+
+	defer resetCurrentFunction()
+
 	r.pushScope()
 	defer r.popScope()
 
