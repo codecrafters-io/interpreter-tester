@@ -137,7 +137,6 @@ test_control_flow_w_jlox: build
 	]" \
 	$(shell pwd)/dist/main.out
 
-
 test_functions_w_jlox: build
 	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap10_functions \
 	CODECRAFTERS_TEST_CASES_JSON="[ \
@@ -154,7 +153,7 @@ test_functions_w_jlox: build
 	$(shell pwd)/dist/main.out
 
 test_resolving_w_jlox: build
-	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap10_functions \
+	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap11_resolving \
 	CODECRAFTERS_TEST_CASES_JSON="[ \
 		{\"slug\":\"r1\",\"tester_log_prefix\":\"stage_701\",\"title\":\"Stage #701: Resolving: Function Resolution\"}, \
 		{\"slug\":\"r2\",\"tester_log_prefix\":\"stage_702\",\"title\":\"Stage #702: Resolving: Variable Resolution\"}, \
@@ -166,4 +165,4 @@ test_resolving_w_jlox: build
 	]" \
 	$(shell pwd)/dist/main.out
 
-test_all: test_scanning_w_jlox test_parsing_w_jlox test_evaluation_w_jlox test_statements_w_jlox test_control_flow_w_jlox
+test_all: test_scanning_w_jlox test_parsing_w_jlox test_evaluation_w_jlox test_statements_w_jlox test_control_flow_w_jlox test_functions_w_jlox test_resolving_w_jlox
