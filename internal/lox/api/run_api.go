@@ -19,7 +19,9 @@ func Run(source string) (string, int, string) {
 	if err != nil && lox.HadSemanticError {
 		return "", 65, err.Error()
 	}
-	lox.Interpret(statements, locals, mockStdout, mockStderr)
+
+	env := lox.NewGlobal()
+	lox.Interpret(statements, env, locals, mockStdout, mockStderr)
 
 	exitCode := 0
 	if lox.HadParseError || lox.HadSemanticError {

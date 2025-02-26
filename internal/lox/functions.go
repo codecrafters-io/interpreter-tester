@@ -41,8 +41,12 @@ type UserFunction struct {
 }
 
 // NewUserFunction creates a new UserFunction
-func NewUserFunction(declaration *Function, closure *Environment) *UserFunction {
-	return &UserFunction{Declaration: declaration, Closure: closure}
+func NewUserFunction(declaration *Function, closure *Environment, locals Locals) *UserFunction {
+	return &UserFunction{
+		Declaration: declaration,
+		Closure:     closure,
+		Locals:      locals,
+	}
 }
 
 // Call executes a user-defined Lox function
