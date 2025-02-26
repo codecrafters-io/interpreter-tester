@@ -29,11 +29,11 @@ func BasicInterpret(expression Expr, stdout io.Writer, stderr io.Writer) {
 	fmt.Fprintln(stdout, result)
 }
 
-func Interpret(statements []Stmt, locals Locals, stdout io.Writer, stderr io.Writer) {
-	env := NewGlobal()
+func Interpret(statements []Stmt, env *Environment, locals Locals, stdout io.Writer, stderr io.Writer) {
 	OldGlobalEnv := GlobalEnv
 	GlobalEnv = env
 	InitializeNativeFunctions()
+
 	for _, stmt := range statements {
 		_, err := Eval(stmt, env, locals, stdout, stderr)
 		if err != nil {
@@ -293,7 +293,7 @@ func Eval(node Node, environment *Environment, locals Locals, stdout io.Writer, 
 		}
 		return nil, nil
 	case *Function:
-		function := NewUserFunction(n, environment)
+		function := NewUserFunction(n, environment, locals)
 		environment.Define(n.Name.Lexeme, function)
 		return nil, nil
 	case *Return:
