@@ -5364,3 +5364,10 @@ stages:
       - This output format matches the spec in the [book's repository](https://github.com/munificent/craftinginterpreters/blob/4a840f70f69c6ddd17cfef4f6964f8e1bcd8c3d4/test/closure/open_closure_in_function.lox)
     marketing_md: |-
       In this stage, you'll add support for closures to your lox interpreter.
+  - slug: "r1"
+  - slug: "r2"
+  - slug: "r3"
+  - slug: "r4"
+  - slug: "r5"
+  - slug: "r6"
+  - slug: "r7"
