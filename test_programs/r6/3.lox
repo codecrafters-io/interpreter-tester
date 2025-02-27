@@ -1,3 +1,10 @@
 ---
-expected_error_type: none
+expected_error_type: runtime
 ---
+fun callUndefined() {
+  print notDefined; // expect: runtime error
+}
+
+if (true) {
+  callUndefined();
+}

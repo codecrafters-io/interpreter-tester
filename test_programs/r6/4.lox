@@ -1,3 +1,13 @@
 ---
-expected_error_type: none
+expected_error_type: runtime
 ---
+var cond = true;
+
+fun getUndefined() {
+  if (cond) {
+    return undefined; // expect: runtime error
+  }
+  return "ok";
+}
+
+print getUndefined();
