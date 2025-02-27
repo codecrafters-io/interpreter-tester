@@ -8,5 +8,5 @@ fun foo() {
 }
 
 foo(); // expect: outer
-var a = "inner";
+a = "inner";
 foo(); // expect: inner

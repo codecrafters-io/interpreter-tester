@@ -17,6 +17,6 @@ var count = 0;
   counter1(); // Should print 1
   counter1(); // Should print 2
 
-  var count = 0;
+  var count = 0; // This local variable shouldn't affect our counter
   counter1(); // Should print 3
 }

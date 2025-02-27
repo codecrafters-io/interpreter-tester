@@ -6,13 +6,13 @@ fun global() {
 }
 
 {
-  fun printer() {
+  fun f() {
     global();
   }
 
-  printer();
+  f();
   fun global() {
     print "local";
   }
-  printer();
+  f();
 }

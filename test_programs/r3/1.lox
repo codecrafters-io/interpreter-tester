@@ -3,11 +3,11 @@ expected_error_type: none
 ---
 var variable = "global";
 {
-  fun printer() {
+  fun f() {
     print variable;
   }
 
-  printer(); // expect: global
+  f(); // expect: global
   var variable = "local";
-  printer(); // expect: global
+  f(); // expect: global
 }

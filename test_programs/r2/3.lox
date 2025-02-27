@@ -16,7 +16,7 @@ var add10 = makeAdder(10);
 print add5(3); // expect: 8
 print add10(3); // expect: 13
 
-// Redefine the outer function but keep the closures
+// Redefine the outer function
 fun makeAdder(x) {
   counter = counter + 1;
   fun add(y) {

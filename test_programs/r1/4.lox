@@ -16,5 +16,5 @@ var counter1 = makeCounter();
 counter1(); // Should print 1
 counter1(); // Should print 2
 
-var count = 0;
-counter1(); // Should print 1
+count = 0; // Global count is reset
+counter1(); // Should again print 1
