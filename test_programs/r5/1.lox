@@ -1,3 +1,4 @@
 ---
-expected_error_type: none
+expected_error_type: compile
 ---
+return "foo";

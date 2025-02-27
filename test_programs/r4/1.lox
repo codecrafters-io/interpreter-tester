@@ -2,5 +2,5 @@
 expected_error_type: none
 ---
 var a = "value";
-var a = a;
+var a = a; // global scope, so this is allowed
 print a; // expect: value

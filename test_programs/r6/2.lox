@@ -1,6 +1,6 @@
 ---
-expected_error_type: compile
+expected_error_type: runtime
 ---
-print a; // expect: compile error
+print a; // expect: runtime error
 var a = "value";
 print a; // expect: value
