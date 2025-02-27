@@ -1,3 +1,38 @@
 ---
 expected_error_type: none
 ---
+var counter = 0;
+
+fun makeAdder(x) {
+  fun add(y) {
+    return x + y;
+  }
+  return add;
+}
+
+var add5 = makeAdder(5);
+var add10 = makeAdder(10);
+
+print add5(3); // expect: 8
+print add10(3); // expect: 13
+
+// Redefine the outer function but keep the closures
+fun makeAdder(x) {
+  counter = counter + 1;
+  fun add(y) {
+    return x * y; // Multiply instead of add
+  }
+  return add;
+}
+
+// Old closures should maintain their original behavior
+print add5(3); // expect: 8
+print add10(3); // expect: 13
+
+// New closures should use the new definition
+var mult5 = makeAdder(5);
+var mult10 = makeAdder(10);
+
+print mult5(3); // expect: 15
+print mult10(3); // expect: 30
+print counter; // expect: 2
