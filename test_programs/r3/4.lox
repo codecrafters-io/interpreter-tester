@@ -1,3 +1,35 @@
 ---
 expected_error_type: none
 ---
+var a = "global";
+
+fun getA() {
+  return a;
+}
+
+fun setA(value) {
+  a = value;
+}
+
+print getA(); // expect: global
+
+{
+  print getA(); // expect: global
+  setA("changed");
+  print getA(); // expect: changed
+  
+  var a = "local";
+  print a; // expect: local
+  print getA(); // expect: changed
+  
+  fun localGetA() {
+    return a;
+  }
+  
+  print localGetA(); // expect: local
+  a = "local modified";
+  print localGetA(); // expect: local modified
+  print getA(); // expect: changed
+}
+
+print getA(); // expect: changed
