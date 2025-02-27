@@ -1,3 +1,18 @@
 ---
-expected_error_type: none
+expected_error_type: compile
 ---
+fun returnArg(arg) {
+  return arg;
+}
+
+var b = "global";
+
+{
+  var a = "first";
+  var b = returnArg(b); // Using global 'b' in its initializer, but through a function call
+  print b;
+}
+
+// Reassigning with self-reference is fine for globals
+var b = b + " updated";
+print b; 

@@ -1,3 +1,15 @@
 ---
-expected_error_type: none
+expected_error_type: compile
 ---
+fun outer() {
+  var a = "outer";
+
+  fun inner() {
+    var a = a; // Error at 'a': Can't read local variable in its own initializer.
+    print a;
+  }
+
+  inner();
+}
+
+outer();
