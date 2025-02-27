@@ -9,7 +9,7 @@ fun outer() {
 
   fun middle() {
     fun inner() {
-      print x; // Should capture "outer", not "global" or "inner"
+      print x; // Should capture "outer", not "global"
     }
 
     inner();

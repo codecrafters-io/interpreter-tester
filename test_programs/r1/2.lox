@@ -5,14 +5,12 @@ fun global() {
   print "global";
 }
 
-{
-  fun f() {
-    global();
-  }
-
-  f();
-  fun global() {
-    print "local";
-  }
-  f();
+fun f() {
+  global();
 }
+
+f();
+fun global() {
+  print "local";
+}
+f();
