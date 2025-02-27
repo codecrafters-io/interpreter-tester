@@ -1,3 +1,13 @@
 ---
-expected_error_type: none
+expected_error_type: compile
 ---
+{
+  return "not allowed in a block either"; // Error: Can't return from top-level code.
+}
+
+fun allowed() {
+  if (true) {
+    return "this is fine"; // This is ok
+  }
+  return; // This is also ok
+}
