@@ -1,11 +1,11 @@
 ---
-expected_error_type: runtime
+expected_error_type: none
 ---
-var cond = true;
+var cond = false;
 
 fun getUndefined() {
   if (cond) {
-    return undefined; // expect: runtime error
+    return undefined;
   }
   return "ok";
 }

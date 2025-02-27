@@ -15,4 +15,4 @@ var b = "global";
 
 // Reassigning with self-reference is fine for globals
 var b = b + " updated";
-print b; 
+print b;

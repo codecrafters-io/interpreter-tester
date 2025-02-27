@@ -1,7 +1,6 @@
 ---
 expected_error_type: compile
 ---
-fun foo(arg,
-        arg) { // Error at 'arg': Already a variable with this name in this scope.
+fun foo(arg, arg) { // Error at 'arg': Already a variable with this name in this scope.
   "body";
 }

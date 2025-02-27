@@ -5,14 +5,14 @@ var counter = 0;
 
 for (var i = 0; i < 3; i = i + 1) {
   counter = counter + 1;
-  
+
   if (counter == 2) {
     var special = "special";
     print special;
   } else {
     print counter;
   }
-  
+
   var i = "shadowed";
   print i;
 }

@@ -6,7 +6,7 @@ fun foo() {
     // Return inside nested blocks in a function is fine
     return "early return";
   }
-  
+
   for (var i = 0; i < 10; i = i + 1) {
     // Return inside loops in a function is fine too
     return "loop return";
