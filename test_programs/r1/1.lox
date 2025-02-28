@@ -1,12 +1,13 @@
 ---
 expected_error_type: none
 ---
-var a = "outer";
+var variable = "global";
+{
+  fun f() {
+    print variable;
+  }
 
-fun foo() {
-  print a;
+  f(); // expect: global
+  var variable = "local";
+  f(); // expect: global
 }
-
-foo(); // expect: outer
-a = "inner";
-foo(); // expect: inner
