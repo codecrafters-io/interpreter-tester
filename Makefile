@@ -153,11 +153,9 @@ test_functions_w_jlox: build
 	$(shell pwd)/dist/main.out
 
 test_resolving_w_jlox: build
-	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap11_resolving \
+	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap10_functions \
 	CODECRAFTERS_TEST_CASES_JSON="[ \
-		{\"slug\":\"r1\",\"tester_log_prefix\":\"stage_701\",\"title\":\"Stage #701: Resolving: Function Resolution\"}, \
-		{\"slug\":\"r2\",\"tester_log_prefix\":\"stage_702\",\"title\":\"Stage #702: Resolving: Variable Resolution\"}, \
-		{\"slug\":\"r3\",\"tester_log_prefix\":\"stage_703\",\"title\":\"Stage #703: Resolving: Block Resolution\"}, \
+		{\"slug\":\"r1\",\"tester_log_prefix\":\"stage_701\",\"title\":\"Stage #701: Resolving: Scope Resolution\"}, \
 		{\"slug\":\"r4\",\"tester_log_prefix\":\"stage_704\",\"title\":\"Stage #704: Resolving: Self Initialization\"}, \
 		{\"slug\":\"r5\",\"tester_log_prefix\":\"stage_705\",\"title\":\"Stage #705: Resolving: Empty Return\"}, \
 		{\"slug\":\"r6\",\"tester_log_prefix\":\"stage_706\",\"title\":\"Stage #706: Resolving: Undeclared Variables\"}, \
@@ -166,3 +164,12 @@ test_resolving_w_jlox: build
 	$(shell pwd)/dist/main.out
 
 test_all: test_scanning_w_jlox test_parsing_w_jlox test_evaluation_w_jlox test_statements_w_jlox test_control_flow_w_jlox test_functions_w_jlox test_resolving_w_jlox
+
+# Scope / Environment Resolution (Identifiers are resolved in different types of scopes)
+# Identifier Resolution (Variables, Functions, etc)
+# Static Analysis
+# Resolution and Binding
+# Lexical Environment / Scoping
+
+# Basic Scope Resolution
+# Advanced Scope Resolution

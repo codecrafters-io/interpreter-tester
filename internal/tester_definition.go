@@ -278,14 +278,6 @@ var testerDefinition = tester_definition.TesterDefinition{
 			TestFunc: createTestForRunCommandStage("r1"),
 		},
 		{
-			Slug:     "r2",
-			TestFunc: createTestForRunCommandStage("r2"),
-		},
-		{
-			Slug:     "r3",
-			TestFunc: createTestForRunCommandStage("r3"),
-		},
-		{
 			Slug:     "r4",
 			TestFunc: createTestForRunCommandStage("r4"),
 		},

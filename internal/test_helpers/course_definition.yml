@@ -5365,8 +5365,6 @@ stages:
     marketing_md: |-
       In this stage, you'll add support for closures to your lox interpreter.
   - slug: "r1"
-  - slug: "r2"
-  - slug: "r3"
   - slug: "r4"
   - slug: "r5"
   - slug: "r6"
