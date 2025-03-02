@@ -1,7 +1,8 @@
 ---
 expected_error_type: none
 ---
-// Multiple Nested Functions with Shadowing
+// The `inner` function should capture the variable from the closest outer
+// scope, which is the `outer` function's scope.
 var x = "global";
 
 fun outer() {

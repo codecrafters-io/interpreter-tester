@@ -1,7 +1,8 @@
 ---
 expected_error_type: compile
 ---
+// A variable should not be able to be initialized with itself.
 var a = "outer";
 {
-  var a = a; // Error at 'a': Can't read local variable in its own initializer.
+  var a = a; // Expect compile error.
 }

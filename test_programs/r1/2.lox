@@ -1,6 +1,8 @@
 ---
 expected_error_type: none
 ---
+// The closure should capture the globally defined function and redeclaring
+// a function with the same name should not affect the closure's capture.
 fun global() {
   print "global";
 }

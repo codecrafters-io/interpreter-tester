@@ -1,7 +1,9 @@
 ---
 expected_error_type: none
 ---
-// Function Returning a Function
+// The closure should capture the `count` variable from the global scope
+// and increment it. Reassigning the `count` variable in the local scope
+// should not affect the closure's capture.
 var count = 0;
 
 {
