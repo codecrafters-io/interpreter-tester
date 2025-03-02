@@ -358,6 +358,93 @@ func (r *Return) String() string {
 	return sb.String()
 }
 
+// Class node
+type Class struct {
+	Stmt
+	Name     Token
+	Methods  []*Function
+	EnvIndex int
+}
+
+// String pretty prints the class
+func (c *Class) String() string {
+	var sb strings.Builder
+	sb.WriteString("(")
+	sb.WriteString("class")
+	sb.WriteString("")
+	sb.WriteString(c.Name.Lexeme)
+	sb.WriteString("")
+	for _, f := range c.Methods {
+		sb.WriteString(f.String())
+		sb.WriteString(" ")
+	}
+	sb.WriteString(")")
+	return sb.String()
+}
+
+// Get is used for property access
+type Get struct {
+	Expr
+	Name       Token
+	Expression Expr
+}
+
+// String pretty prints the class
+func (g *Get) String() string {
+	var sb strings.Builder
+	sb.WriteString("(")
+	sb.WriteString(".")
+	sb.WriteString(" ")
+	sb.WriteString(g.Expression.String())
+	sb.WriteString(" ")
+	sb.WriteString(g.Name.Lexeme)
+	sb.WriteString(")")
+	return sb.String()
+}
+
+// Set is used for writing to a property
+type Set struct {
+	Expr
+	Object Expr
+	Name   Token
+	Value  Expr
+}
+
+// String pretty prints the setter
+func (s *Set) String() string {
+	var sb strings.Builder
+	sb.WriteString("(")
+	sb.WriteString("set")
+	sb.WriteString(" ")
+	sb.WriteString(s.Object.String())
+	sb.WriteString(" ")
+	sb.WriteString(s.Name.Lexeme)
+	sb.WriteString(" ")
+	sb.WriteString(s.Value.String())
+	sb.WriteString(")")
+	return sb.String()
+}
+
+// This ...
+type This struct {
+	Expr
+	Keyword  Token
+	EnvIndex int
+	EnvDepth int
+}
+
+// String pretty prints the setter
+func (t *This) String() string {
+	var sb strings.Builder
+	sb.WriteString("(")
+	sb.WriteString("this")
+	sb.WriteString(" ")
+	sb.WriteString(t.Keyword.Lexeme)
+	sb.WriteString(" ")
+	sb.WriteString(")")
+	return sb.String()
+}
+
 func FormatFloat(num float64) string {
 	str := fmt.Sprintf("%f", num)
 	parts := strings.Split(str, ".")
