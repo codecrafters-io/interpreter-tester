@@ -13,21 +13,30 @@ type Scope = map[string]bool
 // Resolve performs name resolution to the given statements
 func Resolve(statements []Stmt) (Locals, error) {
 	locals := make(Locals)
-	resolver := &Resolver{scopes: make([]Scope, 0), currentFunctionType: ftNone}
+	resolver := &Resolver{scopes: make([]Scope, 0), currentFunctionType: ftNone, currentClass: ctNone}
 	err := resolver.resolveStatements(statements, locals)
 	return locals, err
 }
 
 // FunctionType represents the type of a function
 const (
-	ftNone     = iota
-	ftFunction = iota
+	ftNone        = iota
+	ftFunction    = iota
+	ftMethod      = iota
+	ftInitializer = iota
+)
+
+// ClassType represents the type of a class
+const (
+	ctNone  = iota
+	ctClass = iota
 )
 
 // Resolver performs variable resolution on an AST
 type Resolver struct {
 	scopes              []Scope
 	currentFunctionType int
+	currentClass        int // TODO: Rename to currentClassType
 }
 
 func (r *Resolver) resolve(node Node, locals Locals) error {
@@ -96,6 +105,9 @@ func (r *Resolver) resolve(node Node, locals Locals) error {
 			return MakeSemanticError("Cannot return from top-level code.")
 		}
 		if n.Value != nil {
+			if r.currentFunctionType == ftInitializer {
+				return MakeSemanticError("Cannot return a value from an initializer.")
+			}
 			if err := r.resolve(n.Value, locals); err != nil {
 				return err
 			}
@@ -139,6 +151,53 @@ func (r *Resolver) resolve(node Node, locals Locals) error {
 		if err := r.resolve(n.Right, locals); err != nil {
 			return err
 		}
+	case *Class:
+		enclosingClass := r.currentClass
+		r.currentClass = ctClass
+
+		resetCurrentClass := func() {
+			r.currentClass = enclosingClass
+		}
+
+		defer resetCurrentClass()
+
+		if err := r.declare(n.Name); err != nil {
+			return err
+		}
+		r.define(n.Name)
+
+		r.pushScope()
+		defer r.popScope()
+
+		// top := r.scopes[len(r.scopes)-1]
+		// top = append(top, vInfo{name: "this", status: vDefined, isUsed: true})
+		// r.scopes[len(r.scopes)-1] = top // FIXME: is this needed
+
+		for _, method := range n.Methods {
+			declaration := ftMethod
+			if method.Name.Lexeme == "init" {
+				declaration = ftInitializer
+			}
+			if err := r.resolveFunction(method, locals, declaration); err != nil {
+				return err
+			}
+		}
+	case *Get:
+		if err := r.resolve(n.Expression, locals); err != nil {
+			return err
+		}
+	case *Set:
+		if err := r.resolve(n.Value, locals); err != nil {
+			return err
+		}
+		if err := r.resolve(n.Object, locals); err != nil {
+			return err
+		}
+	case *This:
+		if r.currentClass == ctNone {
+			return MakeSemanticError("Cannot use 'this' outside of a class.")
+		}
+		r.resolveLocal(n, n.Keyword, locals)
 	}
 	return nil
 }
