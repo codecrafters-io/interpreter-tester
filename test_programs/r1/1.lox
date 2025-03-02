@@ -1,12 +1,15 @@
 ---
 expected_error_type: none
 ---
-var a = "outer";
+class Thing {
+getCallback() {
+  fun localFunction() {
+  print this;
+  }
 
-fun foo() {
-  print a;
+  return localFunction;
+}
 }
 
-foo(); // expect: outer
-a = "inner";
-foo(); // expect: inner
+var callback = Thing().getCallback();
+callback();
