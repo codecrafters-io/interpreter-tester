@@ -306,6 +306,49 @@ func Eval(node Node, environment *Environment, locals Locals, stdout io.Writer, 
 			}
 		}
 		return nil, ReturnError{value: value}
+	case *Class:
+		environment.Define(n.Name.Lexeme, nil)
+
+		methods := make(map[string]*UserFunction)
+		for _, method := range n.Methods {
+			function := NewUserFunction(method, environment, locals)
+			methods[method.Name.Lexeme] = function
+			if method.Name.Lexeme == "init" {
+				function.IsInitializer = true
+			}
+		}
+
+		klass := &UserClass{Name: n.Name.Lexeme, Methods: methods}
+		environment.Assign(n.Name, klass)
+
+		return nil, nil
+	case *Get:
+		value, err := Eval(n.Expression, environment, locals, stdout, stderr)
+		if err != nil {
+			return nil, err
+		}
+		if obj, ok := value.(*UserClassInstance); ok {
+			return obj.Get(n.Name)
+		}
+		return nil, MakeRuntimeError(n.Name, "Only instances have properties.")
+	case *Set:
+		obj, err := Eval(n.Object, environment, locals, stdout, stderr)
+		if err != nil {
+			return nil, err
+		}
+		if instance, ok := obj.(*UserClassInstance); ok {
+			value, err := Eval(n.Value, environment, locals, stdout, stderr)
+			if err != nil {
+				return nil, err
+			}
+			return instance.Set(n.Name, value)
+		}
+		return nil, MakeRuntimeError(n.Name, "Only instances have properties.")
+	case *This:
+		if n.EnvDepth >= 0 {
+			return environment.GetAt(n.EnvDepth, n.Keyword)
+		}
+		return GlobalEnv.Get(n.Keyword)
 	case nil:
 		return nil, nil
 	}
