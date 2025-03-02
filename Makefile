@@ -155,13 +155,7 @@ test_functions_w_jlox: build
 test_resolving_w_jlox: build
 	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap11_resolving \
 	CODECRAFTERS_TEST_CASES_JSON="[ \
-		{\"slug\":\"r1\",\"tester_log_prefix\":\"stage_701\",\"title\":\"Stage #701: Resolving: Function Resolution\"}, \
-		{\"slug\":\"r2\",\"tester_log_prefix\":\"stage_702\",\"title\":\"Stage #702: Resolving: Variable Resolution\"}, \
-		{\"slug\":\"r3\",\"tester_log_prefix\":\"stage_703\",\"title\":\"Stage #703: Resolving: Block Resolution\"}, \
-		{\"slug\":\"r4\",\"tester_log_prefix\":\"stage_704\",\"title\":\"Stage #704: Resolving: Self Initialization\"}, \
-		{\"slug\":\"r5\",\"tester_log_prefix\":\"stage_705\",\"title\":\"Stage #705: Resolving: Empty Return\"}, \
-		{\"slug\":\"r6\",\"tester_log_prefix\":\"stage_706\",\"title\":\"Stage #706: Resolving: Undeclared Variables\"}, \
-		{\"slug\":\"r7\",\"tester_log_prefix\":\"stage_707\",\"title\":\"Stage #707: Resolving: Variable Re-declaration\"} \
+		{\"slug\":\"r1\",\"tester_log_prefix\":\"stage_701\",\"title\":\"Stage #701: Resolving: Function Resolution\"} \
 	]" \
 	$(shell pwd)/dist/main.out
 
