@@ -17,8 +17,8 @@ func (c *UserClass) String() string {
 }
 
 // Call is the operation that executes a class constructor
-func (c *UserClass) Call(arguments []any, globalEnv *Environment, stdout io.Writer, stderr io.Writer) (any, error) {
-	instance := &UserClassInstance{Class: c, fields: make(map[string]any)}
+func (c *UserClass) Call(arguments []interface{}, globalEnv *Environment, stdout io.Writer, stderr io.Writer) (interface{}, error) {
+	instance := &UserClassInstance{Class: c, fields: make(map[string]interface{})}
 	if initializer, ok := c.Methods["init"]; ok {
 		_, err := initializer.Bind(instance).Call(arguments, globalEnv, stdout, stderr)
 		if err != nil {
@@ -41,7 +41,7 @@ func (c *UserClass) Arity() int {
 // UserClassInstance is a user defined class instance
 type UserClassInstance struct {
 	Class  *UserClass
-	fields map[string]any
+	fields map[string]interface{}
 }
 
 func (c *UserClassInstance) String() string {
@@ -49,7 +49,7 @@ func (c *UserClassInstance) String() string {
 }
 
 // Get accesses the property
-func (c *UserClassInstance) Get(name Token) (any, error) {
+func (c *UserClassInstance) Get(name Token) (interface{}, error) {
 	if v, ok := c.fields[name.Lexeme]; ok {
 		return v, nil
 	}
@@ -61,7 +61,7 @@ func (c *UserClassInstance) Get(name Token) (any, error) {
 }
 
 // Set accesses the property
-func (c *UserClassInstance) Set(name Token, value any) (any, error) {
+func (c *UserClassInstance) Set(name Token, value interface{}) (interface{}, error) {
 	c.fields[name.Lexeme] = value
 	return nil, nil
 }
