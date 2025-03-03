@@ -1,0 +1,12 @@
+---
+expected_error_type: none
+---
+var a = "outer";
+
+fun foo() {
+  print a;
+}
+
+foo(); // expect: outer
+a = "inner";
+foo(); // expect: inner

@@ -1,0 +1,20 @@
+---
+expected_error_type: none
+---
+// Function Returning a Function
+var count = 0;
+
+fun makeCounter() {
+  fun counter() {
+    count = count + 1;
+    print count;
+  }
+  return counter;
+}
+
+var counter1 = makeCounter();
+counter1(); // Should print 1
+counter1(); // Should print 2
+
+count = 0; // Global count is reset
+counter1(); // Should again print 1

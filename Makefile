@@ -153,7 +153,7 @@ test_functions_w_jlox: build
 	$(shell pwd)/dist/main.out
 
 test_resolving_w_jlox: build
-	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap11_resolving \
+	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap12_classes \
 	CODECRAFTERS_TEST_CASES_JSON="[ \
 		{\"slug\":\"r1\",\"tester_log_prefix\":\"stage_701\",\"title\":\"Stage #701: Resolving: Function Resolution\"} \
 	]" \
