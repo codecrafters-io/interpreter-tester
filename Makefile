@@ -168,7 +168,7 @@ test_resolving_w_jlox: build
 test_classes_w_jlox: build
 	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap12_classes \
 	CODECRAFTERS_TEST_CASES_JSON="[ \
-		{\"slug\":\"r1\",\"tester_log_prefix\":\"stage_701\",\"title\":\"Stage #701: Resolving: Function Resolution\"} \
+		{\"slug\":\"cl1\",\"tester_log_prefix\":\"stage_801\",\"title\":\"Stage #801: Classes: Open Closure in Function\"} \
 	]" \
 	$(shell pwd)/dist/main.out
 

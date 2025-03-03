@@ -2,11 +2,10 @@
 expected_error_type: none
 ---
 class Bagel {}
-Bagel();
-
-class Bagel {}
 var bagel = Bagel();
 print bagel; // Prints "Bagel instance".
+
+// 
 
 class Box {}
 
@@ -17,6 +16,8 @@ fun notMethod(argument) {
 var box = Box();
 box.function = notMethod;
 box.function("argument");
+
+//
 
 class Person {
   sayName() {
@@ -29,6 +30,8 @@ jane.name = "Jane";
 
 var method = jane.sayName;
 method(); // ?
+
+//
 
 class Person {
   sayName() {
@@ -45,6 +48,7 @@ bill.name = "Bill";
 bill.sayName = jane.sayName;
 bill.sayName(); // ?
 
+//
 
 class Bacon {
   eat() {
@@ -54,6 +58,7 @@ class Bacon {
 
 Bacon().eat(); // Prints "Crunch crunch crunch!".
 
+//
 
 class Egotist {
   speak() {
@@ -63,6 +68,8 @@ class Egotist {
 
 var method = Egotist().speak;
 method();
+
+// 
 
 class Cake {
   taste() {
@@ -74,6 +81,8 @@ class Cake {
 var cake = Cake();
 cake.flavor = "German chocolate";
 cake.taste(); // Prints "The German chocolate cake is delicious!".
+
+//
 
 class Thing {
   getCallback() {
@@ -87,6 +96,8 @@ class Thing {
 
 var callback = Thing().getCallback();
 callback();
+
+//
 
 class Foo {
   init() {
