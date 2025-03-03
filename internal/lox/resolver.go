@@ -13,7 +13,7 @@ type Scope = map[string]bool
 // Resolve performs name resolution to the given statements
 func Resolve(statements []Stmt) (Locals, error) {
 	locals := make(Locals)
-	resolver := &Resolver{scopes: make([]Scope, 0), currentFunctionType: ftNone, currentClass: ctNone}
+	resolver := &Resolver{scopes: make([]Scope, 0), currentFunctionType: ftNone, currentClassType: ctNone}
 	err := resolver.resolveStatements(statements, locals)
 	return locals, err
 }
@@ -36,7 +36,7 @@ const (
 type Resolver struct {
 	scopes              []Scope
 	currentFunctionType int
-	currentClass        int // TODO: Rename to currentClassType
+	currentClassType    int
 }
 
 func (r *Resolver) resolve(node Node, locals Locals) error {
@@ -152,11 +152,11 @@ func (r *Resolver) resolve(node Node, locals Locals) error {
 			return err
 		}
 	case *Class:
-		enclosingClass := r.currentClass
-		r.currentClass = ctClass
+		enclosingClass := r.currentClassType
+		r.currentClassType = ctClass
 
 		resetCurrentClass := func() {
-			r.currentClass = enclosingClass
+			r.currentClassType = enclosingClass
 		}
 
 		defer resetCurrentClass()
@@ -169,9 +169,9 @@ func (r *Resolver) resolve(node Node, locals Locals) error {
 		r.pushScope()
 		defer r.popScope()
 
-		// top := r.scopes[len(r.scopes)-1]
-		// top = append(top, vInfo{name: "this", status: vDefined, isUsed: true})
-		// r.scopes[len(r.scopes)-1] = top // FIXME: is this needed
+		top := r.scopes[len(r.scopes)-1]
+		top["this"] = true
+		r.scopes[len(r.scopes)-1] = top
 
 		for _, method := range n.Methods {
 			declaration := ftMethod
@@ -194,7 +194,7 @@ func (r *Resolver) resolve(node Node, locals Locals) error {
 			return err
 		}
 	case *This:
-		if r.currentClass == ctNone {
+		if r.currentClassType == ctNone {
 			return MakeSemanticError("Cannot use 'this' outside of a class.")
 		}
 		r.resolveLocal(n, n.Keyword, locals)
