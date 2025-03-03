@@ -2,6 +2,7 @@ package lox
 
 import (
 	"fmt"
+	"io"
 )
 
 // Class ...
@@ -12,14 +13,14 @@ type UserClass struct {
 }
 
 func (c *UserClass) String() string {
-	return fmt.Sprintf("<class %s>", c.Name)
+	return c.Name
 }
 
 // Call is the operation that executes a class constructor
-func (c *UserClass) Call(arguments []interface{}) (interface{}, error) {
+func (c *UserClass) Call(arguments []interface{}, globalEnv *Environment, stdout io.Writer, stderr io.Writer) (interface{}, error) {
 	instance := &UserClassInstance{Class: c, fields: make(map[string]interface{})}
 	if initializer, prs := c.Methods["init"]; prs {
-		_, err := initializer.Bind(instance).Call(arguments, nil, nil, nil)
+		_, err := initializer.Bind(instance).Call(arguments, globalEnv, stdout, stderr)
 		if err != nil {
 			return nil, err
 		}
@@ -44,7 +45,7 @@ type UserClassInstance struct {
 }
 
 func (c *UserClassInstance) String() string {
-	return fmt.Sprintf("<class-instance %s>", c.Class.Name)
+	return fmt.Sprintf("%s instance", c.Class.Name)
 }
 
 // Get accesses the property
