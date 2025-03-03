@@ -318,8 +318,8 @@ func Eval(node Node, environment *Environment, locals Locals, stdout io.Writer, 
 			}
 		}
 
-		klass := &UserClass{Name: n.Name.Lexeme, Methods: methods}
-		environment.Assign(n.Name, klass)
+		userClass := &UserClass{Name: n.Name.Lexeme, Methods: methods}
+		environment.Assign(n.Name, userClass)
 
 		return nil, nil
 	case *Get:
