@@ -1,0 +1,6 @@
+---
+expected_error_type: none
+---
+class Foo {}
+
+print Foo; // expect: Foo
