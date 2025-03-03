@@ -425,7 +425,7 @@ func (s *Set) String() string {
 	return sb.String()
 }
 
-// This ...
+// This is used to access the current instance
 type This struct {
 	Expr
 	Keyword  Token
