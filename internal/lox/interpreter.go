@@ -345,8 +345,8 @@ func Eval(node Node, environment *Environment, locals Locals, stdout io.Writer, 
 		}
 		return nil, MakeRuntimeError(n.Name, "Only instances have properties.")
 	case *This:
-		if n.EnvDepth >= 0 {
-			return environment.GetAt(n.EnvDepth, n.Keyword)
+		if distance, ok := locals[n]; ok {
+			return environment.GetAt(distance, n.Keyword)
 		}
 		return GlobalEnv.Get(n.Keyword)
 	case nil:
