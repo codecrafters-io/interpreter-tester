@@ -10,14 +10,14 @@ class Hello{}
 var hello = Hello();
 print hello;
 
-// 
+//
 
 class Hello{}
 var hello = Hello();
 hello.x = 5.2;
 print hello.x;
 
-// 
+//
 
 class Thing {
   getCallback() {
@@ -32,7 +32,7 @@ class Thing {
 var callback = Thing().getCallback();
 callback();
 
-// 
+//
 
 class Thing {
   init(a, b) {
@@ -42,7 +42,7 @@ class Thing {
 }
 print Thing(5, 1).x;
 
-// 
+//
 
 class Thing {
   init(a, b) {

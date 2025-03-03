@@ -5,7 +5,7 @@ class Bagel {}
 var bagel = Bagel();
 print bagel; // Prints "Bagel instance".
 
-// 
+//
 
 class Box {}
 
@@ -69,7 +69,7 @@ class Egotist {
 var method = Egotist().speak;
 method();
 
-// 
+//
 
 class Cake {
   taste() {
