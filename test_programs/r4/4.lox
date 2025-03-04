@@ -11,8 +11,9 @@ fun outer() {
 
 if (true) {
   fun nested() {
-    return; // This is fine
+    return;
   }
 
-  return "not ok"; // Error: Can't return from top-level code.
+  // Return statements are not allowed outside of functions
+  return "not ok"; // This should be a compile error
 }

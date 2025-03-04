@@ -2,7 +2,9 @@
 expected_error_type: compile
 ---
 fun foo() {
+  // Return statements are allowed within function scope
   return "at function scope is ok";
 }
 
-return; // Error: Can't return from top-level code.
+// Return statements are not allowed at the top-level 
+return; // This should be a compile error
