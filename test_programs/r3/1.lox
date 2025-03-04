@@ -1,13 +1,9 @@
 ---
-expected_error_type: none
+expected_error_type: compile
 ---
-var variable = "global";
 {
-  fun f() {
-    print variable;
-  }
+  var a = "value";
 
-  f(); // expect: global
-  var variable = "local";
-  f(); // expect: global
+  // Attempting to redeclare 'a' in the same scope
+  var a = "other"; // This should be a compile error
 }

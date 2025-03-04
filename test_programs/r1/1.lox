@@ -1,12 +1,18 @@
 ---
 expected_error_type: none
 ---
-var a = "outer";
+// This variable is used in the function `f` below.
+var variable = "global";
 
-fun foo() {
-  print a;
+{
+  fun f() {
+    print variable;
+  }
+
+  f(); // this should print "global"
+
+  // This variable declaration shouldn't affect the usage in `f` above.
+  var variable = "local";
+
+  f(); // this should still print "global"
 }
-
-foo(); // expect: outer
-a = "inner";
-foo(); // expect: inner

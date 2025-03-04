@@ -2,14 +2,18 @@
 expected_error_type: compile
 ---
 fun outer() {
-  var a = "outer";
-
   fun inner() {
-    var a = a; // Error at 'a': Can't read local variable in its own initializer.
-    print a;
+    return "ok";
   }
 
-  inner();
+  return "also ok";
 }
 
-outer();
+if (true) {
+  fun nested() {
+    return;
+  }
+
+  // Return statements are not allowed outside of functions
+  return "not ok"; // This should be a compile error
+}

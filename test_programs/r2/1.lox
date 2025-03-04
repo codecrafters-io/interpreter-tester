@@ -1,16 +1,9 @@
 ---
 expected_error_type: none
 ---
-var a = "global";
+// First declaration of variable 'a' in global scope
+var a = "value";
 
-fun showParameter(a) {
-  print a; // expect: parameter
-}
-
-fun showGlobal() {
-  print a; // expect: global
-}
-
-showParameter("parameter");
-showGlobal();
-print a; // expect: global
+// Redeclaring 'a' with its own value should be allowed in global scope
+var a = a;
+print a; // this should print "value"

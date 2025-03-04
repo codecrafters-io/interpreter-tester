@@ -1,38 +1,23 @@
 ---
-expected_error_type: none
+expected_error_type: compile
 ---
-var counter = 0;
-
-fun makeAdder(x) {
-  fun add(y) {
-    return x + y;
-  }
-  return add;
+// Helper function that simply returns its argument
+fun returnArg(arg) {
+  return arg;
 }
 
-var add5 = makeAdder(5);
-var add10 = makeAdder(10);
+// Declare global variable 'b'
+var b = "global";
 
-print add5(3); // expect: 8
-print add10(3); // expect: 13
+{
+  // Local variable declaration
+  var a = "first";
 
-// Redefine the outer function
-fun makeAdder(x) {
-  counter = counter + 1;
-  fun add(y) {
-    return x * y; // Multiply instead of add
-  }
-  return add;
+  // Attempting to initialize local variable 'b' using local variable 'b'
+  // through a function call
+  var b = returnArg(b); // This should be a compile error
+  print b;
 }
 
-// Old closures should maintain their original behavior
-print add5(3); // expect: 8
-print add10(3); // expect: 13
-
-// New closures should use the new definition
-var mult5 = makeAdder(5);
-var mult10 = makeAdder(10);
-
-print mult5(3); // expect: 15
-print mult10(3); // expect: 30
-print counter; // expect: 2
+var b = b + " updated";
+print b;

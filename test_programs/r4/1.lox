@@ -1,6 +1,10 @@
 ---
-expected_error_type: none
+expected_error_type: compile
 ---
-var a = "value";
-var a = a; // global scope, so this is allowed
-print a; // expect: value
+fun foo() {
+  // Return statements are allowed within function scope
+  return "at function scope is ok";
+}
+
+// Return statements are not allowed at the top-level 
+return; // This should be a compile error

@@ -1,28 +1,18 @@
 ---
-expected_error_type: none
+expected_error_type: compile
 ---
-var a;
-var b;
+fun outer() {
+  // Declare variable 'a' in outer function scope
+  var a = "outer";
 
-fun initA() {
-  a = "A refers to " + b;
+  // Inner function with its own scope
+  fun inner() {
+    // Attempting to declare local 'a' initialized with itself
+    var a = a; // This should be a compile error
+    print a;
+  }
+
+  inner();
 }
 
-fun initB() {
-  b = "B refers to " + a;
-}
-
-a = "a";
-b = "b";
-
-print a; // expect: a
-print b; // expect: b
-
-initA();
-print a; // expect: A refers to b
-
-initB();
-print b; // expect: B refers to A refers to b
-
-a = "new a";
-print b; // expect: B refers to A refers to b
+outer();

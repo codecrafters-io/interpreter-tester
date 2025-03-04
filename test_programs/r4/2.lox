@@ -1,7 +1,16 @@
 ---
 expected_error_type: compile
 ---
-var a = "outer";
-{
-  var a = a; // Error at 'a': Can't read local variable in its own initializer.
+fun foo() {
+  if (true) {
+    return "early return";
+  }
+
+  for (var i = 0; i < 10; i = i + 1) {
+    return "loop return";
+  }
+}
+
+if (true) {
+  return "conditional return"; // This should be a compile error
 }

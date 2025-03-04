@@ -1,20 +1,10 @@
 ---
-expected_error_type: none
+expected_error_type: compile
 ---
-var counter = 0;
+// Declare outer variable 'a' in global scope
+var a = "outer";
 
-for (var i = 0; i < 3; i = i + 1) {
-  counter = counter + 1;
-
-  if (counter == 2) {
-    var special = "special";
-    print special;
-  } else {
-    print counter;
-  }
-
-  var i = "shadowed";
-  print i;
+{
+  // Attempting to declare local variable'a' initialized with itself
+  var a = a; // This should be a compile error
 }
-
-print counter;
