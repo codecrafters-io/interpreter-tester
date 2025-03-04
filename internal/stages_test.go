@@ -76,14 +76,14 @@ func TestStages(t *testing.T) {
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 		"pass_resolving_inprogress_jlox": {
-			StageSlugs:          []string{"r1", "r4", "r5", "r6", "r7"},
+			StageSlugs:          []string{"r1", "r2", "r3", "r4"},
 			CodePath:            "../craftinginterpreters/build/gen/chap11_resolving",
 			ExpectedExitCode:    0,
 			StdoutFixturePath:   "./test_helpers/fixtures/pass_resolving",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 		"pass_resolving_completed_jlox": {
-			StageSlugs:          []string{"r1", "r4", "r5", "r6", "r7"},
+			StageSlugs:          []string{"r1", "r2", "r3", "r4"},
 			CodePath:            "../craftinginterpreters/build/gen/chap13_inheritance",
 			ExpectedExitCode:    0,
 			StdoutFixturePath:   "./test_helpers/fixtures/pass_resolving_final",
