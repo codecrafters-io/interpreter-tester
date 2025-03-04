@@ -1,15 +1,18 @@
 ---
 expected_error_type: none
 ---
-// The closure should capture the global variable and declaring a local
-// variable with the same name should not affect the closure's capture.
+// This variable is used in the function `f` below.
 var variable = "global";
+
 {
   fun f() {
     print variable;
   }
 
-  f(); // expect: global
+  f(); // this should print "global"
+
+  // This variable declaration shouldn't affect the usage in `f` above.
   var variable = "local";
-  f(); // expect: global
+
+  f(); // this should still print "global"
 }

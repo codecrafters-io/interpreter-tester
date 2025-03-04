@@ -1,16 +1,18 @@
 ---
 expected_error_type: compile
 ---
-// A variable should not be able to be initialized with itself.
 fun outer() {
-  var a = "outer";
-
   fun inner() {
-    var a = a; // Error at 'a': Can't read local variable in its own initializer.
-    print a;
+    return "ok";
   }
 
-  inner();
+  return "also ok";
 }
 
-outer();
+if (true) {
+  fun nested() {
+    return; // This is fine
+  }
+
+  return "not ok"; // Error: Can't return from top-level code.
+}

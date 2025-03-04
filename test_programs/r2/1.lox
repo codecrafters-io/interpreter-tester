@@ -1,0 +1,7 @@
+---
+expected_error_type: none
+---
+// Redeclaring a variable in the global scope should be allowed.
+var a = "value";
+var a = a; // global scope
+print a;

@@ -1,0 +1,20 @@
+---
+expected_error_type: compile
+---
+// A variable should not be able to be initialized with itself.
+fun returnArg(arg) {
+  return arg;
+}
+
+var b = "global";
+
+{
+  var a = "first";
+  // Using global 'b' through a function call
+  var b = returnArg(b); // Expect compile error.
+  print b;
+}
+
+// Reassigning with self-reference is fine for globals
+var b = b + " updated";
+print b;

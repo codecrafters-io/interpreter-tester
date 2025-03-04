@@ -1,0 +1,8 @@
+---
+expected_error_type: compile
+---
+// A variable should not be able to be initialized with itself.
+var a = "outer";
+{
+  var a = a; // Expect compile error.
+}
