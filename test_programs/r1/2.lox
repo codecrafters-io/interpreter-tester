@@ -1,0 +1,22 @@
+---
+expected_error_type: none
+---
+// This function is used in the function `f` below.
+fun global() {
+  print "global";
+}
+
+{
+  fun f() {
+    global();
+  }
+
+  f(); // this should print "global"
+
+  // This function declaration shouldn't affect the usage in `f` above.
+  fun global() {
+    print "local";
+  }
+
+  f(); // this should also print "global"
+}

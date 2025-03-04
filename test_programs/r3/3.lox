@@ -1,0 +1,9 @@
+---
+expected_error_type: compile
+---
+// Function parameters must have unique names
+fun foo(arg, arg) { // This should be a compile error
+
+  // Function body is irrelevant as the error occurs in parameter list
+  "body";
+}

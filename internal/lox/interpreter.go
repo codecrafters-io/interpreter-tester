@@ -18,7 +18,7 @@ type ReturnError struct {
 }
 
 func BasicInterpret(expression Expr, stdout io.Writer, stderr io.Writer) {
-	result, err := Eval(expression, NewGlobal(), stdout, stderr)
+	result, err := Eval(expression, NewGlobal(), Locals{}, stdout, stderr)
 	if err != nil {
 		LogRuntimeError(err, stderr)
 		return
@@ -29,27 +29,30 @@ func BasicInterpret(expression Expr, stdout io.Writer, stderr io.Writer) {
 	fmt.Fprintln(stdout, result)
 }
 
-func Interpret(statements []Stmt, stdout io.Writer, stderr io.Writer) {
-	env := NewGlobal()
-	InitializeNativeFunctions(env)
+func Interpret(statements []Stmt, env *Environment, locals Locals, stdout io.Writer, stderr io.Writer) {
+	OldGlobalEnv := GlobalEnv
+	GlobalEnv = env
+	InitializeNativeFunctions()
+
 	for _, stmt := range statements {
-		_, err := Eval(stmt, env, stdout, stderr)
+		_, err := Eval(stmt, env, locals, stdout, stderr)
 		if err != nil {
 			LogRuntimeError(err, stderr)
 			return
 		}
 	}
+	GlobalEnv = OldGlobalEnv
 }
 
 // Eval evaluates the given AST
-func Eval(node Node, environment *Environment, stdout io.Writer, stderr io.Writer) (interface{}, error) {
+func Eval(node Node, environment *Environment, locals Locals, stdout io.Writer, stderr io.Writer) (interface{}, error) {
 	switch n := node.(type) {
 	case *Literal:
 		return n.Value, nil
 	case *Grouping:
-		return Eval(n.Expression, environment, stdout, stderr)
+		return Eval(n.Expression, environment, locals, stdout, stderr)
 	case *Unary:
-		right, err := Eval(n.Right, environment, stdout, stderr)
+		right, err := Eval(n.Right, environment, locals, stdout, stderr)
 		if err != nil {
 			return right, err
 		} else if n.Operator.Type == MINUS {
@@ -62,11 +65,11 @@ func Eval(node Node, environment *Environment, stdout io.Writer, stderr io.Write
 			return !isTruthy(right), nil
 		}
 	case *Binary:
-		left, err := Eval(n.Left, environment, stdout, stderr)
+		left, err := Eval(n.Left, environment, locals, stdout, stderr)
 		if err != nil {
 			return left, err
 		}
-		right, err := Eval(n.Right, environment, stdout, stderr)
+		right, err := Eval(n.Right, environment, locals, stdout, stderr)
 		if err != nil {
 			return right, err
 		}
@@ -161,7 +164,7 @@ func Eval(node Node, environment *Environment, stdout io.Writer, stderr io.Write
 			return isEqual(left, right), nil
 		}
 	case *Print:
-		value, err := Eval(n.Expression, environment, stdout, stderr)
+		value, err := Eval(n.Expression, environment, locals, stdout, stderr)
 		if err != nil {
 			return value, err
 		}
@@ -176,14 +179,14 @@ func Eval(node Node, environment *Environment, stdout io.Writer, stderr io.Write
 		}
 		return nil, nil
 	case *Expression:
-		r, err := Eval(n.Expression, environment, stdout, stderr)
+		r, err := Eval(n.Expression, environment, locals, stdout, stderr)
 		if err != nil {
 			return r, err
 		}
 		return nil, nil
 	case *Var:
 		if n.Initializer != nil {
-			value, err := Eval(n.Initializer, environment, stdout, stderr)
+			value, err := Eval(n.Initializer, environment, locals, stdout, stderr)
 			if err != nil {
 				return nil, err
 			}
@@ -194,38 +197,46 @@ func Eval(node Node, environment *Environment, stdout io.Writer, stderr io.Write
 		}
 		return nil, nil
 	case *Variable:
-		return environment.Get(n.Name)
+		if distance, ok := locals[n]; ok {
+			return environment.GetAt(distance, n.Name)
+		}
+		return GlobalEnv.Get(n.Name)
 	case *Assign:
-		value, err := Eval(n.Value, environment, stdout, stderr)
+		value, err := Eval(n.Value, environment, locals, stdout, stderr)
 		if err != nil {
 			return nil, err
 		}
-		if err = environment.Assign(n.Name, value); err == nil {
+		if distance, ok := locals[n]; ok {
+			if err := environment.AssignAt(distance, n.Name, value); err == nil {
+				return value, nil
+			}
+			return nil, err
+		} else if err := GlobalEnv.Assign(n.Name, value); err == nil {
 			return value, nil
 		}
 		return nil, err
 	case *Block:
 		newEnvironment := New(environment)
 		for _, stmt := range n.Statements {
-			_, err := Eval(stmt, newEnvironment, stdout, stderr)
+			_, err := Eval(stmt, newEnvironment, locals, stdout, stderr)
 			if err != nil {
 				return nil, err
 			}
 		}
 		return nil, nil
 	case *If:
-		condition, err := Eval(n.Condition, environment, stdout, stderr)
+		condition, err := Eval(n.Condition, environment, locals, stdout, stderr)
 		if err != nil {
 			return nil, err
 		}
 		if isTruthy(condition) {
-			return Eval(n.ThenBranch, environment, stdout, stderr)
+			return Eval(n.ThenBranch, environment, locals, stdout, stderr)
 		} else if n.ElseBranch != nil {
-			return Eval(n.ElseBranch, environment, stdout, stderr)
+			return Eval(n.ElseBranch, environment, locals, stdout, stderr)
 		}
 		return nil, nil
 	case *Logical:
-		left, err := Eval(n.Left, environment, stdout, stderr)
+		left, err := Eval(n.Left, environment, locals, stdout, stderr)
 		if err != nil {
 			return nil, err
 		}
@@ -239,16 +250,16 @@ func Eval(node Node, environment *Environment, stdout io.Writer, stderr io.Write
 				return left, nil
 			}
 		}
-		return Eval(n.Right, environment, stdout, stderr)
+		return Eval(n.Right, environment, locals, stdout, stderr)
 	case *Call:
-		callee, err := Eval(n.Callee, environment, stdout, stderr)
+		callee, err := Eval(n.Callee, environment, locals, stdout, stderr)
 		if err != nil {
 			return nil, err
 		}
 
 		args := make([]interface{}, 0)
 		for _, arg := range n.Arguments {
-			a, err := Eval(arg, environment, stdout, stderr)
+			a, err := Eval(arg, environment, locals, stdout, stderr)
 			if err == nil {
 				args = append(args, a)
 			} else {
@@ -268,28 +279,28 @@ func Eval(node Node, environment *Environment, stdout io.Writer, stderr io.Write
 		return function.Call(args, environment, stdout, stderr)
 	case *While:
 		for {
-			condition, err := Eval(n.Condition, environment, stdout, stderr)
+			condition, err := Eval(n.Condition, environment, locals, stdout, stderr)
 			if err != nil {
 				return nil, err
 			}
 			if !isTruthy(condition) {
 				break
 			}
-			_, err = Eval(n.Statement, environment, stdout, stderr)
+			_, err = Eval(n.Statement, environment, locals, stdout, stderr)
 			if err != nil {
 				return nil, err
 			}
 		}
 		return nil, nil
 	case *Function:
-		function := NewUserFunction(n, environment)
+		function := NewUserFunction(n, environment, locals)
 		environment.Define(n.Name.Lexeme, function)
 		return nil, nil
 	case *Return:
 		var value interface{}
 		var err error
 		if n.Value != nil {
-			value, err = Eval(n.Value, environment, stdout, stderr)
+			value, err = Eval(n.Value, environment, locals, stdout, stderr)
 			if err != nil {
 				return nil, err
 			}
@@ -331,4 +342,5 @@ func checkNumberOperand(operator Token, value interface{}, msg string) error {
 func ClearErrorFlags() {
 	HadParseError = false
 	HadRuntimeError = false
+	HadSemanticError = false
 }

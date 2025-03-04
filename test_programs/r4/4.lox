@@ -1,0 +1,19 @@
+---
+expected_error_type: compile
+---
+fun outer() {
+  fun inner() {
+    return "ok";
+  }
+
+  return "also ok";
+}
+
+if (true) {
+  fun nested() {
+    return;
+  }
+
+  // Return statements are not allowed outside of functions
+  return "not ok"; // This should be a compile error
+}

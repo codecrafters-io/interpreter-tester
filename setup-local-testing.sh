@@ -20,5 +20,7 @@ cp -r ./internal/test_helpers/jlox07/* ./craftinginterpreters/build/gen/chap07_e
 cp -r ./internal/test_helpers/jlox08/* ./craftinginterpreters/build/gen/chap08_statements
 cp -r ./internal/test_helpers/jlox08/* ./craftinginterpreters/build/gen/chap09_control
 cp -r ./internal/test_helpers/jlox08/* ./craftinginterpreters/build/gen/chap10_functions
+cp -r ./internal/test_helpers/jlox08/* ./craftinginterpreters/build/gen/chap11_resolving
+cp -r ./internal/test_helpers/jlox08/* ./craftinginterpreters/build/gen/chap12_classes
 cp -r ./internal/test_helpers/jlox08/* ./craftinginterpreters/build/gen/chap13_inheritance
 make test

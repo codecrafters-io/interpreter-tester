@@ -1,0 +1,14 @@
+---
+expected_error_type: compile
+---
+{
+  // Return statements are not allowed in top-level blocks
+  return "not allowed in a block either"; // This should be a compile error
+}
+
+fun allowed() {
+  if (true) {
+    return "this is fine";
+  }
+  return;
+}

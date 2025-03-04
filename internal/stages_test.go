@@ -75,6 +75,20 @@ func TestStages(t *testing.T) {
 			StdoutFixturePath:   "./test_helpers/fixtures/pass_functions_final",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
+		"pass_resolving_inprogress_jlox": {
+			StageSlugs:          []string{"de8", "pt7", "pz7", "eh3"},
+			CodePath:            "../craftinginterpreters/build/gen/chap11_resolving",
+			ExpectedExitCode:    0,
+			StdoutFixturePath:   "./test_helpers/fixtures/pass_resolving",
+			NormalizeOutputFunc: normalizeTesterOutput,
+		},
+		"pass_resolving_completed_jlox": {
+			StageSlugs:          []string{"de8", "pt7", "pz7", "eh3"},
+			CodePath:            "../craftinginterpreters/build/gen/chap13_inheritance",
+			ExpectedExitCode:    0,
+			StdoutFixturePath:   "./test_helpers/fixtures/pass_resolving_final",
+			NormalizeOutputFunc: normalizeTesterOutput,
+		},
 	}
 
 	tester_utils_testing.TestTesterOutput(t, testerDefinition, testCases)

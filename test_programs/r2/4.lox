@@ -1,0 +1,18 @@
+---
+expected_error_type: compile
+---
+fun outer() {
+  // Declare variable 'a' in outer function scope
+  var a = "outer";
+
+  // Inner function with its own scope
+  fun inner() {
+    // Attempting to declare local 'a' initialized with itself
+    var a = a; // This should be a compile error
+    print a;
+  }
+
+  inner();
+}
+
+outer();
