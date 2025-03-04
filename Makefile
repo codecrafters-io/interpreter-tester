@@ -155,10 +155,10 @@ test_functions_w_jlox: build
 test_resolving_w_jlox: build
 	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap11_resolving \
 	CODECRAFTERS_TEST_CASES_JSON="[ \
-		{\"slug\":\"r1\",\"tester_log_prefix\":\"stage_701\",\"title\":\"Stage #701: Resolving: Identifier Resolution\"}, \
-		{\"slug\":\"r2\",\"tester_log_prefix\":\"stage_704\",\"title\":\"Stage #704: Resolving: Self Initialization\"}, \
-		{\"slug\":\"r3\",\"tester_log_prefix\":\"stage_707\",\"title\":\"Stage #707: Resolving: Variable Re-declaration\"}, \
-		{\"slug\":\"r4\",\"tester_log_prefix\":\"stage_705\",\"title\":\"Stage #705: Resolving: Invalid Return\"} \
+		{\"slug\":\"de3\",\"tester_log_prefix\":\"stage_701\",\"title\":\"Stage #701: Resolving: Identifier Resolution\"}, \
+		{\"slug\":\"pt7\",\"tester_log_prefix\":\"stage_702\",\"title\":\"Stage #704: Resolving: Self Initialization\"}, \
+		{\"slug\":\"pz7\",\"tester_log_prefix\":\"stage_703\",\"title\":\"Stage #707: Resolving: Variable Re-declaration\"}, \
+		{\"slug\":\"eh3\",\"tester_log_prefix\":\"stage_704\",\"title\":\"Stage #705: Resolving: Invalid Return\"} \
 	]" \
 	$(shell pwd)/dist/main.out
 
