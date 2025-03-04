@@ -1,7 +1,9 @@
 ---
 expected_error_type: none
 ---
-// Redeclaring a variable in the global scope should be allowed.
+// First declaration of variable 'a' in global scope
 var a = "value";
-var a = a; // global scope
-print a;
+
+// Redeclaring 'a' with its own value should be allowed in global scope
+var a = a;
+print a; // this should print "value"

@@ -1,20 +1,23 @@
 ---
 expected_error_type: compile
 ---
-// A variable should not be able to be initialized with itself.
+// Helper function that simply returns its argument
 fun returnArg(arg) {
   return arg;
 }
 
+// Declare global variable 'b'
 var b = "global";
 
 {
+  // Local variable declaration
   var a = "first";
-  // Using global 'b' through a function call
-  var b = returnArg(b); // Expect compile error.
+
+  // Attempting to initialize local variable 'b' using local variable 'b'
+  // through a function call
+  var b = returnArg(b); // This should be a compile error
   print b;
 }
 
-// Reassigning with self-reference is fine for globals
 var b = b + " updated";
 print b;

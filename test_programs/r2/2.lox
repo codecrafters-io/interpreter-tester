@@ -1,8 +1,10 @@
 ---
 expected_error_type: compile
 ---
-// A variable should not be able to be initialized with itself.
+// Declare outer variable 'a' in global scope
 var a = "outer";
+
 {
-  var a = a; // Expect compile error.
+  // Attempting to declare local variable'a' initialized with itself
+  var a = a; // This should be a compile error
 }

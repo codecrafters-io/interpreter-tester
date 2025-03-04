@@ -1,12 +1,14 @@
 ---
 expected_error_type: compile
 ---
-// A variable should not be able to be initialized with itself.
 fun outer() {
+  // Declare variable 'a' in outer function scope
   var a = "outer";
 
+  // Inner function with its own scope
   fun inner() {
-    var a = a; // Error at 'a': Can't read local variable in its own initializer.
+    // Attempting to declare local 'a' initialized with itself
+    var a = a; // This should be a compile error
     print a;
   }
 
