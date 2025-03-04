@@ -1,6 +1,9 @@
 ---
 expected_error_type: compile
 ---
-fun foo(arg, arg) { // Error at 'arg': Already a variable with this name in this scope.
+// Function parameters must have unique names
+fun foo(arg, arg) { // This should be a compile error
+
+  // Function body is irrelevant as the error occurs in parameter list
   "body";
 }

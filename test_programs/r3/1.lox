@@ -3,5 +3,7 @@ expected_error_type: compile
 ---
 {
   var a = "value";
-  var a = "other"; // Error at 'a': Already a variable with this name in this scope.
+
+  // Attempting to redeclare 'a' in the same scope
+  var a = "other"; // This should be a compile error
 }
