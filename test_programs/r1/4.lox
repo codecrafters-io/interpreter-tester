@@ -1,14 +1,14 @@
 ---
 expected_error_type: none
 ---
-// The closure should capture the `count` variable from the global scope
-// and increment it. Reassigning the `count` variable in the local scope
-// should not affect the closure's capture.
 var count = 0;
 
 {
+  // The `counter` function should use the `count` variable from the
+  // global scope.
   fun makeCounter() {
     fun counter() {
+      // This should increment the `count` variable from the global scope.
       count = count + 1;
       print count;
     }
@@ -19,6 +19,8 @@ var count = 0;
   counter1(); // Should print 1
   counter1(); // Should print 2
 
-  var count = 0; // This local variable shouldn't affect our counter
+  // This variable declaration shouldn't affect our counter.
+  var count = 0;
+
   counter1(); // Should print 3
 }

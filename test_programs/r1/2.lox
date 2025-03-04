@@ -1,8 +1,7 @@
 ---
 expected_error_type: none
 ---
-// The closure should capture the globally defined function and redeclaring
-// a function with the same name should not affect the closure's capture.
+// This function is used in the function `f` below.
 fun global() {
   print "global";
 }
@@ -12,9 +11,12 @@ fun global() {
     global();
   }
 
-  f();
+  f(); // this should print "global"
+
+  // This function declaration shouldn't affect the usage in `f` above.
   fun global() {
     print "local";
   }
-  f();
+
+  f(); // this should also print "global"
 }
