@@ -1,18 +1,14 @@
 ---
 expected_error_type: compile
 ---
-fun returnArg(arg) {
-  return arg;
-}
-
-var b = "global";
-
 {
-  var a = "first";
-  var b = returnArg(b); // Using global 'b' in its initializer, but through a function call
-  print b;
+  // Return statements are not allowed in top-level blocks
+  return "not allowed in a block either"; // This should be a compile error
 }
 
-// Reassigning with self-reference is fine for globals
-var b = b + " updated";
-print b;
+fun allowed() {
+  if (true) {
+    return "this is fine";
+  }
+  return;
+}

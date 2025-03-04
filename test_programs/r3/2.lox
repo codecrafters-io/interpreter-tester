@@ -1,18 +1,9 @@
 ---
-expected_error_type: none
+expected_error_type: compile
 ---
-fun global() {
-  print "global";
-}
+// Function parameters are considered variables in the function's scope
+fun foo(a) {
 
-{
-  fun f() {
-    global();
-  }
-
-  f();
-  fun global() {
-    print "local";
-  }
-  f();
+  // Attempting to declare a variable with same name as parameter
+  var a; // This should be a compile error
 }

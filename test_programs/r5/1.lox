@@ -1,8 +1,0 @@
----
-expected_error_type: compile
----
-fun foo() {
-  return "at function scope is ok";
-}
-
-return; // Error: Can't return from top-level code.
