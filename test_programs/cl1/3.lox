@@ -1,10 +1,7 @@
 ---
 expected_error_type: none
 ---
-class Foo {
-  returnSelf() {
-    return Foo;
-  }
-}
-
-print Foo().returnSelf(); // expect: Foo
+class Hello{}
+var hello = Hello();
+hello.x = 5.2;
+print hello.x;

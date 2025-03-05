@@ -1,12 +1,7 @@
 ---
 expected_error_type: none
 ---
-{
-  class Foo {
-    returnSelf() {
-      return Foo;
-    }
-  }
+class Bagel {}
+var a = Bagel();
 
-  print Foo().returnSelf(); // expect: Foo
-}
+print a;

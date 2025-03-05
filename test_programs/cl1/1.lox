@@ -1,6 +1,10 @@
 ---
 expected_error_type: none
 ---
-class Foo {}
+class DevonshireCream {
+  serveOn() {
+    return "Scones";
+  }
+}
 
-print Foo; // expect: Foo
+print DevonshireCream;

@@ -1,0 +1,12 @@
+---
+expected_error_type: none
+---
+{
+  class Foo {
+    returnSelf() {
+      return Foo;
+    }
+  }
+
+  print Foo().returnSelf(); // expect: Foo
+}

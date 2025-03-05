@@ -1,21 +1,27 @@
 ---
 expected_error_type: none
 ---
-class Hello{}
-print Hello;
+class Egotist {
+  speak() {
+    print this;
+  }
+}
+
+var method = Egotist().speak;
+method();
 
 //
 
-class Hello{}
-var hello = Hello();
-print hello;
+class Cake {
+  taste() {
+    var adjective = "delicious";
+    print "The " + this.flavor + " cake is " + adjective + "!";
+  }
+}
 
-//
-
-class Hello{}
-var hello = Hello();
-hello.x = 5.2;
-print hello.x;
+var cake = Cake();
+cake.flavor = "German chocolate";
+cake.taste(); // Prints "The German chocolate cake is delicious!".
 
 //
 
@@ -31,24 +37,3 @@ class Thing {
 
 var callback = Thing().getCallback();
 callback();
-
-//
-
-class Thing {
-  init(a, b) {
-    this.x = a;
-    this.y = b;
-  }
-}
-print Thing(5, 1).x;
-
-//
-
-class Thing {
-  init(a, b) {
-    this.x = a;
-    this.y = b;
-    return;
-  }
-}
-print Thing(5, 1);

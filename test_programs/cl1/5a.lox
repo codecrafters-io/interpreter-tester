@@ -1,0 +1,16 @@
+---
+expected_error_type: compile
+---
+// print this;
+
+fun notAMethod() {
+  print this;
+}
+
+// class Person {
+//   sayName() {
+//     print this();
+//   }
+// }
+//
+// Person().sayName();
