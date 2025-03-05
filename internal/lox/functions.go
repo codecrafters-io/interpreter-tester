@@ -1,6 +1,8 @@
 package lox
 
-import "io"
+import (
+	"io"
+)
 
 type loxCallable func([]interface{}) (interface{}, error)
 
@@ -35,17 +37,19 @@ func (n *NativeFunction) String() string {
 // UserFunction are functions defined in Lox code
 type UserFunction struct {
 	Callable
-	Declaration *Function
-	Closure     *Environment
-	Locals      Locals // TODO: Pass pointer to Locals
+	Declaration   *Function
+	Closure       *Environment
+	Locals        Locals // TODO: Pass pointer to Locals
+	IsInitializer bool
 }
 
 // NewUserFunction creates a new UserFunction
 func NewUserFunction(declaration *Function, closure *Environment, locals Locals) *UserFunction {
 	return &UserFunction{
-		Declaration: declaration,
-		Closure:     closure,
-		Locals:      locals,
+		Declaration:   declaration,
+		Closure:       closure,
+		Locals:        locals,
+		IsInitializer: false,
 	}
 }
 
@@ -63,12 +67,18 @@ func (u *UserFunction) Call(arguments []interface{}, globalEnv *Environment, std
 
 		if err != nil {
 			if r, ok := err.(ReturnError); ok {
+				if u.IsInitializer {
+					return u.Closure.GetAt(0, Token{Lexeme: "this"})
+				}
 				return r.value, nil
 			}
 			return nil, err
 		}
 	}
 
+	if u.IsInitializer {
+		return u.Closure.GetAt(0, Token{Lexeme: "this"})
+	}
 	return nil, nil
 }
 
@@ -80,4 +90,16 @@ func (u *UserFunction) Arity() int {
 // String returns the name of the user-function
 func (u *UserFunction) String() string {
 	return "<fn " + u.Declaration.Name.Lexeme + ">"
+}
+
+// Bind creates a new instance method
+func (u *UserFunction) Bind(instance *UserClassInstance) *UserFunction {
+	thisEnv := New(u.Closure)
+	thisEnv.Define("this", instance)
+	return &UserFunction{
+		Declaration:   u.Declaration,
+		Closure:       thisEnv,
+		Locals:        u.Locals,
+		IsInitializer: u.IsInitializer,
+	}
 }

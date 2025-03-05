@@ -1,0 +1,7 @@
+---
+expected_error_type: none
+---
+class Bagel {}
+var a = Bagel();
+
+print a;

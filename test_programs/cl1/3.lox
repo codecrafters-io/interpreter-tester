@@ -1,0 +1,7 @@
+---
+expected_error_type: none
+---
+class Hello{}
+var hello = Hello();
+hello.x = 5.2;
+print hello.x;
