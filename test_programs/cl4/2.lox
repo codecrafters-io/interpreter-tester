@@ -1,0 +1,20 @@
+---
+expected_error_type: none
+---
+class Robot {
+  beep() {
+    print "Beep boop!";
+  }
+
+  compute(task) {
+    print "Computing: ";
+    print task;
+  }
+}
+
+var r2d2 = Robot();
+r2d2.beep();
+r2d2.compute("navigation");
+
+// Method calls can be chained on the instance
+Robot().beep();

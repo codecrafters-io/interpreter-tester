@@ -1,0 +1,16 @@
+---
+expected_error_type: none
+---
+class Spaceship {
+  fly() {
+    print "Zooming through space!";
+  }
+
+  land() {
+    print "Landing sequence initiated.";
+  }
+}
+
+var falcon = Spaceship();
+falcon.fly();
+falcon.land();

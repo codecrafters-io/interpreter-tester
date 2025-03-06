@@ -1,0 +1,26 @@
+---
+expected_error_type: none
+---
+class Wizard {
+  castSpell() {
+    print "Casting a magical spell!";
+  }
+}
+
+class Dragon {
+  breatheFire() {
+    print "Breathing fire!";
+  }
+}
+
+// Methods on different class instances
+var merlin = Wizard();
+var smaug = Dragon();
+
+merlin.castSpell();
+smaug.breatheFire();
+
+// Conditional method calling
+if (<<RANDOM_BOOLEAN>>) {
+  merlin.castSpell();
+}

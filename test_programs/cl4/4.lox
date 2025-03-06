@@ -1,0 +1,24 @@
+---
+expected_error_type: none
+---
+class Superhero {
+  fly() {
+    print "Flying high!";
+  }
+
+  useSpecialPower() {
+    print "Using special power!";
+  }
+}
+
+// Methods in functions
+fun performHeroics(hero) {
+  hero.fly();
+  hero.useSpecialPower();
+}
+
+var superman = Superhero();
+performHeroics(superman);
+
+// Direct method call on instance creation
+Superhero().fly();
