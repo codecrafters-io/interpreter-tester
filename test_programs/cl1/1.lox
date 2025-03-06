@@ -1,10 +1,15 @@
 ---
 expected_error_type: none
 ---
-class DevonshireCream {
-  serveOn() {
-    return "Scones";
-  }
+class DevonshireCream {}
+class Cream {}
+{
+  class YorkshireCream {}
+}
+print DevonshireCream;
+
+fun foo() {
+  class DevonshireCream {}
 }
 
-print DevonshireCream;
+foo();
