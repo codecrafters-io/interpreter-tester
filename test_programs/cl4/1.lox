@@ -1,16 +1,20 @@
 ---
 expected_error_type: none
 ---
-class Spaceship {
-  fly() {
-    print "Zooming through space!";
+class Robot {
+  beep() {
+    print "Beep boop!";
   }
 
-  land() {
-    print "Landing sequence initiated.";
+  compute(task) {
+    print "Computing: ";
+    print task;
   }
 }
 
-var falcon = Spaceship();
-falcon.fly();
-falcon.land();
+var r2d2 = Robot();
+r2d2.beep();
+r2d2.compute("navigation");
+
+// Method calls can be chained on the instance
+Robot().beep();
