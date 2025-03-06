@@ -1,0 +1,16 @@
+---
+expected_error_type: none
+---
+class Person {
+  init() {
+    this.name = "Ryan";
+    this.age = 25;
+    return;
+  }
+
+  sayHello() {
+    print "Hello, my name is " + this.name + ".";
+  }
+}
+
+Person().sayHello();

@@ -1,0 +1,14 @@
+---
+expected_error_type: compile
+---
+class Foo {
+  init() {
+    return this.callback();
+  }
+
+  callback() {
+    return "callback";
+  }
+}
+
+Foo();
