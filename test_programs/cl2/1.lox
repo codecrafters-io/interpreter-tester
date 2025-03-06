@@ -1,0 +1,13 @@
+---
+expected_error_type: none
+---
+// Basic class instantiation with conditional
+class Spaceship {}
+var falcon = Spaceship();
+
+if (falcon) {
+  print "Successfully created a Spaceship!";
+} else {
+  print "Failed to create a Spaceship.";
+}
+print falcon;

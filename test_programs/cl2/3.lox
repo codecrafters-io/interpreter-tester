@@ -1,0 +1,19 @@
+---
+expected_error_type: none
+---
+// Instantiating classes in a function
+class Wizard {}
+class Dragon {}
+
+fun createCharacters() {
+  var merlin = Wizard();
+  var smaug = Dragon();
+  print "Characters created in fantasy world:";
+  print merlin;
+  print smaug;
+  return merlin;
+}
+
+var mainCharacter = createCharacters();
+print "The main character is:";
+print mainCharacter;
