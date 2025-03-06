@@ -1,0 +1,21 @@
+---
+expected_error_type: none
+---
+// Property manipulation in functions
+class Wizard {}
+var gandalf = Wizard();
+
+gandalf.color = "Grey";
+gandalf.power = nil;
+print gandalf.color;
+
+fun promote(wizard) {
+  wizard.color = "White";
+  wizard.power = 100;
+}
+
+if (<<RANDOM_BOOLEAN>>) {
+  promote(gandalf);
+}
+print gandalf.color;
+print gandalf.power;

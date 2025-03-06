@@ -1,0 +1,16 @@
+---
+expected_error_type: none
+---
+// Multiple instances with properties
+class Superhero {}
+var batman = Superhero();
+var superman = Superhero();
+
+batman.name = "Batman";
+batman.power = "Intelligence";
+
+superman.name = "Superman";
+superman.power = "Flight";
+
+print batman.name + "power: " + batman.power;
+print superman.name + "power: " + superman.power;
