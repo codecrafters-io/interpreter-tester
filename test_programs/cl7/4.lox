@@ -1,0 +1,14 @@
+---
+expected_error_type: none
+---
+class Confused {
+  method() {
+    fun inner(instance) {
+      print this;
+      print instance;
+    }
+    inner(this);
+  }
+}
+
+Confused().method();

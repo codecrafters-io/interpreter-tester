@@ -1,0 +1,6 @@
+---
+expected_error_type: compile
+---
+fun notAMethod() {
+  print this;
+}

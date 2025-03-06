@@ -1,0 +1,9 @@
+---
+expected_error_type: runtime
+---
+class Person {
+  sayName() {
+    print this();
+  }
+}
+Person().sayName();
