@@ -1,7 +1,9 @@
 ---
-expected_error_type: none
+expected_error_type: runtime
 ---
-class Bagel {}
-var a = Bagel();
-
-print a;
+{
+  class Dinosaur {}
+  print "Inside block: Dinosaur exists";
+}
+print "Attempting to access out-of-scope class:";
+print Dinosaur;  // Should cause runtime error

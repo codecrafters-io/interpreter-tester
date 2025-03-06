@@ -1,7 +1,9 @@
 ---
 expected_error_type: none
 ---
-class Hello{}
-var hello = Hello();
-hello.x = 5.2;
-print hello.x;
+// Multiple class declarations
+class Robot {}
+class Wizard {}
+print Robot;
+print Wizard;
+print "Both classes successfully printed";

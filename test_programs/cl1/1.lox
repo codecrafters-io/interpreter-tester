@@ -1,15 +1,5 @@
 ---
 expected_error_type: none
 ---
-class DevonshireCream {}
-class Cream {}
-{
-  class YorkshireCream {}
-}
-print DevonshireCream;
-
-fun foo() {
-  class DevonshireCream {}
-}
-
-foo();
+class Spaceship {}
+print Spaceship;

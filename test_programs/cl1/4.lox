@@ -1,10 +1,11 @@
 ---
 expected_error_type: none
 ---
-class Bacon {
-  eat() {
-    print "Crunch crunch crunch!";
-  }
+// Class declaration inside function
+fun foo() {
+  class Superhero {}
+  print "Class declared inside function";
 }
 
-Bacon().eat(); // Prints "Crunch crunch crunch!".
+foo();
+print "Function called successfully";
