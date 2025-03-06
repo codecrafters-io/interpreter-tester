@@ -1,0 +1,11 @@
+---
+expected_error_type: none
+---
+class Spaceship {
+  identify() {
+    print this;
+  }
+}
+
+var method = Spaceship().identify;
+method();

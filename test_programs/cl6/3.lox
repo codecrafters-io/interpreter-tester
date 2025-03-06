@@ -1,0 +1,18 @@
+---
+expected_error_type: none
+---
+class Wizard {
+  getSpellCaster() {
+    fun castSpell() {
+      print this;
+      print "Casting spell as " + this.name;
+    }
+
+    return castSpell;
+  }
+}
+
+var wizard = Wizard();
+wizard.name = "Merlin";
+var spellCaster = wizard.getSpellCaster();
+spellCaster();
