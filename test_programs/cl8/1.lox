@@ -1,0 +1,11 @@
+---
+expected_error_type: none
+---
+class Default {
+  init() {
+    this.x = "foo";
+    this.y = 42;
+  }
+}
+print Default().x;
+print Default().y;
