@@ -1,5 +1,0 @@
----
-expected_error_type: none
----
-class Bagel {}
-Bagel();

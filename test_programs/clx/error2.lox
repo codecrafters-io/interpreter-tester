@@ -1,8 +1,0 @@
----
-expected_error_type: compile
----
-class Foo {
-  init() {
-    return "something else";
-  }
-}
