@@ -5,5 +5,5 @@ expected_error_type: runtime
   class Dinosaur {}
   print "Inside block: Dinosaur exists";
 }
-print "Attempting to access out-of-scope class:";
+print "Accessing out-of-scope class:";
 print Dinosaur;  // Should cause runtime error
