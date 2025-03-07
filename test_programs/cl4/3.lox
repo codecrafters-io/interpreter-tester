@@ -2,14 +2,15 @@
 expected_error_type: none
 ---
 class Wizard {
-  castSpell() {
-    print "Casting a magical spell!";
+  castSpell(spell) {
+    print "Casting a magical spell: " + spell;
   }
 }
 
 class Dragon {
-  breatheFire() {
-    print "Breathing fire!";
+  breatheFire(fire, intensity) {
+    print "Breathing fire: " + fire + 
+    " with intensity: " + intensity;
   }
 }
 
@@ -17,10 +18,9 @@ class Dragon {
 var merlin = Wizard();
 var smaug = Dragon();
 
-merlin.castSpell();
-smaug.breatheFire();
-
 // Conditional method calling
 if (<<RANDOM_BOOLEAN>>) {
-  merlin.castSpell();
+  merlin.castSpell("Fireball");
+} else {
+  smaug.breatheFire("Fire", 100);
 }

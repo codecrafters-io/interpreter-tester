@@ -2,23 +2,33 @@
 expected_error_type: none
 ---
 class Superhero {
-  fly() {
-    print "Flying high!";
+  useSpecialPower() {
+    print "Using power: " + this.specialPower;
   }
 
-  useSpecialPower() {
-    print "Using special power!";
+  hasSpecialPower() {
+    return this.specialPower;
+  }
+
+  giveSpecialPower(power) {
+    this.specialPower = power;
   }
 }
 
 // Methods in functions
 fun performHeroics(hero) {
-  hero.fly();
-  hero.useSpecialPower();
+  if (hero.hasSpecialPower()) {
+    hero.useSpecialPower();
+  } else {
+    print "No special power available";
+  }
 }
 
 var superman = Superhero();
-performHeroics(superman);
+if (<<RANDOM_BOOLEAN>>) {
+  superman.giveSpecialPower("Flight");
+} else {
+  superman.giveSpecialPower(nil);
+}
 
-// Direct method call on instance creation
-Superhero().fly();
+performHeroics(superman);
