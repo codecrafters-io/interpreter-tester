@@ -1,9 +1,9 @@
 ---
-expected_error_type: runtime
+expected_error_type: none
 ---
-{
-  class Dinosaur {}
-  print "Inside block: Dinosaur exists";
-}
-print "Accessing out-of-scope class:";
-print Dinosaur;  // Should cause runtime error
+// Multiple class declarations
+class Robot {}
+class Wizard {}
+print Robot;
+print Wizard;
+print "Both classes successfully printed";

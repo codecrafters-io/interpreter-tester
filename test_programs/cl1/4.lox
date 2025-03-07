@@ -5,6 +5,7 @@ expected_error_type: none
 fun foo() {
   class Superhero {}
   print "Class declared inside function";
+  print Superhero;
 }
 
 foo();
