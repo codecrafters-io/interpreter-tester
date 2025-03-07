@@ -170,11 +170,11 @@ test_classes_w_jlox: build
 		{\"slug\":\"cl3\",\"tester_log_prefix\":\"stage_803\",\"title\":\"Stage #803: Getters & Setters\"}, \
 		{\"slug\":\"cl4\",\"tester_log_prefix\":\"stage_804\",\"title\":\"Stage #804: Instance Methods\"}, \
 		{\"slug\":\"cl5\",\"tester_log_prefix\":\"stage_805\",\"title\":\"Stage #805: Bound method calls\"}, \
-		{\"slug\":\"cl6\",\"tester_log_prefix\":\"stage_806\",\"title\":\"Stage #806: this keyword\"}, \
-		{\"slug\":\"cl7\",\"tester_log_prefix\":\"stage_807\",\"title\":\"Stage #807: this keyword errors\"}, \
+		{\"slug\":\"cl6\",\"tester_log_prefix\":\"stage_806\",\"title\":\"Stage #806: The `this` keyword\"}, \
+		{\"slug\":\"cl7\",\"tester_log_prefix\":\"stage_807\",\"title\":\"Stage #807: Invalid usages of `this`\"}, \
 		{\"slug\":\"cl8\",\"tester_log_prefix\":\"stage_808\",\"title\":\"Stage #808: Constructor calls\"}, \
-		{\"slug\":\"cl9\",\"tester_log_prefix\":\"stage_809\",\"title\":\"Stage #809: Constructor errors\"} \
+		{\"slug\":\"cl9\",\"tester_log_prefix\":\"stage_809\",\"title\":\"Stage #809: Return within constructors\"} \
 	]" \
 	$(shell pwd)/dist/main.out
 
-test_all: test_scanning_w_jlox test_parsing_w_jlox test_evaluation_w_jlox test_statements_w_jlox test_control_flow_w_jlox test_functions_w_jlox test_resolving_w_jlox
+test_all: test_scanning_w_jlox test_parsing_w_jlox test_evaluation_w_jlox test_statements_w_jlox test_control_flow_w_jlox test_functions_w_jlox test_resolving_w_jlox test_classes_w_jlox
