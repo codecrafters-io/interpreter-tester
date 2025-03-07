@@ -1,14 +1,16 @@
 ---
-expected_error_type: none
+expected_error_type: runtime
 ---
 class Confused {
   method() {
     fun inner(instance) {
-      print this;
-      print instance;
+      var feeling = "confused";
+      print this.feeling;
     }
-    inner(this);
+    return inner;
   }
 }
 
-Confused().method();
+var instance = Confused();
+var m = instance.method();
+m(instance);
