@@ -10,15 +10,8 @@ class Counter {
       this.count = startValue;
     }
   }
-
-  increment() {
-    this.count = this.count + 1;
-    return this.count;
-  }
 }
 
-var counter1 = Counter(-<<RANDOM_INTEGER>>);
-var counter2 = Counter(<<RANDOM_INTEGER>>);
-
-print counter1.increment();
-print counter2.increment();
+var instance = Counter(-<<RANDOM_INTEGER>>);
+print instance.count;
+print instance.init(<<RANDOM_INTEGER>>).count;

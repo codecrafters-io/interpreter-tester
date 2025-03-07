@@ -3,8 +3,8 @@ expected_error_type: none
 ---
 class Default {
   init() {
-    this.x = "foo";
-    this.y = 42;
+    this.x = "<<RANDOM_STRING_1>>";
+    this.y = <<RANDOM_INTEGER_1>>;
   }
 }
 print Default().x;
