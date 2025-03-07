@@ -1,21 +1,18 @@
 ---
 expected_error_type: none
 ---
-// Property manipulation in functions
-class Wizard {}
-var gandalf = Wizard();
+// Multiple instances with properties
+class Superhero {}
+var batman = Superhero();
+var superman = Superhero();
 
-gandalf.color = "Grey";
-gandalf.power = nil;
-print gandalf.color;
+batman.name = "Batman";
+batman.called = <<RANDOM_INTEGER_1>>;
 
-fun promote(wizard) {
-  wizard.color = "White";
-  wizard.power = 100;
-}
+superman.name = "Superman";
+superman.called = <<RANDOM_INTEGER_2>>;
 
-if (<<RANDOM_BOOLEAN>>) {
-  promote(gandalf);
-}
-print gandalf.color;
-print gandalf.power;
+print "Times " + superman.name + " was called: ";
+print superman.called;
+print "Times " + batman.name + " was called: ";
+print batman.called;
