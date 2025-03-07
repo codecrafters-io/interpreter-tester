@@ -169,10 +169,10 @@ test_classes_w_jlox: build
 		{\"slug\":\"cl2\",\"tester_log_prefix\":\"stage_802\",\"title\":\"Stage #802: Class Instances\"}, \
 		{\"slug\":\"cl3\",\"tester_log_prefix\":\"stage_803\",\"title\":\"Stage #803: Getters & Setters\"}, \
 		{\"slug\":\"cl4\",\"tester_log_prefix\":\"stage_804\",\"title\":\"Stage #804: Instance Methods\"}, \
-		{\"slug\":\"cl6\",\"tester_log_prefix\":\"stage_806\",\"title\":\"Stage #806: The `this` keyword\"}, \
-		{\"slug\":\"cl7\",\"tester_log_prefix\":\"stage_807\",\"title\":\"Stage #807: Invalid usages of `this`\"}, \
-		{\"slug\":\"cl8\",\"tester_log_prefix\":\"stage_808\",\"title\":\"Stage #808: Constructor calls\"}, \
-		{\"slug\":\"cl9\",\"tester_log_prefix\":\"stage_809\",\"title\":\"Stage #809: Return within constructors\"} \
+		{\"slug\":\"cl5\",\"tester_log_prefix\":\"stage_805\",\"title\":\"Stage #805: The `this` keyword\"}, \
+		{\"slug\":\"cl6\",\"tester_log_prefix\":\"stage_806\",\"title\":\"Stage #806: Invalid usages of `this`\"}, \
+		{\"slug\":\"cl7\",\"tester_log_prefix\":\"stage_807\",\"title\":\"Stage #807: Constructor calls\"}, \
+		{\"slug\":\"cl8\",\"tester_log_prefix\":\"stage_808\",\"title\":\"Stage #808: Return within constructors\"} \
 	]" \
 	$(shell pwd)/dist/main.out
 

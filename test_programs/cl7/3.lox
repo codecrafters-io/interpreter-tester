@@ -1,9 +1,17 @@
 ---
-expected_error_type: runtime
+expected_error_type: none
 ---
-class Person {
-  sayName() {
-    print this();
+class Counter {
+  init(startValue) {
+    if (startValue < 0) {
+      print "startValue can't be negative";
+      this.count = 0;
+    } else {
+      this.count = startValue;
+    }
   }
 }
-Person().sayName();
+
+var instance = Counter(-<<RANDOM_INTEGER>>);
+print instance.count;
+print instance.init(<<RANDOM_INTEGER>>).count;

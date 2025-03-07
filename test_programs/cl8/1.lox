@@ -1,11 +1,11 @@
 ---
 expected_error_type: none
 ---
-class Default {
+class Person {
   init() {
-    this.x = "<<RANDOM_STRING_1>>";
-    this.y = <<RANDOM_INTEGER_1>>;
+    print "<<RANDOM_STRING_1>>";
+    return;
   }
 }
-print Default().x;
-print Default().y;
+
+Person();

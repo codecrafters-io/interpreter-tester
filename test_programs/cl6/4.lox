@@ -1,17 +1,16 @@
 ---
-expected_error_type: none
+expected_error_type: runtime
 ---
-class Wizard {
-  getSpellCaster() {
-    fun castSpell() {
-      print this;
-      print "Casting spell as " + this.name;
+class Confused {
+  method() {
+    fun inner(instance) {
+      var feeling = "confused";
+      print this.feeling;
     }
-
-    return castSpell;
+    return inner;
   }
 }
 
-var wizard = Wizard();
-wizard.name = "Merlin";
-wizard.getSpellCaster()();
+var instance = Confused();
+var m = instance.method();
+m(instance);

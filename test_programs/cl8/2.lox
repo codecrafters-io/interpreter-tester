@@ -1,10 +1,12 @@
 ---
-expected_error_type: none
+expected_error_type: compile
 ---
-class Robot {
-  init(model, function) {
-    this.model = model;
-    this.function = function;
+class ThingDefault {
+  init() {
+    this.x = "foo";
+    this.y = 42;
+    return this;
   }
 }
-print Robot("R2-D2", "Astromech").model;
+var out = ThingDefault();
+print out;

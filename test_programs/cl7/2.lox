@@ -1,6 +1,10 @@
 ---
-expected_error_type: compile
+expected_error_type: none
 ---
-fun notAMethod() {
-  print this;
+class Robot {
+  init(model, function) {
+    this.model = model;
+    this.function = function;
+  }
 }
+print Robot("R2-D2", "Astromech").model;

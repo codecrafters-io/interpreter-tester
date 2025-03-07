@@ -1,4 +1,11 @@
 ---
-expected_error_type: compile
+expected_error_type: none
 ---
-print this;
+class Default {
+  init() {
+    this.x = "<<RANDOM_STRING_1>>";
+    this.y = <<RANDOM_INTEGER_1>>;
+  }
+}
+print Default().x;
+print Default().y;
