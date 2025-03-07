@@ -1,0 +1,15 @@
+---
+expected_error_type: none
+---
+// Multiple properties and conditional access
+class Robot {}
+var r2d2 = Robot();
+
+r2d2.model = "Astromech";
+r2d2.operational = <<RANDOM_BOOLEAN>>;
+
+if (r2d2.operational) {
+  print r2d2.model;
+  r2d2.mission = "Navigate hyperspace";
+  print r2d2.mission;
+}

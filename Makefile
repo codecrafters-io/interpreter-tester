@@ -162,4 +162,18 @@ test_resolving_w_jlox: build
 	]" \
 	$(shell pwd)/dist/main.out
 
-test_all: test_scanning_w_jlox test_parsing_w_jlox test_evaluation_w_jlox test_statements_w_jlox test_control_flow_w_jlox test_functions_w_jlox test_resolving_w_jlox
+test_classes_w_jlox: build
+	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap12_classes \
+	CODECRAFTERS_TEST_CASES_JSON="[ \
+		{\"slug\":\"cl1\",\"tester_log_prefix\":\"stage_801\",\"title\":\"Stage #801: Class Declarations\"}, \
+		{\"slug\":\"cl2\",\"tester_log_prefix\":\"stage_802\",\"title\":\"Stage #802: Class Instances\"}, \
+		{\"slug\":\"cl3\",\"tester_log_prefix\":\"stage_803\",\"title\":\"Stage #803: Getters & Setters\"}, \
+		{\"slug\":\"cl4\",\"tester_log_prefix\":\"stage_804\",\"title\":\"Stage #804: Instance Methods\"}, \
+		{\"slug\":\"cl5\",\"tester_log_prefix\":\"stage_805\",\"title\":\"Stage #805: The `this` keyword\"}, \
+		{\"slug\":\"cl6\",\"tester_log_prefix\":\"stage_806\",\"title\":\"Stage #806: Invalid usages of `this`\"}, \
+		{\"slug\":\"cl7\",\"tester_log_prefix\":\"stage_807\",\"title\":\"Stage #807: Constructor calls\"}, \
+		{\"slug\":\"cl8\",\"tester_log_prefix\":\"stage_808\",\"title\":\"Stage #808: Return within constructors\"} \
+	]" \
+	$(shell pwd)/dist/main.out
+
+test_all: test_scanning_w_jlox test_parsing_w_jlox test_evaluation_w_jlox test_statements_w_jlox test_control_flow_w_jlox test_functions_w_jlox test_resolving_w_jlox test_classes_w_jlox

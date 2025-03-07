@@ -1,0 +1,34 @@
+---
+expected_error_type: none
+---
+class Superhero {
+  useSpecialPower() {
+    print "Using power: " + this.specialPower;
+  }
+
+  hasSpecialPower() {
+    return this.specialPower;
+  }
+
+  giveSpecialPower(power) {
+    this.specialPower = power;
+  }
+}
+
+// Methods in functions
+fun performHeroics(hero) {
+  if (hero.hasSpecialPower()) {
+    hero.useSpecialPower();
+  } else {
+    print "No special power available";
+  }
+}
+
+var superman = Superhero();
+if (<<RANDOM_BOOLEAN>>) {
+  superman.giveSpecialPower("Flight");
+} else {
+  superman.giveSpecialPower("Strength");
+}
+
+performHeroics(superman);

@@ -1,0 +1,17 @@
+---
+expected_error_type: none
+---
+class Counter {
+  init(startValue) {
+    if (startValue < 0) {
+      print "startValue can't be negative";
+      this.count = 0;
+    } else {
+      this.count = startValue;
+    }
+  }
+}
+
+var instance = Counter(-<<RANDOM_INTEGER>>);
+print instance.count;
+print instance.init(<<RANDOM_INTEGER>>).count;

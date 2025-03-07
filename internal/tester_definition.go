@@ -289,5 +289,37 @@ var testerDefinition = tester_definition.TesterDefinition{
 			Slug:     "eh3",
 			TestFunc: createTestForRunCommandStage("r4"),
 		},
+		{
+			Slug:     "cl1",
+			TestFunc: createTestForRunCommandStage("cl1"),
+		},
+		{
+			Slug:     "cl2",
+			TestFunc: createTestForRunCommandStage("cl2"),
+		},
+		{
+			Slug:     "cl3",
+			TestFunc: createTestForRunCommandStage("cl3"),
+		},
+		{
+			Slug:     "cl4",
+			TestFunc: createTestForRunCommandStage("cl4"),
+		},
+		{
+			Slug:     "cl5",
+			TestFunc: createTestForRunCommandStage("cl5"),
+		},
+		{
+			Slug:     "cl6",
+			TestFunc: createTestForRunCommandStage("cl6"),
+		},
+		{
+			Slug:     "cl7",
+			TestFunc: createTestForRunCommandStage("cl7"),
+		},
+		{
+			Slug:     "cl8",
+			TestFunc: createTestForRunCommandStage("cl8"),
+		},
 	},
 }

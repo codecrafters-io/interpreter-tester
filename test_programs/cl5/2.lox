@@ -1,0 +1,12 @@
+---
+expected_error_type: none
+---
+class Calculator {
+  add(a, b) {
+    return a + b + this.memory;
+  }
+}
+
+var calc = Calculator();
+calc.memory = <<RANDOM_INTEGER_1>>;
+print calc.add(<<RANDOM_INTEGER_2>>, 1);

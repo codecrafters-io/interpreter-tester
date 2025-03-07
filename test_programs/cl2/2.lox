@@ -1,0 +1,11 @@
+---
+expected_error_type: none
+---
+// Multiple instances with a counter
+class Robot {}
+var r1 = Robot();
+var r2 = Robot();
+
+print "Created multiple robots:";
+print r1;
+print r2;

@@ -1,0 +1,16 @@
+---
+expected_error_type: runtime
+---
+class Confused {
+  method() {
+    fun inner(instance) {
+      var feeling = "confused";
+      print this.feeling;
+    }
+    return inner;
+  }
+}
+
+var instance = Confused();
+var m = instance.method();
+m(instance);
