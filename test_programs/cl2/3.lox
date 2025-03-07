@@ -15,5 +15,9 @@ fun createCharacters() {
 }
 
 var mainCharacter = createCharacters();
-print "The main character is:";
-print mainCharacter;
+if (mainCharacter) {
+  print "The main character is:";
+  print mainCharacter;
+} else {
+  print "Failed to create a main character.";
+}
