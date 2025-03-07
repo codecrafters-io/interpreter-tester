@@ -9,8 +9,8 @@ class Wizard {
 
 class Dragon {
   breatheFire(fire, intensity) {
-    print "Breathing fire: " + fire + 
-    " with intensity: " + intensity;
+    print "Breathing " + fire + " with intensity: "
+    + intensity;
   }
 }
 
@@ -20,7 +20,9 @@ var smaug = Dragon();
 
 // Conditional method calling
 if (<<RANDOM_BOOLEAN>>) {
-  merlin.castSpell("Fireball");
+  var action = merlin.castSpell;
+  action("Fireball");
 } else {
-  smaug.breatheFire("Fire", 100);
+  var action = smaug.breatheFire;
+  action("Fire", "100");
 }

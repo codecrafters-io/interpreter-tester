@@ -28,7 +28,7 @@ var superman = Superhero();
 if (<<RANDOM_BOOLEAN>>) {
   superman.giveSpecialPower("Flight");
 } else {
-  superman.giveSpecialPower(nil);
+  superman.giveSpecialPower("Strength");
 }
 
 performHeroics(superman);
