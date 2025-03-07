@@ -168,7 +168,7 @@ test_classes_w_jlox: build
 		{\"slug\":\"cl1\",\"tester_log_prefix\":\"stage_801\",\"title\":\"Stage #801: Class Declarations\"}, \
 		{\"slug\":\"cl2\",\"tester_log_prefix\":\"stage_802\",\"title\":\"Stage #802: Class Instances\"}, \
 		{\"slug\":\"cl3\",\"tester_log_prefix\":\"stage_803\",\"title\":\"Stage #803: Getters & Setters\"}, \
-		{\"slug\":\"cl4\",\"tester_log_prefix\":\"stage_804\",\"title\":\"Stage #804: Class & Instance Methods\"}, \
+		{\"slug\":\"cl4\",\"tester_log_prefix\":\"stage_804\",\"title\":\"Stage #804: Instance Methods\"}, \
 		{\"slug\":\"cl5\",\"tester_log_prefix\":\"stage_805\",\"title\":\"Stage #805: Bound method calls\"}, \
 		{\"slug\":\"cl6\",\"tester_log_prefix\":\"stage_806\",\"title\":\"Stage #806: this keyword\"}, \
 		{\"slug\":\"cl7\",\"tester_log_prefix\":\"stage_807\",\"title\":\"Stage #807: this keyword errors\"}, \
