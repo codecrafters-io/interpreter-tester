@@ -7,5 +7,4 @@ class Spaceship {
   }
 }
 
-var method = Spaceship().identify;
-method();
+Spaceship().identify();

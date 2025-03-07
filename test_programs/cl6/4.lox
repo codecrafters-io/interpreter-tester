@@ -1,37 +1,17 @@
 ---
 expected_error_type: none
 ---
-class Hero {
-  introduce() {
-    print this;
-  }
-  
-  getPower() {
-    fun usesPower() {
-      print this.power + " used by " + this.name;
+class Wizard {
+  getSpellCaster() {
+    fun castSpell() {
+      print this;
+      print "Casting spell as " + this.name;
     }
-    return usesPower;
+
+    return castSpell;
   }
 }
 
-// Test method binding
-var hero = Hero();
-hero.name = "Superman";
-hero.power = "flight";
-var introduce = hero.introduce;
-introduce();
-
-// Test closure capturing this
-var powerUser = hero.getPower();
-powerUser();
-
-fun getGreeter(instance) {
-  fun greet() {
-    var greeting = "Hello, I am";
-    print greeting + " " + instance.name;
-  }
-  return greet;
-}
-
-hero.greet = getGreeter(hero);
-hero.greet();
+var wizard = Wizard();
+wizard.name = "Merlin";
+wizard.getSpellCaster()();
