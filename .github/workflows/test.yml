@@ -59,3 +59,17 @@ jobs:
           cp -r ./internal/test_helpers/jlox08/* ./craftinginterpreters/build/gen/chap13_inheritance
 
       - run: make test
+
+      - name: Check line length
+        run: |
+          # Run check_line_length and capture output
+          output=$(make check_line_length)
+          
+          # Check if the output contains "ERROR"
+          if echo "$output" | grep -q "ERROR"; then
+            echo "::error::Line length check failed. Some files have lines exceeding the maximum length."
+            echo "$output"
+            exit 1
+          else
+            echo "Line length check passed."
+          fi
