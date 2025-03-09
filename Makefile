@@ -163,3 +163,26 @@ test_resolving_w_jlox: build
 	$(shell pwd)/dist/main.out
 
 test_all: test_scanning_w_jlox test_parsing_w_jlox test_evaluation_w_jlox test_statements_w_jlox test_control_flow_w_jlox test_functions_w_jlox test_resolving_w_jlox
+
+test_flakiness_jlox: 
+	TEST_TARGET=test_all RUNS=25 $(MAKE) test_flakiness
+
+TEST_TARGET ?= test_all
+RUNS ?= 100
+test_flakiness:
+	@for i in $$(seq 1 $(RUNS)); do \
+		echo "Running iteration $$i/$(RUNS) of $(TEST_TARGET)" ; \
+		$(MAKE) $(TEST_TARGET) > /tmp/test ; \
+		if [ $$? -ne 0 ]; then \
+			echo "Test failed on iteration $$i" ; \
+			cat /tmp/test ; \
+			exit 1 ; \
+		fi ; \
+	done
+
+CHECK_LINE_LENGTH = 51
+FILE_EXTENSION = lox
+check_line_length:
+	@git ls-files "*.$(FILE_EXTENSION)" | while IFS= read -r file; do \
+		awk -v max_len=$(CHECK_LINE_LENGTH) 'length($$0) > max_len { print "ERROR: Line length exceeds " max_len " in file: " FILENAME ", line number: " NR ", line length: " length($$0); exit }' "$$file"; \
+	done
