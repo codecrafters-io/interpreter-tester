@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           lfs: true
 
@@ -15,7 +15,6 @@ jobs:
         run: |
           # Run check_empty_trailing_lines and capture output
           output=$(make check_empty_trailing_lines)
-          
           # Check if the output contains "ERROR"
           if echo "$output" | grep -q "ERROR"; then
             echo "::error::Empty trailing lines check failed. Some files have empty trailing lines."
@@ -29,7 +28,6 @@ jobs:
         run: |
           # Run check_line_length and capture output
           output=$(make check_line_length)
-          
           # Check if the output contains "ERROR"
           if echo "$output" | grep -q "ERROR"; then
             echo "::error::Line length check failed. Some files have lines exceeding the maximum length."
