@@ -198,3 +198,10 @@ check_line_length:
 				} \
 			}' "$$file" || true; \
 	done
+
+check_empty_trailing_lines:
+	@git ls-files "*.$(FILE_EXTENSION)" | while IFS= read -r file; do \
+		if [ -s "$$file" ] && [ -z "$$(tail -c 1 "$$file")" ]; then \
+			echo "ERROR: File has empty line at the end: $$file"; \
+		fi; \
+	done
