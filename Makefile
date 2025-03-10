@@ -188,8 +188,10 @@ check_line_length:
 			{ \
 				line = $$0; \
 				gsub(/<<RANDOM_STRING_[0-9]+>>/, "hello", line); \
-				gsub(/<<RANDOM_INTEGER>>/, "99", line); \
-				gsub(/<<RANDOM_FLOAT>>/, "3.14", line); \
+				gsub(/<<RANDOM_QUOTEDSTRING_[0-9]+>>/, "\"hello\"", line); \
+				gsub(/<<RANDOM_INTEGER_[0-9]+>>/, "99", line); \
+				gsub(/<<RANDOM_BOOLEAN_[0-9]+>>/, "false", line); \
+				gsub(/<<RANDOM_DIGIT_[0-9]+>>/, "3", line); \
 				if (length(line) > max_len) { \
 					print "ERROR: Line length exceeds " max_len " in file: " FILENAME ", line number: " NR ", line length: " length(line) ""; \
 					exit 1; \
