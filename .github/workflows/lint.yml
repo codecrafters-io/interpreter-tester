@@ -1,0 +1,40 @@
+name: Test
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+
+      - name: Check line length of lox files
+        run: |
+          # Run check_line_length and capture output
+          output=$(make check_line_length)
+          
+          # Check if the output contains "ERROR"
+          if echo "$output" | grep -q "ERROR"; then
+            echo "::error::Line length check failed. Some files have lines exceeding the maximum length."
+            echo "$output"
+            exit 1
+          else
+            echo "Line length check passed."
+          fi
+
+      - name: Check empty trailing lines in lox files
+        run: |
+          # Run check_empty_trailing_lines and capture output
+          output=$(make check_empty_trailing_lines)
+          
+          # Check if the output contains "ERROR"
+          if echo "$output" | grep -q "ERROR"; then
+            echo "::error::Empty trailing lines check failed. Some files have empty trailing lines."
+            echo "$output"
+            exit 1
+          else
+            echo "Empty trailing lines check passed."
+          fi
