@@ -1,10 +1,10 @@
 ---
 expected_error_type: none
 ---
-// This program tests that the assignment operator returns the value that was assigned
-// And prints the value of the variable after each assignment
 var <<RANDOM_STRING_4>>;
 <<RANDOM_STRING_4>> = 1;
 print <<RANDOM_STRING_4>>;
+// The assignment operator should return
+// the value that was assigned
 print <<RANDOM_STRING_4>> = 2;
 print <<RANDOM_STRING_4>>;
