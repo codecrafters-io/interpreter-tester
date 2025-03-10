@@ -2,5 +2,4 @@
 expected_error_type: compile
 ---
 // Print statements expect an expression
-// So, this program leads to a compilation error
-print;
+print; // expect compile error
