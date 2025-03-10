@@ -2,33 +2,35 @@
 expected_error_type: none
 ---
 class Superhero {
-  useSpecialPower() {
-    print "Using power: " + this.specialPower;
+  useSpecialPower(hero) {
+    print "Using power: " + hero.specialPower;
   }
 
-  hasSpecialPower() {
-    return this.specialPower;
+  hasSpecialPower(hero) {
+    return hero.specialPower;
   }
 
-  giveSpecialPower(power) {
-    this.specialPower = power;
+  giveSpecialPower(hero, power) {
+    hero.specialPower = power;
   }
 }
 
 // Methods in functions
-fun performHeroics(hero) {
-  if (hero.hasSpecialPower()) {
-    hero.useSpecialPower();
+fun performHeroics(hero, superheroClass) {
+  if (superheroClass.hasSpecialPower(hero)) {
+    superheroClass.useSpecialPower(hero);
   } else {
     print "No special power available";
   }
 }
 
 var superman = Superhero();
+var heroClass = Superhero();
+
 if (<<RANDOM_BOOLEAN>>) {
-  superman.giveSpecialPower("Flight");
+  heroClass.giveSpecialPower(superman, "Flight");
 } else {
-  superman.giveSpecialPower("Strength");
+  heroClass.giveSpecialPower(superman, "Strength");
 }
 
-performHeroics(superman);
+performHeroics(superman, heroClass);
