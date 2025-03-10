@@ -1,10 +1,10 @@
 ---
 expected_error_type: none
 ---
-// Instantiating classes in a function
 class Wizard {}
 class Dragon {}
 
+// Instantiating classes in a function should work
 fun createCharacters() {
   var merlin = Wizard();
   var smaug = Dragon();
@@ -15,6 +15,7 @@ fun createCharacters() {
 }
 
 var mainCharacter = createCharacters();
+// An instance of a class should be truthy
 if (mainCharacter) {
   print "The main character is:";
   print mainCharacter;

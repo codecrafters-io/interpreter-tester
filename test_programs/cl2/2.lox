@@ -1,7 +1,8 @@
 ---
 expected_error_type: none
 ---
-// Multiple instances with a counter
+// Instantiating multiple instances of a class
+// should work
 class Robot {}
 var r1 = Robot();
 var r2 = Robot();

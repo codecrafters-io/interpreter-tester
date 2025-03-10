@@ -1,7 +1,6 @@
 ---
 expected_error_type: none
 ---
-// Class instantiation with a loop
 class Superhero {}
 
 var count = 0;
