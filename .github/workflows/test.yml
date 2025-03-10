@@ -73,3 +73,17 @@ jobs:
           else
             echo "Line length check passed."
           fi
+
+      - name: Check empty trailing lines
+        run: |
+          # Run check_empty_trailing_lines and capture output
+          output=$(make check_empty_trailing_lines)
+          
+          # Check if the output contains "ERROR"
+          if echo "$output" | grep -q "ERROR"; then
+            echo "::error::Empty trailing lines check failed. Some files have empty trailing lines."
+            echo "$output"
+            exit 1
+          else
+            echo "Empty trailing lines check passed."
+          fi
