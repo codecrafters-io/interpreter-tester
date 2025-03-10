@@ -1,0 +1,11 @@
+---
+expected_error_type: runtime
+---
+{
+  // Class declaration inside blocks should work
+  class Dinosaur {}
+  print "Inside block: Dinosaur exists";
+  print Dinosaur;
+}
+print "Accessing out-of-scope class:";
+print Dinosaur;  // expect runtime error

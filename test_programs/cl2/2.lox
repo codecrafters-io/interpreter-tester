@@ -1,0 +1,12 @@
+---
+expected_error_type: none
+---
+// Instantiating multiple instances of a class
+// should work
+class Robot {}
+var r1 = Robot();
+var r2 = Robot();
+
+print "Created multiple robots:";
+print r1;
+print r2;

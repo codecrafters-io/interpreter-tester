@@ -1,0 +1,9 @@
+---
+expected_error_type: none
+---
+// Multiple class declarations with empty body
+class Robot {}
+class Wizard {}
+print Robot;
+print Wizard;
+print "Both classes successfully printed";

@@ -1,0 +1,12 @@
+---
+expected_error_type: none
+---
+// Class declaration inside function should work
+fun foo() {
+  class Superhero {}
+  print "Class declared inside function";
+  print Superhero;
+}
+
+foo();
+print "Function called successfully";
