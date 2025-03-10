@@ -1,7 +1,7 @@
 ---
 expected_error_type: none
 ---
-// Multiple class declarations
+// Multiple class declarations with empty body
 class Robot {}
 class Wizard {}
 print Robot;

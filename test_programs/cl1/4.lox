@@ -1,7 +1,7 @@
 ---
 expected_error_type: none
 ---
-// Class declaration inside function
+// Class declaration inside function should work
 fun foo() {
   class Superhero {}
   print "Class declared inside function";
