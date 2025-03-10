@@ -184,5 +184,15 @@ CHECK_LINE_LENGTH = 51
 FILE_EXTENSION = lox
 check_line_length:
 	@git ls-files "*.$(FILE_EXTENSION)" | while IFS= read -r file; do \
-		awk -v max_len=$(CHECK_LINE_LENGTH) 'length($$0) > max_len { print "ERROR: Line length exceeds " max_len " in file: " FILENAME ", line number: " NR ", line length: " length($$0); exit }' "$$file"; \
+		awk -v max_len=$(CHECK_LINE_LENGTH) ' \
+			{ \
+				line = $$0; \
+				gsub(/<<RANDOM_STRING_[0-9]+>>/, "hello", line); \
+				gsub(/<<RANDOM_INTEGER>>/, "99", line); \
+				gsub(/<<RANDOM_FLOAT>>/, "3.14", line); \
+				if (length(line) > max_len) { \
+					print "ERROR: Line length exceeds " max_len " in file: " FILENAME ", line number: " NR ", line length: " length(line) ""; \
+					exit 1; \
+				} \
+			}' "$$file" || true; \
 	done
