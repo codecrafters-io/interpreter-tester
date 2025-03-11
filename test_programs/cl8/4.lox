@@ -3,7 +3,9 @@ expected_error_type: compile
 ---
 class Foo {
   init() {
-    return this.callback();
+    // just calling the callback should've worked
+    // but returning it is not allowed
+    return this.callback(); // expect compile error
   }
 
   callback() {

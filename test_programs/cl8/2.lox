@@ -5,7 +5,8 @@ class ThingDefault {
   init() {
     this.x = "foo";
     this.y = 42;
-    return this;
+    // constructor should not return the instance
+    return this; // expect compile error
   }
 }
 var out = ThingDefault();

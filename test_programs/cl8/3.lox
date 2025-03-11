@@ -3,7 +3,8 @@ expected_error_type: compile
 ---
 class Foo {
   init() {
-    return "something else";
+    // constructor should not return anything
+    return "something"; // expect compile error
   }
 }
 
