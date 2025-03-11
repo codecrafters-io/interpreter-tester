@@ -1,12 +1,11 @@
 ---
 expected_error_type: compile
 ---
-// This program tests that scopes are properly closed
-// Here the inner scope is missing a closing curly brace
-// Which leads to a compilation error
 {
     var <<RANDOM_STRING_2>> = <<RANDOM_INTEGER>>;
     var <<RANDOM_STRING_3>> = <<RANDOM_INTEGER>>;
     {
         print <<RANDOM_STRING_2>> + <<RANDOM_STRING_3>>;
+    // Missing closing curly brace
+    // Expect compile error
 }
