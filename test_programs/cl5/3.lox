@@ -19,9 +19,10 @@ var cat = Animal();
 cat.sound = "Meow";
 cat.species = "Cat";
 
-// Swap methods between instances
+// The this keyword should be bound to the 
+// class instance that the method is called on
 cat.makeSound = dog.makeSound;
 dog.identify = cat.identify;
 
-cat.makeSound();
-dog.identify();
+cat.makeSound(); // expect: Woof
+dog.identify(); // expect: Cat
