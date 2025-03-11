@@ -177,6 +177,3 @@ test_classes_w_jlox: build
 	$(shell pwd)/dist/main.out
 
 test_all: test_scanning_w_jlox test_parsing_w_jlox test_evaluation_w_jlox test_statements_w_jlox test_control_flow_w_jlox test_functions_w_jlox test_resolving_w_jlox test_classes_w_jlox
-
-test_flakiness_jlox: 
-	TEST_TARGET=test_all RUNS=25 $(MAKE) test_flakiness
