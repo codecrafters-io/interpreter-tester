@@ -3,20 +3,20 @@ Debug = true
 [33m[stage-8] [0m[94mRunning tests for Stage #8: vf4[0m
 [33m[stage-8] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-8] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-1] [0m[33m[test.lox][0m // Class declaration with empty body<|SPACE|>class Spaceship {}
-[33m[stage-8] [test-1] [0m[33m[test.lox][0m print Spaceship;
+[33m[stage-8] [test-1.lox] [0m// Class declaration with empty body<|SPACE|>class Spaceship {}
+[33m[stage-8] [test-1.lox] [0mprint Spaceship;
 [33m[stage-8] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mSpaceship
 [33m[stage-8] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-8] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-8] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-2] [0m[33m[test.lox][0m // Multiple class declarations with empty body
-[33m[stage-8] [test-2] [0m[33m[test.lox][0m class Robot {}
-[33m[stage-8] [test-2] [0m[33m[test.lox][0m class Wizard {}
-[33m[stage-8] [test-2] [0m[33m[test.lox][0m print Robot;
-[33m[stage-8] [test-2] [0m[33m[test.lox][0m print Wizard;
-[33m[stage-8] [test-2] [0m[33m[test.lox][0m print "Both classes successfully printed";
+[33m[stage-8] [test-2.lox] [0m// Multiple class declarations with empty body
+[33m[stage-8] [test-2.lox] [0mclass Robot {}
+[33m[stage-8] [test-2.lox] [0mclass Wizard {}
+[33m[stage-8] [test-2.lox] [0mprint Robot;
+[33m[stage-8] [test-2.lox] [0mprint Wizard;
+[33m[stage-8] [test-2.lox] [0mprint "Both classes successfully printed";
 [33m[stage-8] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mRobot
 [33m[your_program] [0mWizard
@@ -25,14 +25,14 @@ Debug = true
 [33m[stage-8] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-8] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-3] [0m[33m[test.lox][0m {
-[33m[stage-8] [test-3] [0m[33m[test.lox][0m   // Class declaration inside blocks should work
-[33m[stage-8] [test-3] [0m[33m[test.lox][0m   class Dinosaur {}
-[33m[stage-8] [test-3] [0m[33m[test.lox][0m   print "Inside block: Dinosaur exists";
-[33m[stage-8] [test-3] [0m[33m[test.lox][0m   print Dinosaur;
-[33m[stage-8] [test-3] [0m[33m[test.lox][0m }
-[33m[stage-8] [test-3] [0m[33m[test.lox][0m print "Accessing out-of-scope class:";
-[33m[stage-8] [test-3] [0m[33m[test.lox][0m print Dinosaur;  // expect runtime error
+[33m[stage-8] [test-3.lox] [0m{
+[33m[stage-8] [test-3.lox] [0m  // Class declaration inside blocks should work
+[33m[stage-8] [test-3.lox] [0m  class Dinosaur {}
+[33m[stage-8] [test-3.lox] [0m  print "Inside block: Dinosaur exists";
+[33m[stage-8] [test-3.lox] [0m  print Dinosaur;
+[33m[stage-8] [test-3.lox] [0m}
+[33m[stage-8] [test-3.lox] [0mprint "Accessing out-of-scope class:";
+[33m[stage-8] [test-3.lox] [0mprint Dinosaur;  // expect runtime error
 [33m[stage-8] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mInside block: Dinosaur exists
 [33m[your_program] [0mDinosaur
@@ -43,15 +43,15 @@ Debug = true
 [33m[stage-8] [test-3] [0m[92m✓ Received exit code 70.[0m
 [33m[stage-8] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-8] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m // Class declaration inside function should work
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m fun foo() {
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m   class Superhero {}
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m   print "Class declared inside function";
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m   print Superhero;
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m }
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m foo();
-[33m[stage-8] [test-4] [0m[33m[test.lox][0m print "Function called successfully";
+[33m[stage-8] [test-4.lox] [0m// Class declaration inside function should work
+[33m[stage-8] [test-4.lox] [0mfun foo() {
+[33m[stage-8] [test-4.lox] [0m  class Superhero {}
+[33m[stage-8] [test-4.lox] [0m  print "Class declared inside function";
+[33m[stage-8] [test-4.lox] [0m  print Superhero;
+[33m[stage-8] [test-4.lox] [0m}
+[33m[stage-8] [test-4.lox] [0m
+[33m[stage-8] [test-4.lox] [0mfoo();
+[33m[stage-8] [test-4.lox] [0mprint "Function called successfully";
 [33m[stage-8] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mClass declared inside function
 [33m[your_program] [0mSuperhero
@@ -63,25 +63,25 @@ Debug = true
 [33m[stage-7] [0m[94mRunning tests for Stage #7: yk8[0m
 [33m[stage-7] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-7] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-1] [0m[33m[test.lox][0m // Class instantiation
-[33m[stage-7] [test-1] [0m[33m[test.lox][0m class Spaceship {}
-[33m[stage-7] [test-1] [0m[33m[test.lox][0m var falcon = Spaceship();
-[33m[stage-7] [test-1] [0m[33m[test.lox][0m print falcon;
+[33m[stage-7] [test-1.lox] [0m// Class instantiation
+[33m[stage-7] [test-1.lox] [0mclass Spaceship {}
+[33m[stage-7] [test-1.lox] [0mvar falcon = Spaceship();
+[33m[stage-7] [test-1.lox] [0mprint falcon;
 [33m[stage-7] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mSpaceship instance
 [33m[stage-7] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-7] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-7] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-2] [0m[33m[test.lox][0m // Instantiating multiple instances of a class
-[33m[stage-7] [test-2] [0m[33m[test.lox][0m // should work
-[33m[stage-7] [test-2] [0m[33m[test.lox][0m class Robot {}
-[33m[stage-7] [test-2] [0m[33m[test.lox][0m var r1 = Robot();
-[33m[stage-7] [test-2] [0m[33m[test.lox][0m var r2 = Robot();
-[33m[stage-7] [test-2] [0m[33m[test.lox][0m 
-[33m[stage-7] [test-2] [0m[33m[test.lox][0m print "Created multiple robots:";
-[33m[stage-7] [test-2] [0m[33m[test.lox][0m print r1;
-[33m[stage-7] [test-2] [0m[33m[test.lox][0m print r2;
+[33m[stage-7] [test-2.lox] [0m// Instantiating multiple instances of a class
+[33m[stage-7] [test-2.lox] [0m// should work
+[33m[stage-7] [test-2.lox] [0mclass Robot {}
+[33m[stage-7] [test-2.lox] [0mvar r1 = Robot();
+[33m[stage-7] [test-2.lox] [0mvar r2 = Robot();
+[33m[stage-7] [test-2.lox] [0m
+[33m[stage-7] [test-2.lox] [0mprint "Created multiple robots:";
+[33m[stage-7] [test-2.lox] [0mprint r1;
+[33m[stage-7] [test-2.lox] [0mprint r2;
 [33m[stage-7] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mCreated multiple robots:
 [33m[your_program] [0mRobot instance
@@ -90,27 +90,27 @@ Debug = true
 [33m[stage-7] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-7] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-3] [0m[33m[test.lox][0m class Wizard {}
-[33m[stage-7] [test-3] [0m[33m[test.lox][0m class Dragon {}
-[33m[stage-7] [test-3] [0m[33m[test.lox][0m 
-[33m[stage-7] [test-3] [0m[33m[test.lox][0m // Instantiating classes in a function should work
-[33m[stage-7] [test-3] [0m[33m[test.lox][0m fun createCharacters() {
-[33m[stage-7] [test-3] [0m[33m[test.lox][0m   var merlin = Wizard();
-[33m[stage-7] [test-3] [0m[33m[test.lox][0m   var smaug = Dragon();
-[33m[stage-7] [test-3] [0m[33m[test.lox][0m   print "Characters created in fantasy world:";
-[33m[stage-7] [test-3] [0m[33m[test.lox][0m   print merlin;
-[33m[stage-7] [test-3] [0m[33m[test.lox][0m   print smaug;
-[33m[stage-7] [test-3] [0m[33m[test.lox][0m   return merlin;
-[33m[stage-7] [test-3] [0m[33m[test.lox][0m }
-[33m[stage-7] [test-3] [0m[33m[test.lox][0m 
-[33m[stage-7] [test-3] [0m[33m[test.lox][0m var mainCharacter = createCharacters();
-[33m[stage-7] [test-3] [0m[33m[test.lox][0m // An instance of a class should be truthy
-[33m[stage-7] [test-3] [0m[33m[test.lox][0m if (mainCharacter) {
-[33m[stage-7] [test-3] [0m[33m[test.lox][0m   print "The main character is:";
-[33m[stage-7] [test-3] [0m[33m[test.lox][0m   print mainCharacter;
-[33m[stage-7] [test-3] [0m[33m[test.lox][0m } else {
-[33m[stage-7] [test-3] [0m[33m[test.lox][0m   print "Failed to create a main character.";
-[33m[stage-7] [test-3] [0m[33m[test.lox][0m }
+[33m[stage-7] [test-3.lox] [0mclass Wizard {}
+[33m[stage-7] [test-3.lox] [0mclass Dragon {}
+[33m[stage-7] [test-3.lox] [0m
+[33m[stage-7] [test-3.lox] [0m// Instantiating classes in a function should work
+[33m[stage-7] [test-3.lox] [0mfun createCharacters() {
+[33m[stage-7] [test-3.lox] [0m  var merlin = Wizard();
+[33m[stage-7] [test-3.lox] [0m  var smaug = Dragon();
+[33m[stage-7] [test-3.lox] [0m  print "Characters created in fantasy world:";
+[33m[stage-7] [test-3.lox] [0m  print merlin;
+[33m[stage-7] [test-3.lox] [0m  print smaug;
+[33m[stage-7] [test-3.lox] [0m  return merlin;
+[33m[stage-7] [test-3.lox] [0m}
+[33m[stage-7] [test-3.lox] [0m
+[33m[stage-7] [test-3.lox] [0mvar mainCharacter = createCharacters();
+[33m[stage-7] [test-3.lox] [0m// An instance of a class should be truthy
+[33m[stage-7] [test-3.lox] [0mif (mainCharacter) {
+[33m[stage-7] [test-3.lox] [0m  print "The main character is:";
+[33m[stage-7] [test-3.lox] [0m  print mainCharacter;
+[33m[stage-7] [test-3.lox] [0m} else {
+[33m[stage-7] [test-3.lox] [0m  print "Failed to create a main character.";
+[33m[stage-7] [test-3.lox] [0m}
 [33m[stage-7] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mCharacters created in fantasy world:
 [33m[your_program] [0mWizard instance
@@ -121,17 +121,17 @@ Debug = true
 [33m[stage-7] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-7] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-4] [0m[33m[test.lox][0m class Superhero {}
-[33m[stage-7] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-7] [test-4] [0m[33m[test.lox][0m var count = 0;
-[33m[stage-7] [test-4] [0m[33m[test.lox][0m while (count < 3) {
-[33m[stage-7] [test-4] [0m[33m[test.lox][0m   var hero = Superhero();
-[33m[stage-7] [test-4] [0m[33m[test.lox][0m   print "Hero created:";
-[33m[stage-7] [test-4] [0m[33m[test.lox][0m   print hero;
-[33m[stage-7] [test-4] [0m[33m[test.lox][0m   count = count + 1;
-[33m[stage-7] [test-4] [0m[33m[test.lox][0m }
-[33m[stage-7] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-7] [test-4] [0m[33m[test.lox][0m print "All heroes created!";
+[33m[stage-7] [test-4.lox] [0mclass Superhero {}
+[33m[stage-7] [test-4.lox] [0m
+[33m[stage-7] [test-4.lox] [0mvar count = 0;
+[33m[stage-7] [test-4.lox] [0mwhile (count < 3) {
+[33m[stage-7] [test-4.lox] [0m  var hero = Superhero();
+[33m[stage-7] [test-4.lox] [0m  print "Hero created:";
+[33m[stage-7] [test-4.lox] [0m  print hero;
+[33m[stage-7] [test-4.lox] [0m  count = count + 1;
+[33m[stage-7] [test-4.lox] [0m}
+[33m[stage-7] [test-4.lox] [0m
+[33m[stage-7] [test-4.lox] [0mprint "All heroes created!";
 [33m[stage-7] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mHero created:
 [33m[your_program] [0mSuperhero instance
@@ -147,17 +147,17 @@ Debug = true
 [33m[stage-6] [0m[94mRunning tests for Stage #6: yf3[0m
 [33m[stage-6] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-6] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-1] [0m[33m[test.lox][0m class Spaceship {}
-[33m[stage-6] [test-1] [0m[33m[test.lox][0m var falcon = Spaceship();
-[33m[stage-6] [test-1] [0m[33m[test.lox][0m 
-[33m[stage-6] [test-1] [0m[33m[test.lox][0m // Setting properties on an instance should work
-[33m[stage-6] [test-1] [0m[33m[test.lox][0m falcon.name = "Millennium Falcon";
-[33m[stage-6] [test-1] [0m[33m[test.lox][0m falcon.speed = 75.5;
-[33m[stage-6] [test-1] [0m[33m[test.lox][0m 
-[33m[stage-6] [test-1] [0m[33m[test.lox][0m // Getting properties on an instance should work
-[33m[stage-6] [test-1] [0m[33m[test.lox][0m print "Ship details:";
-[33m[stage-6] [test-1] [0m[33m[test.lox][0m print falcon.name;
-[33m[stage-6] [test-1] [0m[33m[test.lox][0m print falcon.speed;
+[33m[stage-6] [test-1.lox] [0mclass Spaceship {}
+[33m[stage-6] [test-1.lox] [0mvar falcon = Spaceship();
+[33m[stage-6] [test-1.lox] [0m
+[33m[stage-6] [test-1.lox] [0m// Setting properties on an instance should work
+[33m[stage-6] [test-1.lox] [0mfalcon.name = "Millennium Falcon";
+[33m[stage-6] [test-1.lox] [0mfalcon.speed = 75.5;
+[33m[stage-6] [test-1.lox] [0m
+[33m[stage-6] [test-1.lox] [0m// Getting properties on an instance should work
+[33m[stage-6] [test-1.lox] [0mprint "Ship details:";
+[33m[stage-6] [test-1.lox] [0mprint falcon.name;
+[33m[stage-6] [test-1.lox] [0mprint falcon.speed;
 [33m[stage-6] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mShip details:
 [33m[your_program] [0mMillennium Falcon
@@ -166,41 +166,41 @@ Debug = true
 [33m[stage-6] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-6] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-6] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-2] [0m[33m[test.lox][0m class Robot {}
-[33m[stage-6] [test-2] [0m[33m[test.lox][0m var r2d2 = Robot();
-[33m[stage-6] [test-2] [0m[33m[test.lox][0m 
-[33m[stage-6] [test-2] [0m[33m[test.lox][0m // Setting properties on an instance should work
-[33m[stage-6] [test-2] [0m[33m[test.lox][0m r2d2.model = "Astromech";
-[33m[stage-6] [test-2] [0m[33m[test.lox][0m r2d2.operational = false;
-[33m[stage-6] [test-2] [0m[33m[test.lox][0m 
-[33m[stage-6] [test-2] [0m[33m[test.lox][0m // Getting properties on an instance should work
-[33m[stage-6] [test-2] [0m[33m[test.lox][0m if (r2d2.operational) {
-[33m[stage-6] [test-2] [0m[33m[test.lox][0m   print r2d2.model;
-[33m[stage-6] [test-2] [0m[33m[test.lox][0m   r2d2.mission = "Navigate hyperspace";
-[33m[stage-6] [test-2] [0m[33m[test.lox][0m   print r2d2.mission;
-[33m[stage-6] [test-2] [0m[33m[test.lox][0m }
+[33m[stage-6] [test-2.lox] [0mclass Robot {}
+[33m[stage-6] [test-2.lox] [0mvar r2d2 = Robot();
+[33m[stage-6] [test-2.lox] [0m
+[33m[stage-6] [test-2.lox] [0m// Setting properties on an instance should work
+[33m[stage-6] [test-2.lox] [0mr2d2.model = "Astromech";
+[33m[stage-6] [test-2.lox] [0mr2d2.operational = false;
+[33m[stage-6] [test-2.lox] [0m
+[33m[stage-6] [test-2.lox] [0m// Getting properties on an instance should work
+[33m[stage-6] [test-2.lox] [0mif (r2d2.operational) {
+[33m[stage-6] [test-2.lox] [0m  print r2d2.model;
+[33m[stage-6] [test-2.lox] [0m  r2d2.mission = "Navigate hyperspace";
+[33m[stage-6] [test-2.lox] [0m  print r2d2.mission;
+[33m[stage-6] [test-2.lox] [0m}
 [33m[stage-6] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[stage-6] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-6] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-6] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-6] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-3] [0m[33m[test.lox][0m class Superhero {}
-[33m[stage-6] [test-3] [0m[33m[test.lox][0m var batman = Superhero();
-[33m[stage-6] [test-3] [0m[33m[test.lox][0m var superman = Superhero();
-[33m[stage-6] [test-3] [0m[33m[test.lox][0m 
-[33m[stage-6] [test-3] [0m[33m[test.lox][0m // Setting properties on an instance should work
-[33m[stage-6] [test-3] [0m[33m[test.lox][0m batman.name = "Batman";
-[33m[stage-6] [test-3] [0m[33m[test.lox][0m batman.called = 80;
-[33m[stage-6] [test-3] [0m[33m[test.lox][0m 
-[33m[stage-6] [test-3] [0m[33m[test.lox][0m // Setting properties on an instance should work
-[33m[stage-6] [test-3] [0m[33m[test.lox][0m superman.name = "Superman";
-[33m[stage-6] [test-3] [0m[33m[test.lox][0m superman.called = 16;
-[33m[stage-6] [test-3] [0m[33m[test.lox][0m 
-[33m[stage-6] [test-3] [0m[33m[test.lox][0m // Getting properties on an instance should work
-[33m[stage-6] [test-3] [0m[33m[test.lox][0m print "Times " + superman.name + " was called: ";
-[33m[stage-6] [test-3] [0m[33m[test.lox][0m print superman.called;
-[33m[stage-6] [test-3] [0m[33m[test.lox][0m print "Times " + batman.name + " was called: ";
-[33m[stage-6] [test-3] [0m[33m[test.lox][0m print batman.called;
+[33m[stage-6] [test-3.lox] [0mclass Superhero {}
+[33m[stage-6] [test-3.lox] [0mvar batman = Superhero();
+[33m[stage-6] [test-3.lox] [0mvar superman = Superhero();
+[33m[stage-6] [test-3.lox] [0m
+[33m[stage-6] [test-3.lox] [0m// Setting properties on an instance should work
+[33m[stage-6] [test-3.lox] [0mbatman.name = "Batman";
+[33m[stage-6] [test-3.lox] [0mbatman.called = 80;
+[33m[stage-6] [test-3.lox] [0m
+[33m[stage-6] [test-3.lox] [0m// Setting properties on an instance should work
+[33m[stage-6] [test-3.lox] [0msuperman.name = "Superman";
+[33m[stage-6] [test-3.lox] [0msuperman.called = 16;
+[33m[stage-6] [test-3.lox] [0m
+[33m[stage-6] [test-3.lox] [0m// Getting properties on an instance should work
+[33m[stage-6] [test-3.lox] [0mprint "Times " + superman.name + " was called: ";
+[33m[stage-6] [test-3.lox] [0mprint superman.called;
+[33m[stage-6] [test-3.lox] [0mprint "Times " + batman.name + " was called: ";
+[33m[stage-6] [test-3.lox] [0mprint batman.called;
 [33m[stage-6] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mTimes Superman was called: 
 [33m[your_program] [0m16
@@ -210,26 +210,26 @@ Debug = true
 [33m[stage-6] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-6] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-6] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-4] [0m[33m[test.lox][0m class Wizard {}
-[33m[stage-6] [test-4] [0m[33m[test.lox][0m var gandalf = Wizard();
-[33m[stage-6] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-6] [test-4] [0m[33m[test.lox][0m gandalf.color = "Grey";
-[33m[stage-6] [test-4] [0m[33m[test.lox][0m gandalf.power = nil;
-[33m[stage-6] [test-4] [0m[33m[test.lox][0m print gandalf.color;
-[33m[stage-6] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-6] [test-4] [0m[33m[test.lox][0m // functions should be able to accept class<|SPACE|>// instances and get or set properties on them
-[33m[stage-6] [test-4] [0m[33m[test.lox][0m fun promote(wizard) {
-[33m[stage-6] [test-4] [0m[33m[test.lox][0m   wizard.color = "White";
-[33m[stage-6] [test-4] [0m[33m[test.lox][0m   if (false) {
-[33m[stage-6] [test-4] [0m[33m[test.lox][0m     wizard.power = 100;
-[33m[stage-6] [test-4] [0m[33m[test.lox][0m   } else {
-[33m[stage-6] [test-4] [0m[33m[test.lox][0m     wizard.power = 0;
-[33m[stage-6] [test-4] [0m[33m[test.lox][0m   }
-[33m[stage-6] [test-4] [0m[33m[test.lox][0m }
-[33m[stage-6] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-6] [test-4] [0m[33m[test.lox][0m promote(gandalf);
-[33m[stage-6] [test-4] [0m[33m[test.lox][0m print gandalf.color;
-[33m[stage-6] [test-4] [0m[33m[test.lox][0m print gandalf.power;
+[33m[stage-6] [test-4.lox] [0mclass Wizard {}
+[33m[stage-6] [test-4.lox] [0mvar gandalf = Wizard();
+[33m[stage-6] [test-4.lox] [0m
+[33m[stage-6] [test-4.lox] [0mgandalf.color = "Grey";
+[33m[stage-6] [test-4.lox] [0mgandalf.power = nil;
+[33m[stage-6] [test-4.lox] [0mprint gandalf.color;
+[33m[stage-6] [test-4.lox] [0m
+[33m[stage-6] [test-4.lox] [0m// functions should be able to accept class<|SPACE|>// instances and get or set properties on them
+[33m[stage-6] [test-4.lox] [0mfun promote(wizard) {
+[33m[stage-6] [test-4.lox] [0m  wizard.color = "White";
+[33m[stage-6] [test-4.lox] [0m  if (false) {
+[33m[stage-6] [test-4.lox] [0m    wizard.power = 100;
+[33m[stage-6] [test-4.lox] [0m  } else {
+[33m[stage-6] [test-4.lox] [0m    wizard.power = 0;
+[33m[stage-6] [test-4.lox] [0m  }
+[33m[stage-6] [test-4.lox] [0m}
+[33m[stage-6] [test-4.lox] [0m
+[33m[stage-6] [test-4.lox] [0mpromote(gandalf);
+[33m[stage-6] [test-4.lox] [0mprint gandalf.color;
+[33m[stage-6] [test-4.lox] [0mprint gandalf.power;
 [33m[stage-6] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mGrey
 [33m[your_program] [0mWhite
@@ -241,18 +241,18 @@ Debug = true
 [33m[stage-5] [0m[94mRunning tests for Stage #5: qr2[0m
 [33m[stage-5] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-5] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test-1] [0m[33m[test.lox][0m class Robot {
-[33m[stage-5] [test-1] [0m[33m[test.lox][0m   beep() {
-[33m[stage-5] [test-1] [0m[33m[test.lox][0m     print "Beep boop!";
-[33m[stage-5] [test-1] [0m[33m[test.lox][0m   }
-[33m[stage-5] [test-1] [0m[33m[test.lox][0m }
-[33m[stage-5] [test-1] [0m[33m[test.lox][0m 
-[33m[stage-5] [test-1] [0m[33m[test.lox][0m var r2d2 = Robot();
-[33m[stage-5] [test-1] [0m[33m[test.lox][0m // Calling a method on an instance should work
-[33m[stage-5] [test-1] [0m[33m[test.lox][0m r2d2.beep();
-[33m[stage-5] [test-1] [0m[33m[test.lox][0m 
-[33m[stage-5] [test-1] [0m[33m[test.lox][0m // Calling a method on a class instance should work
-[33m[stage-5] [test-1] [0m[33m[test.lox][0m Robot().beep();
+[33m[stage-5] [test-1.lox] [0mclass Robot {
+[33m[stage-5] [test-1.lox] [0m  beep() {
+[33m[stage-5] [test-1.lox] [0m    print "Beep boop!";
+[33m[stage-5] [test-1.lox] [0m  }
+[33m[stage-5] [test-1.lox] [0m}
+[33m[stage-5] [test-1.lox] [0m
+[33m[stage-5] [test-1.lox] [0mvar r2d2 = Robot();
+[33m[stage-5] [test-1.lox] [0m// Calling a method on an instance should work
+[33m[stage-5] [test-1.lox] [0mr2d2.beep();
+[33m[stage-5] [test-1.lox] [0m
+[33m[stage-5] [test-1.lox] [0m// Calling a method on a class instance should work
+[33m[stage-5] [test-1.lox] [0mRobot().beep();
 [33m[stage-5] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mBeep boop!
 [33m[your_program] [0mBeep boop!
@@ -260,90 +260,90 @@ Debug = true
 [33m[stage-5] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-5] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-5] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test-2] [0m[33m[test.lox][0m {
-[33m[stage-5] [test-2] [0m[33m[test.lox][0m   class Foo {
-[33m[stage-5] [test-2] [0m[33m[test.lox][0m     returnSelf() {
-[33m[stage-5] [test-2] [0m[33m[test.lox][0m       // Should be able to return the class itself
-[33m[stage-5] [test-2] [0m[33m[test.lox][0m       return Foo;
-[33m[stage-5] [test-2] [0m[33m[test.lox][0m     }
-[33m[stage-5] [test-2] [0m[33m[test.lox][0m   }
-[33m[stage-5] [test-2] [0m[33m[test.lox][0m 
-[33m[stage-5] [test-2] [0m[33m[test.lox][0m   // Calling a method on an instance should work
-[33m[stage-5] [test-2] [0m[33m[test.lox][0m   print Foo().returnSelf();
-[33m[stage-5] [test-2] [0m[33m[test.lox][0m }
+[33m[stage-5] [test-2.lox] [0m{
+[33m[stage-5] [test-2.lox] [0m  class Foo {
+[33m[stage-5] [test-2.lox] [0m    returnSelf() {
+[33m[stage-5] [test-2.lox] [0m      // Should be able to return the class itself
+[33m[stage-5] [test-2.lox] [0m      return Foo;
+[33m[stage-5] [test-2.lox] [0m    }
+[33m[stage-5] [test-2.lox] [0m  }
+[33m[stage-5] [test-2.lox] [0m
+[33m[stage-5] [test-2.lox] [0m  // Calling a method on an instance should work
+[33m[stage-5] [test-2.lox] [0m  print Foo().returnSelf();
+[33m[stage-5] [test-2.lox] [0m}
 [33m[stage-5] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mFoo
 [33m[stage-5] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-5] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-5] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-5] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m class Wizard {
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m   castSpell(spell) {
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m     // Methods should be able to accept a parameter
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m     print "Casting a magical spell: " + spell;
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m   }
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m }
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m 
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m class Dragon {
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m   // Methods should be able to accept multiple<|SPACE|>  // parameters
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m   breatheFire(fire, intensity) {
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m     print "Breathing " + fire + " with intensity: "
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m     + intensity;
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m   }
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m }
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m 
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m var merlin = Wizard();
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m var smaug = Dragon();
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m 
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m if (false) {
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m   var action = merlin.castSpell;
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m   action("Fireball");
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m } else {
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m   var action = smaug.breatheFire;
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m   action("Fire", "100");
-[33m[stage-5] [test-3] [0m[33m[test.lox][0m }
+[33m[stage-5] [test-3.lox] [0mclass Wizard {
+[33m[stage-5] [test-3.lox] [0m  castSpell(spell) {
+[33m[stage-5] [test-3.lox] [0m    // Methods should be able to accept a parameter
+[33m[stage-5] [test-3.lox] [0m    print "Casting a magical spell: " + spell;
+[33m[stage-5] [test-3.lox] [0m  }
+[33m[stage-5] [test-3.lox] [0m}
+[33m[stage-5] [test-3.lox] [0m
+[33m[stage-5] [test-3.lox] [0mclass Dragon {
+[33m[stage-5] [test-3.lox] [0m  // Methods should be able to accept multiple<|SPACE|>  // parameters
+[33m[stage-5] [test-3.lox] [0m  breatheFire(fire, intensity) {
+[33m[stage-5] [test-3.lox] [0m    print "Breathing " + fire + " with intensity: "
+[33m[stage-5] [test-3.lox] [0m    + intensity;
+[33m[stage-5] [test-3.lox] [0m  }
+[33m[stage-5] [test-3.lox] [0m}
+[33m[stage-5] [test-3.lox] [0m
+[33m[stage-5] [test-3.lox] [0mvar merlin = Wizard();
+[33m[stage-5] [test-3.lox] [0mvar smaug = Dragon();
+[33m[stage-5] [test-3.lox] [0m
+[33m[stage-5] [test-3.lox] [0mif (false) {
+[33m[stage-5] [test-3.lox] [0m  var action = merlin.castSpell;
+[33m[stage-5] [test-3.lox] [0m  action("Fireball");
+[33m[stage-5] [test-3.lox] [0m} else {
+[33m[stage-5] [test-3.lox] [0m  var action = smaug.breatheFire;
+[33m[stage-5] [test-3.lox] [0m  action("Fire", "100");
+[33m[stage-5] [test-3.lox] [0m}
 [33m[stage-5] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mBreathing Fire with intensity: 100
 [33m[stage-5] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-5] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-5] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-5] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m class Superhero {
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m   // Methods should be able to accept a parameter
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m   useSpecialPower(hero) {
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m     print "Using power: " + hero.specialPower;
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m   }
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m   // Methods should be able to accept a parameter
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m   // of any type
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m   hasSpecialPower(hero) {
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m     return hero.specialPower;
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m   }
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m   // Methods should be able to accept class<|SPACE|>  // instances as parameters and then update their<|SPACE|>  // properties
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m   giveSpecialPower(hero, power) {
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m     hero.specialPower = power;
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m   }
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m }
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m fun performHeroics(hero, superheroClass) {
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m   if (superheroClass.hasSpecialPower(hero)) {
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m     superheroClass.useSpecialPower(hero);
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m   } else {
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m     print "No special power available";
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m   }
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m }
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m var superman = Superhero();
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m var heroClass = Superhero();
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m if (false) {
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m   heroClass.giveSpecialPower(superman, "Flight");
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m } else {
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m   heroClass.giveSpecialPower(superman, "Strength");
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m }
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-5] [test-4] [0m[33m[test.lox][0m performHeroics(superman, heroClass);
+[33m[stage-5] [test-4.lox] [0mclass Superhero {
+[33m[stage-5] [test-4.lox] [0m  // Methods should be able to accept a parameter
+[33m[stage-5] [test-4.lox] [0m  useSpecialPower(hero) {
+[33m[stage-5] [test-4.lox] [0m    print "Using power: " + hero.specialPower;
+[33m[stage-5] [test-4.lox] [0m  }
+[33m[stage-5] [test-4.lox] [0m
+[33m[stage-5] [test-4.lox] [0m  // Methods should be able to accept a parameter
+[33m[stage-5] [test-4.lox] [0m  // of any type
+[33m[stage-5] [test-4.lox] [0m  hasSpecialPower(hero) {
+[33m[stage-5] [test-4.lox] [0m    return hero.specialPower;
+[33m[stage-5] [test-4.lox] [0m  }
+[33m[stage-5] [test-4.lox] [0m
+[33m[stage-5] [test-4.lox] [0m  // Methods should be able to accept class<|SPACE|>  // instances as parameters and then update their<|SPACE|>  // properties
+[33m[stage-5] [test-4.lox] [0m  giveSpecialPower(hero, power) {
+[33m[stage-5] [test-4.lox] [0m    hero.specialPower = power;
+[33m[stage-5] [test-4.lox] [0m  }
+[33m[stage-5] [test-4.lox] [0m}
+[33m[stage-5] [test-4.lox] [0m
+[33m[stage-5] [test-4.lox] [0mfun performHeroics(hero, superheroClass) {
+[33m[stage-5] [test-4.lox] [0m  if (superheroClass.hasSpecialPower(hero)) {
+[33m[stage-5] [test-4.lox] [0m    superheroClass.useSpecialPower(hero);
+[33m[stage-5] [test-4.lox] [0m  } else {
+[33m[stage-5] [test-4.lox] [0m    print "No special power available";
+[33m[stage-5] [test-4.lox] [0m  }
+[33m[stage-5] [test-4.lox] [0m}
+[33m[stage-5] [test-4.lox] [0m
+[33m[stage-5] [test-4.lox] [0mvar superman = Superhero();
+[33m[stage-5] [test-4.lox] [0mvar heroClass = Superhero();
+[33m[stage-5] [test-4.lox] [0m
+[33m[stage-5] [test-4.lox] [0mif (false) {
+[33m[stage-5] [test-4.lox] [0m  heroClass.giveSpecialPower(superman, "Flight");
+[33m[stage-5] [test-4.lox] [0m} else {
+[33m[stage-5] [test-4.lox] [0m  heroClass.giveSpecialPower(superman, "Strength");
+[33m[stage-5] [test-4.lox] [0m}
+[33m[stage-5] [test-4.lox] [0m
+[33m[stage-5] [test-4.lox] [0mperformHeroics(superman, heroClass);
 [33m[stage-5] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mUsing power: Strength
 [33m[stage-5] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
@@ -353,61 +353,61 @@ Debug = true
 [33m[stage-4] [0m[94mRunning tests for Stage #4: yd7[0m
 [33m[stage-4] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-4] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-1] [0m[33m[test.lox][0m class Spaceship {
-[33m[stage-4] [test-1] [0m[33m[test.lox][0m   identify() {
-[33m[stage-4] [test-1] [0m[33m[test.lox][0m     // this should be bound to the instance
-[33m[stage-4] [test-1] [0m[33m[test.lox][0m     print this;
-[33m[stage-4] [test-1] [0m[33m[test.lox][0m   }
-[33m[stage-4] [test-1] [0m[33m[test.lox][0m }
-[33m[stage-4] [test-1] [0m[33m[test.lox][0m 
-[33m[stage-4] [test-1] [0m[33m[test.lox][0m // Calling a method on a class instance should work
-[33m[stage-4] [test-1] [0m[33m[test.lox][0m Spaceship().identify();
+[33m[stage-4] [test-1.lox] [0mclass Spaceship {
+[33m[stage-4] [test-1.lox] [0m  identify() {
+[33m[stage-4] [test-1.lox] [0m    // this should be bound to the instance
+[33m[stage-4] [test-1.lox] [0m    print this;
+[33m[stage-4] [test-1.lox] [0m  }
+[33m[stage-4] [test-1.lox] [0m}
+[33m[stage-4] [test-1.lox] [0m
+[33m[stage-4] [test-1.lox] [0m// Calling a method on a class instance should work
+[33m[stage-4] [test-1.lox] [0mSpaceship().identify();
 [33m[stage-4] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mSpaceship instance
 [33m[stage-4] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-4] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-4] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-2] [0m[33m[test.lox][0m class Calculator {
-[33m[stage-4] [test-2] [0m[33m[test.lox][0m   add(a, b) {
-[33m[stage-4] [test-2] [0m[33m[test.lox][0m     // this should be bound to the instance
-[33m[stage-4] [test-2] [0m[33m[test.lox][0m     return a + b + this.memory;
-[33m[stage-4] [test-2] [0m[33m[test.lox][0m   }
-[33m[stage-4] [test-2] [0m[33m[test.lox][0m }
-[33m[stage-4] [test-2] [0m[33m[test.lox][0m 
-[33m[stage-4] [test-2] [0m[33m[test.lox][0m var calc = Calculator();
-[33m[stage-4] [test-2] [0m[33m[test.lox][0m // Instance properties should be accessible using<|SPACE|>// the this keyword
-[33m[stage-4] [test-2] [0m[33m[test.lox][0m calc.memory = 88;
-[33m[stage-4] [test-2] [0m[33m[test.lox][0m print calc.add(54, 1);
+[33m[stage-4] [test-2.lox] [0mclass Calculator {
+[33m[stage-4] [test-2.lox] [0m  add(a, b) {
+[33m[stage-4] [test-2.lox] [0m    // this should be bound to the instance
+[33m[stage-4] [test-2.lox] [0m    return a + b + this.memory;
+[33m[stage-4] [test-2.lox] [0m  }
+[33m[stage-4] [test-2.lox] [0m}
+[33m[stage-4] [test-2.lox] [0m
+[33m[stage-4] [test-2.lox] [0mvar calc = Calculator();
+[33m[stage-4] [test-2.lox] [0m// Instance properties should be accessible using<|SPACE|>// the this keyword
+[33m[stage-4] [test-2.lox] [0mcalc.memory = 88;
+[33m[stage-4] [test-2.lox] [0mprint calc.add(54, 1);
 [33m[stage-4] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m143
 [33m[stage-4] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-4] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-4] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m class Animal {
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m   makeSound() {
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m     print this.sound;
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m   }
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m <|SPACE|>  identify() {
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m     print this.species;
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m   }
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m }
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m 
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m var dog = Animal();
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m dog.sound = "Woof";
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m dog.species = "Dog";
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m 
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m var cat = Animal();
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m cat.sound = "Meow";
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m cat.species = "Cat";
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m 
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m // The this keyword should be bound to the<|SPACE|>// class instance that the method is called on
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m cat.makeSound = dog.makeSound;
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m dog.identify = cat.identify;
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m 
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m cat.makeSound(); // expect: Woof
-[33m[stage-4] [test-3] [0m[33m[test.lox][0m dog.identify(); // expect: Cat
+[33m[stage-4] [test-3.lox] [0mclass Animal {
+[33m[stage-4] [test-3.lox] [0m  makeSound() {
+[33m[stage-4] [test-3.lox] [0m    print this.sound;
+[33m[stage-4] [test-3.lox] [0m  }
+[33m[stage-4] [test-3.lox] [0m<|SPACE|>  identify() {
+[33m[stage-4] [test-3.lox] [0m    print this.species;
+[33m[stage-4] [test-3.lox] [0m  }
+[33m[stage-4] [test-3.lox] [0m}
+[33m[stage-4] [test-3.lox] [0m
+[33m[stage-4] [test-3.lox] [0mvar dog = Animal();
+[33m[stage-4] [test-3.lox] [0mdog.sound = "Woof";
+[33m[stage-4] [test-3.lox] [0mdog.species = "Dog";
+[33m[stage-4] [test-3.lox] [0m
+[33m[stage-4] [test-3.lox] [0mvar cat = Animal();
+[33m[stage-4] [test-3.lox] [0mcat.sound = "Meow";
+[33m[stage-4] [test-3.lox] [0mcat.species = "Cat";
+[33m[stage-4] [test-3.lox] [0m
+[33m[stage-4] [test-3.lox] [0m// The this keyword should be bound to the<|SPACE|>// class instance that the method is called on
+[33m[stage-4] [test-3.lox] [0mcat.makeSound = dog.makeSound;
+[33m[stage-4] [test-3.lox] [0mdog.identify = cat.identify;
+[33m[stage-4] [test-3.lox] [0m
+[33m[stage-4] [test-3.lox] [0mcat.makeSound(); // expect: Woof
+[33m[stage-4] [test-3.lox] [0mdog.identify(); // expect: Cat
 [33m[stage-4] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mWoof
 [33m[your_program] [0mCat
@@ -415,23 +415,23 @@ Debug = true
 [33m[stage-4] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-4] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-4] [0m[33m[test.lox][0m class Wizard {
-[33m[stage-4] [test-4] [0m[33m[test.lox][0m   getSpellCaster() {
-[33m[stage-4] [test-4] [0m[33m[test.lox][0m     fun castSpell() {
-[33m[stage-4] [test-4] [0m[33m[test.lox][0m       print this;
-[33m[stage-4] [test-4] [0m[33m[test.lox][0m       print "Casting spell as " + this.name;
-[33m[stage-4] [test-4] [0m[33m[test.lox][0m     }
-[33m[stage-4] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-4] [test-4] [0m[33m[test.lox][0m     // Functions are first-class objects in Lox
-[33m[stage-4] [test-4] [0m[33m[test.lox][0m     return castSpell;
-[33m[stage-4] [test-4] [0m[33m[test.lox][0m   }
-[33m[stage-4] [test-4] [0m[33m[test.lox][0m }
-[33m[stage-4] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-4] [test-4] [0m[33m[test.lox][0m var wizard = Wizard();
-[33m[stage-4] [test-4] [0m[33m[test.lox][0m wizard.name = "Merlin";
-[33m[stage-4] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-4] [test-4] [0m[33m[test.lox][0m // Calling an instance method that returns a<|SPACE|>// function should work
-[33m[stage-4] [test-4] [0m[33m[test.lox][0m wizard.getSpellCaster()();
+[33m[stage-4] [test-4.lox] [0mclass Wizard {
+[33m[stage-4] [test-4.lox] [0m  getSpellCaster() {
+[33m[stage-4] [test-4.lox] [0m    fun castSpell() {
+[33m[stage-4] [test-4.lox] [0m      print this;
+[33m[stage-4] [test-4.lox] [0m      print "Casting spell as " + this.name;
+[33m[stage-4] [test-4.lox] [0m    }
+[33m[stage-4] [test-4.lox] [0m
+[33m[stage-4] [test-4.lox] [0m    // Functions are first-class objects in Lox
+[33m[stage-4] [test-4.lox] [0m    return castSpell;
+[33m[stage-4] [test-4.lox] [0m  }
+[33m[stage-4] [test-4.lox] [0m}
+[33m[stage-4] [test-4.lox] [0m
+[33m[stage-4] [test-4.lox] [0mvar wizard = Wizard();
+[33m[stage-4] [test-4.lox] [0mwizard.name = "Merlin";
+[33m[stage-4] [test-4.lox] [0m
+[33m[stage-4] [test-4.lox] [0m// Calling an instance method that returns a<|SPACE|>// function should work
+[33m[stage-4] [test-4.lox] [0mwizard.getSpellCaster()();
 [33m[stage-4] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mWizard instance
 [33m[your_program] [0mCasting spell as Merlin
@@ -442,31 +442,31 @@ Debug = true
 [33m[stage-3] [0m[94mRunning tests for Stage #3: dg2[0m
 [33m[stage-3] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-3] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-1] [0m[33m[test.lox][0m // The this keyword used outside of a class<|SPACE|>// should be a compile error
-[33m[stage-3] [test-1] [0m[33m[test.lox][0m print this;
+[33m[stage-3] [test-1.lox] [0m// The this keyword used outside of a class<|SPACE|>// should be a compile error
+[33m[stage-3] [test-1.lox] [0mprint this;
 [33m[stage-3] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 3] Error at 'this': Can't use 'this' outside of a class.
 [33m[stage-3] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-3] [test-1] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-3] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-3] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-2] [0m[33m[test.lox][0m // using this outside of a class shouldn't work
-[33m[stage-3] [test-2] [0m[33m[test.lox][0m fun notAMethod() {
-[33m[stage-3] [test-2] [0m[33m[test.lox][0m   print this; // expect compile error
-[33m[stage-3] [test-2] [0m[33m[test.lox][0m }
+[33m[stage-3] [test-2.lox] [0m// using this outside of a class shouldn't work
+[33m[stage-3] [test-2.lox] [0mfun notAMethod() {
+[33m[stage-3] [test-2.lox] [0m  print this; // expect compile error
+[33m[stage-3] [test-2.lox] [0m}
 [33m[stage-3] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 3] Error at 'this': Can't use 'this' outside of a class.
 [33m[stage-3] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-3] [test-2] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-3] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-3] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-3] [0m[33m[test.lox][0m class Person {
-[33m[stage-3] [test-3] [0m[33m[test.lox][0m   sayName() {
-[33m[stage-3] [test-3] [0m[33m[test.lox][0m     // this is not a callable object
-[33m[stage-3] [test-3] [0m[33m[test.lox][0m     print this(); // expect runtime error
-[33m[stage-3] [test-3] [0m[33m[test.lox][0m   }
-[33m[stage-3] [test-3] [0m[33m[test.lox][0m }
-[33m[stage-3] [test-3] [0m[33m[test.lox][0m Person().sayName();
+[33m[stage-3] [test-3.lox] [0mclass Person {
+[33m[stage-3] [test-3.lox] [0m  sayName() {
+[33m[stage-3] [test-3.lox] [0m    // this is not a callable object
+[33m[stage-3] [test-3.lox] [0m    print this(); // expect runtime error
+[33m[stage-3] [test-3.lox] [0m  }
+[33m[stage-3] [test-3.lox] [0m}
+[33m[stage-3] [test-3.lox] [0mPerson().sayName();
 [33m[stage-3] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mCan only call functions and classes.
 [33m[your_program] [0m[line 4]
@@ -474,22 +474,22 @@ Debug = true
 [33m[stage-3] [test-3] [0m[92m✓ Received exit code 70.[0m
 [33m[stage-3] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-3] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-4] [0m[33m[test.lox][0m class Confused {
-[33m[stage-3] [test-4] [0m[33m[test.lox][0m   method() {
-[33m[stage-3] [test-4] [0m[33m[test.lox][0m     fun inner(instance) {
-[33m[stage-3] [test-4] [0m[33m[test.lox][0m       // this is a local variable
-[33m[stage-3] [test-4] [0m[33m[test.lox][0m       var feeling = "confused";
-[33m[stage-3] [test-4] [0m[33m[test.lox][0m       // Unless explicitly set, feeling can't be<|SPACE|>      // accessed using this keyword
-[33m[stage-3] [test-4] [0m[33m[test.lox][0m       print this.feeling; // expect runtime error
-[33m[stage-3] [test-4] [0m[33m[test.lox][0m     }
-[33m[stage-3] [test-4] [0m[33m[test.lox][0m     return inner;
-[33m[stage-3] [test-4] [0m[33m[test.lox][0m   }
-[33m[stage-3] [test-4] [0m[33m[test.lox][0m }
-[33m[stage-3] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-3] [test-4] [0m[33m[test.lox][0m var instance = Confused();
-[33m[stage-3] [test-4] [0m[33m[test.lox][0m var m = instance.method();
-[33m[stage-3] [test-4] [0m[33m[test.lox][0m // calling the function returned should work
-[33m[stage-3] [test-4] [0m[33m[test.lox][0m m(instance);
+[33m[stage-3] [test-4.lox] [0mclass Confused {
+[33m[stage-3] [test-4.lox] [0m  method() {
+[33m[stage-3] [test-4.lox] [0m    fun inner(instance) {
+[33m[stage-3] [test-4.lox] [0m      // this is a local variable
+[33m[stage-3] [test-4.lox] [0m      var feeling = "confused";
+[33m[stage-3] [test-4.lox] [0m      // Unless explicitly set, feeling can't be<|SPACE|>      // accessed using this keyword
+[33m[stage-3] [test-4.lox] [0m      print this.feeling; // expect runtime error
+[33m[stage-3] [test-4.lox] [0m    }
+[33m[stage-3] [test-4.lox] [0m    return inner;
+[33m[stage-3] [test-4.lox] [0m  }
+[33m[stage-3] [test-4.lox] [0m}
+[33m[stage-3] [test-4.lox] [0m
+[33m[stage-3] [test-4.lox] [0mvar instance = Confused();
+[33m[stage-3] [test-4.lox] [0mvar m = instance.method();
+[33m[stage-3] [test-4.lox] [0m// calling the function returned should work
+[33m[stage-3] [test-4.lox] [0mm(instance);
 [33m[stage-3] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mUndefined property 'feeling'.
 [33m[your_program] [0m[line 8]
@@ -500,19 +500,19 @@ Debug = true
 [33m[stage-2] [0m[94mRunning tests for Stage #2: ou5[0m
 [33m[stage-2] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-2] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-1] [0m[33m[test.lox][0m class Default {
-[33m[stage-2] [test-1] [0m[33m[test.lox][0m   // this is the constructor
-[33m[stage-2] [test-1] [0m[33m[test.lox][0m   init() {
-[33m[stage-2] [test-1] [0m[33m[test.lox][0m     // it should be able to set<|SPACE|>    // properties on the instance
-[33m[stage-2] [test-1] [0m[33m[test.lox][0m     this.x = "baz";
-[33m[stage-2] [test-1] [0m[33m[test.lox][0m     this.y = 59;
-[33m[stage-2] [test-1] [0m[33m[test.lox][0m   }
-[33m[stage-2] [test-1] [0m[33m[test.lox][0m }
-[33m[stage-2] [test-1] [0m[33m[test.lox][0m 
-[33m[stage-2] [test-1] [0m[33m[test.lox][0m // the constructor should be called
-[33m[stage-2] [test-1] [0m[33m[test.lox][0m // automatically  when the class is being<|SPACE|>// instantiated
-[33m[stage-2] [test-1] [0m[33m[test.lox][0m print Default().x;
-[33m[stage-2] [test-1] [0m[33m[test.lox][0m print Default().y;
+[33m[stage-2] [test-1.lox] [0mclass Default {
+[33m[stage-2] [test-1.lox] [0m  // this is the constructor
+[33m[stage-2] [test-1.lox] [0m  init() {
+[33m[stage-2] [test-1.lox] [0m    // it should be able to set<|SPACE|>    // properties on the instance
+[33m[stage-2] [test-1.lox] [0m    this.x = "baz";
+[33m[stage-2] [test-1.lox] [0m    this.y = 59;
+[33m[stage-2] [test-1.lox] [0m  }
+[33m[stage-2] [test-1.lox] [0m}
+[33m[stage-2] [test-1.lox] [0m
+[33m[stage-2] [test-1.lox] [0m// the constructor should be called
+[33m[stage-2] [test-1.lox] [0m// automatically  when the class is being<|SPACE|>// instantiated
+[33m[stage-2] [test-1.lox] [0mprint Default().x;
+[33m[stage-2] [test-1.lox] [0mprint Default().y;
 [33m[stage-2] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mbaz
 [33m[your_program] [0m59
@@ -520,39 +520,39 @@ Debug = true
 [33m[stage-2] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-2] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-2] [0m[33m[test.lox][0m class Robot {
-[33m[stage-2] [test-2] [0m[33m[test.lox][0m   // constructors should be able to accept
-[33m[stage-2] [test-2] [0m[33m[test.lox][0m   // one or more parameters
-[33m[stage-2] [test-2] [0m[33m[test.lox][0m   init(model, function) {
-[33m[stage-2] [test-2] [0m[33m[test.lox][0m     this.model = model;
-[33m[stage-2] [test-2] [0m[33m[test.lox][0m     this.function = function;
-[33m[stage-2] [test-2] [0m[33m[test.lox][0m   }
-[33m[stage-2] [test-2] [0m[33m[test.lox][0m }
-[33m[stage-2] [test-2] [0m[33m[test.lox][0m print Robot("R2-D2", "Astromech").model;
+[33m[stage-2] [test-2.lox] [0mclass Robot {
+[33m[stage-2] [test-2.lox] [0m  // constructors should be able to accept
+[33m[stage-2] [test-2.lox] [0m  // one or more parameters
+[33m[stage-2] [test-2.lox] [0m  init(model, function) {
+[33m[stage-2] [test-2.lox] [0m    this.model = model;
+[33m[stage-2] [test-2.lox] [0m    this.function = function;
+[33m[stage-2] [test-2.lox] [0m  }
+[33m[stage-2] [test-2.lox] [0m}
+[33m[stage-2] [test-2.lox] [0mprint Robot("R2-D2", "Astromech").model;
 [33m[stage-2] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mR2-D2
 [33m[stage-2] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-2] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-2] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m class Counter {
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m   init(startValue) {
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m     if (startValue < 0) {
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m       print "startValue can't be negative";
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m       this.count = 0;
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m     } else {
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m       this.count = startValue;
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m     }
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m   }
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m }
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m 
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m // constructor is called automatically here
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m var instance = Counter(-11);
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m print instance.count;
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m 
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m // it should be possible to call the constructor
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m // on a class instance as well
-[33m[stage-2] [test-3] [0m[33m[test.lox][0m print instance.init(11).count;
+[33m[stage-2] [test-3.lox] [0mclass Counter {
+[33m[stage-2] [test-3.lox] [0m  init(startValue) {
+[33m[stage-2] [test-3.lox] [0m    if (startValue < 0) {
+[33m[stage-2] [test-3.lox] [0m      print "startValue can't be negative";
+[33m[stage-2] [test-3.lox] [0m      this.count = 0;
+[33m[stage-2] [test-3.lox] [0m    } else {
+[33m[stage-2] [test-3.lox] [0m      this.count = startValue;
+[33m[stage-2] [test-3.lox] [0m    }
+[33m[stage-2] [test-3.lox] [0m  }
+[33m[stage-2] [test-3.lox] [0m}
+[33m[stage-2] [test-3.lox] [0m
+[33m[stage-2] [test-3.lox] [0m// constructor is called automatically here
+[33m[stage-2] [test-3.lox] [0mvar instance = Counter(-11);
+[33m[stage-2] [test-3.lox] [0mprint instance.count;
+[33m[stage-2] [test-3.lox] [0m
+[33m[stage-2] [test-3.lox] [0m// it should be possible to call the constructor
+[33m[stage-2] [test-3.lox] [0m// on a class instance as well
+[33m[stage-2] [test-3.lox] [0mprint instance.init(11).count;
 [33m[stage-2] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mstartValue can't be negative
 [33m[your_program] [0m0
@@ -561,31 +561,31 @@ Debug = true
 [33m[stage-2] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-2] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m class Vehicle {
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m   init(type) {
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m     this.type = type;
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m   }
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m }
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m class Car {
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m   init(make, model) {
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m     this.make = make;
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m     this.model = model;
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m     this.wheels = "four";
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m   }
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m   describe() {
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m     // expression across multiple lines should work
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m     print this.make + " " + this.model +
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m     " with " + this.wheels + " wheels";
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m   }
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m }
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m var vehicle = Vehicle("Generic");
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m print "Generic " + vehicle.type;
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m var myCar = Car("Toyota", "Corolla");
-[33m[stage-2] [test-4] [0m[33m[test.lox][0m myCar.describe();
+[33m[stage-2] [test-4.lox] [0mclass Vehicle {
+[33m[stage-2] [test-4.lox] [0m  init(type) {
+[33m[stage-2] [test-4.lox] [0m    this.type = type;
+[33m[stage-2] [test-4.lox] [0m  }
+[33m[stage-2] [test-4.lox] [0m}
+[33m[stage-2] [test-4.lox] [0m
+[33m[stage-2] [test-4.lox] [0mclass Car {
+[33m[stage-2] [test-4.lox] [0m  init(make, model) {
+[33m[stage-2] [test-4.lox] [0m    this.make = make;
+[33m[stage-2] [test-4.lox] [0m    this.model = model;
+[33m[stage-2] [test-4.lox] [0m    this.wheels = "four";
+[33m[stage-2] [test-4.lox] [0m  }
+[33m[stage-2] [test-4.lox] [0m
+[33m[stage-2] [test-4.lox] [0m  describe() {
+[33m[stage-2] [test-4.lox] [0m    // expression across multiple lines should work
+[33m[stage-2] [test-4.lox] [0m    print this.make + " " + this.model +
+[33m[stage-2] [test-4.lox] [0m    " with " + this.wheels + " wheels";
+[33m[stage-2] [test-4.lox] [0m  }
+[33m[stage-2] [test-4.lox] [0m}
+[33m[stage-2] [test-4.lox] [0m
+[33m[stage-2] [test-4.lox] [0mvar vehicle = Vehicle("Generic");
+[33m[stage-2] [test-4.lox] [0mprint "Generic " + vehicle.type;
+[33m[stage-2] [test-4.lox] [0m
+[33m[stage-2] [test-4.lox] [0mvar myCar = Car("Toyota", "Corolla");
+[33m[stage-2] [test-4.lox] [0mmyCar.describe();
 [33m[stage-2] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mGeneric Generic
 [33m[your_program] [0mToyota Corolla with four wheels
@@ -596,64 +596,64 @@ Debug = true
 [33m[stage-1] [0m[94mRunning tests for Stage #1: eb9[0m
 [33m[stage-1] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-1] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-1] [test-1] [0m[33m[test.lox][0m class Person {
-[33m[stage-1] [test-1] [0m[33m[test.lox][0m   init() {
-[33m[stage-1] [test-1] [0m[33m[test.lox][0m     print "hello";
-[33m[stage-1] [test-1] [0m[33m[test.lox][0m     // constructor should return nothing
-[33m[stage-1] [test-1] [0m[33m[test.lox][0m     return;
-[33m[stage-1] [test-1] [0m[33m[test.lox][0m   }
-[33m[stage-1] [test-1] [0m[33m[test.lox][0m }
-[33m[stage-1] [test-1] [0m[33m[test.lox][0m 
-[33m[stage-1] [test-1] [0m[33m[test.lox][0m Person();
+[33m[stage-1] [test-1.lox] [0mclass Person {
+[33m[stage-1] [test-1.lox] [0m  init() {
+[33m[stage-1] [test-1.lox] [0m    print "hello";
+[33m[stage-1] [test-1.lox] [0m    // constructor should return nothing
+[33m[stage-1] [test-1.lox] [0m    return;
+[33m[stage-1] [test-1.lox] [0m  }
+[33m[stage-1] [test-1.lox] [0m}
+[33m[stage-1] [test-1.lox] [0m
+[33m[stage-1] [test-1.lox] [0mPerson();
 [33m[stage-1] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mhello
 [33m[stage-1] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-1] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-1] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-1] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-1] [test-2] [0m[33m[test.lox][0m class ThingDefault {
-[33m[stage-1] [test-2] [0m[33m[test.lox][0m   init() {
-[33m[stage-1] [test-2] [0m[33m[test.lox][0m     this.x = "foo";
-[33m[stage-1] [test-2] [0m[33m[test.lox][0m     this.y = 42;
-[33m[stage-1] [test-2] [0m[33m[test.lox][0m     // constructor should not return the instance
-[33m[stage-1] [test-2] [0m[33m[test.lox][0m     return this; // expect compile error
-[33m[stage-1] [test-2] [0m[33m[test.lox][0m   }
-[33m[stage-1] [test-2] [0m[33m[test.lox][0m }
-[33m[stage-1] [test-2] [0m[33m[test.lox][0m var out = ThingDefault();
-[33m[stage-1] [test-2] [0m[33m[test.lox][0m print out;
+[33m[stage-1] [test-2.lox] [0mclass ThingDefault {
+[33m[stage-1] [test-2.lox] [0m  init() {
+[33m[stage-1] [test-2.lox] [0m    this.x = "foo";
+[33m[stage-1] [test-2.lox] [0m    this.y = 42;
+[33m[stage-1] [test-2.lox] [0m    // constructor should not return the instance
+[33m[stage-1] [test-2.lox] [0m    return this; // expect compile error
+[33m[stage-1] [test-2.lox] [0m  }
+[33m[stage-1] [test-2.lox] [0m}
+[33m[stage-1] [test-2.lox] [0mvar out = ThingDefault();
+[33m[stage-1] [test-2.lox] [0mprint out;
 [33m[stage-1] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 6] Error at 'return': Can't return a value from an initializer.
 [33m[stage-1] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-1] [test-2] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-1] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-1] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-1] [test-3] [0m[33m[test.lox][0m class Foo {
-[33m[stage-1] [test-3] [0m[33m[test.lox][0m   init() {
-[33m[stage-1] [test-3] [0m[33m[test.lox][0m     // constructor should not return anything
-[33m[stage-1] [test-3] [0m[33m[test.lox][0m     return "something"; // expect compile error
-[33m[stage-1] [test-3] [0m[33m[test.lox][0m   }
-[33m[stage-1] [test-3] [0m[33m[test.lox][0m }
-[33m[stage-1] [test-3] [0m[33m[test.lox][0m 
-[33m[stage-1] [test-3] [0m[33m[test.lox][0m Foo();
+[33m[stage-1] [test-3.lox] [0mclass Foo {
+[33m[stage-1] [test-3.lox] [0m  init() {
+[33m[stage-1] [test-3.lox] [0m    // constructor should not return anything
+[33m[stage-1] [test-3.lox] [0m    return "something"; // expect compile error
+[33m[stage-1] [test-3.lox] [0m  }
+[33m[stage-1] [test-3.lox] [0m}
+[33m[stage-1] [test-3.lox] [0m
+[33m[stage-1] [test-3.lox] [0mFoo();
 [33m[stage-1] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 4] Error at 'return': Can't return a value from an initializer.
 [33m[stage-1] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-1] [test-3] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-1] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-1] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-1] [test-4] [0m[33m[test.lox][0m class Foo {
-[33m[stage-1] [test-4] [0m[33m[test.lox][0m   init() {
-[33m[stage-1] [test-4] [0m[33m[test.lox][0m     // just calling the callback should've worked
-[33m[stage-1] [test-4] [0m[33m[test.lox][0m     // but returning it is not allowed
-[33m[stage-1] [test-4] [0m[33m[test.lox][0m     return this.callback(); // expect compile error
-[33m[stage-1] [test-4] [0m[33m[test.lox][0m   }
-[33m[stage-1] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-1] [test-4] [0m[33m[test.lox][0m   callback() {
-[33m[stage-1] [test-4] [0m[33m[test.lox][0m     return "callback";
-[33m[stage-1] [test-4] [0m[33m[test.lox][0m   }
-[33m[stage-1] [test-4] [0m[33m[test.lox][0m }
-[33m[stage-1] [test-4] [0m[33m[test.lox][0m 
-[33m[stage-1] [test-4] [0m[33m[test.lox][0m Foo();
+[33m[stage-1] [test-4.lox] [0mclass Foo {
+[33m[stage-1] [test-4.lox] [0m  init() {
+[33m[stage-1] [test-4.lox] [0m    // just calling the callback should've worked
+[33m[stage-1] [test-4.lox] [0m    // but returning it is not allowed
+[33m[stage-1] [test-4.lox] [0m    return this.callback(); // expect compile error
+[33m[stage-1] [test-4.lox] [0m  }
+[33m[stage-1] [test-4.lox] [0m
+[33m[stage-1] [test-4.lox] [0m  callback() {
+[33m[stage-1] [test-4.lox] [0m    return "callback";
+[33m[stage-1] [test-4.lox] [0m  }
+[33m[stage-1] [test-4.lox] [0m}
+[33m[stage-1] [test-4.lox] [0m
+[33m[stage-1] [test-4.lox] [0mFoo();
 [33m[stage-1] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 5] Error at 'return': Can't return a value from an initializer.
 [33m[stage-1] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
