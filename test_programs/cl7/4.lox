@@ -15,6 +15,7 @@ class Car {
   }
 
   describe() {
+    // expression across multiple lines should work
     print this.make + " " + this.model +
     " with " + this.wheels + " wheels";
   }

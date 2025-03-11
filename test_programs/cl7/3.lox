@@ -12,6 +12,10 @@ class Counter {
   }
 }
 
+// constructor is called automatically here
 var instance = Counter(-<<RANDOM_INTEGER>>);
 print instance.count;
+
+// it should be possible to call the constructor
+// on a class instance as well
 print instance.init(<<RANDOM_INTEGER>>).count;

@@ -4,8 +4,11 @@ expected_error_type: runtime
 class Confused {
   method() {
     fun inner(instance) {
+      // this is a local variable
       var feeling = "confused";
-      print this.feeling;
+      // Unless explicitly set, feeling can't be 
+      // accessed using this keyword
+      print this.feeling; // expect runtime error
     }
     return inner;
   }
@@ -13,4 +16,5 @@ class Confused {
 
 var instance = Confused();
 var m = instance.method();
+// calling the function returned should work
 m(instance);
