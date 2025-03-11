@@ -90,14 +90,14 @@ func TestStages(t *testing.T) {
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 		"pass_classes_inprogress_jlox": {
-			StageSlugs:          []string{"cl1", "cl2", "cl3", "cl4", "cl5", "cl6", "cl7", "cl8"},
+			StageSlugs:          []string{"vf4", "yk8", "yf3", "qr2", "yd7", "dg2", "ou5", "eb9"},
 			CodePath:            "../craftinginterpreters/build/gen/chap12_classes",
 			ExpectedExitCode:    0,
 			StdoutFixturePath:   "./test_helpers/fixtures/pass_classes",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 		"pass_classes_completed_jlox": {
-			StageSlugs:          []string{"cl1", "cl2", "cl3", "cl4", "cl5", "cl6", "cl7", "cl8"},
+			StageSlugs:          []string{"vf4", "yk8", "yf3", "qr2", "yd7", "dg2", "ou5", "eb9"},
 			CodePath:            "../craftinginterpreters/build/gen/chap13_inheritance",
 			ExpectedExitCode:    0,
 			StdoutFixturePath:   "./test_helpers/fixtures/pass_classes_final",

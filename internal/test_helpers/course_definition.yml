@@ -5889,11 +5889,11 @@ stages:
     marketing_md: |-
       In this stage, you'll add support for detecting invalid return statements, ensuring they only appear within function bodies.
     
-  - slug: "cl1"
-  - slug: "cl2"
-  - slug: "cl3"
-  - slug: "cl4"
-  - slug: "cl5"
-  - slug: "cl6"
-  - slug: "cl7"
-  - slug: "cl8"
+  - slug: "vf4"
+  - slug: "yk8"
+  - slug: "yf3"
+  - slug: "qr2"
+  - slug: "yd7"
+  - slug: "dg2"
+  - slug: "ou5"
+  - slug: "eb9"
