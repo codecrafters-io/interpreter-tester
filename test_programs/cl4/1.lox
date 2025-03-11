@@ -8,6 +8,8 @@ class Robot {
 }
 
 var r2d2 = Robot();
+// Calling a method on an instance should work
 r2d2.beep();
 
+// Calling a method on a class instance should work
 Robot().beep();
