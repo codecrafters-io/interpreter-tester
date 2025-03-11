@@ -1,0 +1,12 @@
+---
+expected_error_type: none
+---
+class Person {
+  init() {
+    print "<<RANDOM_STRING_1>>";
+    // constructor should return nothing
+    return;
+  }
+}
+
+Person();

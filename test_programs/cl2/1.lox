@@ -1,0 +1,7 @@
+---
+expected_error_type: none
+---
+// Class instantiation
+class Spaceship {}
+var falcon = Spaceship();
+print falcon;

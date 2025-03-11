@@ -5888,3 +5888,12 @@ stages:
       - Error messages should be printed to stderr, but the exact error message is not checked.
     marketing_md: |-
       In this stage, you'll add support for detecting invalid return statements, ensuring they only appear within function bodies.
+    
+  - slug: "vf4"
+  - slug: "yk8"
+  - slug: "yf3"
+  - slug: "qr2"
+  - slug: "yd7"
+  - slug: "dg2"
+  - slug: "ou5"
+  - slug: "eb9"

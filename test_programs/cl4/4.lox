@@ -1,0 +1,41 @@
+---
+expected_error_type: none
+---
+class Superhero {
+  // Methods should be able to accept a parameter
+  useSpecialPower(hero) {
+    print "Using power: " + hero.specialPower;
+  }
+
+  // Methods should be able to accept a parameter
+  // of any type
+  hasSpecialPower(hero) {
+    return hero.specialPower;
+  }
+
+  // Methods should be able to accept class 
+  // instances as parameters and then update their 
+  // properties
+  giveSpecialPower(hero, power) {
+    hero.specialPower = power;
+  }
+}
+
+fun performHeroics(hero, superheroClass) {
+  if (superheroClass.hasSpecialPower(hero)) {
+    superheroClass.useSpecialPower(hero);
+  } else {
+    print "No special power available";
+  }
+}
+
+var superman = Superhero();
+var heroClass = Superhero();
+
+if (<<RANDOM_BOOLEAN>>) {
+  heroClass.giveSpecialPower(superman, "Flight");
+} else {
+  heroClass.giveSpecialPower(superman, "Strength");
+}
+
+performHeroics(superman, heroClass);

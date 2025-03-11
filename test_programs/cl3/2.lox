@@ -1,0 +1,16 @@
+---
+expected_error_type: none
+---
+class Robot {}
+var r2d2 = Robot();
+
+// Setting properties on an instance should work
+r2d2.model = "Astromech";
+r2d2.operational = <<RANDOM_BOOLEAN>>;
+
+// Getting properties on an instance should work
+if (r2d2.operational) {
+  print r2d2.model;
+  r2d2.mission = "Navigate hyperspace";
+  print r2d2.mission;
+}

@@ -1,0 +1,10 @@
+---
+expected_error_type: runtime
+---
+class Person {
+  sayName() {
+    // this is not a callable object
+    print this(); // expect runtime error
+  }
+}
+Person().sayName();

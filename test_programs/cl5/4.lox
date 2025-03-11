@@ -1,0 +1,21 @@
+---
+expected_error_type: none
+---
+class Wizard {
+  getSpellCaster() {
+    fun castSpell() {
+      print this;
+      print "Casting spell as " + this.name;
+    }
+
+    // Functions are first-class objects in Lox
+    return castSpell;
+  }
+}
+
+var wizard = Wizard();
+wizard.name = "Merlin";
+
+// Calling an instance method that returns a 
+// function should work
+wizard.getSpellCaster()();
