@@ -24,4 +24,4 @@ class C < B {
 }
 
 C().test(); // expect: A
-C().say() // Overriding
+C().say(); // Overriding

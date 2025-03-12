@@ -1,6 +1,7 @@
 ---
 expected_error_type: none
 ---
+// 1.lox or 2.lox
 class Base {
   init(a, b) {
     print "Base.init(" + a + ", " + b + ")";
