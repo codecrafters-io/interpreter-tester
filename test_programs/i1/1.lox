@@ -1,12 +1,9 @@
 ---
 expected_error_type: none
 ---
-class Doughnut {
-  cook() {
-    print "Fry until golden brown.";
-    }
-  }
+class Doughnut {}
 
 class BostonCream < Doughnut {}
 
-BostonCream().cook();
+print Doughnut();
+print BostonCream();

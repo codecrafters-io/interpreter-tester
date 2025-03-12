@@ -1,11 +1,14 @@
 ---
 expected_error_type: none
 ---
-class A {}
+{
+  class A {}
 
-fun f() {
   class B < A {}
-  return B;
-}
 
-print f(); // expect: B
+  class C < A {}
+
+  print A();
+  print B();
+  print C();
+}

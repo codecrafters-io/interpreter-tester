@@ -1,4 +1,11 @@
 ---
-expected_error_type: compile
+expected_error_type: none
 ---
-class Foo < Foo {} // Error at 'Foo': A class can't inherit from itself.
+class A {}
+
+fun f() {
+  class B < A {}
+  return B;
+}
+
+print f(); // expect: B
