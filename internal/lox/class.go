@@ -8,12 +8,22 @@ import (
 // Class is a user defined class
 type UserClass struct {
 	Callable
-	Name    string
-	Methods map[string]*UserFunction
+	Name       string
+	Methods    map[string]*UserFunction
+	SuperClass *UserClass
 }
 
 func (c *UserClass) String() string {
 	return c.Name
+}
+
+func (c *UserClass) FindMethod(name Token) (*UserFunction, error) {
+	if m, prs := c.Methods[name.Lexeme]; prs {
+		return m, nil
+	} else if c.SuperClass != nil {
+		return c.SuperClass.FindMethod(name)
+	}
+	return nil, MakeRuntimeError(name, fmt.Sprintf("Undefined property '%s'", name.Lexeme))
 }
 
 // Call is the operation that executes a class constructor
@@ -54,10 +64,12 @@ func (c *UserClassInstance) Get(name Token) (interface{}, error) {
 		return v, nil
 	}
 
-	if m, ok := c.Class.Methods[name.Lexeme]; ok {
-		return m.Bind(c), nil
+	m, err := c.Class.FindMethod(name)
+	if err != nil {
+		return nil, err
 	}
-	return nil, MakeRuntimeError(name, fmt.Sprintf("Undefined property '%s'", name.Lexeme))
+
+	return m.Bind(c), nil
 }
 
 // Set accesses the property
