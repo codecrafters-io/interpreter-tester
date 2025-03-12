@@ -1,25 +1,25 @@
 ---
 expected_error_type: none
 ---
-class Base {
-  method() {
-    print "Base.method()";
+class Foo {
+  inFoo() {
+    print "in foo";
   }
 }
 
-class Derived < Base {
-  method() {
-    super.method();
+class Bar < Foo {
+  inBar() {
+    print "in bar";
   }
 }
 
-class OtherBase {
-  method() {
-    print "OtherBase.method()";
+class Baz < Bar {
+  inBaz() {
+    print "in baz";
   }
 }
 
-var derived = Derived();
-derived.method(); // expect: Base.method()
-Base = OtherBase;
-derived.method(); // expect: Base.method()
+var baz = Baz();
+baz.inFoo(); // expect: in foo
+baz.inBar(); // expect: in bar
+baz.inBaz(); // expect: in baz

@@ -1,19 +1,16 @@
 ---
 expected_error_type: none
 ---
-class Base {
-  foo() {
-    print "Base.foo()";
-  }
+fun typeOfClass(instance) {
+  print instance;
 }
 
-class Derived < Base {
-  foo() {
-    print "Derived.foo()";
-    super.foo();
-  }
-}
+class root {}
 
-Derived().foo();
-// expect: Derived.foo()
-// expect: Base.foo()
+class parent < root {}
+
+class child < parent {}
+
+typeOfClass(root());
+typeOfClass(parent());
+typeOfClass(child());

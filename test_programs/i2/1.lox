@@ -1,25 +1,12 @@
 ---
 expected_error_type: none
 ---
-class Foo {
-  inFoo() {
-    print "in foo";
+class Doughnut {
+  cook() {
+    print "Fry until golden brown.";
+    }
   }
-}
 
-class Bar < Foo {
-  inBar() {
-    print "in bar";
-  }
-}
+class BostonCream < Doughnut {}
 
-class Baz < Bar {
-  inBaz() {
-    print "in baz";
-  }
-}
-
-var baz = Baz();
-baz.inFoo(); // expect: in foo
-baz.inBar(); // expect: in bar
-baz.inBaz(); // expect: in baz
+BostonCream().cook();

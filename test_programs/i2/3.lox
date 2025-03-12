@@ -1,21 +1,15 @@
 ---
 expected_error_type: none
 ---
-class A {
-  foo() {
-    print "A.foo()";
+class Foo {
+  init() {
+    this.secret = 1;
   }
 }
 
-class B < A {}
+class Bar < Foo {}
 
-class C < B {
-  foo() {
-    print "C.foo()";
-    super.foo();
-  }
-}
+class Baz < Bar {}
 
-C().foo();
-// expect: C.foo()
-// expect: A.foo()
+var baz = Baz();
+print baz.secret; // expect: 1
