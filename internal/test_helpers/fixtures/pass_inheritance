@@ -1,0 +1,645 @@
+Debug = true
+
+[33m[stage-5] [0m[94mRunning tests for Stage #5: i1[0m
+[33m[stage-5] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-5] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-5] [test-1.lox] [0mclass Doughnut {}
+[33m[stage-5] [test-1.lox] [0m
+[33m[stage-5] [test-1.lox] [0mclass BostonCream < Doughnut {}
+[33m[stage-5] [test-1.lox] [0m
+[33m[stage-5] [test-1.lox] [0mprint Doughnut();
+[33m[stage-5] [test-1.lox] [0mprint BostonCream();
+[33m[stage-5] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mDoughnut instance
+[33m[your_program] [0mBostonCream instance
+[33m[stage-5] [test-1] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-5] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-5] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-5] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-5] [test-2.lox] [0m{
+[33m[stage-5] [test-2.lox] [0m  class A {}
+[33m[stage-5] [test-2.lox] [0m
+[33m[stage-5] [test-2.lox] [0m  class B < A {}
+[33m[stage-5] [test-2.lox] [0m
+[33m[stage-5] [test-2.lox] [0m  class C < A {}
+[33m[stage-5] [test-2.lox] [0m
+[33m[stage-5] [test-2.lox] [0m  print A();
+[33m[stage-5] [test-2.lox] [0m  print B();
+[33m[stage-5] [test-2.lox] [0m  print C();
+[33m[stage-5] [test-2.lox] [0m}
+[33m[stage-5] [test-2.lox] [0m
+[33m[stage-5] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mA instance
+[33m[your_program] [0mB instance
+[33m[your_program] [0mC instance
+[33m[stage-5] [test-2] [0m[92m✓ 3 line(s) match on stdout[0m
+[33m[stage-5] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-5] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-5] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-5] [test-3.lox] [0mclass A {}
+[33m[stage-5] [test-3.lox] [0m
+[33m[stage-5] [test-3.lox] [0mfun f() {
+[33m[stage-5] [test-3.lox] [0m  class B < A {}
+[33m[stage-5] [test-3.lox] [0m  return B;
+[33m[stage-5] [test-3.lox] [0m}
+[33m[stage-5] [test-3.lox] [0m
+[33m[stage-5] [test-3.lox] [0mprint f(); // expect: B
+[33m[stage-5] [test-3.lox] [0m
+[33m[stage-5] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mB
+[33m[stage-5] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-5] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-5] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-5] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-5] [test-4.lox] [0mclass Foo < Foo {} // Error at 'Foo': A class can't inherit from itself.
+[33m[stage-5] [test-4.lox] [0m
+[33m[stage-5] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m[line 1] Error at 'Foo': A class can't inherit from itself.
+[33m[stage-5] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-5] [test-4] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-5] [test-5] [0m[94mRunning test case: 5[0m
+[33m[stage-5] [test-5] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-5] [test-5.lox] [0mfun A() {}
+[33m[stage-5] [test-5.lox] [0m
+[33m[stage-5] [test-5.lox] [0mclass B < A {}
+[33m[stage-5] [test-5.lox] [0m
+[33m[stage-5] [test-5.lox] [0mprint A();
+[33m[stage-5] [test-5.lox] [0mprint B();
+[33m[stage-5] [test-5] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mSuperclass must be a class.
+[33m[your_program] [0m[line 3]
+[33m[stage-5] [test-5] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-5] [test-5] [0m[92m✓ Received exit code 70.[0m
+[33m[stage-5] [test-6] [0m[94mRunning test case: 6[0m
+[33m[stage-5] [test-6] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-5] [test-6.lox] [0mvar A = "class";
+[33m[stage-5] [test-6.lox] [0m
+[33m[stage-5] [test-6.lox] [0mclass B < A {}
+[33m[stage-5] [test-6.lox] [0m
+[33m[stage-5] [test-6.lox] [0mprint B();
+[33m[stage-5] [test-6] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mSuperclass must be a class.
+[33m[your_program] [0m[line 3]
+[33m[stage-5] [test-6] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-5] [test-6] [0m[92m✓ Received exit code 70.[0m
+[33m[stage-5] [0m[92mTest passed.[0m
+
+[33m[stage-4] [0m[94mRunning tests for Stage #4: i2[0m
+[33m[stage-4] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-4] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-4] [test-1.lox] [0mclass Doughnut {
+[33m[stage-4] [test-1.lox] [0m  cook() {
+[33m[stage-4] [test-1.lox] [0m    print "Fry until golden brown.";
+[33m[stage-4] [test-1.lox] [0m    }
+[33m[stage-4] [test-1.lox] [0m  }
+[33m[stage-4] [test-1.lox] [0m
+[33m[stage-4] [test-1.lox] [0mclass BostonCream < Doughnut {}
+[33m[stage-4] [test-1.lox] [0m
+[33m[stage-4] [test-1.lox] [0mBostonCream().cook();
+[33m[stage-4] [test-1.lox] [0m
+[33m[stage-4] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mFry until golden brown.
+[33m[stage-4] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-4] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-4] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-4] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-4] [test-2.lox] [0mfun typeOfClass(instance) {
+[33m[stage-4] [test-2.lox] [0m  print instance;
+[33m[stage-4] [test-2.lox] [0m}
+[33m[stage-4] [test-2.lox] [0m
+[33m[stage-4] [test-2.lox] [0mclass root {}
+[33m[stage-4] [test-2.lox] [0m
+[33m[stage-4] [test-2.lox] [0mclass parent < root {}
+[33m[stage-4] [test-2.lox] [0m
+[33m[stage-4] [test-2.lox] [0mclass child < parent {}
+[33m[stage-4] [test-2.lox] [0m
+[33m[stage-4] [test-2.lox] [0mtypeOfClass(root());
+[33m[stage-4] [test-2.lox] [0mtypeOfClass(parent());
+[33m[stage-4] [test-2.lox] [0mtypeOfClass(child());
+[33m[stage-4] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mroot instance
+[33m[your_program] [0mparent instance
+[33m[your_program] [0mchild instance
+[33m[stage-4] [test-2] [0m[92m✓ 3 line(s) match on stdout[0m
+[33m[stage-4] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-4] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-4] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-4] [test-3.lox] [0mclass Foo {
+[33m[stage-4] [test-3.lox] [0m  init() {
+[33m[stage-4] [test-3.lox] [0m    this.secret = 1;
+[33m[stage-4] [test-3.lox] [0m  }
+[33m[stage-4] [test-3.lox] [0m}
+[33m[stage-4] [test-3.lox] [0m
+[33m[stage-4] [test-3.lox] [0mclass Bar < Foo {}
+[33m[stage-4] [test-3.lox] [0m
+[33m[stage-4] [test-3.lox] [0mclass Baz < Bar {}
+[33m[stage-4] [test-3.lox] [0m
+[33m[stage-4] [test-3.lox] [0mvar baz = Baz();
+[33m[stage-4] [test-3.lox] [0mprint baz.secret; // expect: 1
+[33m[stage-4] [test-3.lox] [0m
+[33m[stage-4] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m1
+[33m[stage-4] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-4] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-4] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-4] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-4] [test-4.lox] [0mclass Foo {
+[33m[stage-4] [test-4.lox] [0m  inFoo() {
+[33m[stage-4] [test-4.lox] [0m    print "in foo";
+[33m[stage-4] [test-4.lox] [0m  }
+[33m[stage-4] [test-4.lox] [0m}
+[33m[stage-4] [test-4.lox] [0m
+[33m[stage-4] [test-4.lox] [0mclass Bar < Foo {
+[33m[stage-4] [test-4.lox] [0m  inBar() {
+[33m[stage-4] [test-4.lox] [0m    print "in bar";
+[33m[stage-4] [test-4.lox] [0m  }
+[33m[stage-4] [test-4.lox] [0m}
+[33m[stage-4] [test-4.lox] [0m
+[33m[stage-4] [test-4.lox] [0mclass Baz < Bar {
+[33m[stage-4] [test-4.lox] [0m  inBaz() {
+[33m[stage-4] [test-4.lox] [0m    print "in baz";
+[33m[stage-4] [test-4.lox] [0m  }
+[33m[stage-4] [test-4.lox] [0m}
+[33m[stage-4] [test-4.lox] [0m
+[33m[stage-4] [test-4.lox] [0mvar baz = Baz();
+[33m[stage-4] [test-4.lox] [0mbaz.inFoo(); // expect: in foo
+[33m[stage-4] [test-4.lox] [0mbaz.inBar(); // expect: in bar
+[33m[stage-4] [test-4.lox] [0mbaz.inBaz(); // expect: in baz
+[33m[stage-4] [test-4.lox] [0m
+[33m[stage-4] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0min foo
+[33m[your_program] [0min bar
+[33m[your_program] [0min baz
+[33m[stage-4] [test-4] [0m[92m✓ 3 line(s) match on stdout[0m
+[33m[stage-4] [test-4] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-4] [0m[92mTest passed.[0m
+
+[33m[stage-3] [0m[94mRunning tests for Stage #3: i3[0m
+[33m[stage-3] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-3] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-3] [test-1.lox] [0mclass Doughnut {
+[33m[stage-3] [test-1.lox] [0m  cook() {
+[33m[stage-3] [test-1.lox] [0m    print "Fry until golden brown.";
+[33m[stage-3] [test-1.lox] [0m  }
+[33m[stage-3] [test-1.lox] [0m}
+[33m[stage-3] [test-1.lox] [0m<|SPACE|>class BostonCream < Doughnut {
+[33m[stage-3] [test-1.lox] [0m  cook() {
+[33m[stage-3] [test-1.lox] [0m    super.cook();
+[33m[stage-3] [test-1.lox] [0m  }
+[33m[stage-3] [test-1.lox] [0m}
+[33m[stage-3] [test-1.lox] [0m
+[33m[stage-3] [test-1.lox] [0mBostonCream().cook();
+[33m[stage-3] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mFry until golden brown.
+[33m[stage-3] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-3] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-3] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-3] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-3] [test-2.lox] [0mclass A {
+[33m[stage-3] [test-2.lox] [0m  say() {
+[33m[stage-3] [test-2.lox] [0m    print "A";
+[33m[stage-3] [test-2.lox] [0m  }
+[33m[stage-3] [test-2.lox] [0m}
+[33m[stage-3] [test-2.lox] [0m
+[33m[stage-3] [test-2.lox] [0mclass B < A {
+[33m[stage-3] [test-2.lox] [0m  test() {
+[33m[stage-3] [test-2.lox] [0m    super.say();
+[33m[stage-3] [test-2.lox] [0m  }
+[33m[stage-3] [test-2.lox] [0m
+[33m[stage-3] [test-2.lox] [0m  say() {
+[33m[stage-3] [test-2.lox] [0m    print "B";
+[33m[stage-3] [test-2.lox] [0m  }
+[33m[stage-3] [test-2.lox] [0m}
+[33m[stage-3] [test-2.lox] [0m
+[33m[stage-3] [test-2.lox] [0mclass C < B {
+[33m[stage-3] [test-2.lox] [0m  say() {
+[33m[stage-3] [test-2.lox] [0m    print "C";
+[33m[stage-3] [test-2.lox] [0m  }
+[33m[stage-3] [test-2.lox] [0m}
+[33m[stage-3] [test-2.lox] [0m
+[33m[stage-3] [test-2.lox] [0mC().test(); // expect: A
+[33m[stage-3] [test-2.lox] [0mC().say(); // Overriding
+[33m[stage-3] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mA
+[33m[your_program] [0mC
+[33m[stage-3] [test-2] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-3] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-3] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-3] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-3] [test-3.lox] [0mclass A {
+[33m[stage-3] [test-3.lox] [0m  say() {
+[33m[stage-3] [test-3.lox] [0m    print "A";
+[33m[stage-3] [test-3.lox] [0m  }
+[33m[stage-3] [test-3.lox] [0m}
+[33m[stage-3] [test-3.lox] [0m
+[33m[stage-3] [test-3.lox] [0mclass B < A {
+[33m[stage-3] [test-3.lox] [0m  getClosure() {
+[33m[stage-3] [test-3.lox] [0m    fun closure() {
+[33m[stage-3] [test-3.lox] [0m      super.say();
+[33m[stage-3] [test-3.lox] [0m    }
+[33m[stage-3] [test-3.lox] [0m    return closure;
+[33m[stage-3] [test-3.lox] [0m  }
+[33m[stage-3] [test-3.lox] [0m
+[33m[stage-3] [test-3.lox] [0m  say() {
+[33m[stage-3] [test-3.lox] [0m    print "B";
+[33m[stage-3] [test-3.lox] [0m  }
+[33m[stage-3] [test-3.lox] [0m}
+[33m[stage-3] [test-3.lox] [0m
+[33m[stage-3] [test-3.lox] [0mclass C < B {
+[33m[stage-3] [test-3.lox] [0m  say() {
+[33m[stage-3] [test-3.lox] [0m    print "C";
+[33m[stage-3] [test-3.lox] [0m  }
+[33m[stage-3] [test-3.lox] [0m}
+[33m[stage-3] [test-3.lox] [0m
+[33m[stage-3] [test-3.lox] [0mC().getClosure()(); // expect: A
+[33m[stage-3] [test-3.lox] [0m
+[33m[stage-3] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mA
+[33m[stage-3] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-3] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-3] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-3] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-3] [test-4.lox] [0mclass Base {
+[33m[stage-3] [test-4.lox] [0m  toString() { return "Base"; }
+[33m[stage-3] [test-4.lox] [0m}
+[33m[stage-3] [test-4.lox] [0m
+[33m[stage-3] [test-4.lox] [0mclass Derived < Base {
+[33m[stage-3] [test-4.lox] [0m  getClosure() {
+[33m[stage-3] [test-4.lox] [0m    fun closure() {
+[33m[stage-3] [test-4.lox] [0m      return super.toString();
+[33m[stage-3] [test-4.lox] [0m    }
+[33m[stage-3] [test-4.lox] [0m    return closure;
+[33m[stage-3] [test-4.lox] [0m  }
+[33m[stage-3] [test-4.lox] [0m
+[33m[stage-3] [test-4.lox] [0m  toString() { return "Derived"; }
+[33m[stage-3] [test-4.lox] [0m}
+[33m[stage-3] [test-4.lox] [0m
+[33m[stage-3] [test-4.lox] [0mvar closure = Derived().getClosure();
+[33m[stage-3] [test-4.lox] [0mprint closure(); // expect: Base
+[33m[stage-3] [test-4.lox] [0m
+[33m[stage-3] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mBase
+[33m[stage-3] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-3] [test-4] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-3] [test-5] [0m[94mRunning test case: 5[0m
+[33m[stage-3] [test-5] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-3] [test-5.lox] [0mclass Base {
+[33m[stage-3] [test-5.lox] [0m  foo() {
+[33m[stage-3] [test-5.lox] [0m    print "Base.foo()";
+[33m[stage-3] [test-5.lox] [0m  }
+[33m[stage-3] [test-5.lox] [0m}
+[33m[stage-3] [test-5.lox] [0m
+[33m[stage-3] [test-5.lox] [0mclass Derived < Base {
+[33m[stage-3] [test-5.lox] [0m  foo() {
+[33m[stage-3] [test-5.lox] [0m    print "Derived.foo()";
+[33m[stage-3] [test-5.lox] [0m    super.foo();
+[33m[stage-3] [test-5.lox] [0m  }
+[33m[stage-3] [test-5.lox] [0m}
+[33m[stage-3] [test-5.lox] [0m
+[33m[stage-3] [test-5.lox] [0mDerived().foo();
+[33m[stage-3] [test-5.lox] [0m// expect: Derived.foo()
+[33m[stage-3] [test-5.lox] [0m// expect: Base.foo()
+[33m[stage-3] [test-5.lox] [0m
+[33m[stage-3] [test-5] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mDerived.foo()
+[33m[your_program] [0mBase.foo()
+[33m[stage-3] [test-5] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-3] [test-5] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-3] [test-6] [0m[94mRunning test case: 6[0m
+[33m[stage-3] [test-6] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-3] [test-6.lox] [0mclass A {
+[33m[stage-3] [test-6.lox] [0m  foo() {
+[33m[stage-3] [test-6.lox] [0m    print "A.foo()";
+[33m[stage-3] [test-6.lox] [0m  }
+[33m[stage-3] [test-6.lox] [0m}
+[33m[stage-3] [test-6.lox] [0m
+[33m[stage-3] [test-6.lox] [0mclass B < A {}
+[33m[stage-3] [test-6.lox] [0m
+[33m[stage-3] [test-6.lox] [0mclass C < B {
+[33m[stage-3] [test-6.lox] [0m  foo() {
+[33m[stage-3] [test-6.lox] [0m    print "C.foo()";
+[33m[stage-3] [test-6.lox] [0m    super.foo();
+[33m[stage-3] [test-6.lox] [0m  }
+[33m[stage-3] [test-6.lox] [0m}
+[33m[stage-3] [test-6.lox] [0m
+[33m[stage-3] [test-6.lox] [0mC().foo();
+[33m[stage-3] [test-6.lox] [0m// expect: C.foo()
+[33m[stage-3] [test-6.lox] [0m// expect: A.foo()
+[33m[stage-3] [test-6.lox] [0m
+[33m[stage-3] [test-6] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mC.foo()
+[33m[your_program] [0mA.foo()
+[33m[stage-3] [test-6] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-3] [test-6] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-3] [test-7] [0m[94mRunning test case: 7[0m
+[33m[stage-3] [test-7] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-3] [test-7.lox] [0mclass Base {
+[33m[stage-3] [test-7.lox] [0m  method() {
+[33m[stage-3] [test-7.lox] [0m    print "Base.method()";
+[33m[stage-3] [test-7.lox] [0m  }
+[33m[stage-3] [test-7.lox] [0m}
+[33m[stage-3] [test-7.lox] [0m
+[33m[stage-3] [test-7.lox] [0mclass Derived < Base {
+[33m[stage-3] [test-7.lox] [0m  method() {
+[33m[stage-3] [test-7.lox] [0m    super.method();
+[33m[stage-3] [test-7.lox] [0m  }
+[33m[stage-3] [test-7.lox] [0m}
+[33m[stage-3] [test-7.lox] [0m
+[33m[stage-3] [test-7.lox] [0mclass OtherBase {
+[33m[stage-3] [test-7.lox] [0m  method() {
+[33m[stage-3] [test-7.lox] [0m    print "OtherBase.method()";
+[33m[stage-3] [test-7.lox] [0m  }
+[33m[stage-3] [test-7.lox] [0m}
+[33m[stage-3] [test-7.lox] [0m
+[33m[stage-3] [test-7.lox] [0mvar derived = Derived();
+[33m[stage-3] [test-7.lox] [0mderived.method(); // expect: Base.method()
+[33m[stage-3] [test-7.lox] [0mBase = OtherBase;
+[33m[stage-3] [test-7.lox] [0mderived.method(); // expect: Base.method()
+[33m[stage-3] [test-7.lox] [0m
+[33m[stage-3] [test-7] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mBase.method()
+[33m[your_program] [0mBase.method()
+[33m[stage-3] [test-7] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-3] [test-7] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-3] [test-8] [0m[94mRunning test case: 8[0m
+[33m[stage-3] [test-8] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-3] [test-8.lox] [0mclass A {
+[33m[stage-3] [test-8.lox] [0m  method() {
+[33m[stage-3] [test-8.lox] [0m    print "A method";
+[33m[stage-3] [test-8.lox] [0m  }
+[33m[stage-3] [test-8.lox] [0m}
+[33m[stage-3] [test-8.lox] [0m
+[33m[stage-3] [test-8.lox] [0mclass B < A {
+[33m[stage-3] [test-8.lox] [0m  method() {
+[33m[stage-3] [test-8.lox] [0m    print "B method";
+[33m[stage-3] [test-8.lox] [0m  }
+[33m[stage-3] [test-8.lox] [0m
+[33m[stage-3] [test-8.lox] [0m  test() {
+[33m[stage-3] [test-8.lox] [0m    super.method();
+[33m[stage-3] [test-8.lox] [0m  }
+[33m[stage-3] [test-8.lox] [0m}
+[33m[stage-3] [test-8.lox] [0m
+[33m[stage-3] [test-8.lox] [0mclass C < B {}
+[33m[stage-3] [test-8.lox] [0m
+[33m[stage-3] [test-8.lox] [0mC().test(); // expect: A method
+[33m[stage-3] [test-8] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mA method
+[33m[stage-3] [test-8] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-3] [test-8] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-3] [0m[92mTest passed.[0m
+
+[33m[stage-2] [0m[94mRunning tests for Stage #2: i4[0m
+[33m[stage-2] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-2] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-1.lox] [0mclass Foo {
+[33m[stage-2] [test-1.lox] [0m  cook {
+[33m[stage-2] [test-1.lox] [0m    super.cook();
+[33m[stage-2] [test-1.lox] [0m  }
+[33m[stage-2] [test-1.lox] [0m}
+[33m[stage-2] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m[line 2] Error at '{': Expect '(' after method name.
+[33m[your_program] [0m[line 4] Error at '}': Expect expression.
+[33m[stage-2] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-2] [test-1] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-2] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-2] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-2.lox] [0mclass Base {}
+[33m[stage-2] [test-2.lox] [0m
+[33m[stage-2] [test-2.lox] [0mclass Derived < Base {
+[33m[stage-2] [test-2.lox] [0m  foo() {
+[33m[stage-2] [test-2.lox] [0m    super.doesNotExist(1); // expect runtime error: Undefined property 'doesNotExist'.
+[33m[stage-2] [test-2.lox] [0m  }
+[33m[stage-2] [test-2.lox] [0m}
+[33m[stage-2] [test-2.lox] [0m
+[33m[stage-2] [test-2.lox] [0mDerived().foo();
+[33m[stage-2] [test-2.lox] [0m
+[33m[stage-2] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mUndefined property 'doesNotExist'.
+[33m[your_program] [0m[line 5]
+[33m[stage-2] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-2] [test-2] [0m[92m✓ Received exit code 70.[0m
+[33m[stage-2] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-2] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-3.lox] [0mclass Base {
+[33m[stage-2] [test-3.lox] [0m  foo(a, b) {
+[33m[stage-2] [test-3.lox] [0m    print "Base.foo(" + a + ", " + b + ")";
+[33m[stage-2] [test-3.lox] [0m  }
+[33m[stage-2] [test-3.lox] [0m}
+[33m[stage-2] [test-3.lox] [0m
+[33m[stage-2] [test-3.lox] [0mclass Derived < Base {
+[33m[stage-2] [test-3.lox] [0m  foo() {
+[33m[stage-2] [test-3.lox] [0m    print "Derived.foo()"; // expect: Derived.foo()
+[33m[stage-2] [test-3.lox] [0m    super.foo("a", "b", "c", "d"); // expect runtime error: Expected 2 arguments but got 4.
+[33m[stage-2] [test-3.lox] [0m  }
+[33m[stage-2] [test-3.lox] [0m}
+[33m[stage-2] [test-3.lox] [0m
+[33m[stage-2] [test-3.lox] [0mDerived().foo();
+[33m[stage-2] [test-3.lox] [0m
+[33m[stage-2] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mDerived.foo()
+[33m[your_program] [0mExpected 2 arguments but got 4.
+[33m[your_program] [0m[line 10]
+[33m[stage-2] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-2] [test-3] [0m[92m✓ Received exit code 70.[0m
+[33m[stage-2] [test-4] [0m[94mRunning test case: 4[0m
+[33m[stage-2] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-4.lox] [0mclass Base {
+[33m[stage-2] [test-4.lox] [0m  foo(a, b) {
+[33m[stage-2] [test-4.lox] [0m    print "Base.foo(" + a + ", " + b + ")";
+[33m[stage-2] [test-4.lox] [0m  }
+[33m[stage-2] [test-4.lox] [0m}
+[33m[stage-2] [test-4.lox] [0m
+[33m[stage-2] [test-4.lox] [0mclass Derived < Base {
+[33m[stage-2] [test-4.lox] [0m  foo() {
+[33m[stage-2] [test-4.lox] [0m    super.foo(1); // expect runtime error: Expected 2 arguments but got 1.
+[33m[stage-2] [test-4.lox] [0m  }
+[33m[stage-2] [test-4.lox] [0m}
+[33m[stage-2] [test-4.lox] [0m
+[33m[stage-2] [test-4.lox] [0mDerived().foo();
+[33m[stage-2] [test-4.lox] [0m
+[33m[stage-2] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mExpected 2 arguments but got 1.
+[33m[your_program] [0m[line 9]
+[33m[stage-2] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-2] [test-4] [0m[92m✓ Received exit code 70.[0m
+[33m[stage-2] [test-5] [0m[94mRunning test case: 5[0m
+[33m[stage-2] [test-5] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-5.lox] [0msuper.notEvenInAClass();
+[33m[stage-2] [test-5] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m[line 1] Error at 'super': Can't use 'super' outside of a class.
+[33m[stage-2] [test-5] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-2] [test-5] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-2] [test-6] [0m[94mRunning test case: 6[0m
+[33m[stage-2] [test-6] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-6.lox] [0mclass A {
+[33m[stage-2] [test-6.lox] [0m  method() {}
+[33m[stage-2] [test-6.lox] [0m}
+[33m[stage-2] [test-6.lox] [0m
+[33m[stage-2] [test-6.lox] [0mclass B < A {
+[33m[stage-2] [test-6.lox] [0m  method() {
+[33m[stage-2] [test-6.lox] [0m    // [line 8] Error at ')': Expect '.' after 'super'.
+[33m[stage-2] [test-6.lox] [0m    (super).method();
+[33m[stage-2] [test-6.lox] [0m  }
+[33m[stage-2] [test-6.lox] [0m}
+[33m[stage-2] [test-6.lox] [0m
+[33m[stage-2] [test-6] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m[line 8] Error at ')': Expect '.' after 'super'.
+[33m[stage-2] [test-6] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-2] [test-6] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-2] [test-7] [0m[94mRunning test case: 7[0m
+[33m[stage-2] [test-7] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-7.lox] [0mclass A {}
+[33m[stage-2] [test-7.lox] [0m
+[33m[stage-2] [test-7.lox] [0mclass B < A {
+[33m[stage-2] [test-7.lox] [0m  method() {
+[33m[stage-2] [test-7.lox] [0m    super.; // Error at ';': Expect superclass method name.
+[33m[stage-2] [test-7.lox] [0m  }
+[33m[stage-2] [test-7.lox] [0m}
+[33m[stage-2] [test-7.lox] [0m
+[33m[stage-2] [test-7] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m[line 5] Error at ';': Expect superclass method name.
+[33m[stage-2] [test-7] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-2] [test-7] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-2] [test-8] [0m[94mRunning test case: 8[0m
+[33m[stage-2] [test-8] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-8.lox] [0mclass A {}
+[33m[stage-2] [test-8.lox] [0m
+[33m[stage-2] [test-8.lox] [0mclass B < A {
+[33m[stage-2] [test-8.lox] [0m  method() {
+[33m[stage-2] [test-8.lox] [0m    // [line 6] Error at ';': Expect '.' after 'super'.
+[33m[stage-2] [test-8.lox] [0m    super;
+[33m[stage-2] [test-8.lox] [0m  }
+[33m[stage-2] [test-8.lox] [0m}
+[33m[stage-2] [test-8.lox] [0m
+[33m[stage-2] [test-8] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m[line 6] Error at ';': Expect '.' after 'super'.
+[33m[stage-2] [test-8] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-2] [test-8] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-2] [test-9] [0m[94mRunning test case: 9[0m
+[33m[stage-2] [test-9] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-9.lox] [0msuper.bar(); // Error at 'super': Can't use 'super' outside of a class.
+[33m[stage-2] [test-9.lox] [0mfun foo() {
+[33m[stage-2] [test-9.lox] [0m}
+[33m[stage-2] [test-9] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m[line 1] Error at 'super': Can't use 'super' outside of a class.
+[33m[stage-2] [test-9] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-2] [test-9] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-2] [test-10] [0m[94mRunning test case: 10[0m
+[33m[stage-2] [test-10] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-10.lox] [0msuper.foo("bar"); // Error at 'super': Can't use 'super' outside of a class.
+[33m[stage-2] [test-10.lox] [0msuper.foo; // Error at 'super': Can't use 'super' outside of a class.
+[33m[stage-2] [test-10] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m[line 1] Error at 'super': Can't use 'super' outside of a class.
+[33m[your_program] [0m[line 2] Error at 'super': Can't use 'super' outside of a class.
+[33m[stage-2] [test-10] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-2] [test-10] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-2] [test-11] [0m[94mRunning test case: 11[0m
+[33m[stage-2] [test-11] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-11.lox] [0mclass Base {
+[33m[stage-2] [test-11.lox] [0m  foo() {
+[33m[stage-2] [test-11.lox] [0m    super.doesNotExist; // Error at 'super': Can't use 'super' in a class with no superclass.
+[33m[stage-2] [test-11.lox] [0m  }
+[33m[stage-2] [test-11.lox] [0m}
+[33m[stage-2] [test-11.lox] [0m
+[33m[stage-2] [test-11.lox] [0mBase().foo();
+[33m[stage-2] [test-11.lox] [0m
+[33m[stage-2] [test-11] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0m[line 3] Error at 'super': Can't use 'super' in a class with no superclass.
+[33m[stage-2] [test-11] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-2] [test-11] [0m[92m✓ Received exit code 65.[0m
+[33m[stage-2] [0m[92mTest passed.[0m
+
+[33m[stage-1] [0m[94mRunning tests for Stage #1: i5[0m
+[33m[stage-1] [test-1] [0m[94mRunning test case: 1[0m
+[33m[stage-1] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-1] [test-1.lox] [0mclass Base {
+[33m[stage-1] [test-1.lox] [0m  init(a) {
+[33m[stage-1] [test-1.lox] [0m    this.a = a;
+[33m[stage-1] [test-1.lox] [0m  }
+[33m[stage-1] [test-1.lox] [0m}
+[33m[stage-1] [test-1.lox] [0m
+[33m[stage-1] [test-1.lox] [0mclass Derived < Base {
+[33m[stage-1] [test-1.lox] [0m  init(a, b) {
+[33m[stage-1] [test-1.lox] [0m    super.init(a);
+[33m[stage-1] [test-1.lox] [0m    this.b = b;
+[33m[stage-1] [test-1.lox] [0m  }
+[33m[stage-1] [test-1.lox] [0m}
+[33m[stage-1] [test-1.lox] [0m
+[33m[stage-1] [test-1.lox] [0mvar derived = Derived("a", "b");
+[33m[stage-1] [test-1.lox] [0mprint derived.a; // expect: a
+[33m[stage-1] [test-1.lox] [0mprint derived.b; // expect: b
+[33m[stage-1] [test-1.lox] [0m
+[33m[stage-1] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0ma
+[33m[your_program] [0mb
+[33m[stage-1] [test-1] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-1] [test-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-1] [test-2] [0m[94mRunning test case: 2[0m
+[33m[stage-1] [test-2] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-1] [test-2.lox] [0mclass Base {
+[33m[stage-1] [test-2.lox] [0m  init(a) {
+[33m[stage-1] [test-2.lox] [0m    this.a = a;
+[33m[stage-1] [test-2.lox] [0m  }
+[33m[stage-1] [test-2.lox] [0m<|SPACE|>  cook() {
+[33m[stage-1] [test-2.lox] [0m    return "Base cooking " + this.a;
+[33m[stage-1] [test-2.lox] [0m  }
+[33m[stage-1] [test-2.lox] [0m}
+[33m[stage-1] [test-2.lox] [0m
+[33m[stage-1] [test-2.lox] [0mclass Derived < Base {
+[33m[stage-1] [test-2.lox] [0m  init(a, b) {
+[33m[stage-1] [test-2.lox] [0m    super.init(a);
+[33m[stage-1] [test-2.lox] [0m    this.b = b;
+[33m[stage-1] [test-2.lox] [0m  }
+[33m[stage-1] [test-2.lox] [0m<|SPACE|>  cook() {
+[33m[stage-1] [test-2.lox] [0m    return "Derived cooking " + this.b + " with " + super.cook();
+[33m[stage-1] [test-2.lox] [0m  }
+[33m[stage-1] [test-2.lox] [0m
+[33m[stage-1] [test-2.lox] [0m  makeBaseFood() {
+[33m[stage-1] [test-2.lox] [0m    return super.cook();
+[33m[stage-1] [test-2.lox] [0m  }
+[33m[stage-1] [test-2.lox] [0m<|SPACE|>  makeFood() {
+[33m[stage-1] [test-2.lox] [0m    return this.cook();
+[33m[stage-1] [test-2.lox] [0m  }
+[33m[stage-1] [test-2.lox] [0m}
+[33m[stage-1] [test-2.lox] [0m
+[33m[stage-1] [test-2.lox] [0mvar derived = Derived("a", "b");
+[33m[stage-1] [test-2.lox] [0mprint derived.a; // expect: a
+[33m[stage-1] [test-2.lox] [0mprint derived.b; // expect: b
+[33m[stage-1] [test-2.lox] [0m
+[33m[stage-1] [test-2.lox] [0mprint Base("ingredient").cook(); // expect: Base cooking ingredient
+[33m[stage-1] [test-2.lox] [0mprint derived.cook(); // expect: Derived cooking b with Base cooking a
+[33m[stage-1] [test-2.lox] [0mprint derived.makeFood(); // expect: Derived cooking b with Base cooking a
+[33m[stage-1] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0ma
+[33m[your_program] [0mb
+[33m[your_program] [0mBase cooking ingredient
+[33m[your_program] [0mDerived cooking b with Base cooking a
+[33m[your_program] [0mDerived cooking b with Base cooking a
+[33m[stage-1] [test-2] [0m[92m✓ 5 line(s) match on stdout[0m
+[33m[stage-1] [test-2] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-1] [test-3] [0m[94mRunning test case: 3[0m
+[33m[stage-1] [test-3] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-1] [test-3.lox] [0m// 1.lox or 2.lox
+[33m[stage-1] [test-3.lox] [0mclass Base {
+[33m[stage-1] [test-3.lox] [0m  init(a, b) {
+[33m[stage-1] [test-3.lox] [0m    print "Base.init(" + a + ", " + b + ")";
+[33m[stage-1] [test-3.lox] [0m  }
+[33m[stage-1] [test-3.lox] [0m}
+[33m[stage-1] [test-3.lox] [0m
+[33m[stage-1] [test-3.lox] [0mclass Derived < Base {
+[33m[stage-1] [test-3.lox] [0m  init() {
+[33m[stage-1] [test-3.lox] [0m    print "Derived.init()";
+[33m[stage-1] [test-3.lox] [0m    super.init("a", "b");
+[33m[stage-1] [test-3.lox] [0m  }
+[33m[stage-1] [test-3.lox] [0m}
+[33m[stage-1] [test-3.lox] [0m
+[33m[stage-1] [test-3.lox] [0mDerived();
+[33m[stage-1] [test-3.lox] [0m// expect: Derived.init()
+[33m[stage-1] [test-3.lox] [0m// expect: Base.init(a, b)
+[33m[stage-1] [test-3.lox] [0m
+[33m[stage-1] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mDerived.init()
+[33m[your_program] [0mBase.init(a, b)
+[33m[stage-1] [test-3] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-1] [test-3] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-1] [0m[92mTest passed.[0m
