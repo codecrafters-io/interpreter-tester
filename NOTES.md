@@ -14,18 +14,18 @@
 	- access inherited fields
 		- non callable
 		- callable
-3. Super methods
+3. Super keyword
 	- super.method()
 	- sub class method with same name gets precedence (**overriding**)
 	- super should return 1st class function
 	- super should be called from superclass ;)
-4. Invalid super
+4. Invalid usages of super keyword
 	- call super.func() from a class with no superclass
 	- super.func() outside
 	- can't have bare super
 			- without class
 			- also without . & prop
-5. Misc
+5. ~~Misc~~ Error handling
 	- inherit constructors
 	- Var resolving
 		- class.cook
