@@ -1,0 +1,5 @@
+---
+expected_error_type: compile
+---
+// A class can't inherit from itself.
+class Foo < Foo {} // expect compile error

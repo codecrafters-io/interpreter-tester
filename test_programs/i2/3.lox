@@ -1,0 +1,15 @@
+---
+expected_error_type: none
+---
+class Foo {
+  init() {
+    this.secret = 1;
+  }
+}
+
+class Bar < Foo {}
+
+class Baz < Bar {}
+
+var baz = Baz();
+print baz.secret; // expect: 1

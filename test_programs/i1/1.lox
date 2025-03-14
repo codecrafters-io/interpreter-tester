@@ -1,0 +1,10 @@
+---
+expected_error_type: none
+---
+class Doughnut {}
+
+// BostonCream is a subclass of Doughnut
+class BostonCream < Doughnut {}
+
+print Doughnut();
+print BostonCream();

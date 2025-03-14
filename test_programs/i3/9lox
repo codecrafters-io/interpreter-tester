@@ -1,0 +1,22 @@
+---
+expected_error_type: none
+---
+class A {
+  method() {
+    print "A method";
+  }
+}
+
+class B < A {
+  method() {
+    print "B method";
+  }
+
+  test() {
+    super.method();
+  }
+}
+
+class C < B {}
+
+C().test(); // expect: A method

@@ -1,0 +1,8 @@
+---
+expected_error_type: compile
+---
+class Foo {
+  cook {
+    super.cook();
+  }
+}

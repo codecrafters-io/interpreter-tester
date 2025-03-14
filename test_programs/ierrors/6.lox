@@ -1,0 +1,8 @@
+---
+expected_error_type: runtime
+---
+var A = "class";
+
+class B < A {}
+
+print B();

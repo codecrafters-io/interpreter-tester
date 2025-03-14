@@ -1,0 +1,10 @@
+---
+expected_error_type: runtime
+---
+fun A() {}
+
+// A class can only inherit from a class.
+class B < A {} // expect runtime error
+
+print A();
+print B();

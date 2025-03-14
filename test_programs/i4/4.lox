@@ -1,0 +1,10 @@
+---
+expected_error_type: compile
+---
+class A {}
+
+class B < A {
+  method() {
+    super.; // Error at ';': Expect superclass method name.
+  }
+}

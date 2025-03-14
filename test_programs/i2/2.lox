@@ -1,0 +1,16 @@
+---
+expected_error_type: none
+---
+fun typeOfClass(instance) {
+  print instance;
+}
+
+class root {}
+
+class parent < root {}
+
+class child < parent {}
+
+typeOfClass(root());
+typeOfClass(parent());
+typeOfClass(child());
