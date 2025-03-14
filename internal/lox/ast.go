@@ -361,9 +361,10 @@ func (r *Return) String() string {
 // Class node
 type Class struct {
 	Stmt
-	Name     Token
-	Methods  []*Function
-	EnvIndex int
+	Name       Token
+	Methods    []*Function
+	EnvIndex   int
+	SuperClass *Variable
 }
 
 // String pretty prints the class
@@ -440,6 +441,27 @@ func (t *This) String() string {
 	sb.WriteString("this")
 	sb.WriteString(" ")
 	sb.WriteString(t.Keyword.Lexeme)
+	sb.WriteString(" ")
+	sb.WriteString(")")
+	return sb.String()
+}
+
+// Super is used to access the superclass
+type Super struct {
+	Expr
+	Keyword  Token
+	Method   Token
+	EnvIndex int
+	EnvDepth int
+}
+
+// String pretty prints the 'super' node
+func (s *Super) String() string {
+	var sb strings.Builder
+	sb.WriteString("(")
+	sb.WriteString("super")
+	sb.WriteString(" ")
+	sb.WriteString(s.Method.Lexeme)
 	sb.WriteString(" ")
 	sb.WriteString(")")
 	return sb.String()

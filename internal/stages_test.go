@@ -103,6 +103,13 @@ func TestStages(t *testing.T) {
 			StdoutFixturePath:   "./test_helpers/fixtures/pass_classes_final",
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
+		"pass_inheritance_jlox": {
+			StageSlugs:          []string{"i1", "i2", "i3", "i4", "i5"},
+			CodePath:            "../craftinginterpreters/build/gen/chap13_inheritance",
+			ExpectedExitCode:    0,
+			StdoutFixturePath:   "./test_helpers/fixtures/pass_inheritance",
+			NormalizeOutputFunc: normalizeTesterOutput,
+		},
 	}
 
 	tester_utils_testing.TestTesterOutput(t, testerDefinition, testCases)
