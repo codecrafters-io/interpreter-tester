@@ -29,7 +29,11 @@ func (c *UserClass) FindMethod(name Token) (*UserFunction, error) {
 // Call is the operation that executes a class constructor
 func (c *UserClass) Call(arguments []interface{}, globalEnv *Environment, stdout io.Writer, stderr io.Writer) (interface{}, error) {
 	instance := &UserClassInstance{Class: c, fields: make(map[string]interface{})}
-	if initializer, ok := c.Methods["init"]; ok {
+
+	// Look for initializer in this class or any superclass
+	initializer, _ := c.FindMethod(Token{Lexeme: "init"})
+
+	if initializer != nil {
 		_, err := initializer.Bind(instance).Call(arguments, globalEnv, stdout, stderr)
 		if err != nil {
 			return nil, err
@@ -60,20 +64,27 @@ func (c *UserClassInstance) String() string {
 
 // Get accesses the property
 func (c *UserClassInstance) Get(name Token) (interface{}, error) {
+	// First check if the property exists in this instance
 	if v, ok := c.fields[name.Lexeme]; ok {
 		return v, nil
 	}
 
-	m, err := c.Class.FindMethod(name)
+	// If not found, look for a method
+	method, err := c.Class.FindMethod(name)
 	if err != nil {
 		return nil, err
 	}
 
-	return m.Bind(c), nil
+	if method != nil {
+		return method.Bind(c), nil
+	}
+
+	// If we get here, the property doesn't exist
+	return nil, MakeRuntimeError(name, fmt.Sprintf("Undefined property '%s'", name.Lexeme))
 }
 
 // Set accesses the property
 func (c *UserClassInstance) Set(name Token, value interface{}) (interface{}, error) {
 	c.fields[name.Lexeme] = value
-	return nil, nil
+	return value, nil
 }
