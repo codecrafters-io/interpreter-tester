@@ -4,8 +4,10 @@ expected_error_type: none
 {
   class A {}
 
+  // B is a subclass of A
   class B < A {}
 
+  // C is also a subclass of A
   class C < A {}
 
   print A();

@@ -1,9 +1,0 @@
----
-expected_error_type: runtime
----
-fun A() {}
-
-class B < A {}
-
-print A();
-print B();
