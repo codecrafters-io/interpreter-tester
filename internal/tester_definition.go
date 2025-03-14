@@ -338,8 +338,12 @@ var testerDefinition = tester_definition.TesterDefinition{
 			TestFunc: createTestForRunCommandStage("i4"),
 		},
 		{
-			Slug:     "i5",
-			TestFunc: createTestForRunCommandStage("i5"),
+			Slug:     "i6",
+			TestFunc: createTestForRunCommandStage("ioverriding"),
+		},
+		{
+			Slug:     "i7",
+			TestFunc: createTestForRunCommandStage("ierrors"),
 		},
 	},
 }
