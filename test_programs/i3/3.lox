@@ -31,5 +31,5 @@ var derived = Derived("onions", "shallots");
 print derived.a;
 print derived.b;
 
-print Base("ingredient").cook(); 
+print Base("ingredient").cook();
 print derived.cook();

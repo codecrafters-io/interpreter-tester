@@ -19,7 +19,7 @@ class B < A {
 }
 
 // C inherits test() from B
-// But the super keyword used in test() 
+// But the super keyword used in test()
 // should still have a binding to B
 class C < B {
   say() {

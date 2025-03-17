@@ -15,8 +15,8 @@ class Animal {
   }
 }
 
-// Dog inherits the speak and makeSound methods 
-// from Animal and overrides them with new 
+// Dog inherits the speak and makeSound methods
+// from Animal and overrides them with new
 // implementations specific to dogs
 class Dog < Animal {
   speak() {
@@ -29,7 +29,7 @@ class Dog < Animal {
 }
 
 // Puppy inherits the speak and makeSound methods
-// from Dog and overrides them with new 
+// from Dog and overrides them with new
 // implementations specific to puppies
 class Puppy < Dog {
   speak() {

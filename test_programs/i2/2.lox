@@ -33,4 +33,4 @@ parent.parentMethod();
 child.parentMethod();
 
 // Child methods are only available to Child
-child.childMethod(); 
+child.childMethod();
