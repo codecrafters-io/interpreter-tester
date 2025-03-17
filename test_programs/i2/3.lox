@@ -3,13 +3,18 @@ expected_error_type: none
 ---
 class Foo {
   init() {
-    this.secret = 1;
+    this.secret = 42;
   }
 }
 
+// Bar is a subclass of Foo
 class Bar < Foo {}
 
+// Baz is a subclass of Bar
 class Baz < Bar {}
 
 var baz = Baz();
-print baz.secret; // expect: 1
+
+// Baz should inherit the constructor from Foo
+// which should set the secret value to 42
+print baz.secret; // expect: 42

@@ -1,8 +1,5 @@
 ---
 expected_error_type: compile
 ---
-class Foo {
-  cook {
-    super.cook();
-  }
-}
+// A class can't inherit from itself.
+class Foo < Foo {} // expect compile error

@@ -1,27 +1,39 @@
 ---
 expected_error_type: none
 ---
-class A {
-  say() {
-    print "A";
+class Base {
+  init(a) {
+    this.a = a;
+  }
+  
+  cook() {
+    return "Base cooking " + this.a;
   }
 }
 
-class B < A {
-  test() {
-    super.say();
+class Derived < Base {
+  init(a, b) {
+    super.init(a);
+    this.b = b;
+  }
+  
+  cook() {
+    return "Derived cooking " + this.b + " with " + super.cook();
   }
 
-  say() {
-    print "B";
+  makeBaseFood() {
+    return super.cook();
+  }
+  
+  makeFood() {
+    return this.cook();
   }
 }
 
-class C < B {
-  say() {
-    print "C";
-  }
-}
+var derived = Derived("a", "b");
+print derived.a; // expect: a
+print derived.b; // expect: b
 
-C().test(); // expect: A
-C().say(); // Overriding
+print Base("ingredient").cook(); // expect: Base cooking ingredient
+print derived.cook(); // expect: Derived cooking b with Base cooking a
+print derived.makeFood(); // expect: Derived cooking b with Base cooking a

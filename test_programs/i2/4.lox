@@ -3,23 +3,25 @@ expected_error_type: none
 ---
 class Foo {
   inFoo() {
-    print "in foo";
+    print "from foo";
   }
 }
 
 class Bar < Foo {
   inBar() {
-    print "in bar";
+    print "from bar";
   }
 }
 
 class Baz < Bar {
   inBaz() {
-    print "in baz";
+    print "from baz";
   }
 }
 
+// Baz should inherit the methods from both
+// Foo and Bar
 var baz = Baz();
-baz.inFoo(); // expect: in foo
-baz.inBar(); // expect: in bar
-baz.inBaz(); // expect: in baz
+baz.inFoo(); // expect: from foo
+baz.inBar(); // expect: from bar
+baz.inBaz(); // expect: from baz

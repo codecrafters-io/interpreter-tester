@@ -1,16 +1,19 @@
 ---
 expected_error_type: none
 ---
-class Doughnut {
-  cook() {
-    print "Fry until golden brown.";
-  }
-}
-  
-class BostonCream < Doughnut {
-  cook() {
-    super.cook();
+class Base {
+  init(a) {
+    this.a = a;
   }
 }
 
-BostonCream().cook();
+class Derived < Base {
+  init(a, b) {
+    super.init(a);
+    this.b = b;
+  }
+}
+
+var derived = Derived("b", "a");
+print derived.a; // expect: b
+print derived.b; // expect: a

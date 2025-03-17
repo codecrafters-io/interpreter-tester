@@ -1,4 +1,10 @@
 ---
-expected_error_type: compile
+expected_error_type: runtime
 ---
-super.notEvenInAClass();
+fun A() {}
+
+// A class can only inherit from a class.
+class B < A {} // expect runtime error
+
+print A();
+print B();

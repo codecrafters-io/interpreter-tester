@@ -1,16 +1,36 @@
 ---
 expected_error_type: none
 ---
-fun typeOfClass(instance) {
-  print instance;
+class Root {
+  getName() {
+    print "Root class";
+  }
 }
 
-class root {}
+class Parent < Root {
+  parentMethod() {
+    print "Method defined in Parent";
+  }
+}
 
-class parent < root {}
+class Child < Parent {
+  childMethod() {
+    print "Method defined in Child";
+  }
+}
 
-class child < parent {}
+var root = Root();
+var parent = Parent();
+var child = Child();
 
-typeOfClass(root());
-typeOfClass(parent());
-typeOfClass(child());
+// Root methods are available to all
+root.getName();
+parent.getName();
+child.getName();
+
+// Parent methods are available to Parent and Child
+parent.parentMethod();
+child.parentMethod();
+
+// Child methods are only available to Child
+child.childMethod(); 

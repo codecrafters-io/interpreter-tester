@@ -7,6 +7,9 @@ class Doughnut {
     }
   }
 
+// BostonCream is a subclass of Doughnut
 class BostonCream < Doughnut {}
 
+// BostonCream class should inherit the cook
+// method from Doughnut class
 BostonCream().cook();

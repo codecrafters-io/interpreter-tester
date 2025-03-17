@@ -1,29 +1,20 @@
 ---
 expected_error_type: none
 ---
-class A {
-  say() {
-    print "A";
+// 1.lox or 2.lox
+class Base {
+  init(a, b) {
+    print "Base.init(" + a + ", " + b + ")";
   }
 }
 
-class B < A {
-  getClosure() {
-    fun closure() {
-      super.say();
-    }
-    return closure;
-  }
-
-  say() {
-    print "B";
+class Derived < Base {
+  init() {
+    print "Derived.init()";
+    super.init("a", "b");
   }
 }
 
-class C < B {
-  say() {
-    print "C";
-  }
-}
-
-C().getClosure()(); // expect: A
+Derived();
+// expect: Derived.init()
+// expect: Base.init(a, b)
