@@ -1,27 +1,27 @@
 ---
 expected_error_type: none
 ---
-class Foo {
-  inFoo() {
-    print "from foo";
+class <<RANDOM_STRING_1>> {
+  in<<RANDOM_STRING_1>>() {
+    print "from <<RANDOM_STRING_1>>";
   }
 }
 
-class Bar < Foo {
-  inBar() {
-    print "from bar";
+class <<RANDOM_STRING_2>> < <<RANDOM_STRING_1>> {
+  in<<RANDOM_STRING_2>>() {
+    print "from <<RANDOM_STRING_2>>";
   }
 }
 
-class Baz < Bar {
-  inBaz() {
-    print "from baz";
+class <<RANDOM_STRING_3>> < <<RANDOM_STRING_2>> {
+  in<<RANDOM_STRING_3>>() {
+    print "from <<RANDOM_STRING_3>>";
   }
 }
 
-// Baz should inherit the methods from both
-// Foo and Bar
-var baz = Baz();
-baz.inFoo(); // expect: from foo
-baz.inBar(); // expect: from bar
-baz.inBaz(); // expect: from baz
+// <<RANDOM_STRING_3>> should inherit the methods
+// from both <<RANDOM_STRING_1>> and <<RANDOM_STRING_2>>
+var <<RANDOM_STRING_3>> = <<RANDOM_STRING_3>>();
+<<RANDOM_STRING_3>>.in<<RANDOM_STRING_1>>();
+<<RANDOM_STRING_3>>.in<<RANDOM_STRING_2>>();
+<<RANDOM_STRING_3>>.in<<RANDOM_STRING_3>>();

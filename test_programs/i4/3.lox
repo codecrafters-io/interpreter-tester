@@ -3,6 +3,7 @@ expected_error_type: runtime
 ---
 var A = "class";
 
-class B < A {}
+// A class can only inherit from a class
+class B < A {} // expect runtime error
 
 print B();

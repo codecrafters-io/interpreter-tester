@@ -26,4 +26,7 @@ class C < B {
   }
 }
 
+// C inherits getClosure() from B
+// But the super keyword used in getClosure()
+// should still have a binding to B
 C().getClosure()(); // expect: A

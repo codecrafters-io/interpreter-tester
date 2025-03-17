@@ -7,6 +7,8 @@ class Base {
   }
 }
 
+
+// Constructors can also be overridden
 class Derived < Base {
   init(a, b) {
     this.a = a;
@@ -14,6 +16,6 @@ class Derived < Base {
   }
 }
 
-var derived = Derived("b", "a");
-print derived.a; // expect: b
-print derived.b; // expect: a
+var derived = Derived(<<RANDOM_INTEGER_1>>, <<RANDOM_INTEGER_2>>);
+print derived.a;
+print derived.b;

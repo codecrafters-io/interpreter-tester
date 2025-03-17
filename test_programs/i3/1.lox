@@ -7,6 +7,9 @@ class A {
   }
 }
 
+
+// B inherits method `method` from A
+// and overrides it with a new implementation
 class B < A {
   method() {
     print "B method";

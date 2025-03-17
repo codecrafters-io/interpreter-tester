@@ -7,19 +7,21 @@ class Base {
   }
 }
 
-class Derived < Base {
+// Parent inherits method from Base
+class Parent < Base {
   method() {
     super.method();
   }
 }
 
-class OtherBase {
+// Child inherits method from Parent
+class Child < Parent {
   method() {
-    print "OtherBase.method()";
+    super.method();
   }
 }
 
-var derived = Derived();
-derived.method(); // expect: Base.method()
-Base = OtherBase;
-derived.method(); // expect: Base.method()
+var parent = Parent();
+parent.method(); // expect: Base.method()
+var child = Child();
+child.method(); // expect: Base.method()

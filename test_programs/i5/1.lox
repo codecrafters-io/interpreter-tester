@@ -7,6 +7,8 @@ class Doughnut {
   }
 }
 
+// Super can be used to call the overridden method
+// of the parent class
 class BostonCream < Doughnut {
   cook() {
     super.cook();

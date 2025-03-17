@@ -11,6 +11,7 @@ class B < A {}
 class C < B {}
 class D < A {}
 
-// Trying to inherit from a non-class value
+// B is updated to a non-class value
 B = "not a class";
+// E inherits from B, which is not a class
 class E < B {}  // expect runtime error

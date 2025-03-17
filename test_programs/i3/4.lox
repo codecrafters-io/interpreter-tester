@@ -15,6 +15,9 @@ class Animal {
   }
 }
 
+// Dog inherits the speak and makeSound methods 
+// from Animal and overrides them with new 
+// implementations specific to dogs
 class Dog < Animal {
   speak() {
     return "Dog speaks";
@@ -25,6 +28,9 @@ class Dog < Animal {
   }
 }
 
+// Puppy inherits the speak and makeSound methods
+// from Dog and overrides them with new 
+// implementations specific to puppies
 class Puppy < Dog {
   speak() {
     return "Puppy speaks";
@@ -36,10 +42,5 @@ var dog = Dog();
 var puppy = Puppy();
 
 print animal.communicate();
-// expect: Animal speaks : Generic sound
-
 print dog.communicate();
-// expect: Dog speaks : Woof
-
 print puppy.communicate();
-// expect: Puppy speaks : Woof

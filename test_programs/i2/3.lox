@@ -17,4 +17,4 @@ var baz = Baz();
 
 // Baz should inherit the constructor from Foo
 // which should set the secret value to 42
-print baz.secret; // expect: 42
+print baz.secret;

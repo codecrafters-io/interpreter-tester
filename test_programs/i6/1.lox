@@ -2,7 +2,8 @@
 expected_error_type: compile
 ---
 class Foo {
-  cook {
-    super.cook();
+  cook() {
+    // Foo is not a subclass
+    super.cook(); // expect compile error
   }
 }
