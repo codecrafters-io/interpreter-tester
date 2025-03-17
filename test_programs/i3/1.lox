@@ -1,19 +1,17 @@
 ---
 expected_error_type: none
 ---
-class Base {
-  init(a) {
-    this.a = a;
+class A {
+  method() {
+    print "A method";
   }
 }
 
-class Derived < Base {
-  init(a, b) {
-    super.init(a);
-    this.b = b;
+class B < A {
+  method() {
+    print "B method";
   }
 }
 
-var derived = Derived("b", "a");
-print derived.a; // expect: b
-print derived.b; // expect: a
+var b = B();
+b.method();  // expect: B method

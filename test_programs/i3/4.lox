@@ -1,0 +1,45 @@
+---
+expected_error_type: none
+---
+class Animal {
+  speak() {
+    return "Animal speaks";
+  }
+
+  makeSound() {
+    return "Generic sound";
+  }
+
+  communicate() {
+    return this.speak() + " : " + this.makeSound();
+  }
+}
+
+class Dog < Animal {
+  speak() {
+    return "Dog speaks";
+  }
+
+  makeSound() {
+    return "Woof";
+  }
+}
+
+class Puppy < Dog {
+  speak() {
+    return "Puppy speaks";
+  }
+}
+
+var animal = Animal();
+var dog = Dog();
+var puppy = Puppy();
+
+print animal.communicate();
+// expect: Animal speaks : Generic sound
+
+print dog.communicate();
+// expect: Dog speaks : Woof
+
+print puppy.communicate();
+// expect: Puppy speaks : Woof

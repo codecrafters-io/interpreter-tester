@@ -1,0 +1,16 @@
+---
+expected_error_type: runtime
+---
+class A {
+  method() {
+    print "A";
+  }
+}
+
+class B < A {}
+class C < B {}
+class D < A {}
+
+// Trying to inherit from a non-class value
+B = "not a class";
+class E < B {}  // expect runtime error

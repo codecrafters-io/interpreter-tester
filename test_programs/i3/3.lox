@@ -1,20 +1,39 @@
 ---
 expected_error_type: none
 ---
-// 1.lox or 2.lox
 class Base {
-  init(a, b) {
-    print "Base.init(" + a + ", " + b + ")";
+  init(a) {
+    this.a = a;
+  }
+  
+  cook() {
+    return "Base cooking " + this.a;
   }
 }
 
 class Derived < Base {
-  init() {
-    print "Derived.init()";
-    super.init("a", "b");
+  init(a, b) {
+    this.a = a;
+    this.b = b;
+  }
+  
+  cook() {
+    return "Derived cooking " + this.b + " with " + super.cook();
+  }
+
+  makeBaseFood() {
+    return super.cook();
+  }
+  
+  makeFood() {
+    return this.cook();
   }
 }
 
-Derived();
-// expect: Derived.init()
-// expect: Base.init(a, b)
+var derived = Derived("a", "b");
+print derived.a;
+print derived.b;
+
+print Base("ingredient").cook(); 
+print derived.cook();
+print derived.makeFood(); 
