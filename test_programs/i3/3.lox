@@ -19,7 +19,8 @@ class Derived < Base {
 
   // Derived overrides the cook method of Base
   cook() {
-    return "Derived cooking " + this.b + " with " + this.a + " and " + this.b;
+    return "Derived cooking " + this.b + " with "
+    + this.a + " and " + this.b;
   }
 
   makeFood() {
