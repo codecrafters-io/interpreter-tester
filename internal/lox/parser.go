@@ -10,7 +10,7 @@ declaration-> classDecl
 			| funDecl
 			| varDecl
 			| stmt ;
-classDecl  -> "class" IDENTIFIER "{" function* "}" ;
+classDecl  -> "class" IDENTIFIER ( "<" IDENTIFIER )? "{" function* "}" ;
 funDecl    -> "fun" function ;
 function   -> IDENTIFIER "(" parameters? ")" block ;
 parameters -> IDENTIFIER ( "," IDENTIFIER )* ;
@@ -43,7 +43,7 @@ factor -> unary ( ( "/" | "*" ) unary )* ;
 unary      -> ( "!" | "-" ) unary | call ;
 call       -> primary ( "(" arguments? ")" | "." IDENTIFIER )* ;
 arguments  -> expression ( "," expression )* ;
-primary    -> "true" | "false" | "nil" | "this"
+primary    -> "true" | "false" | "nil" | "this" | "super"
 			| NUMBER | STRING
 			| "(" expression ")"
 			IDENTIFIER ;
@@ -110,6 +110,16 @@ func (p *Parser) classDeclaration() (Stmt, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	var superclass *Variable
+	if p.match(LESS) {
+		_, err = p.consume(IDENTIFIER, "Expected superclass name.")
+		if err != nil {
+			return nil, err
+		}
+		superclass = &Variable{Name: p.previous()}
+	}
+
 	_, err = p.consume(LEFTBRACE, "Expected '{' before class body.")
 	if err != nil {
 		return nil, err
@@ -128,7 +138,7 @@ func (p *Parser) classDeclaration() (Stmt, error) {
 	if err != nil {
 		return nil, err
 	}
-	return &Class{Name: name, Methods: methods}, nil
+	return &Class{Name: name, Methods: methods, SuperClass: superclass}, nil
 }
 
 func (p *Parser) varDeclaration() (Stmt, error) {
@@ -601,6 +611,17 @@ func (p *Parser) primary() (Expr, error) {
 		return &Literal{Value: nil}, nil
 	} else if p.match(NUMBER, STRING) {
 		return &Literal{Value: p.previous().Literal}, nil
+	} else if p.match(SUPER) {
+		keyword := p.previous()
+		_, err := p.consume(DOT, "Expected '.' after 'super'.")
+		if err != nil {
+			return nil, err
+		}
+		method, err := p.consume(IDENTIFIER, "Expected superclass method name.")
+		if err != nil {
+			return nil, err
+		}
+		return &Super{Keyword: keyword, Method: method}, nil
 	} else if p.match(THIS) {
 		return &This{Keyword: p.previous(), EnvIndex: -1, EnvDepth: -1}, nil
 	} else if p.match(LEFTPAREN) {

@@ -28,8 +28,9 @@ const (
 
 // ClassType represents the type of a class
 const (
-	ctNone  = iota
-	ctClass = iota
+	ctNone     = iota
+	ctClass    = iota
+	ctSubClass = iota
 )
 
 // Resolver performs variable resolution on an AST
@@ -166,6 +167,24 @@ func (r *Resolver) resolve(node Node, locals Locals) error {
 		}
 		r.define(n.Name)
 
+		if n.SuperClass != nil {
+			if n.Name.Lexeme == n.SuperClass.Name.Lexeme {
+				return MakeSemanticError("A class cannot inherit from itself.")
+			}
+			r.currentClassType = ctSubClass
+			err := r.resolve(n.SuperClass, locals)
+			if err != nil {
+				return err
+			}
+
+			r.pushScope()
+			defer r.popScope()
+
+			top := r.scopes[len(r.scopes)-1]
+			top["super"] = true
+			r.scopes[len(r.scopes)-1] = top
+		}
+
 		r.pushScope()
 		defer r.popScope()
 
@@ -182,6 +201,13 @@ func (r *Resolver) resolve(node Node, locals Locals) error {
 				return err
 			}
 		}
+	case *Super:
+		if r.currentClassType == ctNone {
+			return MakeSemanticError("Cannot use 'super' outside of a class.")
+		} else if r.currentClassType != ctSubClass {
+			return MakeSemanticError("Cannot use 'super' in a class with no superclass.")
+		}
+		r.resolveLocal(n, n.Keyword, locals)
 	case *Get:
 		if err := r.resolve(n.Expression, locals); err != nil {
 			return err
