@@ -179,12 +179,12 @@ test_classes_w_jlox: build
 test_inheritance_w_jlox: build
 	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap13_inheritance \
 	CODECRAFTERS_TEST_CASES_JSON="[ \
-		{\"slug\":\"i1\",\"tester_log_prefix\":\"stage_901\",\"title\":\"Stage #901: Inheritance: Class Hierarchy\"}, \
-		{\"slug\":\"i2\",\"tester_log_prefix\":\"stage_902\",\"title\":\"Stage #902: Inheritance: Inheriting methods\"}, \
-		{\"slug\":\"i3\",\"tester_log_prefix\":\"stage_903\",\"title\":\"Stage #903: Inheritance: Overriding methods\"}, \
-		{\"slug\":\"i4\",\"tester_log_prefix\":\"stage_904\",\"title\":\"Stage #904: Inheritance: Invalid class hierarchies\"}, \
-		{\"slug\":\"i5\",\"tester_log_prefix\":\"stage_905\",\"title\":\"Stage #905: Inheritance: The super keyword\"}, \
-		{\"slug\":\"i6\",\"tester_log_prefix\":\"stage_906\",\"title\":\"Stage #906: Inheritance: Invalid usages of the super keyword\"} \
+		{\"slug\":\"mf6\",\"tester_log_prefix\":\"stage_901\",\"title\":\"Stage #901: Inheritance: Class Hierarchy\"}, \
+		{\"slug\":\"ky1\",\"tester_log_prefix\":\"stage_902\",\"title\":\"Stage #902: Inheritance: Inheriting methods\"}, \
+		{\"slug\":\"ka5\",\"tester_log_prefix\":\"stage_903\",\"title\":\"Stage #903: Inheritance: Overriding methods\"}, \
+		{\"slug\":\"ab0\",\"tester_log_prefix\":\"stage_904\",\"title\":\"Stage #904: Inheritance: Invalid class hierarchies\"}, \
+		{\"slug\":\"qi0\",\"tester_log_prefix\":\"stage_905\",\"title\":\"Stage #905: Inheritance: The super keyword\"}, \
+		{\"slug\":\"ib9\",\"tester_log_prefix\":\"stage_906\",\"title\":\"Stage #906: Inheritance: Invalid usages of the super keyword\"} \
 	]" \
 	$(shell pwd)/dist/main.out
 

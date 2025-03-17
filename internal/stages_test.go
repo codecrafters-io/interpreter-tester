@@ -104,7 +104,7 @@ func TestStages(t *testing.T) {
 			NormalizeOutputFunc: normalizeTesterOutput,
 		},
 		"pass_inheritance_jlox": {
-			StageSlugs:          []string{"i1", "i2", "i3", "i4", "i5"},
+			StageSlugs:          []string{"mf6", "ky1", "ka5", "ab0", "qi0", "ib9"},
 			CodePath:            "../craftinginterpreters/build/gen/chap13_inheritance",
 			ExpectedExitCode:    0,
 			StdoutFixturePath:   "./test_helpers/fixtures/pass_inheritance",
