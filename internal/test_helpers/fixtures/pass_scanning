@@ -296,11 +296,14 @@ Debug = true
 [33m[stage-12] [test-2] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-12] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-12] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-12] [test-3.lox] [0m"foo <|TAB|>bar 123 // hello world!"
+[33m[stage-12] [test-3.lox] [0m"foo bar    // This is a multiline string
+[33m[stage-12] [test-3.lox] [0m<|TAB|>123  // Second line in the same string"
 [33m[stage-12] [test-3] [0m[94m$ ./your_program.sh tokenize test.lox[0m
-[33m[your_program] [0mSTRING "foo 	bar 123 // hello world!" foo 	bar 123 // hello world!
+[33m[your_program] [0mSTRING "foo bar    // This is a multiline string
+[33m[your_program] [0m	123  // Second line in the same string" foo bar    // This is a multiline string
+[33m[your_program] [0m	123  // Second line in the same string
 [33m[your_program] [0mEOF  null
-[33m[stage-12] [test-3] [0m[92m✓ 2 line(s) match on stdout[0m
+[33m[stage-12] [test-3] [0m[92m✓ 4 line(s) match on stdout[0m
 [33m[stage-12] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-12] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-12] [test-4] [0m[94mWriting contents to ./test.lox:[0m

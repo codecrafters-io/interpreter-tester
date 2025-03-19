@@ -16,7 +16,7 @@ func testStrings(stageHarness *test_case_harness.TestCaseHarness) error {
 	logger := stageHarness.Logger
 
 	string1 := random.RandomElementFromArray(QUOTED_STRINGS) + " " + "\"unterminated"
-	string2 := `"foo 	bar 123 // hello world!"`
+	string2 := `"foo bar    // This is a multiline string` + LF + `	123  // Second line in the same string"`
 	shuffledString2 := "(" + strings.Join(random.RandomElementsFromArray(QUOTED_STRINGS, 2), "+") + `) != "other_string"`
 
 	tokenizeTestCases := testcases.MultiTestCase{

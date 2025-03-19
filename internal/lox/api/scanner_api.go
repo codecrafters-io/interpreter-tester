@@ -26,7 +26,9 @@ func ScanTokens(source string) ([]string, []string, int, error) {
 		} else if reflect.TypeOf(literal).Kind() == reflect.Float64 {
 			literal = lox.FormatFloat(literal.(float64))
 		}
-		tokenLines = append(tokenLines, fmt.Sprintf("%s %s %s", lox.GetTokenName(token.Type), token.Lexeme, literal))
+		tokenLine := fmt.Sprintf("%s %s %s", lox.GetTokenName(token.Type), token.Lexeme, literal)
+		// Handle potential multiline strings
+		tokenLines = append(tokenLines, strings.Split(tokenLine, "\n")...)
 	}
 
 	exitCode := 0
