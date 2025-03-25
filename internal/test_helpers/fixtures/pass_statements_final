@@ -572,14 +572,14 @@ Debug = true
 [33m[stage-1] [test-4.lox] [0m  print foo;
 [33m[stage-1] [test-4.lox] [0m  print baz;
 [33m[stage-1] [test-4.lox] [0m}
-[33m[stage-1] [test-4.lox] [0mprint baz;
+[33m[stage-1] [test-4.lox] [0mprint foo;
 [33m[stage-1] [test-4.lox] [0m
 [33m[stage-1] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mmodified foo
 [33m[your_program] [0minner baz
 [33m[your_program] [0mmodified foo
 [33m[your_program] [0mouter baz
-[33m[your_program] [0mUndefined variable 'baz'.
+[33m[your_program] [0mUndefined variable 'foo'.
 [33m[your_program] [0m[line 17]
 [33m[stage-1] [test-4] [0m[92m✓ 4 line(s) match on stdout[0m
 [33m[stage-1] [test-4] [0m[92m✓ Received exit code 70.[0m
