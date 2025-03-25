@@ -40,7 +40,7 @@ func (a StdoutAssertion) Run(result executable.ExecutableResult, logger *logger.
 	if len(stdout) > len(a.ExpectedLines) {
 		logAllSuccessLogs(successLogs, logger)
 		logger.Errorf("! %s", stdout[len(a.ExpectedLines)])
-		return fmt.Errorf("Expected nothing after the last stdout line of %q, but found extra line: %q", a.ExpectedLines[len(a.ExpectedLines)-1], stdout[len(a.ExpectedLines)])
+		return fmt.Errorf("Expected nothing after last stdout line %q, but found extra line: %q", a.ExpectedLines[len(a.ExpectedLines)-1], stdout[len(a.ExpectedLines)])
 	}
 
 	// If all lines match, we don't want to print all the lines again
