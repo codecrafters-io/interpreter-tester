@@ -17,4 +17,4 @@ expected_error_type: runtime
   print <<RANDOM_STRING_1>>;
   print <<RANDOM_STRING_2>>;
 }
-print <<RANDOM_STRING_2>>;
+print <<RANDOM_STRING_1>>;
