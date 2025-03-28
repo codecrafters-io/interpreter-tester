@@ -321,5 +321,29 @@ var testerDefinition = tester_definition.TesterDefinition{
 			Slug:     "eb9",
 			TestFunc: createTestForRunCommandStage("cl8"),
 		},
+		{
+			Slug:     "mf6",
+			TestFunc: createTestForRunCommandStage("i1"),
+		},
+		{
+			Slug:     "ky1",
+			TestFunc: createTestForRunCommandStage("i2"),
+		},
+		{
+			Slug:     "ka5",
+			TestFunc: createTestForRunCommandStage("i3"),
+		},
+		{
+			Slug:     "ab0",
+			TestFunc: createTestForRunCommandStage("i4"),
+		},
+		{
+			Slug:     "qi0",
+			TestFunc: createTestForRunCommandStage("i5"),
+		},
+		{
+			Slug:     "ib9",
+			TestFunc: createTestForRunCommandStage("i6"),
+		},
 	},
 }

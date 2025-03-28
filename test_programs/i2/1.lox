@@ -1,0 +1,15 @@
+---
+expected_error_type: none
+---
+class Doughnut {
+  cook() {
+    print "Fry until golden brown.";
+    }
+  }
+
+// BostonCream is a subclass of Doughnut
+class BostonCream < Doughnut {}
+
+// BostonCream class should inherit the cook
+// method from Doughnut class
+BostonCream().cook();

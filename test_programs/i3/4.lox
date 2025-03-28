@@ -1,0 +1,46 @@
+---
+expected_error_type: none
+---
+class Animal {
+  speak() {
+    return "Animal speaks";
+  }
+
+  makeSound() {
+    return "Generic sound";
+  }
+
+  communicate() {
+    return this.speak() + " : " + this.makeSound();
+  }
+}
+
+// Dog inherits the speak and makeSound methods
+// from Animal and overrides them with new
+// implementations specific to dogs
+class Dog < Animal {
+  speak() {
+    return "Dog speaks";
+  }
+
+  makeSound() {
+    return "Woof";
+  }
+}
+
+// Puppy inherits the speak and makeSound methods
+// from Dog and overrides them with new
+// implementations specific to puppies
+class Puppy < Dog {
+  speak() {
+    return "Puppy speaks";
+  }
+}
+
+var animal = Animal();
+var dog = Dog();
+var puppy = Puppy();
+
+print animal.communicate();
+print dog.communicate();
+print puppy.communicate();

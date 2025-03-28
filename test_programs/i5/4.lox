@@ -1,0 +1,27 @@
+---
+expected_error_type: none
+---
+class Base {
+  method() {
+    print "Base.method()";
+  }
+}
+
+// Parent inherits method from Base
+class Parent < Base {
+  method() {
+    super.method();
+  }
+}
+
+// Child inherits method from Parent
+class Child < Parent {
+  method() {
+    super.method();
+  }
+}
+
+var parent = Parent();
+parent.method(); // expect: Base.method()
+var child = Child();
+child.method(); // expect: Base.method()

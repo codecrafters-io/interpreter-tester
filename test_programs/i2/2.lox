@@ -1,0 +1,36 @@
+---
+expected_error_type: none
+---
+class Root {
+  getName() {
+    print "Root class";
+  }
+}
+
+class Parent < Root {
+  parentMethod() {
+    print "Method defined in Parent";
+  }
+}
+
+class Child < Parent {
+  childMethod() {
+    print "Method defined in Child";
+  }
+}
+
+var root = Root();
+var parent = Parent();
+var child = Child();
+
+// Root methods are available to all
+root.getName();
+parent.getName();
+child.getName();
+
+// Parent methods are available to Parent and Child
+parent.parentMethod();
+child.parentMethod();
+
+// Child methods are only available to Child
+child.childMethod();

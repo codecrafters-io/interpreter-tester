@@ -1,0 +1,18 @@
+---
+expected_error_type: none
+---
+class Doughnut {
+  cook() {
+    print "Fry until golden brown.";
+  }
+}
+
+// Super can be used to call the overridden method
+// of the parent class
+class BostonCream < Doughnut {
+  cook() {
+    super.cook();
+  }
+}
+
+BostonCream().cook();

@@ -1,0 +1,20 @@
+---
+expected_error_type: none
+---
+class A {
+  method() {
+    print "A method";
+  }
+}
+
+
+// B inherits method `method` from A
+// and overrides it with a new implementation
+class B < A {
+  method() {
+    print "B method";
+  }
+}
+
+var b = B();
+b.method();  // expect: B method

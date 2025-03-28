@@ -1,0 +1,36 @@
+---
+expected_error_type: none
+---
+class Base {
+  init(a) {
+    this.a = a;
+  }
+
+  cook() {
+    return "Base cooking " + this.a;
+  }
+}
+
+class Derived < Base {
+  init(a, b) {
+    this.a = a;
+    this.b = b;
+  }
+
+  // Derived overrides the cook method of Base
+  cook() {
+    return "Derived cooking " + this.b + " with "
+    + this.a + " and " + this.b;
+  }
+
+  makeFood() {
+    return this.cook();
+  }
+}
+
+var derived = Derived("onions", "shallots");
+print derived.a;
+print derived.b;
+
+print Base("ingredient").cook();
+print derived.cook();

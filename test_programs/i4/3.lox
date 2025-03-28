@@ -1,0 +1,9 @@
+---
+expected_error_type: runtime
+---
+var A = "class";
+
+// A class can only inherit from a class
+class B < A {} // expect runtime error
+
+print B();

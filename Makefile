@@ -176,4 +176,16 @@ test_classes_w_jlox: build
 	]" \
 	$(shell pwd)/dist/main.out
 
-test_all: test_scanning_w_jlox test_parsing_w_jlox test_evaluation_w_jlox test_statements_w_jlox test_control_flow_w_jlox test_functions_w_jlox test_resolving_w_jlox test_classes_w_jlox
+test_inheritance_w_jlox: build
+	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap13_inheritance \
+	CODECRAFTERS_TEST_CASES_JSON="[ \
+		{\"slug\":\"mf6\",\"tester_log_prefix\":\"stage_901\",\"title\":\"Stage #901: Inheritance: Class Hierarchy\"}, \
+		{\"slug\":\"ky1\",\"tester_log_prefix\":\"stage_902\",\"title\":\"Stage #902: Inheritance: Inheriting methods\"}, \
+		{\"slug\":\"ka5\",\"tester_log_prefix\":\"stage_903\",\"title\":\"Stage #903: Inheritance: Overriding methods\"}, \
+		{\"slug\":\"ab0\",\"tester_log_prefix\":\"stage_904\",\"title\":\"Stage #904: Inheritance: Invalid class hierarchies\"}, \
+		{\"slug\":\"qi0\",\"tester_log_prefix\":\"stage_905\",\"title\":\"Stage #905: Inheritance: The super keyword\"}, \
+		{\"slug\":\"ib9\",\"tester_log_prefix\":\"stage_906\",\"title\":\"Stage #906: Inheritance: Invalid usages of the super keyword\"} \
+	]" \
+	$(shell pwd)/dist/main.out
+
+test_all: test_scanning_w_jlox test_parsing_w_jlox test_evaluation_w_jlox test_statements_w_jlox test_control_flow_w_jlox test_functions_w_jlox test_resolving_w_jlox test_classes_w_jlox test_inheritance_w_jlox
