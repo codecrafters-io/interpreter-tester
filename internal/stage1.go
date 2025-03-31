@@ -16,5 +16,7 @@ func testEOF(stageHarness *test_case_harness.TestCaseHarness) error {
 		FileContents: "", ExpectsError: false,
 	}
 
+	logger.UpdateSecondaryPrefix(("test-1"))
+	defer logger.ResetSecondaryPrefix()
 	return tokenizeTestCase.Run(b, logger)
 }
