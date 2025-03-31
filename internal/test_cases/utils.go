@@ -53,8 +53,12 @@ func logReadableFileContents(logger *logger.Logger, fileContents string) {
 	logger.UpdateSecondaryPrefix(fmt.Sprintf("test-%s.lox", testNumber))
 	defer logger.UpdateSecondaryPrefix(oldPrefix)
 
-	for _, line := range strings.Split(printableFileContents, "\n") {
-		logger.Plainf(line)
+	if len(printableFileContents) == 0 {
+		logger.Plainf("<|EMPTY FILE|>")
+	} else {
+		for _, line := range strings.Split(printableFileContents, "\n") {
+			logger.Plainf(line)
+		}
 	}
 }
 

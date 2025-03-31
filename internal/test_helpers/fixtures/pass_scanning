@@ -852,10 +852,10 @@ Debug = true
 [33m[stage-2] [0m[92mTest passed.[0m
 
 [33m[stage-1] [0m[94mRunning tests for Stage #1: ry8[0m
-[33m[stage-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-1] [test-.lox] [0m
-[33m[stage-1] [0m[94m$ ./your_program.sh tokenize test.lox[0m
+[33m[stage-1] [test-1] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-1] [test-1.lox] [0m<|EMPTY FILE|>
+[33m[stage-1] [test-1] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mEOF  null
-[33m[stage-1] [0m[92m✓ 1 line(s) match on stdout[0m
-[33m[stage-1] [0m[92m✓ Received exit code 0.[0m
+[33m[stage-1] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
+[33m[stage-1] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-1] [0m[92mTest passed.[0m
