@@ -227,14 +227,16 @@ Debug = true
 [33m[stage-2] [test-3] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-2] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-2] [test-4] [0m[94mWriting contents to ./test.lox:[0m
+[33m[stage-2] [test-4.lox] [0m// Due to the compile error on line 17
+[33m[stage-2] [test-4.lox] [0m// Nothing should be printed
 [33m[stage-2] [test-4.lox] [0mvar a = "1";
-[33m[stage-2] [test-4.lox] [0mprint a; // Should print 1
+[33m[stage-2] [test-4.lox] [0mprint a;
 [33m[stage-2] [test-4.lox] [0m
 [33m[stage-2] [test-4.lox] [0mvar a;
-[33m[stage-2] [test-4.lox] [0mprint a; // Should print nil
+[33m[stage-2] [test-4.lox] [0mprint a;
 [33m[stage-2] [test-4.lox] [0m
 [33m[stage-2] [test-4.lox] [0mvar a = "2";
-[33m[stage-2] [test-4.lox] [0mprint a; // Should print 2
+[33m[stage-2] [test-4.lox] [0mprint a;
 [33m[stage-2] [test-4.lox] [0m
 [33m[stage-2] [test-4.lox] [0m{
 [33m[stage-2] [test-4.lox] [0m  // First declaration in local scope
@@ -245,7 +247,7 @@ Debug = true
 [33m[stage-2] [test-4.lox] [0m  print a;
 [33m[stage-2] [test-4.lox] [0m}
 [33m[stage-2] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m[line 15] Error at 'a': Already a variable with this name in this scope.
+[33m[your_program] [0m[line 17] Error at 'a': Already a variable with this name in this scope.
 [33m[stage-2] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-2] [test-4] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-2] [0m[92mTest passed.[0m
