@@ -260,7 +260,8 @@ Debug = true
 [33m[stage-1] [test-1.lox] [0m  return "at function scope is ok";
 [33m[stage-1] [test-1.lox] [0m}
 [33m[stage-1] [test-1.lox] [0m
-[33m[stage-1] [test-1.lox] [0m// Return statements are not allowed at the top-level<|SPACE|>return; // This should be a compile error
+[33m[stage-1] [test-1.lox] [0m// Return statements are not allowed at the top-level
+[33m[stage-1] [test-1.lox] [0mreturn; // This should be a compile error
 [33m[stage-1] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 7] Error at 'return': Can't return from top-level code.
 [33m[stage-1] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m

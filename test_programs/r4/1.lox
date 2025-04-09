@@ -6,5 +6,5 @@ fun foo() {
   return "at function scope is ok";
 }
 
-// Return statements are not allowed at the top-level 
+// Return statements are not allowed at the top-level
 return; // This should be a compile error
