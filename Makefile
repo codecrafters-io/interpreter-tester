@@ -179,29 +179,3 @@ test_flakiness:
 			exit 1 ; \
 		fi ; \
 	done
-
-CHECK_LINE_LENGTH = 51
-FILE_EXTENSION = lox
-check_line_length:
-	@git ls-files "*.$(FILE_EXTENSION)" | while IFS= read -r file; do \
-		awk -v max_len=$(CHECK_LINE_LENGTH) ' \
-			{ \
-				line = $$0; \
-				gsub(/<<RANDOM_STRING(_[0-9]+)?>>/, "hello", line); \
-				gsub(/<<RANDOM_QUOTEDSTRING(_[0-9]+)?>>/, "\"hello\"", line); \
-				gsub(/<<RANDOM_INTEGER(_[0-9]+)?>>/, "99", line); \
-				gsub(/<<RANDOM_BOOLEAN(_[0-9]+)?>>/, "false", line); \
-				gsub(/<<RANDOM_DIGIT(_[0-9]+)?>>/, "3", line); \
-				if (length(line) > max_len) { \
-					print "ERROR: Line length exceeds " max_len " in file: " FILENAME ", line number: " NR ", line length: " length(line) ""; \
-					exit 1; \
-				} \
-			}' "$$file" || true; \
-	done
-
-check_empty_trailing_lines:
-	@git ls-files "*.$(FILE_EXTENSION)" | while IFS= read -r file; do \
-		if [ -s "$$file" ] && [ -z "$$(tail -c 1 "$$file")" ]; then \
-			echo "ERROR: File has empty line at the end: $$file"; \
-		fi; \
-	done
