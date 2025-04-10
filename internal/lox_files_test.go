@@ -8,13 +8,31 @@ import (
 	"testing"
 )
 
-func TestEmptyTrailingLines(t *testing.T) {
-	os.Chdir("../test_programs")
+func findLoxFiles(t *testing.T) []string {
+	// Get the absolute path of the test_programs directory
+	absPath, err := filepath.Abs("../test_programs")
+	if err != nil {
+		t.Fatalf("Error getting absolute path: %v", err)
+	}
+
 	// Find all .lox files in the repository
-	files, err := filepath.Glob("*/*.lox")
+	files, err := filepath.Glob(filepath.Join(absPath, "*/*.lox"))
 	if err != nil {
 		t.Fatalf("Error finding .lox files: %v", err)
 	}
+
+	return files
+}
+
+func getFileName(t *testing.T, file string) string {
+	fileNameParts := strings.Split(file, string(os.PathSeparator))
+	dir := fileNameParts[len(fileNameParts)-2]
+	fileName := fileNameParts[len(fileNameParts)-1]
+	return dir + string(os.PathSeparator) + fileName
+}
+
+func TestEmptyTrailingLines(t *testing.T) {
+	files := findLoxFiles(t)
 
 	for _, file := range files {
 		// Skip empty files
@@ -52,20 +70,14 @@ func TestEmptyTrailingLines(t *testing.T) {
 
 		// Check if the last byte is a newline
 		if buf[0] == '\n' {
-			t.Errorf("File %s ends with a newline", file)
+			t.Errorf("File %s ends with a newline", getFileName(t, file))
 		}
 	}
 }
 
 func TestLineLength(t *testing.T) {
 	const maxLineLength = 51
-	os.Chdir("../test_programs")
-
-	// Find all .lox files in the repository
-	files, err := filepath.Glob("*/*.lox")
-	if err != nil {
-		t.Fatalf("Error finding .lox files: %v", err)
-	}
+	files := findLoxFiles(t)
 
 	// Compile regex patterns for random placeholders
 	randomPatterns := map[*regexp.Regexp]string{
@@ -92,19 +104,14 @@ func TestLineLength(t *testing.T) {
 
 			if len(line) > maxLineLength {
 				t.Errorf("Line length exceeds %d in file: %s, line number: %d, line length: %d",
-					maxLineLength, file, i+1, len(line))
+					maxLineLength, getFileName(t, file), i+1, len(line))
 			}
 		}
 	}
 }
-func TestNoTrailingSpaces(t *testing.T) {
-	os.Chdir("../test_programs")
 
-	// Find all .lox files in the repository
-	files, err := filepath.Glob("*/*.lox")
-	if err != nil {
-		t.Fatalf("Error finding .lox files: %v", err)
-	}
+func TestNoTrailingSpaces(t *testing.T) {
+	files := findLoxFiles(t)
 
 	for _, file := range files {
 		content, err := os.ReadFile(file)
@@ -116,10 +123,10 @@ func TestNoTrailingSpaces(t *testing.T) {
 		lines := strings.Split(string(content), "\n")
 		for i, line := range lines {
 			if strings.HasSuffix(line, " ") {
-				t.Errorf("Trailing space found in file: %s, line number: %d", file, i+1)
+				t.Errorf("Trailing space found in file: %s, line number: %d", getFileName(t, file), i+1)
 			}
 			if strings.HasSuffix(line, "\t") {
-				t.Errorf("Trailing tab found in file: %s, line number: %d", file, i+1)
+				t.Errorf("Trailing tab found in file: %s, line number: %d", getFileName(t, file), i+1)
 			}
 		}
 	}
