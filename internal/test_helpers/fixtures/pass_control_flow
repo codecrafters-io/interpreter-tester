@@ -58,10 +58,9 @@ Debug = true
 [33m[stage-8] [0m[94mRunning tests for Stage #8: st5[0m
 [33m[stage-8] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-8] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-1.lox] [0m[33m// This program uses a random boolean to decide[0m
-[33m[stage-8] [test-1.lox] [0m[33m// which branch to execute,[0m
-[33m[stage-8] [test-1.lox] [0m[33m// and then prints the appropriate string[0m
-[33m[stage-8] [test-1.lox] [0mif (true) print "if"; else print "else";
+[33m[stage-8] [test-1.lox] [0m// This program uses a random boolean to decide which branch to execute,
+[33m[stage-8] [test-1.lox] [0m// and then prints the appropriate string
+[33m[stage-8] [test-1.lox] [0mif (true) print "if branch"; else print "else branch";
 [33m[stage-8] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mif
 [33m[stage-8] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
@@ -352,9 +351,9 @@ Debug = true
 [33m[stage-5] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-5] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-5] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test-4.lox] [0m[33m// This program uses if conditions to get the stage[0m
-[33m[stage-5] [test-4.lox] [0m[33m// of a person's life based on their age, and then[0m
-[33m[stage-5] [test-4.lox] [0m[33m// prints if they are eligible for voting[0m
+[33m[stage-5] [test-4.lox] [0m// This program uses if conditions to get the stage
+[33m[stage-5] [test-4.lox] [0m// of a person's life based on their age, and then
+[33m[stage-5] [test-4.lox] [0m// prints if they are eligible for voting
 [33m[stage-5] [test-4.lox] [0mvar stage = "unknown";
 [33m[stage-5] [test-4.lox] [0mvar age = 79;
 [33m[stage-5] [test-4.lox] [0mif (age < 18) { stage = "child"; }
@@ -431,9 +430,9 @@ Debug = true
 [33m[stage-4] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-4] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-4.lox] [0m[33m// This program uses if conditions to get the stage[0m
-[33m[stage-4] [test-4.lox] [0m[33m// of a person's life based on their age, and then[0m
-[33m[stage-4] [test-4.lox] [0m[33m// prints if they are eligible for voting[0m
+[33m[stage-4] [test-4.lox] [0m// This program uses if conditions to get the stage
+[33m[stage-4] [test-4.lox] [0m// of a person's life based on their age, and then
+[33m[stage-4] [test-4.lox] [0m// prints if they are eligible for voting
 [33m[stage-4] [test-4.lox] [0mvar stage = "unknown";
 [33m[stage-4] [test-4.lox] [0mvar age = 62;
 [33m[stage-4] [test-4.lox] [0mif (age < 18) { stage = "child"; }
@@ -500,7 +499,7 @@ Debug = true
 [33m[stage-3] [test-3.lox] [0m
 [33m[stage-3] [test-3.lox] [0mprint "Factorial of 5: "; print product;
 [33m[stage-3] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0mFactorial of 5: 
+[33m[your_program] [0mFactorial of 5:
 [33m[your_program] [0m120
 [33m[stage-3] [test-3] [0m[92m✓ 2 line(s) match on stdout[0m
 [33m[stage-3] [test-3] [0m[92m✓ Received exit code 0.[0m
@@ -587,8 +586,8 @@ Debug = true
 [33m[stage-2] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-2] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-4.lox] [0m[33m// This program uses for loops and block scopes[0m
-[33m[stage-2] [test-4.lox] [0m[33m// to print the updates to the same variable[0m
+[33m[stage-2] [test-4.lox] [0m// This program uses for loops and block scopes
+[33m[stage-2] [test-4.lox] [0m// to print the updates to the same variable
 [33m[stage-2] [test-4.lox] [0mvar baz = "after";
 [33m[stage-2] [test-4.lox] [0m{
 [33m[stage-2] [test-4.lox] [0m  var baz = "before";
