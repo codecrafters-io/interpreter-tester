@@ -97,3 +97,30 @@ func TestLineLength(t *testing.T) {
 		}
 	}
 }
+func TestNoTrailingSpaces(t *testing.T) {
+	os.Chdir("../test_programs")
+
+	// Find all .lox files in the repository
+	files, err := filepath.Glob("*/*.lox")
+	if err != nil {
+		t.Fatalf("Error finding .lox files: %v", err)
+	}
+
+	for _, file := range files {
+		content, err := os.ReadFile(file)
+		if err != nil {
+			t.Errorf("Error reading file %s: %v", file, err)
+			continue
+		}
+
+		lines := strings.Split(string(content), "\n")
+		for i, line := range lines {
+			if strings.HasSuffix(line, " ") {
+				t.Errorf("Trailing space found in file: %s, line number: %d", file, i+1)
+			}
+			if strings.HasSuffix(line, "\t") {
+				t.Errorf("Trailing tab found in file: %s, line number: %d", file, i+1)
+			}
+		}
+	}
+}
