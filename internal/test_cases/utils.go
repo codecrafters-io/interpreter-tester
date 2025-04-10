@@ -45,7 +45,7 @@ func logReadableFileContents(logger *logger.Logger, fileContents string) {
 
 	regex1 := regexp.MustCompile("[ ]+\n")
 	regex2 := regexp.MustCompile("[ ]+$")
-	printableFileContents = regex1.ReplaceAllString(printableFileContents, "<|SPACE|>")
+	printableFileContents = regex1.ReplaceAllString(printableFileContents, "<|SPACE|>\n")
 	printableFileContents = regex2.ReplaceAllString(printableFileContents, "<|SPACE|>")
 
 	// This is of the form "test-N"
