@@ -1,5 +1,4 @@
 ---
 expected_error_type: none
 ---
-// This program prints a boolean
 print <<RANDOM_BOOLEAN>>;
