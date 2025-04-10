@@ -162,7 +162,33 @@ test_resolving_w_jlox: build
 	]" \
 	$(shell pwd)/dist/main.out
 
-test_all: test_scanning_w_jlox test_parsing_w_jlox test_evaluation_w_jlox test_statements_w_jlox test_control_flow_w_jlox test_functions_w_jlox test_resolving_w_jlox
+test_classes_w_jlox: build
+	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap12_classes \
+	CODECRAFTERS_TEST_CASES_JSON="[ \
+		{\"slug\":\"vf4\",\"tester_log_prefix\":\"stage_801\",\"title\":\"Stage #801: Class Declarations\"}, \
+		{\"slug\":\"yk8\",\"tester_log_prefix\":\"stage_802\",\"title\":\"Stage #802: Class Instances\"}, \
+		{\"slug\":\"yf3\",\"tester_log_prefix\":\"stage_803\",\"title\":\"Stage #803: Getters & Setters\"}, \
+		{\"slug\":\"qr2\",\"tester_log_prefix\":\"stage_804\",\"title\":\"Stage #804: Instance Methods\"}, \
+		{\"slug\":\"yd7\",\"tester_log_prefix\":\"stage_805\",\"title\":\"Stage #805: The `this` keyword\"}, \
+		{\"slug\":\"dg2\",\"tester_log_prefix\":\"stage_806\",\"title\":\"Stage #806: Invalid usages of `this`\"}, \
+		{\"slug\":\"ou5\",\"tester_log_prefix\":\"stage_807\",\"title\":\"Stage #807: Constructor calls\"}, \
+		{\"slug\":\"eb9\",\"tester_log_prefix\":\"stage_808\",\"title\":\"Stage #808: Return within constructors\"} \
+	]" \
+	$(shell pwd)/dist/main.out
+
+test_inheritance_w_jlox: build
+	CODECRAFTERS_REPOSITORY_DIR=./craftinginterpreters/build/gen/chap13_inheritance \
+	CODECRAFTERS_TEST_CASES_JSON="[ \
+		{\"slug\":\"mf6\",\"tester_log_prefix\":\"stage_901\",\"title\":\"Stage #901: Inheritance: Class Hierarchy\"}, \
+		{\"slug\":\"ky1\",\"tester_log_prefix\":\"stage_902\",\"title\":\"Stage #902: Inheritance: Inheriting methods\"}, \
+		{\"slug\":\"ka5\",\"tester_log_prefix\":\"stage_903\",\"title\":\"Stage #903: Inheritance: Overriding methods\"}, \
+		{\"slug\":\"ab0\",\"tester_log_prefix\":\"stage_904\",\"title\":\"Stage #904: Inheritance: Invalid class hierarchies\"}, \
+		{\"slug\":\"qi0\",\"tester_log_prefix\":\"stage_905\",\"title\":\"Stage #905: Inheritance: The super keyword\"}, \
+		{\"slug\":\"ib9\",\"tester_log_prefix\":\"stage_906\",\"title\":\"Stage #906: Inheritance: Invalid usages of the super keyword\"} \
+	]" \
+	$(shell pwd)/dist/main.out
+
+test_all: test_scanning_w_jlox test_parsing_w_jlox test_evaluation_w_jlox test_statements_w_jlox test_control_flow_w_jlox test_functions_w_jlox test_resolving_w_jlox test_classes_w_jlox test_inheritance_w_jlox
 
 test_flakiness_jlox: 
 	TEST_TARGET=test_all RUNS=25 $(MAKE) test_flakiness

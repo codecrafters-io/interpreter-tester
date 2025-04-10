@@ -1,0 +1,21 @@
+---
+expected_error_type: none
+---
+class Counter {
+  init(startValue) {
+    if (startValue < 0) {
+      print "startValue can't be negative";
+      this.count = 0;
+    } else {
+      this.count = startValue;
+    }
+  }
+}
+
+// constructor is called automatically here
+var instance = Counter(-<<RANDOM_INTEGER>>);
+print instance.count;
+
+// it should be possible to call the constructor
+// on a class instance as well
+print instance.init(<<RANDOM_INTEGER>>).count;

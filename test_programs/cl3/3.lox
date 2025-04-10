@@ -1,0 +1,20 @@
+---
+expected_error_type: none
+---
+class Superhero {}
+var batman = Superhero();
+var superman = Superhero();
+
+// Setting properties on an instance should work
+batman.name = "Batman";
+batman.called = <<RANDOM_INTEGER_1>>;
+
+// Setting properties on an instance should work
+superman.name = "Superman";
+superman.called = <<RANDOM_INTEGER_2>>;
+
+// Getting properties on an instance should work
+print "Times " + superman.name + " was called: ";
+print superman.called;
+print "Times " + batman.name + " was called: ";
+print batman.called;

@@ -1,0 +1,21 @@
+---
+expected_error_type: none
+---
+class Base {
+  init(a) {
+    this.a = a;
+  }
+}
+
+
+// Constructors can also be overridden
+class Derived < Base {
+  init(a, b) {
+    this.a = a;
+    this.b = b;
+  }
+}
+
+var derived = Derived(<<RANDOM_INTEGER_1>>, <<RANDOM_INTEGER_2>>);
+print derived.a;
+print derived.b;

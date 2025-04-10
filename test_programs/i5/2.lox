@@ -1,0 +1,31 @@
+---
+expected_error_type: none
+---
+class A {
+  say() {
+    print "A";
+  }
+}
+
+class B < A {
+  // test calls say() from A
+  test() {
+    super.say();
+  }
+
+  say() {
+    print "B";
+  }
+}
+
+// C inherits test() from B
+// But the super keyword used in test()
+// should still have a binding to B
+class C < B {
+  say() {
+    print "C";
+  }
+}
+
+C().say();
+C().test(); // expect: A

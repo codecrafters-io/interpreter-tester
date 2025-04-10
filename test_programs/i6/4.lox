@@ -1,0 +1,12 @@
+---
+expected_error_type: compile
+---
+class A {}
+
+class B < A {
+  method() {
+    // super must be followed by `.`
+    // and an expression
+    super; // expect compile error
+  }
+}

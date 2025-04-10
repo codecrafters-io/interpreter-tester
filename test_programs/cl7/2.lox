@@ -1,0 +1,12 @@
+---
+expected_error_type: none
+---
+class Robot {
+  // constructors should be able to accept
+  // one or more parameters
+  init(model, function) {
+    this.model = model;
+    this.function = function;
+  }
+}
+print Robot("R2-D2", "Astromech").model;

@@ -1,0 +1,15 @@
+---
+expected_error_type: none
+---
+class Calculator {
+  add(a, b) {
+    // this should be bound to the instance
+    return a + b + this.memory;
+  }
+}
+
+var calc = Calculator();
+// Instance properties should be accessible using 
+// the this keyword
+calc.memory = <<RANDOM_INTEGER_1>>;
+print calc.add(<<RANDOM_INTEGER_2>>, 1);

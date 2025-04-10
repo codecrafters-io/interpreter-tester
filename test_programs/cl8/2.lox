@@ -1,0 +1,13 @@
+---
+expected_error_type: compile
+---
+class ThingDefault {
+  init() {
+    this.x = "foo";
+    this.y = 42;
+    // constructor should not return the instance
+    return this; // expect compile error
+  }
+}
+var out = ThingDefault();
+print out;

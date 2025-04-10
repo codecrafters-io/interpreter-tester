@@ -1,0 +1,20 @@
+---
+expected_error_type: none
+---
+class Vehicle {}
+
+// Car is a subclass of Vehicle
+class Car < Vehicle {}
+
+// Sedan is a subclass of Car
+class Sedan < Car {}
+
+print Vehicle();
+print Car();
+print Sedan();
+
+{
+  // Truck is a subclass of Vehicle
+  class Truck < Vehicle {}
+  print Truck();
+}

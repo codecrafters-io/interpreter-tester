@@ -1,0 +1,24 @@
+---
+expected_error_type: none
+---
+class Wizard {}
+var gandalf = Wizard();
+
+gandalf.color = "Grey";
+gandalf.power = nil;
+print gandalf.color;
+
+// functions should be able to accept class 
+// instances and get or set properties on them
+fun promote(wizard) {
+  wizard.color = "White";
+  if (<<RANDOM_BOOLEAN>>) {
+    wizard.power = 100;
+  } else {
+    wizard.power = 0;
+  }
+}
+
+promote(gandalf);
+print gandalf.color;
+print gandalf.power;

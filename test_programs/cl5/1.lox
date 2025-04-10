@@ -1,0 +1,12 @@
+---
+expected_error_type: none
+---
+class Spaceship {
+  identify() {
+    // this should be bound to the instance
+    print this;
+  }
+}
+
+// Calling a method on a class instance should work
+Spaceship().identify();

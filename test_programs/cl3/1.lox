@@ -1,0 +1,14 @@
+---
+expected_error_type: none
+---
+class Spaceship {}
+var falcon = Spaceship();
+
+// Setting properties on an instance should work
+falcon.name = "Millennium Falcon";
+falcon.speed = 75.5;
+
+// Getting properties on an instance should work
+print "Ship details:";
+print falcon.name;
+print falcon.speed;

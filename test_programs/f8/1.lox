@@ -11,5 +11,5 @@ fun printAndModify() {
 }
 
 print a;
-var a = <<RANDOM_INTEGER_2>>;
+a = <<RANDOM_INTEGER_2>>;
 printAndModify();

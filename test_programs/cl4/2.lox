@@ -1,0 +1,14 @@
+---
+expected_error_type: none
+---
+{
+  class Foo {
+    returnSelf() {
+      // Should be able to return the class itself
+      return Foo;
+    }
+  }
+
+  // Calling a method on an instance should work
+  print Foo().returnSelf();
+}

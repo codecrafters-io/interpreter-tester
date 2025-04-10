@@ -1,0 +1,6 @@
+---
+expected_error_type: compile
+---
+// The this keyword used outside of a class 
+// should be a compile error
+print this;

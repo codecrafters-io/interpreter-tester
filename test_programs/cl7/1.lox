@@ -1,0 +1,18 @@
+---
+expected_error_type: none
+---
+class Default {
+  // this is the constructor
+  init() {
+    // it should be able to set 
+    // properties on the instance
+    this.x = "<<RANDOM_STRING_1>>";
+    this.y = <<RANDOM_INTEGER_1>>;
+  }
+}
+
+// the constructor should be called
+// automatically  when the class is being 
+// instantiated
+print Default().x;
+print Default().y;

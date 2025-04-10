@@ -1,0 +1,5 @@
+---
+expected_error_type: compile
+---
+// super can't be used outside of a class
+super.notEvenInAClass(); // expect compile error

@@ -6,9 +6,11 @@ import (
 
 /*
 program    -> declaration* EOF ;
-declaration-> funDecl
+declaration-> classDecl
+			| funDecl
 			| varDecl
 			| stmt ;
+classDecl  -> "class" IDENTIFIER ( "<" IDENTIFIER )? "{" function* "}" ;
 funDecl    -> "fun" function ;
 function   -> IDENTIFIER "(" parameters? ")" block ;
 parameters -> IDENTIFIER ( "," IDENTIFIER )* ;
@@ -30,7 +32,7 @@ printStmt  -> "print" expression ";" ;
 returnStmt -> "return" expression? ";" ;
 whileStmt  -> "while" "(" expression ")" statement ;
 expression -> assignment ;
-assignment -> IDENTIFIER "=" assignment
+assignment -> (call "." )? IDENTIFIER "=" assignment
 			| logic_or ;
 logic_or   -> logic_and ( "or" logic_and )* ;
 logic_and  -> equality ( "and" equality )* ;
@@ -39,9 +41,9 @@ comparison -> term ( ( ">" | ">=" | "<" | "<=") term )* ;
 term   -> factor ( ( "+" | "-" ) factor )* ;
 factor -> unary ( ( "/" | "*" ) unary )* ;
 unary      -> ( "!" | "-" ) unary | call ;
-call       -> primary ( "(" arguments? ")" )* ;
+call       -> primary ( "(" arguments? ")" | "." IDENTIFIER )* ;
 arguments  -> expression ( "," expression )* ;
-primary    -> "true" | "false" | "nil"
+primary    -> "true" | "false" | "nil" | "this" | "super"
 			| NUMBER | STRING
 			| "(" expression ")"
 			IDENTIFIER ;
@@ -90,8 +92,9 @@ func (p *Parser) declaration() (Stmt, error) {
 		}
 		return stmt, nil
 	}
-
-	if p.match(VAR) {
+	if p.match(CLASS) {
+		stmt, err = p.classDeclaration()
+	} else if p.match(VAR) {
 		stmt, err = p.varDeclaration()
 	} else if p.match(FUN) {
 		stmt, err = p.funDeclaration("function")
@@ -100,6 +103,42 @@ func (p *Parser) declaration() (Stmt, error) {
 	}
 
 	return checkError(stmt, err)
+}
+
+func (p *Parser) classDeclaration() (Stmt, error) {
+	name, err := p.consume(IDENTIFIER, "Expected class name.")
+	if err != nil {
+		return nil, err
+	}
+
+	var superclass *Variable
+	if p.match(LESS) {
+		_, err = p.consume(IDENTIFIER, "Expected superclass name.")
+		if err != nil {
+			return nil, err
+		}
+		superclass = &Variable{Name: p.previous()}
+	}
+
+	_, err = p.consume(LEFTBRACE, "Expected '{' before class body.")
+	if err != nil {
+		return nil, err
+	}
+
+	methods := make([]*Function, 0)
+	for !p.check(RIGHTBRACE) && !p.isAtEnd() {
+		fun, err := p.funDeclaration("method")
+		if err != nil {
+			return nil, err
+		}
+		methods = append(methods, fun)
+	}
+
+	_, err = p.consume(RIGHTBRACE, "Expected '}' after class body.")
+	if err != nil {
+		return nil, err
+	}
+	return &Class{Name: name, Methods: methods, SuperClass: superclass}, nil
 }
 
 func (p *Parser) varDeclaration() (Stmt, error) {
@@ -385,6 +424,8 @@ func (p *Parser) assignment() (Expr, error) {
 
 		if variable, ok := expr.(*Variable); ok {
 			return &Assign{Name: variable.Name, Value: value}, nil
+		} else if get, ok := expr.(*Get); ok {
+			return &Set{Object: get.Expression, Name: get.Name, Value: value}, nil
 		}
 		return nil, MakeParseError(equals, "Invalid assignment target.")
 	}
@@ -521,6 +562,12 @@ func (p *Parser) call() (Expr, error) {
 			if err != nil {
 				return nil, err
 			}
+		} else if p.match(DOT) {
+			name, err := p.consume(IDENTIFIER, "Expected property name after '.'")
+			if err != nil {
+				return nil, err
+			}
+			expr = &Get{Expression: expr, Name: name}
 		} else {
 			break
 		}
@@ -564,6 +611,19 @@ func (p *Parser) primary() (Expr, error) {
 		return &Literal{Value: nil}, nil
 	} else if p.match(NUMBER, STRING) {
 		return &Literal{Value: p.previous().Literal}, nil
+	} else if p.match(SUPER) {
+		keyword := p.previous()
+		_, err := p.consume(DOT, "Expected '.' after 'super'.")
+		if err != nil {
+			return nil, err
+		}
+		method, err := p.consume(IDENTIFIER, "Expected superclass method name.")
+		if err != nil {
+			return nil, err
+		}
+		return &Super{Keyword: keyword, Method: method}, nil
+	} else if p.match(THIS) {
+		return &This{Keyword: p.previous(), EnvIndex: -1, EnvDepth: -1}, nil
 	} else if p.match(LEFTPAREN) {
 		expr, err := p.expression()
 		if err != nil {

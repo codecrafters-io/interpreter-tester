@@ -1,0 +1,9 @@
+---
+expected_error_type: compile
+---
+class Foo {
+  cook() {
+    // Foo is not a subclass
+    super.cook(); // expect compile error
+  }
+}

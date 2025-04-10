@@ -1,0 +1,14 @@
+---
+expected_error_type: none
+---
+class Superhero {}
+
+var count = 0;
+while (count < 3) {
+  var hero = Superhero();
+  print "Hero created:";
+  print hero;
+  count = count + 1;
+}
+
+print "All heroes created!";

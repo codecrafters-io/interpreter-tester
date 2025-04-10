@@ -306,6 +306,90 @@ func Eval(node Node, environment *Environment, locals Locals, stdout io.Writer, 
 			}
 		}
 		return nil, ReturnError{value: value}
+	case *Class:
+		var superclass *UserClass
+		if n.SuperClass != nil {
+			sc, err := Eval(n.SuperClass, environment, locals, stdout, stderr)
+			if err != nil {
+				return nil, err
+			} else if sup, ok := sc.(*UserClass); ok {
+				superclass = sup
+			} else {
+				return nil, MakeRuntimeError(n.SuperClass.Name, "Superclass must be a class.")
+			}
+		}
+
+		environment.Define(n.Name.Lexeme, nil)
+
+		if superclass != nil {
+			environment = New(environment)
+			environment.Define("super", superclass)
+		}
+
+		methods := make(map[string]*UserFunction)
+		for _, method := range n.Methods {
+			function := NewUserFunction(method, environment, locals)
+			methods[method.Name.Lexeme] = function
+			if method.Name.Lexeme == "init" {
+				function.IsInitializer = true
+			}
+		}
+
+		if superclass != nil {
+			environment = environment.Ancestor(1)
+		}
+
+		userClass := &UserClass{SuperClass: superclass, Name: n.Name.Lexeme, Methods: methods}
+		environment.Assign(n.Name, userClass)
+
+		return nil, nil
+	case *Get:
+		value, err := Eval(n.Expression, environment, locals, stdout, stderr)
+		if err != nil {
+			return nil, err
+		}
+		if obj, ok := value.(*UserClassInstance); ok {
+			return obj.Get(n.Name)
+		}
+		return nil, MakeRuntimeError(n.Name, "Only instances have properties.")
+	case *Set:
+		obj, err := Eval(n.Object, environment, locals, stdout, stderr)
+		if err != nil {
+			return nil, err
+		}
+		if instance, ok := obj.(*UserClassInstance); ok {
+			value, err := Eval(n.Value, environment, locals, stdout, stderr)
+			if err != nil {
+				return nil, err
+			}
+			return instance.Set(n.Name, value)
+		}
+		return nil, MakeRuntimeError(n.Name, "Only instances have properties.")
+	case *This:
+		if distance, ok := locals[n]; ok {
+			return environment.GetAt(distance, n.Keyword)
+		}
+		return GlobalEnv.Get(n.Keyword)
+	case *Super:
+		sc, err := environment.GetAt(n.EnvDepth, Token{Lexeme: "super"})
+		if err != nil {
+			return nil, err
+		}
+		if superclass, ok := sc.(*UserClass); ok {
+			tc, err2 := environment.GetAt(n.EnvDepth-1, Token{Lexeme: "this"})
+			if err2 != nil {
+				return nil, err2
+			}
+
+			if thisclass, ok2 := tc.(*UserClassInstance); ok2 {
+				method, err3 := superclass.FindMethod(n.Method)
+				if err3 != nil {
+					return nil, err3
+				}
+				return method.Bind(thisclass), nil
+			}
+		}
+		return nil, MakeRuntimeError(n.Keyword, "Fatal error: 'super' not a class instance ?")
 	case nil:
 		return nil, nil
 	}

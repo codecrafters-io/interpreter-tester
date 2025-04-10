@@ -1,0 +1,32 @@
+---
+expected_error_type: none
+---
+class A {
+  say() {
+    print "A";
+  }
+}
+
+class B < A {
+  getClosure() {
+    fun closure() {
+      super.say();
+    }
+    return closure;
+  }
+
+  say() {
+    print "B";
+  }
+}
+
+class C < B {
+  say() {
+    print "C";
+  }
+}
+
+// C inherits getClosure() from B
+// But the super keyword used in getClosure()
+// should still have a binding to B
+C().getClosure()(); // expect: A

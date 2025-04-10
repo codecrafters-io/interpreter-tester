@@ -1,0 +1,28 @@
+---
+expected_error_type: none
+---
+class Vehicle {
+  init(type) {
+    this.type = type;
+  }
+}
+
+class Car {
+  init(make, model) {
+    this.make = make;
+    this.model = model;
+    this.wheels = "four";
+  }
+
+  describe() {
+    // expression across multiple lines should work
+    print this.make + " " + this.model +
+    " with " + this.wheels + " wheels";
+  }
+}
+
+var vehicle = Vehicle("Generic");
+print "Generic " + vehicle.type;
+
+var myCar = Car("Toyota", "Corolla");
+myCar.describe();

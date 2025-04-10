@@ -1,0 +1,29 @@
+---
+expected_error_type: none
+---
+class Wizard {
+  castSpell(spell) {
+    // Methods should be able to accept a parameter
+    print "Casting a magical spell: " + spell;
+  }
+}
+
+class Dragon {
+  // Methods should be able to accept multiple 
+  // parameters
+  breatheFire(fire, intensity) {
+    print "Breathing " + fire + " with intensity: "
+    + intensity;
+  }
+}
+
+var merlin = Wizard();
+var smaug = Dragon();
+
+if (<<RANDOM_BOOLEAN>>) {
+  var action = merlin.castSpell;
+  action("Fireball");
+} else {
+  var action = smaug.breatheFire;
+  action("Fire", "100");
+}
