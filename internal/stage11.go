@@ -16,7 +16,7 @@ func testErrorsMulti(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	multiLineErrors1 := `() 
+	multiLineErrors1 := `()
 	@`
 	// A test string of length 4 is longer than the length of WHITESPACES (3), making sure the test case raises error.
 	multiLineErrors2 := strings.Join(random.RandomElementsFromArray(slices.Concat(LEXICAL_ERRORS, WHITESPACES), 4), "")
