@@ -70,6 +70,30 @@ func logReadableFileContents(logger *logger.Logger, fileContents string) {
 	}
 }
 
+func logReadableFileContentsPreservingWhitespace(logger *logger.Logger, fileContents string) {
+	logger.Infof("Writing contents to ./test.lox:")
+
+	// If the file contents contain a single %, it will be decoded as a format specifier
+	// And it will add a `(MISSING)` to the log line
+	printableFileContents := strings.ReplaceAll(fileContents, "%", "%%")
+	printableFileContents = strings.ReplaceAll(printableFileContents, "\t", "<|TAB|>")
+	printableFileContents = strings.ReplaceAll(printableFileContents, " ", "<|SPACE|>")
+
+	// This is of the form "test-N"
+	oldPrefix := logger.GetSecondaryPrefix()
+	testNumber := strings.TrimPrefix(oldPrefix, "test-")
+	logger.UpdateSecondaryPrefix(fmt.Sprintf("test-%s.lox", testNumber))
+	defer logger.UpdateSecondaryPrefix(oldPrefix)
+
+	if len(printableFileContents) == 0 {
+		logger.Plainf("<|EMPTY FILE|>")
+	} else {
+		for _, line := range strings.Split(printableFileContents, "\n") {
+			logger.Plainf(line)
+		}
+	}
+}
+
 var exitCodeToErrorTypeMapping = map[int]string{
 	0:  "no error",
 	65: "compile error",
