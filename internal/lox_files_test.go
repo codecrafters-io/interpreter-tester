@@ -8,6 +8,23 @@ import (
 	"testing"
 )
 
+// This file contains tests to validate the formatting of .lox files.
+// It ensures that all .lox files in the repository adhere to specific
+// formatting rules like line length limits, no trailing spaces, and
+// no trailing newlines.
+
+// MaxLineLength defines the maximum allowed line length for .lox files
+const maxLineLength = 51
+
+// Compile regex patterns for random placeholders
+var randomPatterns = map[*regexp.Regexp]string{
+	regexp.MustCompile(`<<RANDOM_STRING(_[0-9]+)?>>`):       "hello",
+	regexp.MustCompile(`<<RANDOM_QUOTEDSTRING(_[0-9]+)?>>`): "\"hello\"",
+	regexp.MustCompile(`<<RANDOM_INTEGER(_[0-9]+)?>>`):      "99",
+	regexp.MustCompile(`<<RANDOM_BOOLEAN(_[0-9]+)?>>`):      "false",
+	regexp.MustCompile(`<<RANDOM_DIGIT(_[0-9]+)?>>`):        "3",
+}
+
 func findLoxFiles(t *testing.T) []string {
 	// Get the absolute path of the test_programs directory
 	absPath, err := filepath.Abs("../test_programs")
@@ -16,77 +33,57 @@ func findLoxFiles(t *testing.T) []string {
 	}
 
 	// Find all .lox files in the repository
-	files, err := filepath.Glob(filepath.Join(absPath, "*/*.lox"))
+	var files []string
+	err = filepath.Walk(absPath, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			// Handle errors accessing the file/dir
+			return err
+		}
+		if !info.IsDir() && filepath.Ext(path) == ".lox" { // Check if it's a file and has the .lox extension
+			files = append(files, path)
+		}
+		// Continue walking
+		return nil
+	})
 	if err != nil {
+		// Handle errors during the walk itself
 		t.Fatalf("Error finding .lox files: %v", err)
 	}
-
 	return files
 }
 
 func getFileName(file string) string {
-	fileNameParts := strings.Split(file, string(os.PathSeparator))
-	dir := fileNameParts[len(fileNameParts)-2]
-	fileName := fileNameParts[len(fileNameParts)-1]
-	return dir + string(os.PathSeparator) + fileName
+	// Use filepath functions to safely extract components
+	dir := filepath.Base(filepath.Dir(file))
+	fileName := filepath.Base(file)
+	return filepath.Join(dir, fileName)
 }
 
 func TestEmptyTrailingLines(t *testing.T) {
 	files := findLoxFiles(t)
 
 	for _, file := range files {
+		// Read the entire file
+		content, err := os.ReadFile(file)
+		if err != nil {
+			t.Errorf("Error reading file %s: %v", file, err)
+			continue
+		}
+
 		// Skip empty files
-		info, err := os.Stat(file)
-		if err != nil {
-			t.Errorf("Error getting file info for %s: %v", file, err)
-			continue
-		}
-		if info.Size() == 0 {
-			continue
-		}
-
-		// Read the last byte of the file
-		f, err := os.Open(file)
-		if err != nil {
-			t.Errorf("Error opening file %s: %v", file, err)
-			continue
-		}
-		defer f.Close()
-
-		// Seek to the last byte
-		_, err = f.Seek(-1, 2)
-		if err != nil {
-			t.Errorf("Error seeking in file %s: %v", file, err)
-			continue
-		}
-
-		// Read the last byte
-		buf := make([]byte, 1)
-		_, err = f.Read(buf)
-		if err != nil {
-			t.Errorf("Error reading last byte of file %s: %v", file, err)
+		if len(content) == 0 {
 			continue
 		}
 
 		// Check if the last byte is a newline
-		if buf[0] == '\n' {
+		if content[len(content)-1] == '\n' {
 			t.Errorf("File %s ends with a newline", getFileName(file))
 		}
 	}
 }
 
 func TestLineLength(t *testing.T) {
-	const maxLineLength = 51
 	files := findLoxFiles(t)
-
-	// Compile regex patterns for random placeholders
-	randomPatterns := map[*regexp.Regexp]string{
-		regexp.MustCompile(`<<RANDOM_STRING(_[0-9]+)?>>`):       "hello",
-		regexp.MustCompile(`<<RANDOM_QUOTEDSTRING(_[0-9]+)?>>`): "\"hello\"",
-		regexp.MustCompile(`<<RANDOM_INTEGER(_[0-9]+)?>>`):      "99",
-		regexp.MustCompile(`<<RANDOM_BOOLEAN(_[0-9]+)?>>`):      "false",
-		regexp.MustCompile(`<<RANDOM_DIGIT(_[0-9]+)?>>`):        "3",
-	}
 
 	for _, file := range files {
 		content, err := os.ReadFile(file)
@@ -100,6 +97,11 @@ func TestLineLength(t *testing.T) {
 			// Replace all random placeholders using regex
 			for pattern, replacement := range randomPatterns {
 				line = pattern.ReplaceAllString(line, replacement)
+			}
+
+			// Skip empty files
+			if len(content) == 0 {
+				continue
 			}
 
 			if len(line) > maxLineLength {
@@ -117,6 +119,11 @@ func TestNoTrailingSpaces(t *testing.T) {
 		content, err := os.ReadFile(file)
 		if err != nil {
 			t.Errorf("Error reading file %s: %v", file, err)
+			continue
+		}
+
+		// Skip empty files
+		if len(content) == 0 {
 			continue
 		}
 
