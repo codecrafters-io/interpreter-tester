@@ -185,7 +185,7 @@ Debug = true
 [33m[stage-7] [test-4.lox] [0melse if (age < 18) { print "learner's permit"; }
 [33m[stage-7] [test-4.lox] [0melse { print "eligible for driving"; }
 [33m[stage-7] [test-4.lox] [0m
-[33m[stage-7] [test-4.lox] [0mif (age > 21) { print "eligible for drinking"; }
+[33m[stage-7] [test-4.lox] [0mif (age >= 21) { print "eligible for drinking"; }
 [33m[stage-7] [test-4.lox] [0melse { print "not eligible for drinking"; }
 [33m[stage-7] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0meligible for voting: true

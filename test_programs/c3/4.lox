@@ -15,5 +15,5 @@ if (age < 16) { print "not eligible for driving"; }
 else if (age < 18) { print "learner's permit"; }
 else { print "eligible for driving"; }
 
-if (age > 21) { print "eligible for drinking"; }
+if (age >= 21) { print "eligible for drinking"; }
 else { print "not eligible for drinking"; }
