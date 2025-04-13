@@ -124,7 +124,6 @@ Debug = true
 [33m[stage-7] [test-2.lox] [0m// This function takes three arguments and prints their sum
 [33m[stage-7] [test-2.lox] [0mfun f3(a, b, c) { print a + b + c; }
 [33m[stage-7] [test-2.lox] [0mf3(67, 67, 67);
-[33m[stage-7] [test-2.lox] [0m
 [33m[stage-7] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m201
 [33m[stage-7] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
@@ -174,7 +173,6 @@ Debug = true
 [33m[stage-6] [test-1.lox] [0m// This program is missing the closing parenthesis for the function call
 [33m[stage-6] [test-1.lox] [0m// Hence the compiler error
 [33m[stage-6] [test-1.lox] [0mprint clock(;
-[33m[stage-6] [test-1.lox] [0m
 [33m[stage-6] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 3] Error at ';': Expect expression.
 [33m[stage-6] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
@@ -196,7 +194,6 @@ Debug = true
 [33m[stage-6] [test-3.lox] [0m// Hence the compiler error
 [33m[stage-6] [test-3.lox] [0mfun f() 27;
 [33m[stage-6] [test-3.lox] [0mprint f();
-[33m[stage-6] [test-3.lox] [0m
 [33m[stage-6] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 4] Error at '27': Expect '{' before function body.
 [33m[stage-6] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
@@ -207,7 +204,6 @@ Debug = true
 [33m[stage-6] [test-4.lox] [0m// Hence the compiler error
 [33m[stage-6] [test-4.lox] [0mfun foo(a, b c, d, e, f) {}
 [33m[stage-6] [test-4.lox] [0mfoo();
-[33m[stage-6] [test-4.lox] [0m
 [33m[stage-6] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 3] Error at 'c': Expect ')' after parameters.
 [33m[stage-6] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
@@ -226,7 +222,6 @@ Debug = true
 [33m[stage-5] [test-1.lox] [0mvar start = clock();
 [33m[stage-5] [test-1.lox] [0mprint fib(10) == 55;
 [33m[stage-5] [test-1.lox] [0mprint (clock() - start) < 5; // 5 seconds
-[33m[stage-5] [test-1.lox] [0m
 [33m[stage-5] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mtrue
 [33m[your_program] [0mtrue
@@ -342,7 +337,6 @@ Debug = true
 [33m[stage-4] [test-3.lox] [0mprint applyTimesN(2, square, 2);
 [33m[stage-4] [test-3.lox] [0m// 2 is squared thrice
 [33m[stage-4] [test-3.lox] [0mprint applyTimesN(3, square, 2);
-[33m[stage-4] [test-3.lox] [0m
 [33m[stage-4] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m4
 [33m[your_program] [0m16
@@ -462,7 +456,6 @@ Debug = true
 [33m[stage-2] [test-1.lox] [0mprint a;
 [33m[stage-2] [test-1.lox] [0ma = 59;
 [33m[stage-2] [test-1.lox] [0mprintAndModify();
-[33m[stage-2] [test-1.lox] [0m
 [33m[stage-2] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m81
 [33m[your_program] [0m59

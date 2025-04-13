@@ -443,7 +443,6 @@ Debug = true
 [33m[stage-2] [test-2.lox] [0m    var world = "after";
 [33m[stage-2] [test-2.lox] [0m    print world;
 [33m[stage-2] [test-2.lox] [0m}
-[33m[stage-2] [test-2.lox] [0m
 [33m[stage-2] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mbefore
 [33m[your_program] [0mafter
@@ -564,7 +563,6 @@ Debug = true
 [33m[stage-1] [test-4.lox] [0m  print baz;
 [33m[stage-1] [test-4.lox] [0m}
 [33m[stage-1] [test-4.lox] [0mprint foo;
-[33m[stage-1] [test-4.lox] [0m
 [33m[stage-1] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mmodified foo
 [33m[your_program] [0minner baz

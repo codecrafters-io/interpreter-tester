@@ -134,7 +134,6 @@ Debug = true
 [33m[stage-7] [test-2.lox] [0mif (false) print "bar"; else if (false) {
 [33m[stage-7] [test-2.lox] [0m  print "bar";
 [33m[stage-7] [test-2.lox] [0m}
-[33m[stage-7] [test-2.lox] [0m
 [33m[stage-7] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[stage-7] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-7] [test-2] [0m[92m✓ Received exit code 0.[0m
@@ -182,7 +181,6 @@ Debug = true
 [33m[stage-6] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-6] [test-1.lox] [0m// This program uses nested if statements to print a message
 [33m[stage-6] [test-1.lox] [0mif (true) if (true) print "nested true";
-[33m[stage-6] [test-1.lox] [0m
 [33m[stage-6] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mnested true
 [33m[stage-6] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
@@ -269,7 +267,6 @@ Debug = true
 [33m[stage-5] [test-1.lox] [0m
 [33m[stage-5] [test-1.lox] [0mif (67 or "hello") print "hello";
 [33m[stage-5] [test-1.lox] [0mif ("hello" or "hello") print "hello";
-[33m[stage-5] [test-1.lox] [0m
 [33m[stage-5] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mworld
 [33m[your_program] [0mworld
@@ -449,7 +446,6 @@ Debug = true
 [33m[stage-3] [test-3.lox] [0m}
 [33m[stage-3] [test-3.lox] [0m
 [33m[stage-3] [test-3.lox] [0mprint "Factorial of 5: "; print product;
-[33m[stage-3] [test-3.lox] [0m
 [33m[stage-3] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mFactorial of 5: 
 [33m[your_program] [0m120
