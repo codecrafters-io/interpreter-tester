@@ -51,7 +51,7 @@ func logReadableFileContents(logger *logger.Logger, fileContents string) {
 	for _, line := range strings.Split(printableFileContents, "\n") {
 		if strings.Contains(line, "//") {
 			code := strings.Split(line, "//")[0]
-			comment := "//" + strings.Split(line, "//")[1]
+			comment := "//" + strings.TrimSpace(strings.Split(line, "//")[1])
 			logger.Plainf(color.YellowString("[test.lox]") + " " + color.YellowString(code) + " " + color.YellowString(comment))
 		} else {
 			logger.Plainf(color.YellowString("[test.lox]") + " " + line)
