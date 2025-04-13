@@ -1,7 +1,8 @@
 ---
 expected_error_type: runtime
 ---
-// This program tries to access a variable before it is declared
+// This program tries to access a variable before
+// it is declared
 // It leads to a runtime error
 print <<RANDOM_INTEGER>>;
 print x;

@@ -2,7 +2,8 @@
 expected_error_type: none
 ---
 // This program declares multiple variables and
-// prints the result of arithmetic operations on them
+// prints the result of arithmetic operations on
+// them
 var <<RANDOM_STRING_1>> = <<RANDOM_INTEGER>>;
 var <<RANDOM_STRING_2>> = <<RANDOM_INTEGER>>;
 print <<RANDOM_STRING_1>> + <<RANDOM_STRING_2>>;
