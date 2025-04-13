@@ -5,5 +5,5 @@ expected_error_type: compile
   var a = "value";
 
   // Attempting to redeclare 'a' in the same scope
-  var a = "other"; // This should be a compile error
+  var a = "other"; // expect compile error
 }

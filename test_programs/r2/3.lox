@@ -13,9 +13,10 @@ var b = "global";
   // Local variable declaration
   var a = "first";
 
-  // Attempting to initialize local variable 'b' using local variable 'b'
+  // Attempting to initialize local variable 'b'
+  // using local variable 'b'
   // through a function call
-  var b = returnArg(b); // This should be a compile error
+  var b = returnArg(b); // expect compile error
   print b;
 }
 

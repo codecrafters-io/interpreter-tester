@@ -14,6 +14,7 @@ if (true) {
     return;
   }
 
-  // Return statements are not allowed outside of functions
-  return "not ok"; // This should be a compile error
+  // Return statements are not allowed outside of
+  // functions
+  return "not ok"; // expect compile error
 }
