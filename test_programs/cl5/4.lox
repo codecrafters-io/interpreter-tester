@@ -16,6 +16,6 @@ class Wizard {
 var wizard = Wizard();
 wizard.name = "Merlin";
 
-// Calling an instance method that returns a 
+// Calling an instance method that returns a
 // function should work
 wizard.getSpellCaster()();

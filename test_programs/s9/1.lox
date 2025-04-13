@@ -1,7 +1,7 @@
 ---
 expected_error_type: none
 ---
-// This program tests that curly braces can be 
+// This program tests that curly braces can be
 // used to group multiple statements into blocks
 {
     var <<RANDOM_STRING_2>> = "<<RANDOM_STRING_3>>";

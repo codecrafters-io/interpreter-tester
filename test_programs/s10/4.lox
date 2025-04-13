@@ -1,8 +1,8 @@
 ---
 expected_error_type: runtime
 ---
-// Variables declared in an outer scope should be 
-// accessible inside inner scopes, but not the 
+// Variables declared in an outer scope should be
+// accessible inside inner scopes, but not the
 // other way around
 {
   var <<RANDOM_STRING_1>> = "outer <<RANDOM_STRING_1>>";

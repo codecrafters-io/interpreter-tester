@@ -1,6 +1,6 @@
 ---
 expected_error_type: none
 ---
-// Class declaration with empty body 
+// Class declaration with empty body
 class Spaceship {}
 print Spaceship;

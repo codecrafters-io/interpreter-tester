@@ -6,7 +6,7 @@ class Confused {
     fun inner(instance) {
       // this is a local variable
       var feeling = "confused";
-      // Unless explicitly set, feeling can't be 
+      // Unless explicitly set, feeling can't be
       // accessed using this keyword
       print this.feeling; // expect runtime error
     }

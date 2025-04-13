@@ -9,7 +9,7 @@ class Wizard {
 }
 
 class Dragon {
-  // Methods should be able to accept multiple 
+  // Methods should be able to accept multiple
   // parameters
   breatheFire(fire, intensity) {
     print "Breathing " + fire + " with intensity: "

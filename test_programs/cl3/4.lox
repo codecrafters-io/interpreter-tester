@@ -8,7 +8,7 @@ gandalf.color = "Grey";
 gandalf.power = nil;
 print gandalf.color;
 
-// functions should be able to accept class 
+// functions should be able to accept class
 // instances and get or set properties on them
 fun promote(wizard) {
   wizard.color = "White";
