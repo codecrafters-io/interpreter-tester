@@ -24,7 +24,7 @@ func findLoxFiles(t *testing.T) []string {
 	return files
 }
 
-func getFileName(t *testing.T, file string) string {
+func getFileName(file string) string {
 	fileNameParts := strings.Split(file, string(os.PathSeparator))
 	dir := fileNameParts[len(fileNameParts)-2]
 	fileName := fileNameParts[len(fileNameParts)-1]
@@ -70,7 +70,7 @@ func TestEmptyTrailingLines(t *testing.T) {
 
 		// Check if the last byte is a newline
 		if buf[0] == '\n' {
-			t.Errorf("File %s ends with a newline", getFileName(t, file))
+			t.Errorf("File %s ends with a newline", getFileName(file))
 		}
 	}
 }
@@ -104,7 +104,7 @@ func TestLineLength(t *testing.T) {
 
 			if len(line) > maxLineLength {
 				t.Errorf("Line length exceeds %d in file: %s, line number: %d, line length: %d",
-					maxLineLength, getFileName(t, file), i+1, len(line))
+					maxLineLength, getFileName(file), i+1, len(line))
 			}
 		}
 	}
@@ -123,10 +123,10 @@ func TestNoTrailingSpaces(t *testing.T) {
 		lines := strings.Split(string(content), "\n")
 		for i, line := range lines {
 			if strings.HasSuffix(line, " ") {
-				t.Errorf("Trailing space found in file: %s, line number: %d", getFileName(t, file), i+1)
+				t.Errorf("Trailing space found in file: %s, line number: %d", getFileName(file), i+1)
 			}
 			if strings.HasSuffix(line, "\t") {
-				t.Errorf("Trailing tab found in file: %s, line number: %d", getFileName(t, file), i+1)
+				t.Errorf("Trailing tab found in file: %s, line number: %d", getFileName(file), i+1)
 			}
 		}
 	}
