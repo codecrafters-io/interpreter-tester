@@ -163,7 +163,8 @@ Debug = true
 [33m[stage-7] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-7] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-2.lox] [0m// This program declares multiple variables and<|SPACE|>// prints the result of arithmetic operations on them
+[33m[stage-7] [test-2.lox] [0m// This program declares multiple variables and
+[33m[stage-7] [test-2.lox] [0m// prints the result of arithmetic operations on them
 [33m[stage-7] [test-2.lox] [0mvar foo = 17;
 [33m[stage-7] [test-2.lox] [0mvar bar = 17;
 [33m[stage-7] [test-2.lox] [0mprint foo + bar;
@@ -421,7 +422,8 @@ Debug = true
 [33m[stage-2] [0m[94mRunning tests for Stage #2: vr5[0m
 [33m[stage-2] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-2] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-1.lox] [0m// This program tests that curly braces can be<|SPACE|>// used to group multiple statements into blocks
+[33m[stage-2] [test-1.lox] [0m// This program tests that curly braces can be
+[33m[stage-2] [test-1.lox] [0m// used to group multiple statements into blocks
 [33m[stage-2] [test-1.lox] [0m{
 [33m[stage-2] [test-1.lox] [0m    var hello = "foo";
 [33m[stage-2] [test-1.lox] [0m    print hello;
@@ -549,7 +551,9 @@ Debug = true
 [33m[stage-1] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-1] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-1] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-1] [test-4.lox] [0m// Variables declared in an outer scope should be<|SPACE|>// accessible inside inner scopes, but not the<|SPACE|>// other way around
+[33m[stage-1] [test-4.lox] [0m// Variables declared in an outer scope should be
+[33m[stage-1] [test-4.lox] [0m// accessible inside inner scopes, but not the
+[33m[stage-1] [test-4.lox] [0m// other way around
 [33m[stage-1] [test-4.lox] [0m{
 [33m[stage-1] [test-4.lox] [0m  var foo = "outer foo";
 [33m[stage-1] [test-4.lox] [0m  var baz = "outer baz";
