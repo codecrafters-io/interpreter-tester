@@ -3,14 +3,16 @@ Debug = true
 [33m[stage-9] [0m[94mRunning tests for Stage #9: ne3[0m
 [33m[stage-9] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-9] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test-1.lox] [0m// This should print the string if the condition evaluates to True
+[33m[stage-9] [test-1.lox] [0m// This should print the string if the condition
+[33m[stage-9] [test-1.lox] [0m// evaluates to True
 [33m[stage-9] [test-1.lox] [0mif (false) print "foo";
 [33m[stage-9] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[stage-9] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-9] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-9] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test-2.lox] [0m// This should print "block body" if the condition evaluates to True
+[33m[stage-9] [test-2.lox] [0m// This should print "block body" if the condition
+[33m[stage-9] [test-2.lox] [0m// evaluates to True
 [33m[stage-9] [test-2.lox] [0mif (false) {
 [33m[stage-9] [test-2.lox] [0m  print "block body";
 [33m[stage-9] [test-2.lox] [0m}
@@ -19,9 +21,12 @@ Debug = true
 [33m[stage-9] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-9] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test-3.lox] [0m// This program tests whether the assignment operation returns the value assigned.
-[33m[stage-9] [test-3.lox] [0m// The if condition should evaluate to true and the inner boolean expression must be printed.
-[33m[stage-9] [test-3.lox] [0m// So, in this case the if condition evaluates to true and prints the inner boolean expression
+[33m[stage-9] [test-3.lox] [0m// This program tests whether the assignment
+[33m[stage-9] [test-3.lox] [0m// operation returns the value assigned.
+[33m[stage-9] [test-3.lox] [0m// The if condition should evaluate to true and
+[33m[stage-9] [test-3.lox] [0m// the inner boolean expression must be printed.
+[33m[stage-9] [test-3.lox] [0m// So, in this case the if condition evaluates to
+[33m[stage-9] [test-3.lox] [0m//true and prints the inner boolean expression
 [33m[stage-9] [test-3.lox] [0mvar a = false;
 [33m[stage-9] [test-3.lox] [0mif (a = true) {
 [33m[stage-9] [test-3.lox] [0m  print (a == true);
@@ -32,7 +37,8 @@ Debug = true
 [33m[stage-9] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-9] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test-4.lox] [0m// This program should print a different string based on the value of age
+[33m[stage-9] [test-4.lox] [0m// This program should print a different string
+[33m[stage-9] [test-4.lox] [0m// based on the value of age
 [33m[stage-9] [test-4.lox] [0mvar stage = "unknown";
 [33m[stage-9] [test-4.lox] [0mvar age = 73;
 [33m[stage-9] [test-4.lox] [0mif (age < 18) { stage = "child"; }
@@ -40,11 +46,11 @@ Debug = true
 [33m[stage-9] [test-4.lox] [0mprint stage;
 [33m[stage-9] [test-4.lox] [0m
 [33m[stage-9] [test-4.lox] [0mvar isAdult = age >= 18;
-[33m[stage-9] [test-4.lox] [0mif (isAdult) { print "eligible for voting: true"; }
-[33m[stage-9] [test-4.lox] [0mif (!isAdult) { print "eligible for voting: false"; }
+[33m[stage-9] [test-4.lox] [0mif (isAdult) { print "eligible for voting"; }
+[33m[stage-9] [test-4.lox] [0mif (!isAdult) { print "not eligible for voting"; }
 [33m[stage-9] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0madult
-[33m[your_program] [0meligible for voting: true
+[33m[your_program] [0meligible for voting
 [33m[stage-9] [test-4] [0m[92m✓ 2 line(s) match on stdout[0m
 [33m[stage-9] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [0m[92mTest passed.[0m
@@ -52,17 +58,20 @@ Debug = true
 [33m[stage-8] [0m[94mRunning tests for Stage #8: st5[0m
 [33m[stage-8] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-8] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-1.lox] [0m// This program uses a random boolean to decide which branch to execute,
+[33m[stage-8] [test-1.lox] [0m// This program uses a random boolean to decide
+[33m[stage-8] [test-1.lox] [0m// which branch to execute,
 [33m[stage-8] [test-1.lox] [0m// and then prints the appropriate string
-[33m[stage-8] [test-1.lox] [0mif (true) print "if branch"; else print "else branch";
+[33m[stage-8] [test-1.lox] [0mif (true) print "if"; else print "else";
 [33m[stage-8] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0mif branch
+[33m[your_program] [0mif
 [33m[stage-8] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-8] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-8] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-2.lox] [0m// This program initializes age with a random integer and then prints "adult"
-[33m[stage-8] [test-2.lox] [0m// if the age is greater than 18, otherwise it prints "child"
+[33m[stage-8] [test-2.lox] [0m// This program initializes age with a random
+[33m[stage-8] [test-2.lox] [0m// integer and then prints "adult"
+[33m[stage-8] [test-2.lox] [0m// if the age is greater than 18, otherwise it
+[33m[stage-8] [test-2.lox] [0m// prints "child"
 [33m[stage-8] [test-2.lox] [0mvar age = 64;
 [33m[stage-8] [test-2.lox] [0mif (age > 18) print "adult"; else print "child";
 [33m[stage-8] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -71,7 +80,8 @@ Debug = true
 [33m[stage-8] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-8] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-3.lox] [0m// This program uses a random boolean to decide which branch to execute,
+[33m[stage-8] [test-3.lox] [0m// This program uses a random boolean to decide
+[33m[stage-8] [test-3.lox] [0m// which branch to execute,
 [33m[stage-8] [test-3.lox] [0m// and then prints the appropriate string
 [33m[stage-8] [test-3.lox] [0mif (false) {
 [33m[stage-8] [test-3.lox] [0m  print "if block";
@@ -87,8 +97,10 @@ Debug = true
 [33m[stage-8] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-8] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-4.lox] [0m// This program converts a random integer from Celsius to Fahrenheit
-[33m[stage-8] [test-4.lox] [0m// and prints the result. It also prints a message based on the temperature.
+[33m[stage-8] [test-4.lox] [0m// This program converts a random integer from
+[33m[stage-8] [test-4.lox] [0m// Celsius to Fahrenheit
+[33m[stage-8] [test-4.lox] [0m// and prints the result. It also prints a message
+[33m[stage-8] [test-4.lox] [0m// based on the temperature.
 [33m[stage-8] [test-4.lox] [0mvar celsius = 82;
 [33m[stage-8] [test-4.lox] [0mvar fahrenheit = 0;
 [33m[stage-8] [test-4.lox] [0mvar isHot = false;
@@ -104,13 +116,13 @@ Debug = true
 [33m[stage-8] [test-4.lox] [0m    print "It's cold today. Wear a jacket!";
 [33m[stage-8] [test-4.lox] [0m  }
 [33m[stage-8] [test-4.lox] [0m
-[33m[stage-8] [test-4.lox] [0m  if (isHot) { print "Remember to use sunscreen!"; }
+[33m[stage-8] [test-4.lox] [0m  if (isHot) { print "Use sunscreen!"; }
 [33m[stage-8] [test-4.lox] [0m}
 [33m[stage-8] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m82
 [33m[your_program] [0m179.6
 [33m[your_program] [0mIt's a hot day. Stay hydrated!
-[33m[your_program] [0mRemember to use sunscreen!
+[33m[your_program] [0mUse sunscreen!
 [33m[stage-8] [test-4] [0m[92m✓ 4 line(s) match on stdout[0m
 [33m[stage-8] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [0m[92mTest passed.[0m
@@ -118,7 +130,8 @@ Debug = true
 [33m[stage-7] [0m[94mRunning tests for Stage #7: fh8[0m
 [33m[stage-7] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-7] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-1.lox] [0m// This program uses a random boolean to decide which branch to execute,
+[33m[stage-7] [test-1.lox] [0m// This program uses a random boolean to decide
+[33m[stage-7] [test-1.lox] [0m// which branch to execute,
 [33m[stage-7] [test-1.lox] [0m// and then prints the appropriate string
 [33m[stage-7] [test-1.lox] [0mif (false) print "if branch"; else if (false) print "else-if branch";
 [33m[stage-7] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -126,7 +139,8 @@ Debug = true
 [33m[stage-7] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-7] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-2.lox] [0m// This program uses a random boolean to decide which branch to execute,
+[33m[stage-7] [test-2.lox] [0m// This program uses a random boolean to decide
+[33m[stage-7] [test-2.lox] [0m// which branch to execute,
 [33m[stage-7] [test-2.lox] [0m// and then prints the appropriate string
 [33m[stage-7] [test-2.lox] [0mif (false) {
 [33m[stage-7] [test-2.lox] [0m  print "bar";
@@ -140,7 +154,8 @@ Debug = true
 [33m[stage-7] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-7] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-3.lox] [0m// This program uses multiple if statements to categorize a person
+[33m[stage-7] [test-3.lox] [0m// This program uses multiple if statements to
+[33m[stage-7] [test-3.lox] [0m// categorize a person
 [33m[stage-7] [test-3.lox] [0m// into different life stages based on their age
 [33m[stage-7] [test-3.lox] [0mvar age = 62;
 [33m[stage-7] [test-3.lox] [0mvar stage = "unknown";
@@ -155,24 +170,26 @@ Debug = true
 [33m[stage-7] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-7] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-4.lox] [0m// This program uses multiple if statements to determine eligibility for
-[33m[stage-7] [test-4.lox] [0m// voting, driving, and drinking based on a random integer age
+[33m[stage-7] [test-4.lox] [0m// This program uses multiple if statements to
+[33m[stage-7] [test-4.lox] [0m// determine eligibility for
+[33m[stage-7] [test-4.lox] [0m// voting, driving, and drinking based on a random
+[33m[stage-7] [test-4.lox] [0m// integer age
 [33m[stage-7] [test-4.lox] [0mvar age = 79;
 [33m[stage-7] [test-4.lox] [0m
 [33m[stage-7] [test-4.lox] [0mvar isAdult = age >= 18;
 [33m[stage-7] [test-4.lox] [0mif (isAdult) { print "eligible for voting: true"; }
 [33m[stage-7] [test-4.lox] [0melse { print "eligible for voting: false"; }
 [33m[stage-7] [test-4.lox] [0m
-[33m[stage-7] [test-4.lox] [0mif (age < 16) { print "eligible for driving: false"; }
-[33m[stage-7] [test-4.lox] [0melse if (age < 18) { print "eligible for driving: learner's permit"; }
-[33m[stage-7] [test-4.lox] [0melse { print "eligible for driving: full license"; }
+[33m[stage-7] [test-4.lox] [0mif (age < 16) { print "not eligible for driving"; }
+[33m[stage-7] [test-4.lox] [0melse if (age < 18) { print "learner's permit"; }
+[33m[stage-7] [test-4.lox] [0melse { print "eligible for driving"; }
 [33m[stage-7] [test-4.lox] [0m
-[33m[stage-7] [test-4.lox] [0mif (age < 21) { print "eligible for drinking (US): false"; }
-[33m[stage-7] [test-4.lox] [0melse { print "eligible for drinking (US): true"; }
+[33m[stage-7] [test-4.lox] [0mif (age > 21) { print "eligible for drinking"; }
+[33m[stage-7] [test-4.lox] [0melse { print "not eligible for drinking"; }
 [33m[stage-7] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0meligible for voting: true
-[33m[your_program] [0meligible for driving: full license
-[33m[your_program] [0meligible for drinking (US): true
+[33m[your_program] [0meligible for driving
+[33m[your_program] [0meligible for drinking
 [33m[stage-7] [test-4] [0m[92m✓ 3 line(s) match on stdout[0m
 [33m[stage-7] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [0m[92mTest passed.[0m
@@ -180,7 +197,8 @@ Debug = true
 [33m[stage-6] [0m[94mRunning tests for Stage #6: xj4[0m
 [33m[stage-6] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-6] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-1.lox] [0m// This program uses nested if statements to print a message
+[33m[stage-6] [test-1.lox] [0m// This program uses nested if statements to print
+[33m[stage-6] [test-1.lox] [0m// a message
 [33m[stage-6] [test-1.lox] [0mif (true) if (true) print "nested true";
 [33m[stage-6] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mnested true
@@ -188,7 +206,8 @@ Debug = true
 [33m[stage-6] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-6] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-6] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-2.lox] [0m// This program uses nested if statements to print a message
+[33m[stage-6] [test-2.lox] [0m// This program uses nested if statements to print
+[33m[stage-6] [test-2.lox] [0m// a message
 [33m[stage-6] [test-2.lox] [0mif (true) {
 [33m[stage-6] [test-2.lox] [0m  if (true) print "baz"; else print "baz";
 [33m[stage-6] [test-2.lox] [0m}
@@ -198,13 +217,18 @@ Debug = true
 [33m[stage-6] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-6] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-6] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-3.lox] [0m// This program categorizes a person into different life stages based on their age
-[33m[stage-6] [test-3.lox] [0m// Then based on the age, it prints a message about the person's eligibility for voting, driving, and drinking
+[33m[stage-6] [test-3.lox] [0m// This program categorizes a person into
+[33m[stage-6] [test-3.lox] [0m// different life stages based on their age
+[33m[stage-6] [test-3.lox] [0m// Then based on the age, it prints a message
+[33m[stage-6] [test-3.lox] [0m// about the person's eligibility for voting,
+[33m[stage-6] [test-3.lox] [0m// driving, and drinking
 [33m[stage-6] [test-3.lox] [0mvar stage = "unknown";
 [33m[stage-6] [test-3.lox] [0mvar age = 68;
 [33m[stage-6] [test-3.lox] [0mif (age < 18) {
 [33m[stage-6] [test-3.lox] [0m    if (age < 13) { stage = "child"; }
-[33m[stage-6] [test-3.lox] [0m    else if (age < 16) { stage = "young teenager"; }
+[33m[stage-6] [test-3.lox] [0m    else if (age < 16) {
+[33m[stage-6] [test-3.lox] [0m        stage = "young teenager";
+[33m[stage-6] [test-3.lox] [0m    }
 [33m[stage-6] [test-3.lox] [0m    else { stage = "teenager"; }
 [33m[stage-6] [test-3.lox] [0m}
 [33m[stage-6] [test-3.lox] [0melse if (age < 65) {
@@ -225,31 +249,41 @@ Debug = true
 [33m[stage-6] [test-3.lox] [0m}
 [33m[stage-6] [test-3.lox] [0melse { print "eligible for voting: false"; }
 [33m[stage-6] [test-3.lox] [0m
-[33m[stage-6] [test-3.lox] [0mif (age < 16) { print "eligible for driving: false"; }
+[33m[stage-6] [test-3.lox] [0mif (age < 16) { print "not eligible for driving"; }
 [33m[stage-6] [test-3.lox] [0melse if (age < 18) {
 [33m[stage-6] [test-3.lox] [0m    print "eligible for driving: learner's permit";
-[33m[stage-6] [test-3.lox] [0m    if (age < 17) { print "supervised driving required"; }
-[33m[stage-6] [test-3.lox] [0m    else { print "unsupervised driving allowed with restrictions"; }
+[33m[stage-6] [test-3.lox] [0m    if (age < 17) {
+[33m[stage-6] [test-3.lox] [0m        print "supervised driving required";
+[33m[stage-6] [test-3.lox] [0m    }
+[33m[stage-6] [test-3.lox] [0m    else {
+[33m[stage-6] [test-3.lox] [0m        print "driving allowed with restrictions";
+[33m[stage-6] [test-3.lox] [0m    }
 [33m[stage-6] [test-3.lox] [0m}
-[33m[stage-6] [test-3.lox] [0melse { print "eligible for driving: full license"; }
+[33m[stage-6] [test-3.lox] [0melse { print "eligible for driving"; }
 [33m[stage-6] [test-3.lox] [0m
-[33m[stage-6] [test-3.lox] [0mif (age < 21) { print "eligible for drinking (US): false"; }
+[33m[stage-6] [test-3.lox] [0mif (age < 21) {
+[33m[stage-6] [test-3.lox] [0m    print "not eligible for drinking";
+[33m[stage-6] [test-3.lox] [0m}
 [33m[stage-6] [test-3.lox] [0melse {
-[33m[stage-6] [test-3.lox] [0m    print "eligible for drinking (US): true";
-[33m[stage-6] [test-3.lox] [0m    if (age < 25) { print "remember: drink responsibly!"; }
+[33m[stage-6] [test-3.lox] [0m    print "eligible for drinking";
+[33m[stage-6] [test-3.lox] [0m    if (age < 25) {
+[33m[stage-6] [test-3.lox] [0m        print "remember: drink responsibly!";
+[33m[stage-6] [test-3.lox] [0m    }
 [33m[stage-6] [test-3.lox] [0m}
 [33m[stage-6] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0msenior
 [33m[your_program] [0meligible for voting: true
 [33m[your_program] [0mfirst-time voter: unlikely
-[33m[your_program] [0meligible for driving: full license
-[33m[your_program] [0meligible for drinking (US): true
+[33m[your_program] [0meligible for driving
+[33m[your_program] [0meligible for drinking
 [33m[stage-6] [test-3] [0m[92m✓ 5 line(s) match on stdout[0m
 [33m[stage-6] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-6] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-6] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-4.lox] [0m// This program uses nested if statements to print a message
-[33m[stage-6] [test-4.lox] [0mif (true) if (false) print "bar"; else print "foo";
+[33m[stage-6] [test-4.lox] [0m// This program uses nested if statements to print
+[33m[stage-6] [test-4.lox] [0m// a message
+[33m[stage-6] [test-4.lox] [0mif (true) if (false) print "bar";
+[33m[stage-6] [test-4.lox] [0melse print "foo";
 [33m[stage-6] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mfoo
 [33m[stage-6] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m

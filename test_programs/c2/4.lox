@@ -1,8 +1,10 @@
 ---
 expected_error_type: none
 ---
-// This program converts a random integer from Celsius to Fahrenheit
-// and prints the result. It also prints a message based on the temperature.
+// This program converts a random integer from
+// Celsius to Fahrenheit
+// and prints the result. It also prints a message
+// based on the temperature.
 var celsius = <<RANDOM_INTEGER>>;
 var fahrenheit = 0;
 var isHot = false;
@@ -18,5 +20,5 @@ var isHot = false;
     print "It's cold today. Wear a jacket!";
   }
 
-  if (isHot) { print "Remember to use sunscreen!"; }
+  if (isHot) { print "Use sunscreen!"; }
 }
