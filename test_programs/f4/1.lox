@@ -1,6 +1,7 @@
 ---
 expected_error_type: compile
 ---
-// This program is missing the closing parenthesis for the function call
+// This program is missing the closing parenthesis
+// for the function call
 // Hence the compiler error
 print clock(;

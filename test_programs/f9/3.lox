@@ -1,9 +1,12 @@
 ---
 expected_error_type: none
 ---
-// This program demonstrates the use of closures to create a logger function.
-// The inner function log() has access to the outer function's local variable logCount.
-// This is an example of how closures can be used to create private variables and methods.
+// This program demonstrates the use of closures
+// to create a logger function.
+// The inner function log() has access to the
+// outer function's local variable logCount.
+// This is an example of how closures can be used
+// to create private variables and methods.
 fun makeLogger(prefix) {
   var logCount = 0;
 

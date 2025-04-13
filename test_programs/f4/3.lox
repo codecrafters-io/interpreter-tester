@@ -1,7 +1,8 @@
 ---
 expected_error_type: compile
 ---
-// This function declaration is missing the opening and closing braces
+// This function declaration is missing the
+// opening and closing braces
 // The body should always be inside a block
 // Hence the compiler error
 fun f() <<RANDOM_INTEGER>>;

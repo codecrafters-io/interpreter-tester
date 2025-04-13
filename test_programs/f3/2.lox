@@ -1,6 +1,7 @@
 ---
 expected_error_type: none
 ---
-// This function takes three arguments and prints their sum
+// This function takes three arguments and prints
+// their sum
 fun f3(a, b, c) { print a + b + c; }
 f3(<<RANDOM_INTEGER>>, <<RANDOM_INTEGER>>, <<RANDOM_INTEGER>>);

@@ -1,6 +1,7 @@
 ---
 expected_error_type: none
 ---
-// This is a simple function that takes one argument and prints it
+// This is a simple function that takes one
+// argument and prints it
 fun f1(a) { print a; }
 f1(<<RANDOM_INTEGER>>);

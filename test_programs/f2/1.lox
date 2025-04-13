@@ -1,7 +1,8 @@
 ---
 expected_error_type: none
 ---
-// This program defines a simple function that doesn't take any arguments
+// This program defines a simple function that
+// doesn't take any arguments
 // and then invokes the function
 fun <<RANDOM_STRING>>() { print <<RANDOM_INTEGER>>; }
 <<RANDOM_STRING>>();

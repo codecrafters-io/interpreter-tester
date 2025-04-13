@@ -1,9 +1,12 @@
 ---
 expected_error_type: none
 ---
-// This program demonstrates variable shadowing in Lox with functions.
-// The first counter is a global variable that is modified by the inner block.
-// The second counter is a local variable that shadows the global variable.
+// This program demonstrates variable shadowing in
+// Lox with functions.
+// The first counter is a global variable that is
+// modified by the inner block.
+// The second counter is a local variable that
+// shadows the global variable.
 var counter = <<RANDOM_INTEGER_1>>;
 
 fun incrementCounter(amount) {

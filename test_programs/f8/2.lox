@@ -1,8 +1,11 @@
 ---
 expected_error_type: none
 ---
-// This program uses a while loop to count down from <<RANDOM_DIGIT_1>> to 1, printing each number
-// and then decrementing the count until it reaches 0, at which point it prints
+// This program uses a while loop to count down
+// from <<RANDOM_DIGIT_1>> to 1, printing each
+// number
+// and then decrementing the count until it
+// reaches 0, at which point it prints
 // "Blast off!"
 var count = <<RANDOM_DIGIT_1>>;
 

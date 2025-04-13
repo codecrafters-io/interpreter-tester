@@ -1,8 +1,10 @@
 ---
 expected_error_type: none
 ---
-// This program demonstrates the use of closures to create a counter function.
-// The inner function count() needs access to the outer function's local variable i.
+// This program demonstrates the use of closures
+// to create a counter function.
+// The inner function count() needs access to the
+// outer function's local variable i.
 // This can be achieved using closures.
 fun makeCounter() {
   var i = 0;
