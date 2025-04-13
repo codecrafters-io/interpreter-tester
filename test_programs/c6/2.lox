@@ -1,7 +1,8 @@
 ---
 expected_error_type: none
 ---
-// This program uses the logical AND operator to print the first falsy value
+// This program uses the logical AND operator to
+// print the first falsy value
 // Or the last value if all values are truthy
 print false and 1;
 print true and 1;
