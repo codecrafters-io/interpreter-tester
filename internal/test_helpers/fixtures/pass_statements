@@ -170,8 +170,9 @@ Debug = true
 [33m[stage-7] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-7] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-2.lox] [0m// This program declares multiple variables and
-[33m[stage-7] [test-2.lox] [0m// prints the result of arithmetic operations on them
+[33m[stage-7] [test-2.lox] [0m[33m// This program declares multiple variables and[0m
+[33m[stage-7] [test-2.lox] [0m[33m// prints the result of arithmetic operations on[0m
+[33m[stage-7] [test-2.lox] [0m[33m// them[0m
 [33m[stage-7] [test-2.lox] [0mvar foo = 17;
 [33m[stage-7] [test-2.lox] [0mvar bar = 17;
 [33m[stage-7] [test-2.lox] [0mprint foo + bar;
