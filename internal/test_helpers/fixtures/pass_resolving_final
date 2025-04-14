@@ -3,7 +3,7 @@ Debug = true
 [33m[stage-4] [0m[94mRunning tests for Stage #4: de8[0m
 [33m[stage-4] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-4] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-1.lox] [0m// This variable is used in the function `f` below.
+[33m[stage-4] [test-1.lox] [0m[33m// This variable is used in the function `f` below.[0m
 [33m[stage-4] [test-1.lox] [0mvar variable = "global";
 [33m[stage-4] [test-1.lox] [0m
 [33m[stage-4] [test-1.lox] [0m{
@@ -11,13 +11,13 @@ Debug = true
 [33m[stage-4] [test-1.lox] [0m    print variable;
 [33m[stage-4] [test-1.lox] [0m  }
 [33m[stage-4] [test-1.lox] [0m
-[33m[stage-4] [test-1.lox] [0m  f(); // this should print "global"
+[33m[stage-4] [test-1.lox] [0m  f(); [33m// this should print "global"[0m
 [33m[stage-4] [test-1.lox] [0m
-[33m[stage-4] [test-1.lox] [0m  // This variable declaration shouldn't affect
-[33m[stage-4] [test-1.lox] [0m  // the usage in `f` above.
+[33m[stage-4] [test-1.lox] [0m  [33m// This variable declaration shouldn't affect[0m
+[33m[stage-4] [test-1.lox] [0m  [33m// the usage in `f` above.[0m
 [33m[stage-4] [test-1.lox] [0m  var variable = "local";
 [33m[stage-4] [test-1.lox] [0m
-[33m[stage-4] [test-1.lox] [0m  f(); // this should still print "global"
+[33m[stage-4] [test-1.lox] [0m  f(); [33m// this should still print "global"[0m
 [33m[stage-4] [test-1.lox] [0m}
 [33m[stage-4] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mglobal
@@ -26,7 +26,7 @@ Debug = true
 [33m[stage-4] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-4] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-2.lox] [0m// This function is used in the function `f` below.
+[33m[stage-4] [test-2.lox] [0m[33m// This function is used in the function `f` below.[0m
 [33m[stage-4] [test-2.lox] [0mfun global() {
 [33m[stage-4] [test-2.lox] [0m  print "global";
 [33m[stage-4] [test-2.lox] [0m}
@@ -36,15 +36,15 @@ Debug = true
 [33m[stage-4] [test-2.lox] [0m    global();
 [33m[stage-4] [test-2.lox] [0m  }
 [33m[stage-4] [test-2.lox] [0m
-[33m[stage-4] [test-2.lox] [0m  f(); // this should print "global"
+[33m[stage-4] [test-2.lox] [0m  f(); [33m// this should print "global"[0m
 [33m[stage-4] [test-2.lox] [0m
-[33m[stage-4] [test-2.lox] [0m  // This function declaration shouldn't affect
-[33m[stage-4] [test-2.lox] [0m  // the usage in `f` above.
+[33m[stage-4] [test-2.lox] [0m  [33m// This function declaration shouldn't affect[0m
+[33m[stage-4] [test-2.lox] [0m  [33m// the usage in `f` above.[0m
 [33m[stage-4] [test-2.lox] [0m  fun global() {
 [33m[stage-4] [test-2.lox] [0m    print "local";
 [33m[stage-4] [test-2.lox] [0m  }
 [33m[stage-4] [test-2.lox] [0m
-[33m[stage-4] [test-2.lox] [0m  f(); // this should also print "global"
+[33m[stage-4] [test-2.lox] [0m  f(); [33m// this should also print "global"[0m
 [33m[stage-4] [test-2.lox] [0m}
 [33m[stage-4] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mglobal
@@ -59,21 +59,21 @@ Debug = true
 [33m[stage-4] [test-3.lox] [0m  var x = "outer";
 [33m[stage-4] [test-3.lox] [0m
 [33m[stage-4] [test-3.lox] [0m  fun middle() {
-[33m[stage-4] [test-3.lox] [0m    // The `inner` function should capture the
-[33m[stage-4] [test-3.lox] [0m    // variable from the closest outer
-[33m[stage-4] [test-3.lox] [0m    // scope, which is the `outer` function's
-[33m[stage-4] [test-3.lox] [0m    // scope.
+[33m[stage-4] [test-3.lox] [0m    [33m// The `inner` function should capture the[0m
+[33m[stage-4] [test-3.lox] [0m    [33m// variable from the closest outer[0m
+[33m[stage-4] [test-3.lox] [0m    [33m// scope, which is the `outer` function's[0m
+[33m[stage-4] [test-3.lox] [0m    [33m// scope.[0m
 [33m[stage-4] [test-3.lox] [0m    fun inner() {
-[33m[stage-4] [test-3.lox] [0m      print x; // Should capture "outer"
+[33m[stage-4] [test-3.lox] [0m      print x; [33m// Should capture "outer"[0m
 [33m[stage-4] [test-3.lox] [0m    }
 [33m[stage-4] [test-3.lox] [0m
-[33m[stage-4] [test-3.lox] [0m    inner(); // Should print "outer"
+[33m[stage-4] [test-3.lox] [0m    inner(); [33m// Should print "outer"[0m
 [33m[stage-4] [test-3.lox] [0m
-[33m[stage-4] [test-3.lox] [0m    // This variable declaration shouldn't affect
-[33m[stage-4] [test-3.lox] [0m    // the usage in `inner` above.
+[33m[stage-4] [test-3.lox] [0m    [33m// This variable declaration shouldn't affect[0m
+[33m[stage-4] [test-3.lox] [0m    [33m// the usage in `inner` above.[0m
 [33m[stage-4] [test-3.lox] [0m    var x = "middle";
 [33m[stage-4] [test-3.lox] [0m
-[33m[stage-4] [test-3.lox] [0m    inner(); // Should still print "outer"
+[33m[stage-4] [test-3.lox] [0m    inner(); [33m// Should still print "outer"[0m
 [33m[stage-4] [test-3.lox] [0m  }
 [33m[stage-4] [test-3.lox] [0m
 [33m[stage-4] [test-3.lox] [0m  middle();
@@ -90,13 +90,13 @@ Debug = true
 [33m[stage-4] [test-4.lox] [0mvar count = 0;
 [33m[stage-4] [test-4.lox] [0m
 [33m[stage-4] [test-4.lox] [0m{
-[33m[stage-4] [test-4.lox] [0m  // The `counter` function should use the `count`
-[33m[stage-4] [test-4.lox] [0m  // variable from the
-[33m[stage-4] [test-4.lox] [0m  // global scope.
+[33m[stage-4] [test-4.lox] [0m  [33m// The `counter` function should use the `count`[0m
+[33m[stage-4] [test-4.lox] [0m  [33m// variable from the[0m
+[33m[stage-4] [test-4.lox] [0m  [33m// global scope.[0m
 [33m[stage-4] [test-4.lox] [0m  fun makeCounter() {
 [33m[stage-4] [test-4.lox] [0m    fun counter() {
-[33m[stage-4] [test-4.lox] [0m      // This should increment the `count`
-[33m[stage-4] [test-4.lox] [0m      // variable from the global scope.
+[33m[stage-4] [test-4.lox] [0m      [33m// This should increment the `count`[0m
+[33m[stage-4] [test-4.lox] [0m      [33m// variable from the global scope.[0m
 [33m[stage-4] [test-4.lox] [0m      count = count + 1;
 [33m[stage-4] [test-4.lox] [0m      print count;
 [33m[stage-4] [test-4.lox] [0m    }
@@ -104,14 +104,14 @@ Debug = true
 [33m[stage-4] [test-4.lox] [0m  }
 [33m[stage-4] [test-4.lox] [0m
 [33m[stage-4] [test-4.lox] [0m  var counter1 = makeCounter();
-[33m[stage-4] [test-4.lox] [0m  counter1(); // Should print 1
-[33m[stage-4] [test-4.lox] [0m  counter1(); // Should print 2
+[33m[stage-4] [test-4.lox] [0m  counter1(); [33m// Should print 1[0m
+[33m[stage-4] [test-4.lox] [0m  counter1(); [33m// Should print 2[0m
 [33m[stage-4] [test-4.lox] [0m
-[33m[stage-4] [test-4.lox] [0m  // This variable declaration shouldn't affect
-[33m[stage-4] [test-4.lox] [0m  // our counter.
+[33m[stage-4] [test-4.lox] [0m  [33m// This variable declaration shouldn't affect[0m
+[33m[stage-4] [test-4.lox] [0m  [33m// our counter.[0m
 [33m[stage-4] [test-4.lox] [0m  var count = 0;
 [33m[stage-4] [test-4.lox] [0m
-[33m[stage-4] [test-4.lox] [0m  counter1(); // Should print 3
+[33m[stage-4] [test-4.lox] [0m  counter1(); [33m// Should print 3[0m
 [33m[stage-4] [test-4.lox] [0m}
 [33m[stage-4] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m1
@@ -124,27 +124,27 @@ Debug = true
 [33m[stage-3] [0m[94mRunning tests for Stage #3: pt7[0m
 [33m[stage-3] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-3] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-1.lox] [0m// First declaration of variable 'a' in global
-[33m[stage-3] [test-1.lox] [0m// scope
+[33m[stage-3] [test-1.lox] [0m[33m// First declaration of variable 'a' in global[0m
+[33m[stage-3] [test-1.lox] [0m[33m// scope[0m
 [33m[stage-3] [test-1.lox] [0mvar a = "value";
 [33m[stage-3] [test-1.lox] [0m
-[33m[stage-3] [test-1.lox] [0m// Redeclaring 'a' with its own value should be
-[33m[stage-3] [test-1.lox] [0m// allowed in global scope
+[33m[stage-3] [test-1.lox] [0m[33m// Redeclaring 'a' with its own value should be[0m
+[33m[stage-3] [test-1.lox] [0m[33m// allowed in global scope[0m
 [33m[stage-3] [test-1.lox] [0mvar a = a;
-[33m[stage-3] [test-1.lox] [0mprint a; // this should print "value"
+[33m[stage-3] [test-1.lox] [0mprint a; [33m// this should print "value"[0m
 [33m[stage-3] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mvalue
 [33m[stage-3] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-3] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-3] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-3] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-2.lox] [0m// Declare outer variable 'a' in global scope
+[33m[stage-3] [test-2.lox] [0m[33m// Declare outer variable 'a' in global scope[0m
 [33m[stage-3] [test-2.lox] [0mvar a = "outer";
 [33m[stage-3] [test-2.lox] [0m
 [33m[stage-3] [test-2.lox] [0m{
-[33m[stage-3] [test-2.lox] [0m  // Attempting to declare local variable'a'
-[33m[stage-3] [test-2.lox] [0m  // initialized with itself
-[33m[stage-3] [test-2.lox] [0m  var a = a; // expect compile error
+[33m[stage-3] [test-2.lox] [0m  [33m// Attempting to declare local variable'a'[0m
+[33m[stage-3] [test-2.lox] [0m  [33m// initialized with itself[0m
+[33m[stage-3] [test-2.lox] [0m  var a = a; [33m// expect compile error[0m
 [33m[stage-3] [test-2.lox] [0m}
 [33m[stage-3] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 7] Error at 'a': Can't read local variable in its own initializer.
@@ -152,22 +152,22 @@ Debug = true
 [33m[stage-3] [test-2] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-3] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-3] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-3.lox] [0m// Helper function that simply returns its argument
+[33m[stage-3] [test-3.lox] [0m[33m// Helper function that simply returns its argument[0m
 [33m[stage-3] [test-3.lox] [0mfun returnArg(arg) {
 [33m[stage-3] [test-3.lox] [0m  return arg;
 [33m[stage-3] [test-3.lox] [0m}
 [33m[stage-3] [test-3.lox] [0m
-[33m[stage-3] [test-3.lox] [0m// Declare global variable 'b'
+[33m[stage-3] [test-3.lox] [0m[33m// Declare global variable 'b'[0m
 [33m[stage-3] [test-3.lox] [0mvar b = "global";
 [33m[stage-3] [test-3.lox] [0m
 [33m[stage-3] [test-3.lox] [0m{
-[33m[stage-3] [test-3.lox] [0m  // Local variable declaration
+[33m[stage-3] [test-3.lox] [0m  [33m// Local variable declaration[0m
 [33m[stage-3] [test-3.lox] [0m  var a = "first";
 [33m[stage-3] [test-3.lox] [0m
-[33m[stage-3] [test-3.lox] [0m  // Attempting to initialize local variable 'b'
-[33m[stage-3] [test-3.lox] [0m  // using local variable 'b'
-[33m[stage-3] [test-3.lox] [0m  // through a function call
-[33m[stage-3] [test-3.lox] [0m  var b = returnArg(b); // expect compile error
+[33m[stage-3] [test-3.lox] [0m  [33m// Attempting to initialize local variable 'b'[0m
+[33m[stage-3] [test-3.lox] [0m  [33m// using local variable 'b'[0m
+[33m[stage-3] [test-3.lox] [0m  [33m// through a function call[0m
+[33m[stage-3] [test-3.lox] [0m  var b = returnArg(b); [33m// expect compile error[0m
 [33m[stage-3] [test-3.lox] [0m  print b;
 [33m[stage-3] [test-3.lox] [0m}
 [33m[stage-3] [test-3.lox] [0m
@@ -180,14 +180,14 @@ Debug = true
 [33m[stage-3] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-3] [test-4] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-3] [test-4.lox] [0mfun outer() {
-[33m[stage-3] [test-4.lox] [0m  // Declare variable 'a' in outer function scope
+[33m[stage-3] [test-4.lox] [0m  [33m// Declare variable 'a' in outer function scope[0m
 [33m[stage-3] [test-4.lox] [0m  var a = "outer";
 [33m[stage-3] [test-4.lox] [0m
-[33m[stage-3] [test-4.lox] [0m  // Inner function with its own scope
+[33m[stage-3] [test-4.lox] [0m  [33m// Inner function with its own scope[0m
 [33m[stage-3] [test-4.lox] [0m  fun inner() {
-[33m[stage-3] [test-4.lox] [0m    // Attempting to declare local 'a' initialized
-[33m[stage-3] [test-4.lox] [0m    // with itself
-[33m[stage-3] [test-4.lox] [0m    var a = a; // expect compile error
+[33m[stage-3] [test-4.lox] [0m    [33m// Attempting to declare local 'a' initialized[0m
+[33m[stage-3] [test-4.lox] [0m    [33m// with itself[0m
+[33m[stage-3] [test-4.lox] [0m    var a = a; [33m// expect compile error[0m
 [33m[stage-3] [test-4.lox] [0m    print a;
 [33m[stage-3] [test-4.lox] [0m  }
 [33m[stage-3] [test-4.lox] [0m
@@ -207,8 +207,8 @@ Debug = true
 [33m[stage-2] [test-1.lox] [0m{
 [33m[stage-2] [test-1.lox] [0m  var a = "value";
 [33m[stage-2] [test-1.lox] [0m
-[33m[stage-2] [test-1.lox] [0m  // Attempting to redeclare 'a' in the same scope
-[33m[stage-2] [test-1.lox] [0m  var a = "other"; // expect compile error
+[33m[stage-2] [test-1.lox] [0m  [33m// Attempting to redeclare 'a' in the same scope[0m
+[33m[stage-2] [test-1.lox] [0m  var a = "other"; [33m// expect compile error[0m
 [33m[stage-2] [test-1.lox] [0m}
 [33m[stage-2] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 5] Error at 'a': Already a variable with this name in this scope.
@@ -216,12 +216,12 @@ Debug = true
 [33m[stage-2] [test-1] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-2] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-2] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-2.lox] [0m// Function parameters are considered variables in
-[33m[stage-2] [test-2.lox] [0m// the function's scope
+[33m[stage-2] [test-2.lox] [0m[33m// Function parameters are considered variables in[0m
+[33m[stage-2] [test-2.lox] [0m[33m// the function's scope[0m
 [33m[stage-2] [test-2.lox] [0mfun foo(a) {
-[33m[stage-2] [test-2.lox] [0m  // Attempting to declare a variable with same
-[33m[stage-2] [test-2.lox] [0m  // name as parameter
-[33m[stage-2] [test-2.lox] [0m  var a; // expect compile error
+[33m[stage-2] [test-2.lox] [0m  [33m// Attempting to declare a variable with same[0m
+[33m[stage-2] [test-2.lox] [0m  [33m// name as parameter[0m
+[33m[stage-2] [test-2.lox] [0m  var a; [33m// expect compile error[0m
 [33m[stage-2] [test-2.lox] [0m}
 [33m[stage-2] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 6] Error at 'a': Already a variable with this name in this scope.
@@ -229,10 +229,10 @@ Debug = true
 [33m[stage-2] [test-2] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-2] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-2] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-3.lox] [0m// Function parameters must have unique names
-[33m[stage-2] [test-3.lox] [0mfun foo(arg, arg) { // expect compile error
-[33m[stage-2] [test-3.lox] [0m  // Function body is irrelevant as the error
-[33m[stage-2] [test-3.lox] [0m  // occurs in parameter list
+[33m[stage-2] [test-3.lox] [0m[33m// Function parameters must have unique names[0m
+[33m[stage-2] [test-3.lox] [0mfun foo(arg, arg) { [33m// expect compile error[0m
+[33m[stage-2] [test-3.lox] [0m  [33m// Function body is irrelevant as the error[0m
+[33m[stage-2] [test-3.lox] [0m  [33m// occurs in parameter list[0m
 [33m[stage-2] [test-3.lox] [0m  "body";
 [33m[stage-2] [test-3.lox] [0m}
 [33m[stage-2] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -241,8 +241,8 @@ Debug = true
 [33m[stage-2] [test-3] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-2] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-2] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-4.lox] [0m// Due to the compile error on line 17
-[33m[stage-2] [test-4.lox] [0m// Nothing should be printed
+[33m[stage-2] [test-4.lox] [0m[33m// Due to the compile error on line 17[0m
+[33m[stage-2] [test-4.lox] [0m[33m// Nothing should be printed[0m
 [33m[stage-2] [test-4.lox] [0mvar a = "1";
 [33m[stage-2] [test-4.lox] [0mprint a;
 [33m[stage-2] [test-4.lox] [0m
@@ -253,11 +253,11 @@ Debug = true
 [33m[stage-2] [test-4.lox] [0mprint a;
 [33m[stage-2] [test-4.lox] [0m
 [33m[stage-2] [test-4.lox] [0m{
-[33m[stage-2] [test-4.lox] [0m  // First declaration in local scope
+[33m[stage-2] [test-4.lox] [0m  [33m// First declaration in local scope[0m
 [33m[stage-2] [test-4.lox] [0m  var a = "1";
 [33m[stage-2] [test-4.lox] [0m
-[33m[stage-2] [test-4.lox] [0m  // Attempting to redeclare in local scope
-[33m[stage-2] [test-4.lox] [0m  var a = "2"; // This should be a compile error
+[33m[stage-2] [test-4.lox] [0m  [33m// Attempting to redeclare in local scope[0m
+[33m[stage-2] [test-4.lox] [0m  var a = "2"; [33m// This should be a compile error[0m
 [33m[stage-2] [test-4.lox] [0m  print a;
 [33m[stage-2] [test-4.lox] [0m}
 [33m[stage-2] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -270,14 +270,14 @@ Debug = true
 [33m[stage-1] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-1] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-1] [test-1.lox] [0mfun foo() {
-[33m[stage-1] [test-1.lox] [0m  // Return statements are allowed within function
-[33m[stage-1] [test-1.lox] [0m  // scope
+[33m[stage-1] [test-1.lox] [0m  [33m// Return statements are allowed within function[0m
+[33m[stage-1] [test-1.lox] [0m  [33m// scope[0m
 [33m[stage-1] [test-1.lox] [0m  return "at function scope is ok";
 [33m[stage-1] [test-1.lox] [0m}
 [33m[stage-1] [test-1.lox] [0m
-[33m[stage-1] [test-1.lox] [0m// Return statements are not allowed at the
-[33m[stage-1] [test-1.lox] [0m// top-level
-[33m[stage-1] [test-1.lox] [0mreturn; // expect compile error
+[33m[stage-1] [test-1.lox] [0m[33m// Return statements are not allowed at the[0m
+[33m[stage-1] [test-1.lox] [0m[33m// top-level[0m
+[33m[stage-1] [test-1.lox] [0mreturn; [33m// expect compile error[0m
 [33m[stage-1] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 9] Error at 'return': Can't return from top-level code.
 [33m[stage-1] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
@@ -296,7 +296,7 @@ Debug = true
 [33m[stage-1] [test-2.lox] [0m
 [33m[stage-1] [test-2.lox] [0mif (true) {
 [33m[stage-1] [test-2.lox] [0m  return "conditional return";
-[33m[stage-1] [test-2.lox] [0m  // expect compile error
+[33m[stage-1] [test-2.lox] [0m  [33m// expect compile error[0m
 [33m[stage-1] [test-2.lox] [0m}
 [33m[stage-1] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 12] Error at 'return': Can't return from top-level code.
@@ -305,10 +305,10 @@ Debug = true
 [33m[stage-1] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-1] [test-3] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-1] [test-3.lox] [0m{
-[33m[stage-1] [test-3.lox] [0m  // Return statements are not allowed in
-[33m[stage-1] [test-3.lox] [0m  // top-level blocks
+[33m[stage-1] [test-3.lox] [0m  [33m// Return statements are not allowed in[0m
+[33m[stage-1] [test-3.lox] [0m  [33m// top-level blocks[0m
 [33m[stage-1] [test-3.lox] [0m  return "not allowed in a block either";
-[33m[stage-1] [test-3.lox] [0m  // expect compile error
+[33m[stage-1] [test-3.lox] [0m  [33m// expect compile error[0m
 [33m[stage-1] [test-3.lox] [0m}
 [33m[stage-1] [test-3.lox] [0m
 [33m[stage-1] [test-3.lox] [0mfun allowed() {
@@ -336,9 +336,9 @@ Debug = true
 [33m[stage-1] [test-4.lox] [0m    return;
 [33m[stage-1] [test-4.lox] [0m  }
 [33m[stage-1] [test-4.lox] [0m
-[33m[stage-1] [test-4.lox] [0m  // Return statements are not allowed outside of
-[33m[stage-1] [test-4.lox] [0m  // functions
-[33m[stage-1] [test-4.lox] [0m  return "not ok"; // expect compile error
+[33m[stage-1] [test-4.lox] [0m  [33m// Return statements are not allowed outside of[0m
+[33m[stage-1] [test-4.lox] [0m  [33m// functions[0m
+[33m[stage-1] [test-4.lox] [0m  return "not ok"; [33m// expect compile error[0m
 [33m[stage-1] [test-4.lox] [0m}
 [33m[stage-1] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 16] Error at 'return': Can't return from top-level code.

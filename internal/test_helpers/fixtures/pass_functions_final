@@ -5,28 +5,28 @@ Debug = true
 [33m[stage-9] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-9] [test-1.lox] [0mprint clock() + 23;
 [33m[stage-9] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1.741238639464E9
-[33m[stage-9] [test-1] [0m[92m✓ 1741238639.464000[0m
+[33m[your_program] [0m1.744558076946E9
+[33m[stage-9] [test-1] [0m[92m✓ 1744558076.946000[0m
 [33m[stage-9] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-9] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-9] [test-2] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-9] [test-2.lox] [0mprint clock() / 1000;
 [33m[stage-9] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1741238.616527
-[33m[stage-9] [test-2] [0m[92m✓ 1741238.616527[0m
+[33m[your_program] [0m1744558.053996
+[33m[stage-9] [test-2] [0m[92m✓ 1744558.053996[0m
 [33m[stage-9] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-9] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-9] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test-3.lox] [0m// This program utilizes the built-in clock()
-[33m[stage-9] [test-3.lox] [0m// function
-[33m[stage-9] [test-3.lox] [0m// and runs a check to see if the operation has
-[33m[stage-9] [test-3.lox] [0m// timed out
+[33m[stage-9] [test-3.lox] [0m[33m// This program utilizes the built-in clock()[0m
+[33m[stage-9] [test-3.lox] [0m[33m// function[0m
+[33m[stage-9] [test-3.lox] [0m[33m// and runs a check to see if the operation has[0m
+[33m[stage-9] [test-3.lox] [0m[33m// timed out[0m
 [33m[stage-9] [test-3.lox] [0mvar startTime = clock();
 [33m[stage-9] [test-3.lox] [0mvar timeoutSeconds = 2;
 [33m[stage-9] [test-3.lox] [0m
-[33m[stage-9] [test-3.lox] [0m// Check if less than 2 seconds have elapsed
+[33m[stage-9] [test-3.lox] [0m[33m// Check if less than 2 seconds have elapsed[0m
 [33m[stage-9] [test-3.lox] [0mvar c1 = clock() >= startTime;
 [33m[stage-9] [test-3.lox] [0mvar c2 = clock() <= (startTime + timeoutSeconds);
 [33m[stage-9] [test-3.lox] [0m
@@ -41,9 +41,9 @@ Debug = true
 [33m[stage-9] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-9] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test-4.lox] [0m// This program utilizes the built-in clock()
-[33m[stage-9] [test-4.lox] [0m// function
-[33m[stage-9] [test-4.lox] [0m// to create a timer that runs for 0.2 seconds
+[33m[stage-9] [test-4.lox] [0m[33m// This program utilizes the built-in clock()[0m
+[33m[stage-9] [test-4.lox] [0m[33m// function[0m
+[33m[stage-9] [test-4.lox] [0m[33m// to create a timer that runs for 0.2 seconds[0m
 [33m[stage-9] [test-4.lox] [0mvar startTime = clock();
 [33m[stage-9] [test-4.lox] [0mvar lastCheck = startTime;
 [33m[stage-9] [test-4.lox] [0mvar running = true;
@@ -67,9 +67,9 @@ Debug = true
 [33m[stage-8] [0m[94mRunning tests for Stage #8: pg8[0m
 [33m[stage-8] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-8] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-1.lox] [0m// This program defines a simple function that
-[33m[stage-8] [test-1.lox] [0m// doesn't take any arguments
-[33m[stage-8] [test-1.lox] [0m// and then invokes the function
+[33m[stage-8] [test-1.lox] [0m[33m// This program defines a simple function that[0m
+[33m[stage-8] [test-1.lox] [0m[33m// doesn't take any arguments[0m
+[33m[stage-8] [test-1.lox] [0m[33m// and then invokes the function[0m
 [33m[stage-8] [test-1.lox] [0mfun hello() { print 55; }
 [33m[stage-8] [test-1.lox] [0mhello();
 [33m[stage-8] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -78,8 +78,8 @@ Debug = true
 [33m[stage-8] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-8] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-2.lox] [0m// This function, when invoked should not return
-[33m[stage-8] [test-2.lox] [0m// or print anything
+[33m[stage-8] [test-2.lox] [0m[33m// This function, when invoked should not return[0m
+[33m[stage-8] [test-2.lox] [0m[33m// or print anything[0m
 [33m[stage-8] [test-2.lox] [0mfun f() {}
 [33m[stage-8] [test-2.lox] [0mf();
 [33m[stage-8] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -87,7 +87,7 @@ Debug = true
 [33m[stage-8] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-8] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-3.lox] [0m// This program should print <fn foo>
+[33m[stage-8] [test-3.lox] [0m[33m// This program should print <fn foo>[0m
 [33m[stage-8] [test-3.lox] [0mfun foo() {}
 [33m[stage-8] [test-3.lox] [0mprint foo;
 [33m[stage-8] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -96,10 +96,10 @@ Debug = true
 [33m[stage-8] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-8] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-4.lox] [0m// This program calculates the cumulative sum of
-[33m[stage-8] [test-4.lox] [0m// numbers from 1 to n.
+[33m[stage-8] [test-4.lox] [0m[33m// This program calculates the cumulative sum of[0m
+[33m[stage-8] [test-4.lox] [0m[33m// numbers from 1 to n.[0m
 [33m[stage-8] [test-4.lox] [0mfun cumulative_sum() {
-[33m[stage-8] [test-4.lox] [0m    var n = 10;  // Fixed value
+[33m[stage-8] [test-4.lox] [0m    var n = 10;  [33m// Fixed value[0m
 [33m[stage-8] [test-4.lox] [0m    var total = 0;
 [33m[stage-8] [test-4.lox] [0m    var i = 1;
 [33m[stage-8] [test-4.lox] [0m    while (i <= n) {
@@ -121,8 +121,8 @@ Debug = true
 [33m[stage-7] [0m[94mRunning tests for Stage #7: lb6[0m
 [33m[stage-7] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-7] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-1.lox] [0m// This is a simple function that takes one
-[33m[stage-7] [test-1.lox] [0m// argument and prints it
+[33m[stage-7] [test-1.lox] [0m[33m// This is a simple function that takes one[0m
+[33m[stage-7] [test-1.lox] [0m[33m// argument and prints it[0m
 [33m[stage-7] [test-1.lox] [0mfun f1(a) { print a; }
 [33m[stage-7] [test-1.lox] [0mf1(45);
 [33m[stage-7] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -131,8 +131,8 @@ Debug = true
 [33m[stage-7] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-7] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-2.lox] [0m// This function takes three arguments and prints
-[33m[stage-7] [test-2.lox] [0m// their sum
+[33m[stage-7] [test-2.lox] [0m[33m// This function takes three arguments and prints[0m
+[33m[stage-7] [test-2.lox] [0m[33m// their sum[0m
 [33m[stage-7] [test-2.lox] [0mfun f3(a, b, c) { print a + b + c; }
 [33m[stage-7] [test-2.lox] [0mf3(67, 67, 67);
 [33m[stage-7] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -141,8 +141,8 @@ Debug = true
 [33m[stage-7] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-7] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-3.lox] [0m// This function takes eight arguments and prints
-[33m[stage-7] [test-3.lox] [0m// their sum
+[33m[stage-7] [test-3.lox] [0m[33m// This function takes eight arguments and prints[0m
+[33m[stage-7] [test-3.lox] [0m[33m// their sum[0m
 [33m[stage-7] [test-3.lox] [0mfun f8(a, b, c, d, e, f, g, h) {
 [33m[stage-7] [test-3.lox] [0m  print a - b + c * d + e - f + g - h;
 [33m[stage-7] [test-3.lox] [0m}
@@ -153,8 +153,8 @@ Debug = true
 [33m[stage-7] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-7] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-4.lox] [0m// This function takes two arguments and prints
-[33m[stage-7] [test-4.lox] [0m// the grade based on the score and bonus
+[33m[stage-7] [test-4.lox] [0m[33m// This function takes two arguments and prints[0m
+[33m[stage-7] [test-4.lox] [0m[33m// the grade based on the score and bonus[0m
 [33m[stage-7] [test-4.lox] [0mfun calculateGrade(score, bonus) {
 [33m[stage-7] [test-4.lox] [0m  var finalScore = score + bonus;
 [33m[stage-7] [test-4.lox] [0m
@@ -185,9 +185,9 @@ Debug = true
 [33m[stage-6] [0m[94mRunning tests for Stage #6: px4[0m
 [33m[stage-6] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-6] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-1.lox] [0m// This program is missing the closing parenthesis
-[33m[stage-6] [test-1.lox] [0m// for the function call
-[33m[stage-6] [test-1.lox] [0m// Hence the compiler error
+[33m[stage-6] [test-1.lox] [0m[33m// This program is missing the closing parenthesis[0m
+[33m[stage-6] [test-1.lox] [0m[33m// for the function call[0m
+[33m[stage-6] [test-1.lox] [0m[33m// Hence the compiler error[0m
 [33m[stage-6] [test-1.lox] [0mprint clock(;
 [33m[stage-6] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 4] Error at ';': Expect expression.
@@ -195,10 +195,10 @@ Debug = true
 [33m[stage-6] [test-1] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-6] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-6] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-2.lox] [0m// This program is missing the opening parenthesis
-[33m[stage-6] [test-2.lox] [0m// for the function call,
-[33m[stage-6] [test-2.lox] [0m// and has extra closing parentheses
-[33m[stage-6] [test-2.lox] [0m// Hence the compiler error
+[33m[stage-6] [test-2.lox] [0m[33m// This program is missing the opening parenthesis[0m
+[33m[stage-6] [test-2.lox] [0m[33m// for the function call,[0m
+[33m[stage-6] [test-2.lox] [0m[33m// and has extra closing parentheses[0m
+[33m[stage-6] [test-2.lox] [0m[33m// Hence the compiler error[0m
 [33m[stage-6] [test-2.lox] [0mprint clock)));
 [33m[stage-6] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 5] Error at ')': Expect ';' after value.
@@ -206,10 +206,10 @@ Debug = true
 [33m[stage-6] [test-2] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-6] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-6] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-3.lox] [0m// This function declaration is missing the
-[33m[stage-6] [test-3.lox] [0m// opening and closing braces
-[33m[stage-6] [test-3.lox] [0m// The body should always be inside a block
-[33m[stage-6] [test-3.lox] [0m// Hence the compiler error
+[33m[stage-6] [test-3.lox] [0m[33m// This function declaration is missing the[0m
+[33m[stage-6] [test-3.lox] [0m[33m// opening and closing braces[0m
+[33m[stage-6] [test-3.lox] [0m[33m// The body should always be inside a block[0m
+[33m[stage-6] [test-3.lox] [0m[33m// Hence the compiler error[0m
 [33m[stage-6] [test-3.lox] [0mfun f() 27;
 [33m[stage-6] [test-3.lox] [0mprint f();
 [33m[stage-6] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -218,9 +218,9 @@ Debug = true
 [33m[stage-6] [test-3] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-6] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-6] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-4.lox] [0m// This function declaration is missing a comma
-[33m[stage-6] [test-4.lox] [0m// between b and c
-[33m[stage-6] [test-4.lox] [0m// Hence the compiler error
+[33m[stage-6] [test-4.lox] [0m[33m// This function declaration is missing a comma[0m
+[33m[stage-6] [test-4.lox] [0m[33m// between b and c[0m
+[33m[stage-6] [test-4.lox] [0m[33m// Hence the compiler error[0m
 [33m[stage-6] [test-4.lox] [0mfun foo(a, b c, d, e, f) {}
 [33m[stage-6] [test-4.lox] [0mfoo();
 [33m[stage-6] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -232,7 +232,7 @@ Debug = true
 [33m[stage-5] [0m[94mRunning tests for Stage #5: rd2[0m
 [33m[stage-5] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-5] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test-1.lox] [0m// This program computes the 35th Fibonacci number
+[33m[stage-5] [test-1.lox] [0m[33m// This program computes the 35th Fibonacci number[0m
 [33m[stage-5] [test-1.lox] [0mfun fib(n) {
 [33m[stage-5] [test-1.lox] [0m  if (n < 2) return n;
 [33m[stage-5] [test-1.lox] [0m  return fib(n - 2) + fib(n - 1);
@@ -240,7 +240,7 @@ Debug = true
 [33m[stage-5] [test-1.lox] [0m
 [33m[stage-5] [test-1.lox] [0mvar start = clock();
 [33m[stage-5] [test-1.lox] [0mprint fib(10) == 55;
-[33m[stage-5] [test-1.lox] [0mprint (clock() - start) < 5; // 5 seconds
+[33m[stage-5] [test-1.lox] [0mprint (clock() - start) < 5; [33m// 5 seconds[0m
 [33m[stage-5] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mtrue
 [33m[your_program] [0mtrue
@@ -248,9 +248,9 @@ Debug = true
 [33m[stage-5] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-5] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-5] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test-2.lox] [0m// This program uses a return statement inside an
-[33m[stage-5] [test-2.lox] [0m// if statement
-[33m[stage-5] [test-2.lox] [0m// to return "ok" if the condition is false
+[33m[stage-5] [test-2.lox] [0m[33m// This program uses a return statement inside an[0m
+[33m[stage-5] [test-2.lox] [0m[33m// if statement[0m
+[33m[stage-5] [test-2.lox] [0m[33m// to return "ok" if the condition is false[0m
 [33m[stage-5] [test-2.lox] [0mfun f() {
 [33m[stage-5] [test-2.lox] [0m  if (true) return "no"; else return "ok";
 [33m[stage-5] [test-2.lox] [0m}
@@ -262,9 +262,9 @@ Debug = true
 [33m[stage-5] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-5] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-5] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test-3.lox] [0m// This program uses a return statement inside a
-[33m[stage-5] [test-3.lox] [0m// while loop
-[33m[stage-5] [test-3.lox] [0m// to return "ok" if the condition is false
+[33m[stage-5] [test-3.lox] [0m[33m// This program uses a return statement inside a[0m
+[33m[stage-5] [test-3.lox] [0m[33m// while loop[0m
+[33m[stage-5] [test-3.lox] [0m[33m// to return "ok" if the condition is false[0m
 [33m[stage-5] [test-3.lox] [0mfun f() {
 [33m[stage-5] [test-3.lox] [0m  while (!false) return "ok";
 [33m[stage-5] [test-3.lox] [0m}
@@ -276,8 +276,8 @@ Debug = true
 [33m[stage-5] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-5] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-5] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test-4.lox] [0m// This program relies on the return statement
-[33m[stage-5] [test-4.lox] [0m// returning nil by default
+[33m[stage-5] [test-4.lox] [0m[33m// This program relies on the return statement[0m
+[33m[stage-5] [test-4.lox] [0m[33m// returning nil by default[0m
 [33m[stage-5] [test-4.lox] [0mfun f() {
 [33m[stage-5] [test-4.lox] [0m  return;
 [33m[stage-5] [test-4.lox] [0m  print "bad";
@@ -293,10 +293,10 @@ Debug = true
 [33m[stage-4] [0m[94mRunning tests for Stage #4: ey3[0m
 [33m[stage-4] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-4] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-1.lox] [0m// This program creates a function that returns
-[33m[stage-4] [test-1.lox] [0m// another function
-[33m[stage-4] [test-1.lox] [0m// and uses it to greet two different people with
-[33m[stage-4] [test-1.lox] [0m// two different greetings
+[33m[stage-4] [test-1.lox] [0m[33m// This program creates a function that returns[0m
+[33m[stage-4] [test-1.lox] [0m[33m// another function[0m
+[33m[stage-4] [test-1.lox] [0m[33m// and uses it to greet two different people with[0m
+[33m[stage-4] [test-1.lox] [0m[33m// two different greetings[0m
 [33m[stage-4] [test-1.lox] [0mvar globalGreeting = "Hello";
 [33m[stage-4] [test-1.lox] [0m
 [33m[stage-4] [test-1.lox] [0mfun makeGreeter() {
@@ -319,10 +319,10 @@ Debug = true
 [33m[stage-4] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-4] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-2.lox] [0m// This program defines a function that takes in a
-[33m[stage-4] [test-2.lox] [0m// function and an argument
-[33m[stage-4] [test-2.lox] [0m// and returns the result of calling the function
-[33m[stage-4] [test-2.lox] [0m// with the argument
+[33m[stage-4] [test-2.lox] [0m[33m// This program defines a function that takes in a[0m
+[33m[stage-4] [test-2.lox] [0m[33m// function and an argument[0m
+[33m[stage-4] [test-2.lox] [0m[33m// and returns the result of calling the function[0m
+[33m[stage-4] [test-2.lox] [0m[33m// with the argument[0m
 [33m[stage-4] [test-2.lox] [0mfun returnArg(arg) {
 [33m[stage-4] [test-2.lox] [0m  return arg;
 [33m[stage-4] [test-2.lox] [0m}
@@ -346,8 +346,8 @@ Debug = true
 [33m[stage-4] [test-3.lox] [0m  return x * x;
 [33m[stage-4] [test-3.lox] [0m}
 [33m[stage-4] [test-3.lox] [0m
-[33m[stage-4] [test-3.lox] [0m// This higher-order function applies a
-[33m[stage-4] [test-3.lox] [0m// function N times to a starting value x.
+[33m[stage-4] [test-3.lox] [0m[33m// This higher-order function applies a[0m
+[33m[stage-4] [test-3.lox] [0m[33m// function N times to a starting value x.[0m
 [33m[stage-4] [test-3.lox] [0mfun applyTimesN(N, f, x) {
 [33m[stage-4] [test-3.lox] [0m  var i = 0;
 [33m[stage-4] [test-3.lox] [0m  while (i < N) {
@@ -357,11 +357,11 @@ Debug = true
 [33m[stage-4] [test-3.lox] [0m  return x;
 [33m[stage-4] [test-3.lox] [0m}
 [33m[stage-4] [test-3.lox] [0m
-[33m[stage-4] [test-3.lox] [0m// 2 is squared once
+[33m[stage-4] [test-3.lox] [0m[33m// 2 is squared once[0m
 [33m[stage-4] [test-3.lox] [0mprint applyTimesN(1, square, 2);
-[33m[stage-4] [test-3.lox] [0m// 2 is squared twice
+[33m[stage-4] [test-3.lox] [0m[33m// 2 is squared twice[0m
 [33m[stage-4] [test-3.lox] [0mprint applyTimesN(2, square, 2);
-[33m[stage-4] [test-3.lox] [0m// 2 is squared thrice
+[33m[stage-4] [test-3.lox] [0m[33m// 2 is squared thrice[0m
 [33m[stage-4] [test-3.lox] [0mprint applyTimesN(3, square, 2);
 [33m[stage-4] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m4
@@ -371,9 +371,9 @@ Debug = true
 [33m[stage-4] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-4] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-4.lox] [0m// This program creates a function that returns
-[33m[stage-4] [test-4.lox] [0m// another function
-[33m[stage-4] [test-4.lox] [0m// and uses it to filter a list of numbers
+[33m[stage-4] [test-4.lox] [0m[33m// This program creates a function that returns[0m
+[33m[stage-4] [test-4.lox] [0m[33m// another function[0m
+[33m[stage-4] [test-4.lox] [0m[33m// and uses it to filter a list of numbers[0m
 [33m[stage-4] [test-4.lox] [0mfun makeFilter(min) {
 [33m[stage-4] [test-4.lox] [0m  fun filter(n) {
 [33m[stage-4] [test-4.lox] [0m    if (n < min) {
@@ -384,8 +384,8 @@ Debug = true
 [33m[stage-4] [test-4.lox] [0m  return filter;
 [33m[stage-4] [test-4.lox] [0m}
 [33m[stage-4] [test-4.lox] [0m
-[33m[stage-4] [test-4.lox] [0m// This function applies a function to a list of
-[33m[stage-4] [test-4.lox] [0m// numbers
+[33m[stage-4] [test-4.lox] [0m[33m// This function applies a function to a list of[0m
+[33m[stage-4] [test-4.lox] [0m[33m// numbers[0m
 [33m[stage-4] [test-4.lox] [0mfun applyToNumbers(f, count) {
 [33m[stage-4] [test-4.lox] [0m  var n = 0;
 [33m[stage-4] [test-4.lox] [0m  while (n < count) {
@@ -426,8 +426,8 @@ Debug = true
 [33m[stage-3] [0m[94mRunning tests for Stage #3: fj7[0m
 [33m[stage-3] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-3] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-1.lox] [0m// This program tries to execute an integer as a
-[33m[stage-3] [test-1.lox] [0m// function
+[33m[stage-3] [test-1.lox] [0m[33m// This program tries to execute an integer as a[0m
+[33m[stage-3] [test-1.lox] [0m[33m// function[0m
 [33m[stage-3] [test-1.lox] [0m25();
 [33m[stage-3] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mCan only call functions and classes.
@@ -436,15 +436,15 @@ Debug = true
 [33m[stage-3] [test-1] [0m[92m✓ Received exit code 70.[0m
 [33m[stage-3] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-3] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-2.lox] [0m// This program tries to call a function with too
-[33m[stage-3] [test-2.lox] [0m// many arguments
+[33m[stage-3] [test-2.lox] [0m[33m// This program tries to call a function with too[0m
+[33m[stage-3] [test-2.lox] [0m[33m// many arguments[0m
 [33m[stage-3] [test-2.lox] [0mfun f(a, b) {
 [33m[stage-3] [test-2.lox] [0m  print a;
 [33m[stage-3] [test-2.lox] [0m  print b;
 [33m[stage-3] [test-2.lox] [0m}
 [33m[stage-3] [test-2.lox] [0m
 [33m[stage-3] [test-2.lox] [0mf(1, 2, 3, 4);
-[33m[stage-3] [test-2.lox] [0m// expect runtime error: Expected 2 arguments
+[33m[stage-3] [test-2.lox] [0m[33m// expect runtime error: Expected 2 arguments[0m
 [33m[stage-3] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mExpected 2 arguments but got 4.
 [33m[your_program] [0m[line 8]
@@ -452,11 +452,11 @@ Debug = true
 [33m[stage-3] [test-2] [0m[92m✓ Received exit code 70.[0m
 [33m[stage-3] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-3] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-3.lox] [0m// This program tries to call a function with too
-[33m[stage-3] [test-3.lox] [0m// few arguments
+[33m[stage-3] [test-3.lox] [0m[33m// This program tries to call a function with too[0m
+[33m[stage-3] [test-3.lox] [0m[33m// few arguments[0m
 [33m[stage-3] [test-3.lox] [0mfun f(a, b) {}
 [33m[stage-3] [test-3.lox] [0m
-[33m[stage-3] [test-3.lox] [0m// expect runtime error: Expected 2 arguments
+[33m[stage-3] [test-3.lox] [0m[33m// expect runtime error: Expected 2 arguments[0m
 [33m[stage-3] [test-3.lox] [0mf(1);
 [33m[stage-3] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mExpected 2 arguments but got 1.
@@ -465,8 +465,8 @@ Debug = true
 [33m[stage-3] [test-3] [0m[92m✓ Received exit code 70.[0m
 [33m[stage-3] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-3] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-4.lox] [0m// This program tries to execute a boolean as a
-[33m[stage-3] [test-4.lox] [0m// function
+[33m[stage-3] [test-4.lox] [0m[33m// This program tries to execute a boolean as a[0m
+[33m[stage-3] [test-4.lox] [0m[33m// function[0m
 [33m[stage-3] [test-4.lox] [0m(false == false)();
 [33m[stage-3] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mCan only call functions and classes.
@@ -478,8 +478,8 @@ Debug = true
 [33m[stage-2] [0m[94mRunning tests for Stage #2: bz4[0m
 [33m[stage-2] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-2] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-1.lox] [0m// This program demonstrates global and local
-[33m[stage-2] [test-1.lox] [0m// variable shadowing in Lox.
+[33m[stage-2] [test-1.lox] [0m[33m// This program demonstrates global and local[0m
+[33m[stage-2] [test-1.lox] [0m[33m// variable shadowing in Lox.[0m
 [33m[stage-2] [test-1.lox] [0mvar a = 81;
 [33m[stage-2] [test-1.lox] [0m
 [33m[stage-2] [test-1.lox] [0mfun printAndModify() {
@@ -499,12 +499,12 @@ Debug = true
 [33m[stage-2] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-2] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-2.lox] [0m// This program uses a while loop to count down
-[33m[stage-2] [test-2.lox] [0m// from 3 to 1, printing each
-[33m[stage-2] [test-2.lox] [0m// number
-[33m[stage-2] [test-2.lox] [0m// and then decrementing the count until it
-[33m[stage-2] [test-2.lox] [0m// reaches 0, at which point it prints
-[33m[stage-2] [test-2.lox] [0m// "Blast off!"
+[33m[stage-2] [test-2.lox] [0m[33m// This program uses a while loop to count down[0m
+[33m[stage-2] [test-2.lox] [0m[33m// from 3 to 1, printing each[0m
+[33m[stage-2] [test-2.lox] [0m[33m// number[0m
+[33m[stage-2] [test-2.lox] [0m[33m// and then decrementing the count until it[0m
+[33m[stage-2] [test-2.lox] [0m[33m// reaches 0, at which point it prints[0m
+[33m[stage-2] [test-2.lox] [0m[33m// "Blast off!"[0m
 [33m[stage-2] [test-2.lox] [0mvar count = 3;
 [33m[stage-2] [test-2.lox] [0m
 [33m[stage-2] [test-2.lox] [0mfun tick() {
@@ -527,12 +527,12 @@ Debug = true
 [33m[stage-2] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-2] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-3.lox] [0m// This program demonstrates variable shadowing in
-[33m[stage-2] [test-3.lox] [0m// Lox with functions.
-[33m[stage-2] [test-3.lox] [0m// The first counter is a global variable that is
-[33m[stage-2] [test-3.lox] [0m// modified by the inner block.
-[33m[stage-2] [test-3.lox] [0m// The second counter is a local variable that
-[33m[stage-2] [test-3.lox] [0m// shadows the global variable.
+[33m[stage-2] [test-3.lox] [0m[33m// This program demonstrates variable shadowing in[0m
+[33m[stage-2] [test-3.lox] [0m[33m// Lox with functions.[0m
+[33m[stage-2] [test-3.lox] [0m[33m// The first counter is a global variable that is[0m
+[33m[stage-2] [test-3.lox] [0m[33m// modified by the inner block.[0m
+[33m[stage-2] [test-3.lox] [0m[33m// The second counter is a local variable that[0m
+[33m[stage-2] [test-3.lox] [0m[33m// shadows the global variable.[0m
 [33m[stage-2] [test-3.lox] [0mvar counter = 93;
 [33m[stage-2] [test-3.lox] [0m
 [33m[stage-2] [test-3.lox] [0mfun incrementCounter(amount) {
@@ -554,14 +554,14 @@ Debug = true
 [33m[stage-2] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-2] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-4.lox] [0m// This program tests variable scoping and
-[33m[stage-2] [test-4.lox] [0m// shadowing in Lox. It demonstrates:
-[33m[stage-2] [test-4.lox] [0m// Global variable declarations
-[33m[stage-2] [test-4.lox] [0m// Function scope access to global variables
-[33m[stage-2] [test-4.lox] [0m// Block scoping with local variables shadowing
-[33m[stage-2] [test-4.lox] [0m// outer variables
-[33m[stage-2] [test-4.lox] [0m// Verification that global variables remain
-[33m[stage-2] [test-4.lox] [0m// unchanged after shadowing
+[33m[stage-2] [test-4.lox] [0m[33m// This program tests variable scoping and[0m
+[33m[stage-2] [test-4.lox] [0m[33m// shadowing in Lox. It demonstrates:[0m
+[33m[stage-2] [test-4.lox] [0m[33m// Global variable declarations[0m
+[33m[stage-2] [test-4.lox] [0m[33m// Function scope access to global variables[0m
+[33m[stage-2] [test-4.lox] [0m[33m// Block scoping with local variables shadowing[0m
+[33m[stage-2] [test-4.lox] [0m[33m// outer variables[0m
+[33m[stage-2] [test-4.lox] [0m[33m// Verification that global variables remain[0m
+[33m[stage-2] [test-4.lox] [0m[33m// unchanged after shadowing[0m
 [33m[stage-2] [test-4.lox] [0mvar x = 1;
 [33m[stage-2] [test-4.lox] [0mvar y = 2;
 [33m[stage-2] [test-4.lox] [0m
@@ -632,11 +632,11 @@ Debug = true
 [33m[stage-1] [0m[94mRunning tests for Stage #1: gg6[0m
 [33m[stage-1] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-1] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-1] [test-1.lox] [0m// This program demonstrates the use of closures
-[33m[stage-1] [test-1.lox] [0m// to create a counter function.
-[33m[stage-1] [test-1.lox] [0m// The inner function count() needs access to the
-[33m[stage-1] [test-1.lox] [0m// outer function's local variable i.
-[33m[stage-1] [test-1.lox] [0m// This can be achieved using closures.
+[33m[stage-1] [test-1.lox] [0m[33m// This program demonstrates the use of closures[0m
+[33m[stage-1] [test-1.lox] [0m[33m// to create a counter function.[0m
+[33m[stage-1] [test-1.lox] [0m[33m// The inner function count() needs access to the[0m
+[33m[stage-1] [test-1.lox] [0m[33m// outer function's local variable i.[0m
+[33m[stage-1] [test-1.lox] [0m[33m// This can be achieved using closures.[0m
 [33m[stage-1] [test-1.lox] [0mfun makeCounter() {
 [33m[stage-1] [test-1.lox] [0m  var i = 0;
 [33m[stage-1] [test-1.lox] [0m  fun count() {
@@ -657,11 +657,11 @@ Debug = true
 [33m[stage-1] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-1] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-1] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-1] [test-2.lox] [0m// This program uses mutual recursion to determine
-[33m[stage-1] [test-2.lox] [0m// if a number is even or odd.
-[33m[stage-1] [test-2.lox] [0m// It also uses a shared threshold variable that
-[33m[stage-1] [test-2.lox] [0m// is used to determine if a number is too large
-[33m[stage-1] [test-2.lox] [0m//to be processed.
+[33m[stage-1] [test-2.lox] [0m[33m// This program uses mutual recursion to determine[0m
+[33m[stage-1] [test-2.lox] [0m[33m// if a number is even or odd.[0m
+[33m[stage-1] [test-2.lox] [0m[33m// It also uses a shared threshold variable that[0m
+[33m[stage-1] [test-2.lox] [0m[33m// is used to determine if a number is too large[0m
+[33m[stage-1] [test-2.lox] [0m[33m//to be processed.[0m
 [33m[stage-1] [test-2.lox] [0m{
 [33m[stage-1] [test-2.lox] [0m  var threshold = 50;
 [33m[stage-1] [test-2.lox] [0m
@@ -685,12 +685,12 @@ Debug = true
 [33m[stage-1] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-1] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-1] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-1] [test-3.lox] [0m// This program demonstrates the use of closures
-[33m[stage-1] [test-3.lox] [0m// to create a logger function.
-[33m[stage-1] [test-3.lox] [0m// The inner function log() has access to the
-[33m[stage-1] [test-3.lox] [0m// outer function's local variable logCount.
-[33m[stage-1] [test-3.lox] [0m// This is an example of how closures can be used
-[33m[stage-1] [test-3.lox] [0m// to create private variables and methods.
+[33m[stage-1] [test-3.lox] [0m[33m// This program demonstrates the use of closures[0m
+[33m[stage-1] [test-3.lox] [0m[33m// to create a logger function.[0m
+[33m[stage-1] [test-3.lox] [0m[33m// The inner function log() has access to the[0m
+[33m[stage-1] [test-3.lox] [0m[33m// outer function's local variable logCount.[0m
+[33m[stage-1] [test-3.lox] [0m[33m// This is an example of how closures can be used[0m
+[33m[stage-1] [test-3.lox] [0m[33m// to create private variables and methods.[0m
 [33m[stage-1] [test-3.lox] [0mfun makeLogger(prefix) {
 [33m[stage-1] [test-3.lox] [0m  var logCount = 0;
 [33m[stage-1] [test-3.lox] [0m
@@ -729,13 +729,13 @@ Debug = true
 [33m[stage-1] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-1] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-1] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-1] [test-4.lox] [0m// This program demonstrates the use of closures
-[33m[stage-1] [test-4.lox] [0m// to create an accumulator function.
-[33m[stage-1] [test-4.lox] [0m// The inner function accumulate() has access to
-[33m[stage-1] [test-4.lox] [0m// the outer function's local variables sum and
-[33m[stage-1] [test-4.lox] [0m// count.
-[33m[stage-1] [test-4.lox] [0m// This is an example of how closures can be used
-[33m[stage-1] [test-4.lox] [0m// to create private variables and methods.
+[33m[stage-1] [test-4.lox] [0m[33m// This program demonstrates the use of closures[0m
+[33m[stage-1] [test-4.lox] [0m[33m// to create an accumulator function.[0m
+[33m[stage-1] [test-4.lox] [0m[33m// The inner function accumulate() has access to[0m
+[33m[stage-1] [test-4.lox] [0m[33m// the outer function's local variables sum and[0m
+[33m[stage-1] [test-4.lox] [0m[33m// count.[0m
+[33m[stage-1] [test-4.lox] [0m[33m// This is an example of how closures can be used[0m
+[33m[stage-1] [test-4.lox] [0m[33m// to create private variables and methods.[0m
 [33m[stage-1] [test-4.lox] [0mfun makeAccumulator(label) {
 [33m[stage-1] [test-4.lox] [0m  var sum = 0;
 [33m[stage-1] [test-4.lox] [0m  var count = 0;

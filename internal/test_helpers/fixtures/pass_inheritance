@@ -5,7 +5,7 @@ Debug = true
 [33m[stage-6] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-6] [test-1.lox] [0mclass Doughnut {}
 [33m[stage-6] [test-1.lox] [0m
-[33m[stage-6] [test-1.lox] [0m// BostonCream is a subclass of Doughnut
+[33m[stage-6] [test-1.lox] [0m[33m// BostonCream is a subclass of Doughnut[0m
 [33m[stage-6] [test-1.lox] [0mclass BostonCream < Doughnut {}
 [33m[stage-6] [test-1.lox] [0m
 [33m[stage-6] [test-1.lox] [0mprint Doughnut();
@@ -20,10 +20,10 @@ Debug = true
 [33m[stage-6] [test-2.lox] [0m{
 [33m[stage-6] [test-2.lox] [0m  class A {}
 [33m[stage-6] [test-2.lox] [0m
-[33m[stage-6] [test-2.lox] [0m  // B is a subclass of A
+[33m[stage-6] [test-2.lox] [0m  [33m// B is a subclass of A[0m
 [33m[stage-6] [test-2.lox] [0m  class B < A {}
 [33m[stage-6] [test-2.lox] [0m
-[33m[stage-6] [test-2.lox] [0m  // C is also a subclass of A
+[33m[stage-6] [test-2.lox] [0m  [33m// C is also a subclass of A[0m
 [33m[stage-6] [test-2.lox] [0m  class C < A {}
 [33m[stage-6] [test-2.lox] [0m
 [33m[stage-6] [test-2.lox] [0m  print A();
@@ -41,7 +41,7 @@ Debug = true
 [33m[stage-6] [test-3.lox] [0mclass A {}
 [33m[stage-6] [test-3.lox] [0m
 [33m[stage-6] [test-3.lox] [0mfun f() {
-[33m[stage-6] [test-3.lox] [0m  // B is a subclass of A
+[33m[stage-6] [test-3.lox] [0m  [33m// B is a subclass of A[0m
 [33m[stage-6] [test-3.lox] [0m  class B < A {}
 [33m[stage-6] [test-3.lox] [0m  return B;
 [33m[stage-6] [test-3.lox] [0m}
@@ -55,10 +55,10 @@ Debug = true
 [33m[stage-6] [test-4] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-6] [test-4.lox] [0mclass Vehicle {}
 [33m[stage-6] [test-4.lox] [0m
-[33m[stage-6] [test-4.lox] [0m// Car is a subclass of Vehicle
+[33m[stage-6] [test-4.lox] [0m[33m// Car is a subclass of Vehicle[0m
 [33m[stage-6] [test-4.lox] [0mclass Car < Vehicle {}
 [33m[stage-6] [test-4.lox] [0m
-[33m[stage-6] [test-4.lox] [0m// Sedan is a subclass of Car
+[33m[stage-6] [test-4.lox] [0m[33m// Sedan is a subclass of Car[0m
 [33m[stage-6] [test-4.lox] [0mclass Sedan < Car {}
 [33m[stage-6] [test-4.lox] [0m
 [33m[stage-6] [test-4.lox] [0mprint Vehicle();
@@ -66,7 +66,7 @@ Debug = true
 [33m[stage-6] [test-4.lox] [0mprint Sedan();
 [33m[stage-6] [test-4.lox] [0m
 [33m[stage-6] [test-4.lox] [0m{
-[33m[stage-6] [test-4.lox] [0m  // Truck is a subclass of Vehicle
+[33m[stage-6] [test-4.lox] [0m  [33m// Truck is a subclass of Vehicle[0m
 [33m[stage-6] [test-4.lox] [0m  class Truck < Vehicle {}
 [33m[stage-6] [test-4.lox] [0m  print Truck();
 [33m[stage-6] [test-4.lox] [0m}
@@ -88,11 +88,11 @@ Debug = true
 [33m[stage-5] [test-1.lox] [0m    }
 [33m[stage-5] [test-1.lox] [0m  }
 [33m[stage-5] [test-1.lox] [0m
-[33m[stage-5] [test-1.lox] [0m// BostonCream is a subclass of Doughnut
+[33m[stage-5] [test-1.lox] [0m[33m// BostonCream is a subclass of Doughnut[0m
 [33m[stage-5] [test-1.lox] [0mclass BostonCream < Doughnut {}
 [33m[stage-5] [test-1.lox] [0m
-[33m[stage-5] [test-1.lox] [0m// BostonCream class should inherit the cook
-[33m[stage-5] [test-1.lox] [0m// method from Doughnut class
+[33m[stage-5] [test-1.lox] [0m[33m// BostonCream class should inherit the cook[0m
+[33m[stage-5] [test-1.lox] [0m[33m// method from Doughnut class[0m
 [33m[stage-5] [test-1.lox] [0mBostonCream().cook();
 [33m[stage-5] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mFry until golden brown.
@@ -122,16 +122,16 @@ Debug = true
 [33m[stage-5] [test-2.lox] [0mvar parent = Parent();
 [33m[stage-5] [test-2.lox] [0mvar child = Child();
 [33m[stage-5] [test-2.lox] [0m
-[33m[stage-5] [test-2.lox] [0m// Root methods are available to all
+[33m[stage-5] [test-2.lox] [0m[33m// Root methods are available to all[0m
 [33m[stage-5] [test-2.lox] [0mroot.getName();
 [33m[stage-5] [test-2.lox] [0mparent.getName();
 [33m[stage-5] [test-2.lox] [0mchild.getName();
 [33m[stage-5] [test-2.lox] [0m
-[33m[stage-5] [test-2.lox] [0m// Parent methods are available to Parent and Child
+[33m[stage-5] [test-2.lox] [0m[33m// Parent methods are available to Parent and Child[0m
 [33m[stage-5] [test-2.lox] [0mparent.parentMethod();
 [33m[stage-5] [test-2.lox] [0mchild.parentMethod();
 [33m[stage-5] [test-2.lox] [0m
-[33m[stage-5] [test-2.lox] [0m// Child methods are only available to Child
+[33m[stage-5] [test-2.lox] [0m[33m// Child methods are only available to Child[0m
 [33m[stage-5] [test-2.lox] [0mchild.childMethod();
 [33m[stage-5] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mRoot class
@@ -150,16 +150,16 @@ Debug = true
 [33m[stage-5] [test-3.lox] [0m  }
 [33m[stage-5] [test-3.lox] [0m}
 [33m[stage-5] [test-3.lox] [0m
-[33m[stage-5] [test-3.lox] [0m// Bar is a subclass of Foo
+[33m[stage-5] [test-3.lox] [0m[33m// Bar is a subclass of Foo[0m
 [33m[stage-5] [test-3.lox] [0mclass Bar < Foo {}
 [33m[stage-5] [test-3.lox] [0m
-[33m[stage-5] [test-3.lox] [0m// Baz is a subclass of Bar
+[33m[stage-5] [test-3.lox] [0m[33m// Baz is a subclass of Bar[0m
 [33m[stage-5] [test-3.lox] [0mclass Baz < Bar {}
 [33m[stage-5] [test-3.lox] [0m
 [33m[stage-5] [test-3.lox] [0mvar baz = Baz();
 [33m[stage-5] [test-3.lox] [0m
-[33m[stage-5] [test-3.lox] [0m// Baz should inherit the constructor from Foo
-[33m[stage-5] [test-3.lox] [0m// which should set the secret value to 42
+[33m[stage-5] [test-3.lox] [0m[33m// Baz should inherit the constructor from Foo[0m
+[33m[stage-5] [test-3.lox] [0m[33m// which should set the secret value to 42[0m
 [33m[stage-5] [test-3.lox] [0mprint baz.secret;
 [33m[stage-5] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m42
@@ -185,8 +185,8 @@ Debug = true
 [33m[stage-5] [test-4.lox] [0m  }
 [33m[stage-5] [test-4.lox] [0m}
 [33m[stage-5] [test-4.lox] [0m
-[33m[stage-5] [test-4.lox] [0m// quz should inherit the methods
-[33m[stage-5] [test-4.lox] [0m// from both baz and bar
+[33m[stage-5] [test-4.lox] [0m[33m// quz should inherit the methods[0m
+[33m[stage-5] [test-4.lox] [0m[33m// from both baz and bar[0m
 [33m[stage-5] [test-4.lox] [0mvar quz = quz();
 [33m[stage-5] [test-4.lox] [0mquz.inbaz();
 [33m[stage-5] [test-4.lox] [0mquz.inbar();
@@ -209,8 +209,8 @@ Debug = true
 [33m[stage-4] [test-1.lox] [0m}
 [33m[stage-4] [test-1.lox] [0m
 [33m[stage-4] [test-1.lox] [0m
-[33m[stage-4] [test-1.lox] [0m// B inherits method `method` from A
-[33m[stage-4] [test-1.lox] [0m// and overrides it with a new implementation
+[33m[stage-4] [test-1.lox] [0m[33m// B inherits method `method` from A[0m
+[33m[stage-4] [test-1.lox] [0m[33m// and overrides it with a new implementation[0m
 [33m[stage-4] [test-1.lox] [0mclass B < A {
 [33m[stage-4] [test-1.lox] [0m  method() {
 [33m[stage-4] [test-1.lox] [0m    print "B method";
@@ -218,7 +218,7 @@ Debug = true
 [33m[stage-4] [test-1.lox] [0m}
 [33m[stage-4] [test-1.lox] [0m
 [33m[stage-4] [test-1.lox] [0mvar b = B();
-[33m[stage-4] [test-1.lox] [0mb.method();  // expect: B method
+[33m[stage-4] [test-1.lox] [0mb.method();  [33m// expect: B method[0m
 [33m[stage-4] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mB method
 [33m[stage-4] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
@@ -232,7 +232,7 @@ Debug = true
 [33m[stage-4] [test-2.lox] [0m}
 [33m[stage-4] [test-2.lox] [0m
 [33m[stage-4] [test-2.lox] [0m
-[33m[stage-4] [test-2.lox] [0m// Constructors can also be overridden
+[33m[stage-4] [test-2.lox] [0m[33m// Constructors can also be overridden[0m
 [33m[stage-4] [test-2.lox] [0mclass Derived < Base {
 [33m[stage-4] [test-2.lox] [0m  init(a, b) {
 [33m[stage-4] [test-2.lox] [0m    this.a = a;
@@ -266,7 +266,7 @@ Debug = true
 [33m[stage-4] [test-3.lox] [0m    this.b = b;
 [33m[stage-4] [test-3.lox] [0m  }
 [33m[stage-4] [test-3.lox] [0m
-[33m[stage-4] [test-3.lox] [0m  // Derived overrides the cook method of Base
+[33m[stage-4] [test-3.lox] [0m  [33m// Derived overrides the cook method of Base[0m
 [33m[stage-4] [test-3.lox] [0m  cook() {
 [33m[stage-4] [test-3.lox] [0m    return "Derived cooking " + this.b + " with "
 [33m[stage-4] [test-3.lox] [0m    + this.a + " and " + this.b;
@@ -306,9 +306,9 @@ Debug = true
 [33m[stage-4] [test-4.lox] [0m  }
 [33m[stage-4] [test-4.lox] [0m}
 [33m[stage-4] [test-4.lox] [0m
-[33m[stage-4] [test-4.lox] [0m// Dog inherits the speak and makeSound methods
-[33m[stage-4] [test-4.lox] [0m// from Animal and overrides them with new
-[33m[stage-4] [test-4.lox] [0m// implementations specific to dogs
+[33m[stage-4] [test-4.lox] [0m[33m// Dog inherits the speak and makeSound methods[0m
+[33m[stage-4] [test-4.lox] [0m[33m// from Animal and overrides them with new[0m
+[33m[stage-4] [test-4.lox] [0m[33m// implementations specific to dogs[0m
 [33m[stage-4] [test-4.lox] [0mclass Dog < Animal {
 [33m[stage-4] [test-4.lox] [0m  speak() {
 [33m[stage-4] [test-4.lox] [0m    return "Dog speaks";
@@ -319,9 +319,9 @@ Debug = true
 [33m[stage-4] [test-4.lox] [0m  }
 [33m[stage-4] [test-4.lox] [0m}
 [33m[stage-4] [test-4.lox] [0m
-[33m[stage-4] [test-4.lox] [0m// Puppy inherits the speak and makeSound methods
-[33m[stage-4] [test-4.lox] [0m// from Dog and overrides them with new
-[33m[stage-4] [test-4.lox] [0m// implementations specific to puppies
+[33m[stage-4] [test-4.lox] [0m[33m// Puppy inherits the speak and makeSound methods[0m
+[33m[stage-4] [test-4.lox] [0m[33m// from Dog and overrides them with new[0m
+[33m[stage-4] [test-4.lox] [0m[33m// implementations specific to puppies[0m
 [33m[stage-4] [test-4.lox] [0mclass Puppy < Dog {
 [33m[stage-4] [test-4.lox] [0m  speak() {
 [33m[stage-4] [test-4.lox] [0m    return "Puppy speaks";
@@ -346,8 +346,8 @@ Debug = true
 [33m[stage-3] [0m[94mRunning tests for Stage #3: ab0[0m
 [33m[stage-3] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-3] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-1.lox] [0m// A class can't inherit from itself.
-[33m[stage-3] [test-1.lox] [0mclass Foo < Foo {} // expect compile error
+[33m[stage-3] [test-1.lox] [0m[33m// A class can't inherit from itself.[0m
+[33m[stage-3] [test-1.lox] [0mclass Foo < Foo {} [33m// expect compile error[0m
 [33m[stage-3] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 2] Error at 'Foo': A class can't inherit from itself.
 [33m[stage-3] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
@@ -356,8 +356,8 @@ Debug = true
 [33m[stage-3] [test-2] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-3] [test-2.lox] [0mfun A() {}
 [33m[stage-3] [test-2.lox] [0m
-[33m[stage-3] [test-2.lox] [0m// A class can only inherit from a class.
-[33m[stage-3] [test-2.lox] [0mclass B < A {} // expect runtime error
+[33m[stage-3] [test-2.lox] [0m[33m// A class can only inherit from a class.[0m
+[33m[stage-3] [test-2.lox] [0mclass B < A {} [33m// expect runtime error[0m
 [33m[stage-3] [test-2.lox] [0m
 [33m[stage-3] [test-2.lox] [0mprint A();
 [33m[stage-3] [test-2.lox] [0mprint B();
@@ -370,8 +370,8 @@ Debug = true
 [33m[stage-3] [test-3] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-3] [test-3.lox] [0mvar A = "class";
 [33m[stage-3] [test-3.lox] [0m
-[33m[stage-3] [test-3.lox] [0m// A class can only inherit from a class
-[33m[stage-3] [test-3.lox] [0mclass B < A {} // expect runtime error
+[33m[stage-3] [test-3.lox] [0m[33m// A class can only inherit from a class[0m
+[33m[stage-3] [test-3.lox] [0mclass B < A {} [33m// expect runtime error[0m
 [33m[stage-3] [test-3.lox] [0m
 [33m[stage-3] [test-3.lox] [0mprint B();
 [33m[stage-3] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -391,10 +391,10 @@ Debug = true
 [33m[stage-3] [test-4.lox] [0mclass C < B {}
 [33m[stage-3] [test-4.lox] [0mclass D < A {}
 [33m[stage-3] [test-4.lox] [0m
-[33m[stage-3] [test-4.lox] [0m// B is updated to a non-class value
+[33m[stage-3] [test-4.lox] [0m[33m// B is updated to a non-class value[0m
 [33m[stage-3] [test-4.lox] [0mB = "not a class";
-[33m[stage-3] [test-4.lox] [0m// E inherits from B, which is not a class
-[33m[stage-3] [test-4.lox] [0mclass E < B {}  // expect runtime error
+[33m[stage-3] [test-4.lox] [0m[33m// E inherits from B, which is not a class[0m
+[33m[stage-3] [test-4.lox] [0mclass E < B {}  [33m// expect runtime error[0m
 [33m[stage-3] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mSuperclass must be a class.
 [33m[your_program] [0m[line 14]
@@ -411,8 +411,8 @@ Debug = true
 [33m[stage-2] [test-1.lox] [0m  }
 [33m[stage-2] [test-1.lox] [0m}
 [33m[stage-2] [test-1.lox] [0m
-[33m[stage-2] [test-1.lox] [0m// Super can be used to call the overridden method
-[33m[stage-2] [test-1.lox] [0m// of the parent class
+[33m[stage-2] [test-1.lox] [0m[33m// Super can be used to call the overridden method[0m
+[33m[stage-2] [test-1.lox] [0m[33m// of the parent class[0m
 [33m[stage-2] [test-1.lox] [0mclass BostonCream < Doughnut {
 [33m[stage-2] [test-1.lox] [0m  cook() {
 [33m[stage-2] [test-1.lox] [0m    super.cook();
@@ -433,7 +433,7 @@ Debug = true
 [33m[stage-2] [test-2.lox] [0m}
 [33m[stage-2] [test-2.lox] [0m
 [33m[stage-2] [test-2.lox] [0mclass B < A {
-[33m[stage-2] [test-2.lox] [0m  // test calls say() from A
+[33m[stage-2] [test-2.lox] [0m  [33m// test calls say() from A[0m
 [33m[stage-2] [test-2.lox] [0m  test() {
 [33m[stage-2] [test-2.lox] [0m    super.say();
 [33m[stage-2] [test-2.lox] [0m  }
@@ -443,9 +443,9 @@ Debug = true
 [33m[stage-2] [test-2.lox] [0m  }
 [33m[stage-2] [test-2.lox] [0m}
 [33m[stage-2] [test-2.lox] [0m
-[33m[stage-2] [test-2.lox] [0m// C inherits test() from B
-[33m[stage-2] [test-2.lox] [0m// But the super keyword used in test()
-[33m[stage-2] [test-2.lox] [0m// should still have a binding to B
+[33m[stage-2] [test-2.lox] [0m[33m// C inherits test() from B[0m
+[33m[stage-2] [test-2.lox] [0m[33m// But the super keyword used in test()[0m
+[33m[stage-2] [test-2.lox] [0m[33m// should still have a binding to B[0m
 [33m[stage-2] [test-2.lox] [0mclass C < B {
 [33m[stage-2] [test-2.lox] [0m  say() {
 [33m[stage-2] [test-2.lox] [0m    print "C";
@@ -453,7 +453,7 @@ Debug = true
 [33m[stage-2] [test-2.lox] [0m}
 [33m[stage-2] [test-2.lox] [0m
 [33m[stage-2] [test-2.lox] [0mC().say();
-[33m[stage-2] [test-2.lox] [0mC().test(); // expect: A
+[33m[stage-2] [test-2.lox] [0mC().test(); [33m// expect: A[0m
 [33m[stage-2] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mC
 [33m[your_program] [0mA
@@ -486,10 +486,10 @@ Debug = true
 [33m[stage-2] [test-3.lox] [0m  }
 [33m[stage-2] [test-3.lox] [0m}
 [33m[stage-2] [test-3.lox] [0m
-[33m[stage-2] [test-3.lox] [0m// C inherits getClosure() from B
-[33m[stage-2] [test-3.lox] [0m// But the super keyword used in getClosure()
-[33m[stage-2] [test-3.lox] [0m// should still have a binding to B
-[33m[stage-2] [test-3.lox] [0mC().getClosure()(); // expect: A
+[33m[stage-2] [test-3.lox] [0m[33m// C inherits getClosure() from B[0m
+[33m[stage-2] [test-3.lox] [0m[33m// But the super keyword used in getClosure()[0m
+[33m[stage-2] [test-3.lox] [0m[33m// should still have a binding to B[0m
+[33m[stage-2] [test-3.lox] [0mC().getClosure()(); [33m// expect: A[0m
 [33m[stage-2] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mA
 [33m[stage-2] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
@@ -502,14 +502,14 @@ Debug = true
 [33m[stage-2] [test-4.lox] [0m  }
 [33m[stage-2] [test-4.lox] [0m}
 [33m[stage-2] [test-4.lox] [0m
-[33m[stage-2] [test-4.lox] [0m// Parent inherits method from Base
+[33m[stage-2] [test-4.lox] [0m[33m// Parent inherits method from Base[0m
 [33m[stage-2] [test-4.lox] [0mclass Parent < Base {
 [33m[stage-2] [test-4.lox] [0m  method() {
 [33m[stage-2] [test-4.lox] [0m    super.method();
 [33m[stage-2] [test-4.lox] [0m  }
 [33m[stage-2] [test-4.lox] [0m}
 [33m[stage-2] [test-4.lox] [0m
-[33m[stage-2] [test-4.lox] [0m// Child inherits method from Parent
+[33m[stage-2] [test-4.lox] [0m[33m// Child inherits method from Parent[0m
 [33m[stage-2] [test-4.lox] [0mclass Child < Parent {
 [33m[stage-2] [test-4.lox] [0m  method() {
 [33m[stage-2] [test-4.lox] [0m    super.method();
@@ -517,9 +517,9 @@ Debug = true
 [33m[stage-2] [test-4.lox] [0m}
 [33m[stage-2] [test-4.lox] [0m
 [33m[stage-2] [test-4.lox] [0mvar parent = Parent();
-[33m[stage-2] [test-4.lox] [0mparent.method(); // expect: Base.method()
+[33m[stage-2] [test-4.lox] [0mparent.method(); [33m// expect: Base.method()[0m
 [33m[stage-2] [test-4.lox] [0mvar child = Child();
-[33m[stage-2] [test-4.lox] [0mchild.method(); // expect: Base.method()
+[33m[stage-2] [test-4.lox] [0mchild.method(); [33m// expect: Base.method()[0m
 [33m[stage-2] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mBase.method()
 [33m[your_program] [0mBase.method()
@@ -532,8 +532,8 @@ Debug = true
 [33m[stage-1] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-1] [test-1.lox] [0mclass Foo {
 [33m[stage-1] [test-1.lox] [0m  cook() {
-[33m[stage-1] [test-1.lox] [0m    // Foo is not a subclass
-[33m[stage-1] [test-1.lox] [0m    super.cook(); // expect compile error
+[33m[stage-1] [test-1.lox] [0m    [33m// Foo is not a subclass[0m
+[33m[stage-1] [test-1.lox] [0m    super.cook(); [33m// expect compile error[0m
 [33m[stage-1] [test-1.lox] [0m  }
 [33m[stage-1] [test-1.lox] [0m}
 [33m[stage-1] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -542,8 +542,8 @@ Debug = true
 [33m[stage-1] [test-1] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-1] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-1] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-1] [test-2.lox] [0m// super can't be used outside of a class
-[33m[stage-1] [test-2.lox] [0msuper.notEvenInAClass(); // expect compile error
+[33m[stage-1] [test-2.lox] [0m[33m// super can't be used outside of a class[0m
+[33m[stage-1] [test-2.lox] [0msuper.notEvenInAClass(); [33m// expect compile error[0m
 [33m[stage-1] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 2] Error at 'super': Can't use 'super' outside of a class.
 [33m[stage-1] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
@@ -556,9 +556,9 @@ Debug = true
 [33m[stage-1] [test-3.lox] [0m
 [33m[stage-1] [test-3.lox] [0mclass B < A {
 [33m[stage-1] [test-3.lox] [0m  method() {
-[33m[stage-1] [test-3.lox] [0m    // super must be followed by `.`
-[33m[stage-1] [test-3.lox] [0m    // and an expression
-[33m[stage-1] [test-3.lox] [0m    (super).method(); // expect compile error
+[33m[stage-1] [test-3.lox] [0m    [33m// super must be followed by `.`[0m
+[33m[stage-1] [test-3.lox] [0m    [33m// and an expression[0m
+[33m[stage-1] [test-3.lox] [0m    (super).method(); [33m// expect compile error[0m
 [33m[stage-1] [test-3.lox] [0m  }
 [33m[stage-1] [test-3.lox] [0m}
 [33m[stage-1] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -571,9 +571,9 @@ Debug = true
 [33m[stage-1] [test-4.lox] [0m
 [33m[stage-1] [test-4.lox] [0mclass B < A {
 [33m[stage-1] [test-4.lox] [0m  method() {
-[33m[stage-1] [test-4.lox] [0m    // super must be followed by `.`
-[33m[stage-1] [test-4.lox] [0m    // and an expression
-[33m[stage-1] [test-4.lox] [0m    super; // expect compile error
+[33m[stage-1] [test-4.lox] [0m    [33m// super must be followed by `.`[0m
+[33m[stage-1] [test-4.lox] [0m    [33m// and an expression[0m
+[33m[stage-1] [test-4.lox] [0m    super; [33m// expect compile error[0m
 [33m[stage-1] [test-4.lox] [0m  }
 [33m[stage-1] [test-4.lox] [0m}
 [33m[stage-1] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m

@@ -3,16 +3,16 @@ Debug = true
 [33m[stage-9] [0m[94mRunning tests for Stage #9: ne3[0m
 [33m[stage-9] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-9] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test-1.lox] [0m// This should print the string if the condition
-[33m[stage-9] [test-1.lox] [0m// evaluates to True
+[33m[stage-9] [test-1.lox] [0m[33m// This should print the string if the condition[0m
+[33m[stage-9] [test-1.lox] [0m[33m// evaluates to True[0m
 [33m[stage-9] [test-1.lox] [0mif (false) print "foo";
 [33m[stage-9] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[stage-9] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-9] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-9] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test-2.lox] [0m// This should print "block body" if the condition
-[33m[stage-9] [test-2.lox] [0m// evaluates to True
+[33m[stage-9] [test-2.lox] [0m[33m// This should print "block body" if the condition[0m
+[33m[stage-9] [test-2.lox] [0m[33m// evaluates to True[0m
 [33m[stage-9] [test-2.lox] [0mif (false) {
 [33m[stage-9] [test-2.lox] [0m  print "block body";
 [33m[stage-9] [test-2.lox] [0m}
@@ -21,12 +21,12 @@ Debug = true
 [33m[stage-9] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-9] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test-3.lox] [0m// This program tests whether the assignment
-[33m[stage-9] [test-3.lox] [0m// operation returns the value assigned.
-[33m[stage-9] [test-3.lox] [0m// The if condition should evaluate to true and
-[33m[stage-9] [test-3.lox] [0m// the inner boolean expression must be printed.
-[33m[stage-9] [test-3.lox] [0m// So, in this case the if condition evaluates to
-[33m[stage-9] [test-3.lox] [0m//true and prints the inner boolean expression
+[33m[stage-9] [test-3.lox] [0m[33m// This program tests whether the assignment[0m
+[33m[stage-9] [test-3.lox] [0m[33m// operation returns the value assigned.[0m
+[33m[stage-9] [test-3.lox] [0m[33m// The if condition should evaluate to true and[0m
+[33m[stage-9] [test-3.lox] [0m[33m// the inner boolean expression must be printed.[0m
+[33m[stage-9] [test-3.lox] [0m[33m// So, in this case the if condition evaluates to[0m
+[33m[stage-9] [test-3.lox] [0m[33m//true and prints the inner boolean expression[0m
 [33m[stage-9] [test-3.lox] [0mvar a = false;
 [33m[stage-9] [test-3.lox] [0mif (a = true) {
 [33m[stage-9] [test-3.lox] [0m  print (a == true);
@@ -37,8 +37,8 @@ Debug = true
 [33m[stage-9] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-9] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test-4.lox] [0m// This program should print a different string
-[33m[stage-9] [test-4.lox] [0m// based on the value of age
+[33m[stage-9] [test-4.lox] [0m[33m// This program should print a different string[0m
+[33m[stage-9] [test-4.lox] [0m[33m// based on the value of age[0m
 [33m[stage-9] [test-4.lox] [0mvar stage = "unknown";
 [33m[stage-9] [test-4.lox] [0mvar age = 73;
 [33m[stage-9] [test-4.lox] [0mif (age < 18) { stage = "child"; }
@@ -58,9 +58,9 @@ Debug = true
 [33m[stage-8] [0m[94mRunning tests for Stage #8: st5[0m
 [33m[stage-8] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-8] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-1.lox] [0m// This program uses a random boolean to decide
-[33m[stage-8] [test-1.lox] [0m// which branch to execute,
-[33m[stage-8] [test-1.lox] [0m// and then prints the appropriate string
+[33m[stage-8] [test-1.lox] [0m[33m// This program uses a random boolean to decide[0m
+[33m[stage-8] [test-1.lox] [0m[33m// which branch to execute,[0m
+[33m[stage-8] [test-1.lox] [0m[33m// and then prints the appropriate string[0m
 [33m[stage-8] [test-1.lox] [0mif (true) print "if"; else print "else";
 [33m[stage-8] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mif
@@ -68,10 +68,10 @@ Debug = true
 [33m[stage-8] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-8] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-2.lox] [0m// This program initializes age with a random
-[33m[stage-8] [test-2.lox] [0m// integer and then prints "adult"
-[33m[stage-8] [test-2.lox] [0m// if the age is greater than 18, otherwise it
-[33m[stage-8] [test-2.lox] [0m// prints "child"
+[33m[stage-8] [test-2.lox] [0m[33m// This program initializes age with a random[0m
+[33m[stage-8] [test-2.lox] [0m[33m// integer and then prints "adult"[0m
+[33m[stage-8] [test-2.lox] [0m[33m// if the age is greater than 18, otherwise it[0m
+[33m[stage-8] [test-2.lox] [0m[33m// prints "child"[0m
 [33m[stage-8] [test-2.lox] [0mvar age = 64;
 [33m[stage-8] [test-2.lox] [0mif (age > 18) print "adult"; else print "child";
 [33m[stage-8] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -80,9 +80,9 @@ Debug = true
 [33m[stage-8] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-8] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-3.lox] [0m// This program uses a random boolean to decide
-[33m[stage-8] [test-3.lox] [0m// which branch to execute,
-[33m[stage-8] [test-3.lox] [0m// and then prints the appropriate string
+[33m[stage-8] [test-3.lox] [0m[33m// This program uses a random boolean to decide[0m
+[33m[stage-8] [test-3.lox] [0m[33m// which branch to execute,[0m
+[33m[stage-8] [test-3.lox] [0m[33m// and then prints the appropriate string[0m
 [33m[stage-8] [test-3.lox] [0mif (false) {
 [33m[stage-8] [test-3.lox] [0m  print "if block";
 [33m[stage-8] [test-3.lox] [0m} else print "else statement";
@@ -97,10 +97,10 @@ Debug = true
 [33m[stage-8] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-8] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-4.lox] [0m// This program converts a random integer from
-[33m[stage-8] [test-4.lox] [0m// Celsius to Fahrenheit
-[33m[stage-8] [test-4.lox] [0m// and prints the result. It also prints a message
-[33m[stage-8] [test-4.lox] [0m// based on the temperature.
+[33m[stage-8] [test-4.lox] [0m[33m// This program converts a random integer from[0m
+[33m[stage-8] [test-4.lox] [0m[33m// Celsius to Fahrenheit[0m
+[33m[stage-8] [test-4.lox] [0m[33m// and prints the result. It also prints a message[0m
+[33m[stage-8] [test-4.lox] [0m[33m// based on the temperature.[0m
 [33m[stage-8] [test-4.lox] [0mvar celsius = 82;
 [33m[stage-8] [test-4.lox] [0mvar fahrenheit = 0;
 [33m[stage-8] [test-4.lox] [0mvar isHot = false;
@@ -130,9 +130,9 @@ Debug = true
 [33m[stage-7] [0m[94mRunning tests for Stage #7: fh8[0m
 [33m[stage-7] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-7] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-1.lox] [0m// This program uses a random boolean to decide
-[33m[stage-7] [test-1.lox] [0m// which branch to execute,
-[33m[stage-7] [test-1.lox] [0m// and then prints the appropriate string
+[33m[stage-7] [test-1.lox] [0m[33m// This program uses a random boolean to decide[0m
+[33m[stage-7] [test-1.lox] [0m[33m// which branch to execute,[0m
+[33m[stage-7] [test-1.lox] [0m[33m// and then prints the appropriate string[0m
 [33m[stage-7] [test-1.lox] [0mif (false) print "if branch";
 [33m[stage-7] [test-1.lox] [0melse if (false) print "else-if branch";
 [33m[stage-7] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -140,9 +140,9 @@ Debug = true
 [33m[stage-7] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-7] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-2.lox] [0m// This program uses a random boolean to decide
-[33m[stage-7] [test-2.lox] [0m// which branch to execute,
-[33m[stage-7] [test-2.lox] [0m// and then prints the appropriate string
+[33m[stage-7] [test-2.lox] [0m[33m// This program uses a random boolean to decide[0m
+[33m[stage-7] [test-2.lox] [0m[33m// which branch to execute,[0m
+[33m[stage-7] [test-2.lox] [0m[33m// and then prints the appropriate string[0m
 [33m[stage-7] [test-2.lox] [0mif (false) {
 [33m[stage-7] [test-2.lox] [0m  print "bar";
 [33m[stage-7] [test-2.lox] [0m} else if (false) print "bar";
@@ -155,9 +155,9 @@ Debug = true
 [33m[stage-7] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-7] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-3.lox] [0m// This program uses multiple if statements to
-[33m[stage-7] [test-3.lox] [0m// categorize a person
-[33m[stage-7] [test-3.lox] [0m// into different life stages based on their age
+[33m[stage-7] [test-3.lox] [0m[33m// This program uses multiple if statements to[0m
+[33m[stage-7] [test-3.lox] [0m[33m// categorize a person[0m
+[33m[stage-7] [test-3.lox] [0m[33m// into different life stages based on their age[0m
 [33m[stage-7] [test-3.lox] [0mvar age = 62;
 [33m[stage-7] [test-3.lox] [0mvar stage = "unknown";
 [33m[stage-7] [test-3.lox] [0mif (age < 18) { stage = "child"; }
@@ -171,10 +171,10 @@ Debug = true
 [33m[stage-7] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-7] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-4.lox] [0m// This program uses multiple if statements to
-[33m[stage-7] [test-4.lox] [0m// determine eligibility for
-[33m[stage-7] [test-4.lox] [0m// voting, driving, and drinking based on a random
-[33m[stage-7] [test-4.lox] [0m// integer age
+[33m[stage-7] [test-4.lox] [0m[33m// This program uses multiple if statements to[0m
+[33m[stage-7] [test-4.lox] [0m[33m// determine eligibility for[0m
+[33m[stage-7] [test-4.lox] [0m[33m// voting, driving, and drinking based on a random[0m
+[33m[stage-7] [test-4.lox] [0m[33m// integer age[0m
 [33m[stage-7] [test-4.lox] [0mvar age = 79;
 [33m[stage-7] [test-4.lox] [0m
 [33m[stage-7] [test-4.lox] [0mvar isAdult = age >= 18;
@@ -198,8 +198,8 @@ Debug = true
 [33m[stage-6] [0m[94mRunning tests for Stage #6: xj4[0m
 [33m[stage-6] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-6] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-1.lox] [0m// This program uses nested if statements to print
-[33m[stage-6] [test-1.lox] [0m// a message
+[33m[stage-6] [test-1.lox] [0m[33m// This program uses nested if statements to print[0m
+[33m[stage-6] [test-1.lox] [0m[33m// a message[0m
 [33m[stage-6] [test-1.lox] [0mif (true) if (true) print "nested true";
 [33m[stage-6] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mnested true
@@ -207,8 +207,8 @@ Debug = true
 [33m[stage-6] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-6] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-6] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-2.lox] [0m// This program uses nested if statements to print
-[33m[stage-6] [test-2.lox] [0m// a message
+[33m[stage-6] [test-2.lox] [0m[33m// This program uses nested if statements to print[0m
+[33m[stage-6] [test-2.lox] [0m[33m// a message[0m
 [33m[stage-6] [test-2.lox] [0mif (true) {
 [33m[stage-6] [test-2.lox] [0m  if (true) print "baz"; else print "baz";
 [33m[stage-6] [test-2.lox] [0m}
@@ -218,11 +218,11 @@ Debug = true
 [33m[stage-6] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-6] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-6] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-3.lox] [0m// This program categorizes a person into
-[33m[stage-6] [test-3.lox] [0m// different life stages based on their age
-[33m[stage-6] [test-3.lox] [0m// Then based on the age, it prints a message
-[33m[stage-6] [test-3.lox] [0m// about the person's eligibility for voting,
-[33m[stage-6] [test-3.lox] [0m// driving, and drinking
+[33m[stage-6] [test-3.lox] [0m[33m// This program categorizes a person into[0m
+[33m[stage-6] [test-3.lox] [0m[33m// different life stages based on their age[0m
+[33m[stage-6] [test-3.lox] [0m[33m// Then based on the age, it prints a message[0m
+[33m[stage-6] [test-3.lox] [0m[33m// about the person's eligibility for voting,[0m
+[33m[stage-6] [test-3.lox] [0m[33m// driving, and drinking[0m
 [33m[stage-6] [test-3.lox] [0mvar stage = "unknown";
 [33m[stage-6] [test-3.lox] [0mvar age = 68;
 [33m[stage-6] [test-3.lox] [0mif (age < 18) {
@@ -281,8 +281,8 @@ Debug = true
 [33m[stage-6] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-6] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-6] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-4.lox] [0m// This program uses nested if statements to print
-[33m[stage-6] [test-4.lox] [0m// a message
+[33m[stage-6] [test-4.lox] [0m[33m// This program uses nested if statements to print[0m
+[33m[stage-6] [test-4.lox] [0m[33m// a message[0m
 [33m[stage-6] [test-4.lox] [0mif (true) if (false) print "bar";
 [33m[stage-6] [test-4.lox] [0melse print "foo";
 [33m[stage-6] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -294,8 +294,8 @@ Debug = true
 [33m[stage-5] [0m[94mRunning tests for Stage #5: wk8[0m
 [33m[stage-5] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-5] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test-1.lox] [0m// The logical OR operator should return the first
-[33m[stage-5] [test-1.lox] [0m// value that is truthy
+[33m[stage-5] [test-1.lox] [0m[33m// The logical OR operator should return the first[0m
+[33m[stage-5] [test-1.lox] [0m[33m// value that is truthy[0m
 [33m[stage-5] [test-1.lox] [0mif (false or "ok") print "world";
 [33m[stage-5] [test-1.lox] [0mif (nil or "ok") print "world";
 [33m[stage-5] [test-1.lox] [0m
@@ -314,8 +314,8 @@ Debug = true
 [33m[stage-5] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-5] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-5] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test-2.lox] [0m// This program uses the logical OR operator to
-[33m[stage-5] [test-2.lox] [0m// print the first value that is truthy
+[33m[stage-5] [test-2.lox] [0m[33m// This program uses the logical OR operator to[0m
+[33m[stage-5] [test-2.lox] [0m[33m// print the first value that is truthy[0m
 [33m[stage-5] [test-2.lox] [0mprint 16 or true;
 [33m[stage-5] [test-2.lox] [0mprint false or 16;
 [33m[stage-5] [test-2.lox] [0mprint false or false or true;
@@ -334,12 +334,12 @@ Debug = true
 [33m[stage-5] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-5] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-5] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test-3.lox] [0m// This program relies on the fact that
-[33m[stage-5] [test-3.lox] [0m// assignments return the assigned value
-[33m[stage-5] [test-3.lox] [0m// And that the logical OR operator short-circuits
-[33m[stage-5] [test-3.lox] [0m// So, if the first assignment is truthy, it
-[33m[stage-5] [test-3.lox] [0m// wouldn't proceed to the subsequent assignments
-[33m[stage-5] [test-3.lox] [0m// And then prints the assigned values
+[33m[stage-5] [test-3.lox] [0m[33m// This program relies on the fact that[0m
+[33m[stage-5] [test-3.lox] [0m[33m// assignments return the assigned value[0m
+[33m[stage-5] [test-3.lox] [0m[33m// And that the logical OR operator short-circuits[0m
+[33m[stage-5] [test-3.lox] [0m[33m// So, if the first assignment is truthy, it[0m
+[33m[stage-5] [test-3.lox] [0m[33m// wouldn't proceed to the subsequent assignments[0m
+[33m[stage-5] [test-3.lox] [0m[33m// And then prints the assigned values[0m
 [33m[stage-5] [test-3.lox] [0mvar a = "hello";
 [33m[stage-5] [test-3.lox] [0mvar b = "hello";
 [33m[stage-5] [test-3.lox] [0m(a = false) or (b = true) or (a = "hello");
@@ -352,9 +352,9 @@ Debug = true
 [33m[stage-5] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-5] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-5] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test-4.lox] [0m// This program uses if conditions to get the stage
-[33m[stage-5] [test-4.lox] [0m// of a person's life based on their age, and then
-[33m[stage-5] [test-4.lox] [0m// prints if they are eligible for voting
+[33m[stage-5] [test-4.lox] [0m[33m// This program uses if conditions to get the stage[0m
+[33m[stage-5] [test-4.lox] [0m[33m// of a person's life based on their age, and then[0m
+[33m[stage-5] [test-4.lox] [0m[33m// prints if they are eligible for voting[0m
 [33m[stage-5] [test-4.lox] [0mvar stage = "unknown";
 [33m[stage-5] [test-4.lox] [0mvar age = 79;
 [33m[stage-5] [test-4.lox] [0mif (age < 18) { stage = "child"; }
@@ -374,13 +374,13 @@ Debug = true
 [33m[stage-4] [0m[94mRunning tests for Stage #4: jx4[0m
 [33m[stage-4] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-4] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-1.lox] [0m// The logical AND operator should return the
-[33m[stage-4] [test-1.lox] [0m// first falsy value
+[33m[stage-4] [test-1.lox] [0m[33m// The logical AND operator should return the[0m
+[33m[stage-4] [test-1.lox] [0m[33m// first falsy value[0m
 [33m[stage-4] [test-1.lox] [0mif (false and "bad") print "hello";
 [33m[stage-4] [test-1.lox] [0mif (nil and "bad") print "hello";
 [33m[stage-4] [test-1.lox] [0m
-[33m[stage-4] [test-1.lox] [0m// If all values are truthy, it returns the last
-[33m[stage-4] [test-1.lox] [0m// value
+[33m[stage-4] [test-1.lox] [0m[33m// If all values are truthy, it returns the last[0m
+[33m[stage-4] [test-1.lox] [0m[33m// value[0m
 [33m[stage-4] [test-1.lox] [0mif (true and "baz") print "baz";
 [33m[stage-4] [test-1.lox] [0mif (77 and "quz") print "quz";
 [33m[stage-4] [test-1.lox] [0mif ("quz" and "quz") print "quz";
@@ -394,9 +394,9 @@ Debug = true
 [33m[stage-4] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-4] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-2.lox] [0m// This program uses the logical AND operator to
-[33m[stage-4] [test-2.lox] [0m// print the first falsy value
-[33m[stage-4] [test-2.lox] [0m// Or the last value if all values are truthy
+[33m[stage-4] [test-2.lox] [0m[33m// This program uses the logical AND operator to[0m
+[33m[stage-4] [test-2.lox] [0m[33m// print the first falsy value[0m
+[33m[stage-4] [test-2.lox] [0m[33m// Or the last value if all values are truthy[0m
 [33m[stage-4] [test-2.lox] [0mprint false and 1;
 [33m[stage-4] [test-2.lox] [0mprint true and 1;
 [33m[stage-4] [test-2.lox] [0mprint 59 and "quz" and false;
@@ -413,12 +413,12 @@ Debug = true
 [33m[stage-4] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-4] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-3.lox] [0m// This program relies on the fact that
-[33m[stage-4] [test-3.lox] [0m// assignments return the assigned value
-[33m[stage-4] [test-3.lox] [0m// And that the logical AND operator short-circuits
-[33m[stage-4] [test-3.lox] [0m// So, when it encounters a falsy value, it
-[33m[stage-4] [test-3.lox] [0m// wouldn't proceed to the subsequent assignments
-[33m[stage-4] [test-3.lox] [0m// And then prints the assigned values
+[33m[stage-4] [test-3.lox] [0m[33m// This program relies on the fact that[0m
+[33m[stage-4] [test-3.lox] [0m[33m// assignments return the assigned value[0m
+[33m[stage-4] [test-3.lox] [0m[33m// And that the logical AND operator short-circuits[0m
+[33m[stage-4] [test-3.lox] [0m[33m// So, when it encounters a falsy value, it[0m
+[33m[stage-4] [test-3.lox] [0m[33m// wouldn't proceed to the subsequent assignments[0m
+[33m[stage-4] [test-3.lox] [0m[33m// And then prints the assigned values[0m
 [33m[stage-4] [test-3.lox] [0mvar a = "bar";
 [33m[stage-4] [test-3.lox] [0mvar b = "bar";
 [33m[stage-4] [test-3.lox] [0m(a = true) and (b = false) and (a = "bad");
@@ -431,9 +431,9 @@ Debug = true
 [33m[stage-4] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-4] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-4.lox] [0m// This program uses if conditions to get the stage
-[33m[stage-4] [test-4.lox] [0m// of a person's life based on their age, and then
-[33m[stage-4] [test-4.lox] [0m// prints if they are eligible for voting
+[33m[stage-4] [test-4.lox] [0m[33m// This program uses if conditions to get the stage[0m
+[33m[stage-4] [test-4.lox] [0m[33m// of a person's life based on their age, and then[0m
+[33m[stage-4] [test-4.lox] [0m[33m// prints if they are eligible for voting[0m
 [33m[stage-4] [test-4.lox] [0mvar stage = "unknown";
 [33m[stage-4] [test-4.lox] [0mvar age = 62;
 [33m[stage-4] [test-4.lox] [0mif (age < 18) { stage = "child"; }
@@ -453,10 +453,10 @@ Debug = true
 [33m[stage-3] [0m[94mRunning tests for Stage #3: qy3[0m
 [33m[stage-3] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-3] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-1.lox] [0m// This program uses a while loop to print the
-[33m[stage-3] [test-1.lox] [0m// numbers from 0 to N
-[33m[stage-3] [test-1.lox] [0m// The assignment operation returns the assigned
-[33m[stage-3] [test-1.lox] [0m// value
+[33m[stage-3] [test-1.lox] [0m[33m// This program uses a while loop to print the[0m
+[33m[stage-3] [test-1.lox] [0m[33m// numbers from 0 to N[0m
+[33m[stage-3] [test-1.lox] [0m[33m// The assignment operation returns the assigned[0m
+[33m[stage-3] [test-1.lox] [0m[33m// value[0m
 [33m[stage-3] [test-1.lox] [0mvar baz = 0;
 [33m[stage-3] [test-1.lox] [0mwhile (baz < 3) print baz = baz + 1;
 [33m[stage-3] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -467,10 +467,10 @@ Debug = true
 [33m[stage-3] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-3] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-3] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-2.lox] [0m// This program uses a while loop to print the
-[33m[stage-3] [test-2.lox] [0m// numbers from 0 to 3
-[33m[stage-3] [test-2.lox] [0m// The statement inside the block is executed
-[33m[stage-3] [test-2.lox] [0m// every time the loop condition is true
+[33m[stage-3] [test-2.lox] [0m[33m// This program uses a while loop to print the[0m
+[33m[stage-3] [test-2.lox] [0m[33m// numbers from 0 to 3[0m
+[33m[stage-3] [test-2.lox] [0m[33m// The statement inside the block is executed[0m
+[33m[stage-3] [test-2.lox] [0m[33m// every time the loop condition is true[0m
 [33m[stage-3] [test-2.lox] [0mvar baz = 0;
 [33m[stage-3] [test-2.lox] [0mwhile (baz < 3) {
 [33m[stage-3] [test-2.lox] [0m  print baz;
@@ -484,10 +484,10 @@ Debug = true
 [33m[stage-3] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-3] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-3] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-3.lox] [0m// This program uses a while loop to calculate the
-[33m[stage-3] [test-3.lox] [0m// factorial of 5
-[33m[stage-3] [test-3.lox] [0m// The first while loop never runs because the
-[33m[stage-3] [test-3.lox] [0m// condition is false
+[33m[stage-3] [test-3.lox] [0m[33m// This program uses a while loop to calculate the[0m
+[33m[stage-3] [test-3.lox] [0m[33m// factorial of 5[0m
+[33m[stage-3] [test-3.lox] [0m[33m// The first while loop never runs because the[0m
+[33m[stage-3] [test-3.lox] [0m[33m// condition is false[0m
 [33m[stage-3] [test-3.lox] [0mwhile (false) { print "should not print"; }
 [33m[stage-3] [test-3.lox] [0m
 [33m[stage-3] [test-3.lox] [0mvar product = 1;
@@ -506,8 +506,8 @@ Debug = true
 [33m[stage-3] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-3] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-3] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-4.lox] [0m// This program uses a while loop to generate and
-[33m[stage-3] [test-4.lox] [0m// print the first N Fibonacci numbers
+[33m[stage-3] [test-4.lox] [0m[33m// This program uses a while loop to generate and[0m
+[33m[stage-3] [test-4.lox] [0m[33m// print the first N Fibonacci numbers[0m
 [33m[stage-3] [test-4.lox] [0mvar n = 10;
 [33m[stage-3] [test-4.lox] [0mvar fm = 0;
 [33m[stage-3] [test-4.lox] [0mvar fn = 1;
@@ -538,10 +538,10 @@ Debug = true
 [33m[stage-2] [0m[94mRunning tests for Stage #2: bw6[0m
 [33m[stage-2] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-2] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-1.lox] [0m// This program uses a for loop to print the
-[33m[stage-2] [test-1.lox] [0m// numbers from 0 to 3
-[33m[stage-2] [test-1.lox] [0m// The assignment operation returns the assigned
-[33m[stage-2] [test-1.lox] [0m// value
+[33m[stage-2] [test-1.lox] [0m[33m// This program uses a for loop to print the[0m
+[33m[stage-2] [test-1.lox] [0m[33m// numbers from 0 to 3[0m
+[33m[stage-2] [test-1.lox] [0m[33m// The assignment operation returns the assigned[0m
+[33m[stage-2] [test-1.lox] [0m[33m// value[0m
 [33m[stage-2] [test-1.lox] [0mfor (var foo = 0; foo < 3;) print foo = foo + 1;
 [33m[stage-2] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m1
@@ -551,8 +551,8 @@ Debug = true
 [33m[stage-2] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-2] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-2.lox] [0m// This program uses a for loop to print the
-[33m[stage-2] [test-2.lox] [0m// numbers from 0 to 3
+[33m[stage-2] [test-2.lox] [0m[33m// This program uses a for loop to print the[0m
+[33m[stage-2] [test-2.lox] [0m[33m// numbers from 0 to 3[0m
 [33m[stage-2] [test-2.lox] [0mfor (var bar = 0; bar < 3; bar = bar + 1) {
 [33m[stage-2] [test-2.lox] [0m  print bar;
 [33m[stage-2] [test-2.lox] [0m}
@@ -564,16 +564,16 @@ Debug = true
 [33m[stage-2] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-2] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-3.lox] [0m// This program uses a for loop to print the
-[33m[stage-2] [test-3.lox] [0m// numbers from 0 to 2
-[33m[stage-2] [test-3.lox] [0m// The loop initializer is ignored in this loop
+[33m[stage-2] [test-3.lox] [0m[33m// This program uses a for loop to print the[0m
+[33m[stage-2] [test-3.lox] [0m[33m// numbers from 0 to 2[0m
+[33m[stage-2] [test-3.lox] [0m[33m// The loop initializer is ignored in this loop[0m
 [33m[stage-2] [test-3.lox] [0mvar baz = 0;
 [33m[stage-2] [test-3.lox] [0mfor (; baz < 2; baz = baz + 1) print baz;
 [33m[stage-2] [test-3.lox] [0m
-[33m[stage-2] [test-3.lox] [0m// This program uses a for loop to print the
-[33m[stage-2] [test-3.lox] [0m// numbers from 0 to 2
-[33m[stage-2] [test-3.lox] [0m// The loop increment clause is ignored in this
-[33m[stage-2] [test-3.lox] [0m// loop
+[33m[stage-2] [test-3.lox] [0m[33m// This program uses a for loop to print the[0m
+[33m[stage-2] [test-3.lox] [0m[33m// numbers from 0 to 2[0m
+[33m[stage-2] [test-3.lox] [0m[33m// The loop increment clause is ignored in this[0m
+[33m[stage-2] [test-3.lox] [0m[33m// loop[0m
 [33m[stage-2] [test-3.lox] [0mfor (var bar = 0; bar < 2;) {
 [33m[stage-2] [test-3.lox] [0m  print bar;
 [33m[stage-2] [test-3.lox] [0m  bar = bar + 1;
@@ -587,8 +587,8 @@ Debug = true
 [33m[stage-2] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-2] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-4.lox] [0m// This program uses for loops and block scopes
-[33m[stage-2] [test-4.lox] [0m// to print the updates to the same variable
+[33m[stage-2] [test-4.lox] [0m[33m// This program uses for loops and block scopes[0m
+[33m[stage-2] [test-4.lox] [0m[33m// to print the updates to the same variable[0m
 [33m[stage-2] [test-4.lox] [0mvar baz = "after";
 [33m[stage-2] [test-4.lox] [0m{
 [33m[stage-2] [test-4.lox] [0m  var baz = "before";
@@ -622,9 +622,9 @@ Debug = true
 [33m[stage-1] [0m[94mRunning tests for Stage #1: vt1[0m
 [33m[stage-1] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-1] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-1] [test-1.lox] [0m// This program would give a compile error
-[33m[stage-1] [test-1.lox] [0m// because the variable declaration is not
-[33m[stage-1] [test-1.lox] [0m// inside a block
+[33m[stage-1] [test-1.lox] [0m[33m// This program would give a compile error[0m
+[33m[stage-1] [test-1.lox] [0m[33m// because the variable declaration is not[0m
+[33m[stage-1] [test-1.lox] [0m[33m// inside a block[0m
 [33m[stage-1] [test-1.lox] [0mfor (;;) var foo;
 [33m[stage-1] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 4] Error at 'var': Expect expression.
@@ -632,8 +632,8 @@ Debug = true
 [33m[stage-1] [test-1] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-1] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-1] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-1] [test-2.lox] [0m// This program would give a compile error
-[33m[stage-1] [test-2.lox] [0m// because the condition is not valid
+[33m[stage-1] [test-2.lox] [0m[33m// This program would give a compile error[0m
+[33m[stage-1] [test-2.lox] [0m[33m// because the condition is not valid[0m
 [33m[stage-1] [test-2.lox] [0mfor (var a = 1; {}; a = a + 1) {}
 [33m[stage-1] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 3] Error at '{': Expect expression.
@@ -642,8 +642,8 @@ Debug = true
 [33m[stage-1] [test-2] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-1] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-1] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-1] [test-3.lox] [0m// This program would give a compile error
-[33m[stage-1] [test-3.lox] [0m// because the increment clause is not valid
+[33m[stage-1] [test-3.lox] [0m[33m// This program would give a compile error[0m
+[33m[stage-1] [test-3.lox] [0m[33m// because the increment clause is not valid[0m
 [33m[stage-1] [test-3.lox] [0mfor (var a = 1; a < 2; {}) {}
 [33m[stage-1] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 3] Error at '{': Expect expression.
@@ -651,8 +651,8 @@ Debug = true
 [33m[stage-1] [test-3] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-1] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-1] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-1] [test-4.lox] [0m// This program would give a compile error
-[33m[stage-1] [test-4.lox] [0m// because the initialization clause is not valid
+[33m[stage-1] [test-4.lox] [0m[33m// This program would give a compile error[0m
+[33m[stage-1] [test-4.lox] [0m[33m// because the initialization clause is not valid[0m
 [33m[stage-1] [test-4.lox] [0mfor ({}; a < 2; a = a + 1) {}
 [33m[stage-1] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m[line 3] Error at '{': Expect expression.
