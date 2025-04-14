@@ -1,7 +1,8 @@
 ---
 expected_error_type: none
 ---
-// This program uses a while loop to generate and print the first N Fibonacci numbers
+// This program uses a while loop to generate and
+// print the first N Fibonacci numbers
 var n = 10;
 var fm = 0;
 var fn = 1;

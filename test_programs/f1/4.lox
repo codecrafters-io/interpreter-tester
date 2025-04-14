@@ -1,7 +1,8 @@
 ---
 expected_error_type: none
 ---
-// This program utilizes the built-in clock() function
+// This program utilizes the built-in clock()
+// function
 // to create a timer that runs for 0.2 seconds
 var startTime = clock();
 var lastCheck = startTime;

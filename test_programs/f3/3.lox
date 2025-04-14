@@ -1,6 +1,9 @@
 ---
 expected_error_type: none
 ---
-// This function takes eight arguments and prints their sum
-fun f8(a, b, c, d, e, f, g, h) { print a - b + c * d + e - f + g - h; }
+// This function takes eight arguments and prints
+// their sum
+fun f8(a, b, c, d, e, f, g, h) {
+  print a - b + c * d + e - f + g - h;
+}
 f8(<<RANDOM_INTEGER>>, <<RANDOM_INTEGER>>, <<RANDOM_INTEGER>>, <<RANDOM_INTEGER>>, <<RANDOM_INTEGER>>, <<RANDOM_INTEGER>>, <<RANDOM_INTEGER>>, <<RANDOM_INTEGER>>);

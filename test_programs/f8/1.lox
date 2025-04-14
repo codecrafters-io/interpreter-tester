@@ -1,7 +1,8 @@
 ---
 expected_error_type: none
 ---
-// This program demonstrates global and local variable shadowing in Lox.
+// This program demonstrates global and local
+// variable shadowing in Lox.
 var a = <<RANDOM_INTEGER_1>>;
 
 fun printAndModify() {

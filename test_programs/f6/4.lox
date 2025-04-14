@@ -1,7 +1,8 @@
 ---
 expected_error_type: none
 ---
-// This program creates a function that returns another function
+// This program creates a function that returns
+// another function
 // and uses it to filter a list of numbers
 fun makeFilter(min) {
   fun filter(n) {
@@ -13,7 +14,8 @@ fun makeFilter(min) {
   return filter;
 }
 
-// This function applies a function to a list of numbers
+// This function applies a function to a list of
+// numbers
 fun applyToNumbers(f, count) {
   var n = 0;
   while (n < count) {

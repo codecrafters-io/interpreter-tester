@@ -1,7 +1,9 @@
 ---
 expected_error_type: none
 ---
-// This program declares a variable but doesn't initialize it
-// It prints the variable's value, which should be nil
+// This program declares a variable but doesn't
+// initialize it
+// It prints the variable's value, which should be
+// nil
 var <<RANDOM_STRING_1>>;
 print <<RANDOM_STRING_1>>;

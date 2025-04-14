@@ -1,8 +1,10 @@
 ---
 expected_error_type: none
 ---
-// This program uses a while loop to calculate the factorial of 5
-// The first while loop never runs because the condition is false
+// This program uses a while loop to calculate the
+// factorial of 5
+// The first while loop never runs because the
+// condition is false
 while (false) { print "should not print"; }
 
 var product = 1;

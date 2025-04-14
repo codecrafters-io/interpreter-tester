@@ -1,8 +1,10 @@
 ---
 expected_error_type: none
 ---
-// This program creates a function that returns another function
-// and uses it to greet two different people with two different greetings
+// This program creates a function that returns
+// another function
+// and uses it to greet two different people with
+// two different greetings
 var globalGreeting = "Hello";
 
 fun makeGreeter() {

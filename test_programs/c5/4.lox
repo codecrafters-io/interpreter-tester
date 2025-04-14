@@ -2,7 +2,7 @@
 expected_error_type: none
 ---
 // This program uses if conditions to get the stage
-// of a person's life based on their age, and then 
+// of a person's life based on their age, and then
 // prints if they are eligible for voting
 var stage = "unknown";
 var age = <<RANDOM_INTEGER>>;
@@ -11,5 +11,5 @@ if (age >= 18) { stage = "adult"; }
 print stage;
 
 var isAdult = age >= 18;
-if (isAdult) { print "eligible for voting: true"; }
-if (!isAdult) { print "eligible for voting: false"; }
+if (isAdult) { print "eligible for voting"; }
+if (!isAdult) { print "not eligible for voting"; }

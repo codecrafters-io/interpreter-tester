@@ -11,7 +11,8 @@ var variable = "global";
 
   f(); // this should print "global"
 
-  // This variable declaration shouldn't affect the usage in `f` above.
+  // This variable declaration shouldn't affect
+  // the usage in `f` above.
   var variable = "local";
 
   f(); // this should still print "global"

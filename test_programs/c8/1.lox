@@ -1,6 +1,8 @@
 ---
 expected_error_type: none
 ---
-// This program uses a for loop to print the numbers from 0 to 3
-// The assignment operation returns the assigned value
-for (var <<RANDOM_STRING_1>> = 0; <<RANDOM_STRING_1>> < 3;) print <<RANDOM_STRING_1>> = <<RANDOM_STRING_1>> + 1;
+// This program uses a for loop to print the
+// numbers from 0 to 3
+// The assignment operation returns the assigned
+// value
+for (var foo = 0; foo < 3;) print foo = foo + 1;

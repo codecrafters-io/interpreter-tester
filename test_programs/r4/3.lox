@@ -2,8 +2,10 @@
 expected_error_type: compile
 ---
 {
-  // Return statements are not allowed in top-level blocks
-  return "not allowed in a block either"; // This should be a compile error
+  // Return statements are not allowed in
+  // top-level blocks
+  return "not allowed in a block either";
+  // expect compile error
 }
 
 fun allowed() {

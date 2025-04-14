@@ -3,7 +3,6 @@ Debug = true
 [33m[stage-10] [0m[94mRunning tests for Stage #10: xy1[0m
 [33m[stage-10] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-10] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-10] [test-1.lox] [0m// This program prints a boolean
 [33m[stage-10] [test-1.lox] [0mprint false;
 [33m[stage-10] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mfalse
@@ -11,7 +10,7 @@ Debug = true
 [33m[stage-10] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-10] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-10] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-10] [test-2.lox] [0m// This program prints the result of the concatenation of three strings
+[33m[stage-10] [test-2.lox] [0m// Concatenation of strings should work
 [33m[stage-10] [test-2.lox] [0mprint "quz" + "hello" + "baz";
 [33m[stage-10] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mquzhellobaz
@@ -19,7 +18,6 @@ Debug = true
 [33m[stage-10] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-10] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-10] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-10] [test-3.lox] [0m// This program prints the result of an arithmetic expression
 [33m[stage-10] [test-3.lox] [0mprint (92 * 2 + 96 * 2) / (2);
 [33m[stage-10] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m188
@@ -28,10 +26,9 @@ Debug = true
 [33m[stage-10] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-10] [test-4] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-10] [test-4.lox] [0m// Print statements expect an expression
-[33m[stage-10] [test-4.lox] [0m// So, this program leads to a compilation error
-[33m[stage-10] [test-4.lox] [0mprint;
+[33m[stage-10] [test-4.lox] [0mprint; // expect compile error
 [33m[stage-10] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m[line 3] Error at ';': Expect expression.
+[33m[your_program] [0m[line 2] Error at ';': Expect expression.
 [33m[stage-10] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-10] [test-4] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-10] [0m[92mTest passed.[0m
@@ -39,7 +36,7 @@ Debug = true
 [33m[stage-9] [0m[94mRunning tests for Stage #9: oe4[0m
 [33m[stage-9] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-9] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test-1.lox] [0m// This program prints the result of arithmetic operations involving strings and integers
+[33m[stage-9] [test-1.lox] [0m// Concatenation of strings should work
 [33m[stage-9] [test-1.lox] [0mprint "hello" + "foo" + "world";
 [33m[stage-9] [test-1.lox] [0mprint 34 - 90;
 [33m[stage-9] [test-1.lox] [0mprint "world" == "quz";
@@ -51,7 +48,7 @@ Debug = true
 [33m[stage-9] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-9] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test-2.lox] [0m// This program tests the syntax of multiple statements in a single line
+[33m[stage-9] [test-2.lox] [0m// Multiple statements in a single line should work
 [33m[stage-9] [test-2.lox] [0mprint "bar"; print true;
 [33m[stage-9] [test-2.lox] [0mprint true;
 [33m[stage-9] [test-2.lox] [0mprint "world"; print 28;
@@ -65,7 +62,7 @@ Debug = true
 [33m[stage-9] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-9] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test-3.lox] [0m// This program tests that leading whitespace are ignored while executing
+[33m[stage-9] [test-3.lox] [0m// Leading whitespace should be ignored
 [33m[stage-9] [test-3.lox] [0mprint 17;
 [33m[stage-9] [test-3.lox] [0m    print 17 + 81;
 [33m[stage-9] [test-3.lox] [0m        print 17 + 81 + 52;
@@ -77,10 +74,9 @@ Debug = true
 [33m[stage-9] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-9] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-9] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-9] [test-4.lox] [0m// This program prints the result of a comparison operation
-[33m[stage-9] [test-4.lox] [0m// It also tests multi-line strings and non-ASCII characters
 [33m[stage-9] [test-4.lox] [0mprint true != true;
 [33m[stage-9] [test-4.lox] [0m
+[33m[stage-9] [test-4.lox] [0m// multi-line strings should be supported
 [33m[stage-9] [test-4.lox] [0mprint "44
 [33m[stage-9] [test-4.lox] [0m84
 [33m[stage-9] [test-4.lox] [0m70
@@ -90,8 +86,8 @@ Debug = true
 [33m[stage-9] [test-4.lox] [0m
 [33m[stage-9] [test-4.lox] [0mprint "(" + "" + ")";
 [33m[stage-9] [test-4.lox] [0m
+[33m[stage-9] [test-4.lox] [0m// non-ascii characters should be supported
 [33m[stage-9] [test-4.lox] [0mprint "non-ascii: ॐ";
-[33m[stage-9] [test-4.lox] [0m
 [33m[stage-9] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mfalse
 [33m[your_program] [0m44
@@ -108,11 +104,13 @@ Debug = true
 [33m[stage-8] [0m[94mRunning tests for Stage #8: fi3[0m
 [33m[stage-8] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-8] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-1.lox] [0m// This program tests that statements are executed even if they don't have any side effects
-[33m[stage-8] [test-1.lox] [0m// It also tests complex arithmetic expressions and string concatenation
+[33m[stage-8] [test-1.lox] [0m// This program tests that statements are executed
+[33m[stage-8] [test-1.lox] [0m// even if they don't have any side effects
+[33m[stage-8] [test-1.lox] [0m// It also tests complex arithmetic expressions
+[33m[stage-8] [test-1.lox] [0m// and string concatenation
 [33m[stage-8] [test-1.lox] [0m(74 + 46 - 10) > (42 - 74) * 2;
 [33m[stage-8] [test-1.lox] [0mprint !false;
-[33m[stage-8] [test-1.lox] [0m"quz" + "world" + "bar" + "foo" == "quzworldbarfoo";
+[33m[stage-8] [test-1.lox] [0m"quz" + "world" + "bar" == "quzworldbar";
 [33m[stage-8] [test-1.lox] [0mprint !false;
 [33m[stage-8] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mtrue
@@ -121,7 +119,8 @@ Debug = true
 [33m[stage-8] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-8] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-2.lox] [0m// This program tests statements that don't have any side effects
+[33m[stage-8] [test-2.lox] [0m// This program tests statements that don't have
+[33m[stage-8] [test-2.lox] [0m// any side effects
 [33m[stage-8] [test-2.lox] [0m53 - 31 >= -90 * 2 / 90 + 27;
 [33m[stage-8] [test-2.lox] [0mfalse == false;
 [33m[stage-8] [test-2.lox] [0m("world" == "hello") == ("quz" != "baz");
@@ -132,25 +131,28 @@ Debug = true
 [33m[stage-8] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-8] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-8] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-3.lox] [0m// This program tests that the + operator is only supported when both operands are numbers or both are strings
+[33m[stage-8] [test-3.lox] [0m// This program tests that the + operator is only
+[33m[stage-8] [test-3.lox] [0m// supported when both operands are numbers or
+[33m[stage-8] [test-3.lox] [0m// both are strings
 [33m[stage-8] [test-3.lox] [0mprint "the expression below is invalid";
 [33m[stage-8] [test-3.lox] [0m62 + "quz";
 [33m[stage-8] [test-3.lox] [0mprint "this should not be printed";
 [33m[stage-8] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mthe expression below is invalid
 [33m[your_program] [0mOperands must be two numbers or two strings.
-[33m[your_program] [0m[line 3]
+[33m[your_program] [0m[line 5]
 [33m[stage-8] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-8] [test-3] [0m[92m✓ Received exit code 70.[0m
 [33m[stage-8] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-8] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-8] [test-4.lox] [0m// This program tests that the * operator is only supported when both operands are numbers
+[33m[stage-8] [test-4.lox] [0m// This program tests that the * operator is only
+[33m[stage-8] [test-4.lox] [0m// supported when both operands are numbers
 [33m[stage-8] [test-4.lox] [0mprint "50" + "hello";
 [33m[stage-8] [test-4.lox] [0mprint false * (97 + 23);
 [33m[stage-8] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m50hello
 [33m[your_program] [0mOperands must be numbers.
-[33m[your_program] [0m[line 3]
+[33m[your_program] [0m[line 4]
 [33m[stage-8] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-8] [test-4] [0m[92m✓ Received exit code 70.[0m
 [33m[stage-8] [0m[92mTest passed.[0m
@@ -158,7 +160,8 @@ Debug = true
 [33m[stage-7] [0m[94mRunning tests for Stage #7: yg2[0m
 [33m[stage-7] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-7] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-1.lox] [0m// This program tests that variables are initialized to the correct value
+[33m[stage-7] [test-1.lox] [0m// This program tests that variables are
+[33m[stage-7] [test-1.lox] [0m// initialized to the correct value
 [33m[stage-7] [test-1.lox] [0mvar baz = 10;
 [33m[stage-7] [test-1.lox] [0mprint baz;
 [33m[stage-7] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -167,7 +170,9 @@ Debug = true
 [33m[stage-7] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-7] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-2.lox] [0m// This program declares multiple variables and<|SPACE|>// prints the result of arithmetic operations on them
+[33m[stage-7] [test-2.lox] [0m// This program declares multiple variables and
+[33m[stage-7] [test-2.lox] [0m// prints the result of arithmetic operations on
+[33m[stage-7] [test-2.lox] [0m// them
 [33m[stage-7] [test-2.lox] [0mvar foo = 17;
 [33m[stage-7] [test-2.lox] [0mvar bar = 17;
 [33m[stage-7] [test-2.lox] [0mprint foo + bar;
@@ -180,7 +185,8 @@ Debug = true
 [33m[stage-7] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-7] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-3.lox] [0m// This program assigns the result of an arithmetic expression to a variable
+[33m[stage-7] [test-3.lox] [0m// This program assigns the result of an
+[33m[stage-7] [test-3.lox] [0m// arithmetic expression to a variable
 [33m[stage-7] [test-3.lox] [0m// Then it prints the value of the variable
 [33m[stage-7] [test-3.lox] [0mvar quz = (8 * (68 + 68)) / 4 + 68;
 [33m[stage-7] [test-3.lox] [0mprint quz;
@@ -190,7 +196,8 @@ Debug = true
 [33m[stage-7] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-7] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-7] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-7] [test-4.lox] [0m// This program declares variables and performs operations on them
+[33m[stage-7] [test-4.lox] [0m// This program declares variables and performs
+[33m[stage-7] [test-4.lox] [0m// operations on them
 [33m[stage-7] [test-4.lox] [0m// Finally it prints the result of the operations
 [33m[stage-7] [test-4.lox] [0mvar bar = 66;
 [33m[stage-7] [test-4.lox] [0mvar foo = bar;
@@ -204,42 +211,46 @@ Debug = true
 [33m[stage-6] [0m[94mRunning tests for Stage #6: sv7[0m
 [33m[stage-6] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-6] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-1.lox] [0m// This program tries to access a variable before it is declared
+[33m[stage-6] [test-1.lox] [0m// This program tries to access a variable before
+[33m[stage-6] [test-1.lox] [0m// it is declared
 [33m[stage-6] [test-1.lox] [0m// It leads to a runtime error
 [33m[stage-6] [test-1.lox] [0mprint 45;
 [33m[stage-6] [test-1.lox] [0mprint x;
 [33m[stage-6] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m45
 [33m[your_program] [0mUndefined variable 'x'.
-[33m[your_program] [0m[line 4]
+[33m[your_program] [0m[line 5]
 [33m[stage-6] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-6] [test-1] [0m[92m✓ Received exit code 70.[0m
 [33m[stage-6] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-6] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-2.lox] [0m// This program tries to access a variable before it is declared
+[33m[stage-6] [test-2.lox] [0m// This program tries to access a variable before
+[33m[stage-6] [test-2.lox] [0m// it is declared
 [33m[stage-6] [test-2.lox] [0m// It leads to a runtime error
 [33m[stage-6] [test-2.lox] [0mvar world = 16;
 [33m[stage-6] [test-2.lox] [0mprint baz;
 [33m[stage-6] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mUndefined variable 'baz'.
-[33m[your_program] [0m[line 4]
+[33m[your_program] [0m[line 5]
 [33m[stage-6] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-6] [test-2] [0m[92m✓ Received exit code 70.[0m
 [33m[stage-6] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-6] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-3.lox] [0m// This program tries to access a variable before it is declared
+[33m[stage-6] [test-3.lox] [0m// This program tries to access a variable before
+[33m[stage-6] [test-3.lox] [0m// it is declared
 [33m[stage-6] [test-3.lox] [0m// It leads to a runtime error
 [33m[stage-6] [test-3.lox] [0mvar world = 47;
 [33m[stage-6] [test-3.lox] [0mvar result = (world + foo) / bar;
 [33m[stage-6] [test-3.lox] [0mprint result;
 [33m[stage-6] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mUndefined variable 'foo'.
-[33m[your_program] [0m[line 4]
+[33m[your_program] [0m[line 5]
 [33m[stage-6] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-6] [test-3] [0m[92m✓ Received exit code 70.[0m
 [33m[stage-6] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-6] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-6] [test-4.lox] [0m// This program tries to access a variable before it is declared
+[33m[stage-6] [test-4.lox] [0m// This program tries to access a variable before
+[33m[stage-6] [test-4.lox] [0m// it is declared
 [33m[stage-6] [test-4.lox] [0m// It leads to a runtime error
 [33m[stage-6] [test-4.lox] [0mvar quz = 88;
 [33m[stage-6] [test-4.lox] [0mvar hello = 96;
@@ -247,7 +258,7 @@ Debug = true
 [33m[stage-6] [test-4.lox] [0mprint quz + hello + foo + bar; print 53;
 [33m[stage-6] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mUndefined variable 'bar'.
-[33m[your_program] [0m[line 6]
+[33m[your_program] [0m[line 7]
 [33m[stage-6] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-6] [test-4] [0m[92m✓ Received exit code 70.[0m
 [33m[stage-6] [0m[92mTest passed.[0m
@@ -255,8 +266,10 @@ Debug = true
 [33m[stage-5] [0m[94mRunning tests for Stage #5: bc1[0m
 [33m[stage-5] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-5] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test-1.lox] [0m// This program declares a variable but doesn't initialize it
-[33m[stage-5] [test-1.lox] [0m// It prints the variable's value, which should be nil
+[33m[stage-5] [test-1.lox] [0m// This program declares a variable but doesn't
+[33m[stage-5] [test-1.lox] [0m// initialize it
+[33m[stage-5] [test-1.lox] [0m// It prints the variable's value, which should be
+[33m[stage-5] [test-1.lox] [0m// nil
 [33m[stage-5] [test-1.lox] [0mvar hello;
 [33m[stage-5] [test-1.lox] [0mprint hello;
 [33m[stage-5] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -265,7 +278,8 @@ Debug = true
 [33m[stage-5] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-5] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-5] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test-2.lox] [0m// This program declares a variable but doesn't initialize it
+[33m[stage-5] [test-2.lox] [0m// This program declares a variable but doesn't
+[33m[stage-5] [test-2.lox] [0m// initialize it
 [33m[stage-5] [test-2.lox] [0m// It prints the variable's value
 [33m[stage-5] [test-2.lox] [0mvar foo = "baz";
 [33m[stage-5] [test-2.lox] [0mvar bar;
@@ -276,7 +290,8 @@ Debug = true
 [33m[stage-5] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-5] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-5] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test-3.lox] [0m// This program declares a variable but doesn't initialize it
+[33m[stage-5] [test-3.lox] [0m// This program declares a variable but doesn't
+[33m[stage-5] [test-3.lox] [0m// initialize it
 [33m[stage-5] [test-3.lox] [0m// It prints the variable's value
 [33m[stage-5] [test-3.lox] [0mvar quz = 25;
 [33m[stage-5] [test-3.lox] [0mvar hello;
@@ -288,7 +303,8 @@ Debug = true
 [33m[stage-5] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-5] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-5] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-5] [test-4.lox] [0m// This program declares a variable but doesn't initialize it
+[33m[stage-5] [test-4.lox] [0m// This program declares a variable but doesn't
+[33m[stage-5] [test-4.lox] [0m// initialize it
 [33m[stage-5] [test-4.lox] [0m// It prints the variable's value
 [33m[stage-5] [test-4.lox] [0mvar quz = 95 + 71 * 16;
 [33m[stage-5] [test-4.lox] [0mprint quz;
@@ -307,8 +323,6 @@ Debug = true
 [33m[stage-4] [0m[94mRunning tests for Stage #4: dw9[0m
 [33m[stage-4] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-4] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-1.lox] [0m// This program declares a variable and prints its value
-[33m[stage-4] [test-1.lox] [0m// It then redeclares the variable and prints its value again
 [33m[stage-4] [test-1.lox] [0mvar baz = "before";
 [33m[stage-4] [test-1.lox] [0mprint baz;
 [33m[stage-4] [test-1.lox] [0mvar baz = "after";
@@ -320,10 +334,10 @@ Debug = true
 [33m[stage-4] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-4] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-2.lox] [0m// This program declares a variable and prints its value
-[33m[stage-4] [test-2.lox] [0m// It also uses a previously declared variable's value to initialize a new variable
 [33m[stage-4] [test-2.lox] [0mvar world = "after";
 [33m[stage-4] [test-2.lox] [0mvar world = "before";
+[33m[stage-4] [test-2.lox] [0m// Using a previously declared variable's value to
+[33m[stage-4] [test-2.lox] [0m// initialize a new variable should work
 [33m[stage-4] [test-2.lox] [0mvar world = world;
 [33m[stage-4] [test-2.lox] [0mprint world;
 [33m[stage-4] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -332,7 +346,8 @@ Debug = true
 [33m[stage-4] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-4] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-3.lox] [0m// This program declares and initializes multiple variables and prints their values
+[33m[stage-4] [test-3.lox] [0m// This program declares and initializes multiple
+[33m[stage-4] [test-3.lox] [0m// variables and prints their values
 [33m[stage-4] [test-3.lox] [0mvar bar = 2;
 [33m[stage-4] [test-3.lox] [0mprint bar;
 [33m[stage-4] [test-3.lox] [0mvar bar = 3;
@@ -341,7 +356,6 @@ Debug = true
 [33m[stage-4] [test-3.lox] [0mprint hello;
 [33m[stage-4] [test-3.lox] [0mvar bar = hello;
 [33m[stage-4] [test-3.lox] [0mprint bar;
-[33m[stage-4] [test-3.lox] [0m
 [33m[stage-4] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0m2
 [33m[your_program] [0m3
@@ -351,12 +365,11 @@ Debug = true
 [33m[stage-4] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-4] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-4] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-4] [test-4.lox] [0m// This program declares a variable and initializes it with the value of another variable
-[33m[stage-4] [test-4.lox] [0m// But as the variable is not declared before it is used it leads to a runtime error
-[33m[stage-4] [test-4.lox] [0mvar hello = baz;
+[33m[stage-4] [test-4.lox] [0m// As baz is not declared before
+[33m[stage-4] [test-4.lox] [0mvar hello = baz; // expect runtime error
 [33m[stage-4] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mUndefined variable 'baz'.
-[33m[your_program] [0m[line 3]
+[33m[your_program] [0m[line 2]
 [33m[stage-4] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-4] [test-4] [0m[92m✓ Received exit code 70.[0m
 [33m[stage-4] [0m[92mTest passed.[0m
@@ -364,11 +377,11 @@ Debug = true
 [33m[stage-3] [0m[94mRunning tests for Stage #3: pl3[0m
 [33m[stage-3] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-3] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-1.lox] [0m// This program tests that the assignment operator returns the value that was assigned
-[33m[stage-3] [test-1.lox] [0m// And prints the value of the variable after each assignment
 [33m[stage-3] [test-1.lox] [0mvar baz;
 [33m[stage-3] [test-1.lox] [0mbaz = 1;
 [33m[stage-3] [test-1.lox] [0mprint baz;
+[33m[stage-3] [test-1.lox] [0m// The assignment operator should return
+[33m[stage-3] [test-1.lox] [0m// the value that was assigned
 [33m[stage-3] [test-1.lox] [0mprint baz = 2;
 [33m[stage-3] [test-1.lox] [0mprint baz;
 [33m[stage-3] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
@@ -379,7 +392,8 @@ Debug = true
 [33m[stage-3] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-3] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-3] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-2.lox] [0m// This program tests that the assignment operator works on any declared variable
+[33m[stage-3] [test-2.lox] [0m// This program tests that the assignment operator
+[33m[stage-3] [test-2.lox] [0m// works on any declared variable
 [33m[stage-3] [test-2.lox] [0mvar bar = 87;
 [33m[stage-3] [test-2.lox] [0mvar world = 87;
 [33m[stage-3] [test-2.lox] [0mworld = bar;
@@ -391,11 +405,11 @@ Debug = true
 [33m[stage-3] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-3] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-3] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-3.lox] [0m// This program tests that the assignment operator returns the value that was assigned
-[33m[stage-3] [test-3.lox] [0m// So, it can be used multiple times in a single statement
 [33m[stage-3] [test-3.lox] [0mvar foo;
 [33m[stage-3] [test-3.lox] [0mvar baz;
 [33m[stage-3] [test-3.lox] [0m
+[33m[stage-3] [test-3.lox] [0m// The assignment operator should return
+[33m[stage-3] [test-3.lox] [0m// the value that was assigned
 [33m[stage-3] [test-3.lox] [0mfoo = baz = 50 + 13 * 62;
 [33m[stage-3] [test-3.lox] [0mprint foo;
 [33m[stage-3] [test-3.lox] [0mprint baz;
@@ -406,12 +420,12 @@ Debug = true
 [33m[stage-3] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-3] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-3] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-3] [test-4.lox] [0m// This program tests that the assignment operator returns the value that was assigned
-[33m[stage-3] [test-4.lox] [0m// So, it can be used multiple times in a single statement
 [33m[stage-3] [test-4.lox] [0mvar bar = 93;
 [33m[stage-3] [test-4.lox] [0mvar quz;
 [33m[stage-3] [test-4.lox] [0mvar foo;
 [33m[stage-3] [test-4.lox] [0m
+[33m[stage-3] [test-4.lox] [0m// The assignment operator should return
+[33m[stage-3] [test-4.lox] [0m// the value that was assigned
 [33m[stage-3] [test-4.lox] [0mbar = quz = foo = bar * 2;
 [33m[stage-3] [test-4.lox] [0mprint bar;
 [33m[stage-3] [test-4.lox] [0mprint quz;
@@ -427,7 +441,8 @@ Debug = true
 [33m[stage-2] [0m[94mRunning tests for Stage #2: vr5[0m
 [33m[stage-2] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-2] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-1.lox] [0m// This program tests that curly braces can be used to group multiple statements into blocks
+[33m[stage-2] [test-1.lox] [0m// This program tests that curly braces can be
+[33m[stage-2] [test-1.lox] [0m// used to group multiple statements into blocks
 [33m[stage-2] [test-1.lox] [0m{
 [33m[stage-2] [test-1.lox] [0m    var hello = "foo";
 [33m[stage-2] [test-1.lox] [0m    print hello;
@@ -438,7 +453,8 @@ Debug = true
 [33m[stage-2] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-2] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-2.lox] [0m// This program tests that blocks can be used to group statements and variables
+[33m[stage-2] [test-2.lox] [0m// This program tests that blocks can be used
+[33m[stage-2] [test-2.lox] [0m// to group statements and variables
 [33m[stage-2] [test-2.lox] [0m// creating local scopes
 [33m[stage-2] [test-2.lox] [0m{
 [33m[stage-2] [test-2.lox] [0m    var world = "before";
@@ -448,7 +464,6 @@ Debug = true
 [33m[stage-2] [test-2.lox] [0m    var world = "after";
 [33m[stage-2] [test-2.lox] [0m    print world;
 [33m[stage-2] [test-2.lox] [0m}
-[33m[stage-2] [test-2.lox] [0m
 [33m[stage-2] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mbefore
 [33m[your_program] [0mafter
@@ -472,17 +487,16 @@ Debug = true
 [33m[stage-2] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-2] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-2] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-2] [test-4.lox] [0m// This program tests that scopes are properly closed
-[33m[stage-2] [test-4.lox] [0m// Here the inner scope is missing a closing curly brace
-[33m[stage-2] [test-4.lox] [0m// Which leads to a compilation error
 [33m[stage-2] [test-4.lox] [0m{
 [33m[stage-2] [test-4.lox] [0m    var world = 68;
 [33m[stage-2] [test-4.lox] [0m    var hello = 68;
 [33m[stage-2] [test-4.lox] [0m    {
 [33m[stage-2] [test-4.lox] [0m        print world + hello;
+[33m[stage-2] [test-4.lox] [0m    // Missing closing curly brace
+[33m[stage-2] [test-4.lox] [0m    // Expect compile error
 [33m[stage-2] [test-4.lox] [0m}
 [33m[stage-2] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m[line 9] Error at end: Expect '}' after block.
+[33m[your_program] [0m[line 8] Error at end: Expect '}' after block.
 [33m[stage-2] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[stage-2] [test-4] [0m[92m✓ Received exit code 65.[0m
 [33m[stage-2] [0m[92mTest passed.[0m
@@ -490,10 +504,9 @@ Debug = true
 [33m[stage-1] [0m[94mRunning tests for Stage #1: fb4[0m
 [33m[stage-1] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-1] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-1] [test-1.lox] [0m// This program tests that nested scopes can be created
-[33m[stage-1] [test-1.lox] [0m// and that local variables can be accessed
 [33m[stage-1] [test-1.lox] [0mvar hello = (12 * 41) - 84;
 [33m[stage-1] [test-1.lox] [0m{
+[33m[stage-1] [test-1.lox] [0m    // Local scope should be created
 [33m[stage-1] [test-1.lox] [0m    var quz = "bar" + "14";
 [33m[stage-1] [test-1.lox] [0m    print quz;
 [33m[stage-1] [test-1.lox] [0m}
@@ -505,7 +518,8 @@ Debug = true
 [33m[stage-1] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-1] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-1] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-1] [test-2.lox] [0m// This program tests variable shadowing across nested scopes
+[33m[stage-1] [test-2.lox] [0m// This program tests variable shadowing
+[33m[stage-1] [test-2.lox] [0m// across nested scopes
 [33m[stage-1] [test-2.lox] [0m{
 [33m[stage-1] [test-2.lox] [0m    var foo = "before";
 [33m[stage-1] [test-2.lox] [0m    {
@@ -521,7 +535,8 @@ Debug = true
 [33m[stage-1] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-1] [test-3] [0m[94mRunning test case: 3[0m
 [33m[stage-1] [test-3] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-1] [test-3.lox] [0m// This program creates nested scopes and tests local scopes and variable shadowing
+[33m[stage-1] [test-3.lox] [0m// This program creates nested scopes and tests
+[33m[stage-1] [test-3.lox] [0m// local scopes and variable shadowing
 [33m[stage-1] [test-3.lox] [0mvar baz = "global baz";
 [33m[stage-1] [test-3.lox] [0mvar bar = "global bar";
 [33m[stage-1] [test-3.lox] [0mvar hello = "global hello";
@@ -541,7 +556,6 @@ Debug = true
 [33m[stage-1] [test-3.lox] [0mprint baz;
 [33m[stage-1] [test-3.lox] [0mprint bar;
 [33m[stage-1] [test-3.lox] [0mprint hello;
-[33m[stage-1] [test-3.lox] [0m
 [33m[stage-1] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0minner baz
 [33m[your_program] [0mouter bar
@@ -556,10 +570,9 @@ Debug = true
 [33m[stage-1] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-1] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-1] [test-4] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-1] [test-4.lox] [0m// This program tests that when a variable is declared in an outer scope,
-[33m[stage-1] [test-4.lox] [0m// it can be used in an inner scope
-[33m[stage-1] [test-4.lox] [0m// But when a variable is declared in an inner scope,
-[33m[stage-1] [test-4.lox] [0m// it can't be used in an outer scope
+[33m[stage-1] [test-4.lox] [0m// Variables declared in an outer scope should be
+[33m[stage-1] [test-4.lox] [0m// accessible inside inner scopes, but not the
+[33m[stage-1] [test-4.lox] [0m// other way around
 [33m[stage-1] [test-4.lox] [0m{
 [33m[stage-1] [test-4.lox] [0m  var foo = "outer foo";
 [33m[stage-1] [test-4.lox] [0m  var baz = "outer baz";
@@ -573,14 +586,13 @@ Debug = true
 [33m[stage-1] [test-4.lox] [0m  print baz;
 [33m[stage-1] [test-4.lox] [0m}
 [33m[stage-1] [test-4.lox] [0mprint foo;
-[33m[stage-1] [test-4.lox] [0m
 [33m[stage-1] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mmodified foo
 [33m[your_program] [0minner baz
 [33m[your_program] [0mmodified foo
 [33m[your_program] [0mouter baz
 [33m[your_program] [0mUndefined variable 'foo'.
-[33m[your_program] [0m[line 17]
+[33m[your_program] [0m[line 16]
 [33m[stage-1] [test-4] [0m[92m✓ 4 line(s) match on stdout[0m
 [33m[stage-1] [test-4] [0m[92m✓ Received exit code 70.[0m
 [33m[stage-1] [0m[92mTest passed.[0m

@@ -5,6 +5,7 @@ expected_error_type: compile
 var a = "outer";
 
 {
-  // Attempting to declare local variable'a' initialized with itself
-  var a = a; // This should be a compile error
+  // Attempting to declare local variable'a'
+  // initialized with itself
+  var a = a; // expect compile error
 }

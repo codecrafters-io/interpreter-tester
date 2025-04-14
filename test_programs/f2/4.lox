@@ -1,7 +1,8 @@
 ---
 expected_error_type: none
 ---
-// This program calculates the cumulative sum of numbers from 1 to n.
+// This program calculates the cumulative sum of
+// numbers from 1 to n.
 fun cumulative_sum() {
     var n = 10;  // Fixed value
     var total = 0;

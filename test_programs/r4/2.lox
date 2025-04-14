@@ -12,5 +12,6 @@ fun foo() {
 }
 
 if (true) {
-  return "conditional return"; // This should be a compile error
+  return "conditional return";
+  // expect compile error
 }

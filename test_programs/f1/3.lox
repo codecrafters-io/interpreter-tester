@@ -1,13 +1,18 @@
 ---
 expected_error_type: none
 ---
-// This program utilizes the built-in clock() function
-// and runs a check to see if the operation has timed out
+// This program utilizes the built-in clock()
+// function
+// and runs a check to see if the operation has
+// timed out
 var startTime = clock();
 var timeoutSeconds = 2;
 
 // Check if less than 2 seconds have elapsed
-if ((clock() >= startTime) and (clock() <= (startTime + timeoutSeconds))) {
+var c1 = clock() >= startTime;
+var c2 = clock() <= (startTime + timeoutSeconds);
+
+if (c1 and c2) {
   print "Operation in progress...";
 } else {
   print "Operation timed out!";

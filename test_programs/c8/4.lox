@@ -1,26 +1,26 @@
 ---
 expected_error_type: none
 ---
-// This program uses for loops and block scopes 
+// This program uses for loops and block scopes
 // to print the updates to the same variable
-var <<RANDOM_STRING_1>> = "after";
+var baz = "after";
 {
-  var <<RANDOM_STRING_1>> = "before";
+  var baz = "before";
 
-  for (var <<RANDOM_STRING_1>> = 0; <<RANDOM_STRING_1>> < 1; <<RANDOM_STRING_1>> = <<RANDOM_STRING_1>> + 1) {
-    print <<RANDOM_STRING_1>>;
-    var <<RANDOM_STRING_1>> = -1;
-    print <<RANDOM_STRING_1>>;
+  for (var baz = 0; baz < 1; baz = baz + 1) {
+    print baz;
+    var baz = -1;
+    print baz;
   }
 }
 
 {
-  for (var <<RANDOM_STRING_1>> = 0; <<RANDOM_STRING_1>> > 0; <<RANDOM_STRING_1>> = <<RANDOM_STRING_1>> + 1) {}
+  for (var baz = 0; baz > 0; baz = baz + 1) {}
 
-  var <<RANDOM_STRING_1>> = "after";
-  print <<RANDOM_STRING_1>>;
+  var baz = "after";
+  print baz;
 
-  for (<<RANDOM_STRING_1>> = 0; <<RANDOM_STRING_1>> < 1; <<RANDOM_STRING_1>> = <<RANDOM_STRING_1>> + 1) {
-    print <<RANDOM_STRING_1>>;
+  for (baz = 0; baz < 1; baz = baz + 1) {
+    print baz;
   }
 }

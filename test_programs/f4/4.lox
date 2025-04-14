@@ -1,7 +1,8 @@
 ---
 expected_error_type: compile
 ---
-// This function declaration is missing a comma between b and c
+// This function declaration is missing a comma
+// between b and c
 // Hence the compiler error
 fun foo(a, b c, d, e, f) {}
 foo();

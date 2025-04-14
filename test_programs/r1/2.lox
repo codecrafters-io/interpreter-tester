@@ -13,7 +13,8 @@ fun global() {
 
   f(); // this should print "global"
 
-  // This function declaration shouldn't affect the usage in `f` above.
+  // This function declaration shouldn't affect
+  // the usage in `f` above.
   fun global() {
     print "local";
   }

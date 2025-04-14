@@ -1,13 +1,18 @@
 ---
 expected_error_type: none
 ---
-// This program categorizes a person into different life stages based on their age
-// Then based on the age, it prints a message about the person's eligibility for voting, driving, and drinking
+// This program categorizes a person into
+// different life stages based on their age
+// Then based on the age, it prints a message
+// about the person's eligibility for voting,
+// driving, and drinking
 var stage = "unknown";
 var age = <<RANDOM_INTEGER>>;
 if (age < 18) {
     if (age < 13) { stage = "child"; }
-    else if (age < 16) { stage = "young teenager"; }
+    else if (age < 16) {
+        stage = "young teenager";
+    }
     else { stage = "teenager"; }
 }
 else if (age < 65) {
@@ -28,16 +33,24 @@ if (isAdult) {
 }
 else { print "eligible for voting: false"; }
 
-if (age < 16) { print "eligible for driving: false"; }
+if (age < 16) { print "not eligible for driving"; }
 else if (age < 18) {
     print "eligible for driving: learner's permit";
-    if (age < 17) { print "supervised driving required"; }
-    else { print "unsupervised driving allowed with restrictions"; }
+    if (age < 17) {
+        print "supervised driving required";
+    }
+    else {
+        print "driving allowed with restrictions";
+    }
 }
-else { print "eligible for driving: full license"; }
+else { print "eligible for driving"; }
 
-if (age < 21) { print "eligible for drinking (US): false"; }
+if (age < 21) {
+    print "not eligible for drinking";
+}
 else {
-    print "eligible for drinking (US): true";
-    if (age < 25) { print "remember: drink responsibly!"; }
+    print "eligible for drinking";
+    if (age < 25) {
+        print "remember: drink responsibly!";
+    }
 }

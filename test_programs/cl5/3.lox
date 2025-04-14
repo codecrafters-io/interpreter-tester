@@ -5,7 +5,7 @@ class Animal {
   makeSound() {
     print this.sound;
   }
-  
+
   identify() {
     print this.species;
   }
@@ -19,7 +19,7 @@ var cat = Animal();
 cat.sound = "Meow";
 cat.species = "Cat";
 
-// The this keyword should be bound to the 
+// The this keyword should be bound to the
 // class instance that the method is called on
 cat.makeSound = dog.makeSound;
 dog.identify = cat.identify;
