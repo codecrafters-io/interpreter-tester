@@ -16,9 +16,12 @@ import (
 // It is sent to the "tokenize" command of the executable,
 // the expected outputs are generated using the lox.ScanTokens function,
 // With that the output of the executable is matched.
+// Default value for HighlightWhitespaceWhileLogging is false.
+// We explicitly set it to true in the tests involving whitespace.
 type TokenizeTestCase struct {
-	FileContents string
-	ExpectsError bool
+	FileContents                    string
+	ExpectsError                    bool
+	HighlightWhitespaceWhileLogging bool
 }
 
 func (t *TokenizeTestCase) Run(executable *interpreter_executable.InterpreterExecutable, logger *logger.Logger) error {
@@ -28,7 +31,11 @@ func (t *TokenizeTestCase) Run(executable *interpreter_executable.InterpreterExe
 	}
 	defer os.Remove(tmpFileName)
 
-	logReadableFileContents(logger, t.FileContents)
+	if t.HighlightWhitespaceWhileLogging {
+		logReadableFileContentsPreservingWhitespace(logger, t.FileContents)
+	} else {
+		logReadableFileContents(logger, t.FileContents)
+	}
 
 	result, err := executable.Run("tokenize", tmpFileName)
 	if err != nil {

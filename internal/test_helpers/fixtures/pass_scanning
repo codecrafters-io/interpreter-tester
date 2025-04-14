@@ -321,7 +321,8 @@ Debug = true
 [33m[stage-11] [0m[94mRunning tests for Stage #11: tz7[0m
 [33m[stage-11] [test-1] [0m[94mRunning test case: 1[0m
 [33m[stage-11] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-11] [test-1.lox] [0m()<|SPACE|><|TAB|>@
+[33m[stage-11] [test-1.lox] [0m()
+[33m[stage-11] [test-1.lox] [0m<|TAB|>@
 [33m[stage-11] [test-1] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0m[line 2] Error: Unexpected character: @
 [33m[your_program] [0mLEFT_PAREN ( null
@@ -394,7 +395,7 @@ Debug = true
 [33m[stage-10] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[stage-10] [test-2] [0m[94mRunning test case: 2[0m
 [33m[stage-10] [test-2] [0m[94mWriting contents to ./test.lox:[0m
-[33m[stage-10] [test-2.lox] [0m <|TAB|>
+[33m[stage-10] [test-2.lox] [0m<|SPACE|><|TAB|>
 [33m[stage-10] [test-2.lox] [0m<|SPACE|>
 [33m[stage-10] [test-2] [0m[94m$ ./your_program.sh tokenize test.lox[0m
 [33m[your_program] [0mEOF  null
@@ -423,7 +424,7 @@ Debug = true
 [33m[stage-10] [test-4] [0m[94mRunning test case: 4[0m
 [33m[stage-10] [test-4] [0m[94mWriting contents to ./test.lox:[0m
 [33m[stage-10] [test-4.lox] [0m{<|TAB|>
-[33m[stage-10] [test-4.lox] [0m  <|TAB|>}
+[33m[stage-10] [test-4.lox] [0m<|SPACE|><|SPACE|><|TAB|>}
 [33m[stage-10] [test-4.lox] [0m((
 [33m[stage-10] [test-4.lox] [0m<=<>-))
 [33m[stage-10] [test-4] [0m[94m$ ./your_program.sh tokenize test.lox[0m

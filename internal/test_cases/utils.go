@@ -45,7 +45,7 @@ func logReadableFileContents(logger *logger.Logger, fileContents string) {
 
 	regex1 := regexp.MustCompile("[ ]+\n")
 	regex2 := regexp.MustCompile("[ ]+$")
-	printableFileContents = regex1.ReplaceAllString(printableFileContents, "<|SPACE|>")
+	printableFileContents = regex1.ReplaceAllString(printableFileContents, "\n")
 	printableFileContents = regex2.ReplaceAllString(printableFileContents, "<|SPACE|>")
 
 	// This is of the form "test-N"
@@ -66,6 +66,30 @@ func logReadableFileContents(logger *logger.Logger, fileContents string) {
 			} else {
 				logger.Plainf(line)
 			}
+		}
+	}
+}
+
+func logReadableFileContentsPreservingWhitespace(logger *logger.Logger, fileContents string) {
+	logger.Infof("Writing contents to ./test.lox:")
+
+	// If the file contents contain a single %, it will be decoded as a format specifier
+	// And it will add a `(MISSING)` to the log line
+	printableFileContents := strings.ReplaceAll(fileContents, "%", "%%")
+	printableFileContents = strings.ReplaceAll(printableFileContents, "\t", "<|TAB|>")
+	printableFileContents = strings.ReplaceAll(printableFileContents, " ", "<|SPACE|>")
+
+	// This is of the form "test-N"
+	oldPrefix := logger.GetSecondaryPrefix()
+	testNumber := strings.TrimPrefix(oldPrefix, "test-")
+	logger.UpdateSecondaryPrefix(fmt.Sprintf("test-%s.lox", testNumber))
+	defer logger.UpdateSecondaryPrefix(oldPrefix)
+
+	if len(printableFileContents) == 0 {
+		logger.Plainf("<|EMPTY FILE|>")
+	} else {
+		for _, line := range strings.Split(printableFileContents, "\n") {
+			logger.Plainf(line)
 		}
 	}
 }
