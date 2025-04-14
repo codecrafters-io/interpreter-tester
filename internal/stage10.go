@@ -22,10 +22,10 @@ func testWhitespace(stageHarness *test_case_harness.TestCaseHarness) error {
 	ws4 := "{" + strings.Join(random.RandomElementsFromArray(WHITESPACES, 5), "") + "}" + LF + "((" + strings.Join(random.RandomElementsFromArray(slices.Concat(SINGLE_CHAR_OPERATORS, RELATIONALS, WHITESPACES), 5), "") + "))"
 	tokenizeTestCases := testcases.MultiTestCase{
 		TestCases: []testcases.TestCase{
-			&testcases.TokenizeTestCase{FileContents: ws1, ExpectsError: false, PreserveWhitespaceWhileLogging: true},
-			&testcases.TokenizeTestCase{FileContents: ws2, ExpectsError: false, PreserveWhitespaceWhileLogging: true},
-			&testcases.TokenizeTestCase{FileContents: ws3, ExpectsError: false, PreserveWhitespaceWhileLogging: true},
-			&testcases.TokenizeTestCase{FileContents: ws4, ExpectsError: false, PreserveWhitespaceWhileLogging: true},
+			&testcases.TokenizeTestCase{FileContents: ws1, ExpectsError: false, HighlightWhitespaceWhileLogging: true},
+			&testcases.TokenizeTestCase{FileContents: ws2, ExpectsError: false, HighlightWhitespaceWhileLogging: true},
+			&testcases.TokenizeTestCase{FileContents: ws3, ExpectsError: false, HighlightWhitespaceWhileLogging: true},
+			&testcases.TokenizeTestCase{FileContents: ws4, ExpectsError: false, HighlightWhitespaceWhileLogging: true},
 		},
 	}
 	return tokenizeTestCases.RunAll(b, logger)
