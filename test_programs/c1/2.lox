@@ -1,8 +1,9 @@
 ---
 expected_error_type: none
 ---
-// This should print "block body" if the condition
-// evaluates to True
+// From: github.com/munificent/craftinginterpreters
+// Test case file: if/if.lox
+// Should print string if the condition is truthy
 if (<<RANDOM_BOOLEAN>>) {
   print "block body";
 }
