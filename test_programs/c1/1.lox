@@ -1,6 +1,7 @@
 ---
 expected_error_type: none
 ---
-// This should print the string if the condition
-// evaluates to True
+// From: github.com/munificent/craftinginterpreters
+// Test case file: if/if.lox
+// Basic if statement
 if (<<RANDOM_BOOLEAN>>) print "<<RANDOM_STRING>>";
