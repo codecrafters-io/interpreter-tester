@@ -297,11 +297,9 @@ Debug = true
 [33m[stage-4] [test-1.lox] [0m[33m// another function[0m
 [33m[stage-4] [test-1.lox] [0m[33m// and uses it to greet two different people with[0m
 [33m[stage-4] [test-1.lox] [0m[33m// two different greetings[0m
-[33m[stage-4] [test-1.lox] [0mvar globalGreeting = "Hello";
-[33m[stage-4] [test-1.lox] [0m
 [33m[stage-4] [test-1.lox] [0mfun makeGreeter() {
 [33m[stage-4] [test-1.lox] [0m  fun greet(name) {
-[33m[stage-4] [test-1.lox] [0m    print globalGreeting + " " + name;
+[33m[stage-4] [test-1.lox] [0m    print "Hello " + name;
 [33m[stage-4] [test-1.lox] [0m  }
 [33m[stage-4] [test-1.lox] [0m  return greet;
 [33m[stage-4] [test-1.lox] [0m}

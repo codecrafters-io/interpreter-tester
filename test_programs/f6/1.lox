@@ -5,11 +5,9 @@ expected_error_type: none
 // another function
 // and uses it to greet two different people with
 // two different greetings
-var globalGreeting = "Hello";
-
 fun makeGreeter() {
   fun greet(name) {
-    print globalGreeting + " " + name;
+    print "Hello " + name;
   }
   return greet;
 }
