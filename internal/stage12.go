@@ -15,7 +15,7 @@ func testStrings(stageHarness *test_case_harness.TestCaseHarness) error {
 
 	logger := stageHarness.Logger
 
-	string1 := random.RandomElementFromArray(QUOTED_STRINGS) + " " + "\"unterminated"
+	string1 := random.RandomElementFromArray(QUOTED_STRINGS) + " " + random.RandomElementFromArray(SINGLE_CHAR_OPERATORS) + " " + "\"unterminated"
 	string2 := `"foo 	bar 123 // hello world!"`
 	shuffledString2 := "(" + strings.Join(random.RandomElementsFromArray(QUOTED_STRINGS, 2), "+") + `) != "other_string"`
 
