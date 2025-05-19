@@ -22,19 +22,29 @@ func (a StderrAssertion) Run(result executable.ExecutableResult, logger *logger.
 	stderr := getStderrLinesFromExecutableResult(result)
 	skippedLines := getSkippedLinesCount(result)
 
+	if skippedLines > 0 {
+		logger.Plainf("[stderr] Skipped %d lines that didn't start with [line N]", skippedLines)
+	}
+
 	for i, expectedLine := range a.ExpectedLines {
 		if i >= len(stderr) {
 			logAllSuccessLogs(successLogs, logger)
-			logger.Errorf("? %s", expectedLine)
-			logger.Errorf("Skipped %d lines that didn't start with [line N]", skippedLines)
-			return fmt.Errorf("Expected line #%d on stderr to be %q, but didn't find line", i+1, expectedLine)
+
+			return fmt.Errorf(`
+[stderr] Missing line #%d from stderr: %q
+[stderr] Perhaps it's printed to stdout? It should be printed to stderr.
+ `, i+1, expectedLine)
 		}
 		actualValue := stderr[i]
 
 		if actualValue != expectedLine {
 			logAllSuccessLogs(successLogs, logger)
-			logger.Errorf("𐄂 %s", actualValue)
-			return fmt.Errorf("Expected line #%d on stderr to be %q, got %q", i+1, expectedLine, actualValue)
+
+			return fmt.Errorf(`
+[stderr] Mismatch on line #%d of stderr:
+[stderr] Expected: %q
+[stderr] Actual  : %q
+ `, i+1, expectedLine, actualValue)
 		} else {
 			successLogs = append(successLogs, fmt.Sprintf("✓ %s", actualValue))
 		}
@@ -42,8 +52,9 @@ func (a StderrAssertion) Run(result executable.ExecutableResult, logger *logger.
 
 	if len(stderr) > len(a.ExpectedLines) {
 		logAllSuccessLogs(successLogs, logger)
-		logger.Errorf("! %s", stderr[len(a.ExpectedLines)])
-		return fmt.Errorf("Expected last stderr line to be %q, but found extra line: %q", a.ExpectedLines[len(a.ExpectedLines)-1], stderr[len(a.ExpectedLines)])
+		return fmt.Errorf(`
+𐄂 [stderr] Extra unexpected line in stderr: %q
+ `, stderr[len(a.ExpectedLines)])
 	}
 
 	// If all lines match, we don't want to print all the lines again
@@ -67,6 +78,13 @@ func getStderrLinesFromExecutableResult(result executable.ExecutableResult) []st
 }
 
 func getSkippedLinesCount(result executable.ExecutableResult) int {
-	unfilteredStderr := strings.Split(strings.TrimRight(string(result.Stderr), "\n"), "\n")
-	return len(unfilteredStderr) - len(getStderrLinesFromExecutableResult(result))
+	trimmedStderr := strings.TrimRight(string(result.Stderr), "\n")
+
+	// Handle the case where strings.Split("", "\n") returns [""]
+	if trimmedStderr == "" {
+		return 0
+	}
+
+	unfilteredStderrLines := strings.Split(trimmedStderr, "\n")
+	return len(unfilteredStderrLines) - len(getStderrLinesFromExecutableResult(result))
 }
