@@ -49,7 +49,7 @@ runs:
       shell: bash
       run: |
         pwd && ls -lah
-        cd craftinginterpreters && make get
+        cd ../craftinginterpreters && make get
 
     - name: Minor updates to official implementation
       # We update the Scanner class to print the unexpected character along with the error message
