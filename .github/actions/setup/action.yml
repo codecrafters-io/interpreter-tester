@@ -32,17 +32,18 @@ runs:
       shell: bash
       run: git clone https://github.com/codecrafters-io/interpreter-tester.git
 
+    - name: Set up Dart
+      uses: dart-lang/setup-dart@v1
+      with:
+        sdk: 2.19.6
+
     - name: Fetch jlox official implementation
       shell: bash
       run: |
         cd ..
         pwd && ls -lah
         git clone https://github.com/munificent/craftinginterpreters.git
-
-    - name: Set up Dart
-      uses: dart-lang/setup-dart@v1
-      with:
-        sdk: 2.19.6
+        pwd && ls -lah
 
     - name: Get Dart dependencies
       shell: bash
