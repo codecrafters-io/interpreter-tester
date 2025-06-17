@@ -2,7 +2,6 @@ package internal
 
 import (
 	"fmt"
-	"math/rand"
 	"strconv"
 	"strings"
 
@@ -10,6 +9,7 @@ import (
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	loxapi "github.com/codecrafters-io/interpreter-tester/internal/lox/api"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
+	"github.com/codecrafters-io/tester-utils/random"
 	"github.com/codecrafters-io/tester-utils/test_case_harness"
 )
 
@@ -22,7 +22,7 @@ func testClock(stageHarness *test_case_harness.TestCaseHarness) error {
 	b := interpreter_executable.NewInterpreterExecutable(stageHarness)
 	logger := stageHarness.Logger
 
-	firstTestCaseFileContents = strings.ReplaceAll(firstTestCaseFileContents, "<<RANDOM_INTEGER>>", fmt.Sprintf("%d", rand.Intn(100)))
+	firstTestCaseFileContents = strings.ReplaceAll(firstTestCaseFileContents, "<<RANDOM_INTEGER>>", fmt.Sprintf("%d", random.RandomInt(0, 100)))
 	firstTestCase := buildSingleLineClockOutputTestCase(firstTestCaseFileContents)
 	secondTestCase := buildSingleLineClockOutputTestCase(secondTestCaseFileContents)
 	otherTestCases := GetTestCasesForCurrentStageWithRandomValues("f1")
