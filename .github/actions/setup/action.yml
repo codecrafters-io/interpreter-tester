@@ -45,7 +45,10 @@ runs:
 
     - name: Get Dart dependencies
       shell: bash
-      run: cd craftinginterpreters && make get
+      run: |
+        pwd
+        ls -lah
+        cd craftinginterpreters && make get
 
     - name: Minor updates to official implementation
       # We update the Scanner class to print the unexpected character along with the error message
