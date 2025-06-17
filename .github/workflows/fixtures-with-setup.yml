@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: codecrafters-io/interpreter-tester/.github/workflows/setup@CC-1779
+      - uses: codecrafters-io/interpreter-tester/.github/actions/setup@CC-1779
       - uses: codecrafters-io/tester-utils/.github/actions/fixtures@CC-1779-2
         with:
           tester_repo: interpreter-tester
