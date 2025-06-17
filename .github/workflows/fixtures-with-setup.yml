@@ -12,7 +12,7 @@ jobs:
   setup-and-fixtures:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/setup
-      - uses: codecrafters-io/tester-utils/.github/actions/fixtures@CC-1779-2
+      - uses: codecrafters-io/interpreter-tester/.github/workflows/setup@CC-1779
+      - uses: codecrafters-io/tester-utils/.github/workflows/fixtures.yml@CC-1779-2
         with:
           tester_repo: ${{ inputs.tester_repo }}
