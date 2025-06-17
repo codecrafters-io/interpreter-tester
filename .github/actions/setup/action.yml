@@ -64,7 +64,3 @@ runs:
         cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap09_control
         cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap10_functions
         cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap13_inheritance
-
-    - name: Remove interpreter-tester repo
-      shell: bash
-      run: rm -rf interpreter-tester
