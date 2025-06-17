@@ -1,0 +1,18 @@
+name: Setup and regenerate fixtures
+
+on:
+  workflow_call:
+    inputs:
+      tester_repo:
+        description: 'Name of the tester repository'
+        required: true
+        type: string
+
+jobs:
+  setup-and-fixtures:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/setup
+      - uses: codecrafters-io/tester-utils/.github/actions/fixtures@CC-1779-2
+        with:
+          tester_repo: ${{ inputs.tester_repo }}

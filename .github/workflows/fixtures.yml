@@ -12,7 +12,7 @@ on:
 jobs:
   regenerate_fixtures:
     if: github.event.label.name == 'regenerate-fixtures'
-    uses: codecrafters-io/tester-utils/.github/workflows/fixtures.yml@fc856787a017ac1e41121084089b7c358124ed90
+    uses: ./.github/workflows/fixtures-with-setup.yml
     with:
       tester_repo: interpreter-tester
     secrets: inherit
