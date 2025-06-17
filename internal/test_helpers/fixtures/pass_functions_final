@@ -3,18 +3,18 @@ Debug = true
 [33m[tester::#AV4] [0m[94mRunning tests for Stage #AV4 (av4)[0m
 [33m[tester::#AV4] [test-1] [0m[94mRunning test case: 1[0m
 [33m[tester::#AV4] [test-1] [0m[94mWriting contents to ./test.lox:[0m
-[33m[tester::#AV4] [test-1.lox] [0mprint clock() + 14;
+[33m[tester::#AV4] [test-1.lox] [0mprint clock() + 23;
 [33m[tester::#AV4] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1.750190650303E9
-[33m[tester::#AV4] [test-1] [0m[92m✓ 1750190650.303000[0m
+[33m[your_program] [0m1.750191785202E9
+[33m[tester::#AV4] [test-1] [0m[92m✓ 1750191785.202000[0m
 [33m[tester::#AV4] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#AV4] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[tester::#AV4] [test-2] [0m[94mRunning test case: 2[0m
 [33m[tester::#AV4] [test-2] [0m[94mWriting contents to ./test.lox:[0m
 [33m[tester::#AV4] [test-2.lox] [0mprint clock() / 1000;
 [33m[tester::#AV4] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1750190.636357
-[33m[tester::#AV4] [test-2] [0m[92m✓ 1750190.636357[0m
+[33m[your_program] [0m1750191.762257
+[33m[tester::#AV4] [test-2] [0m[92m✓ 1750191.762257[0m
 [33m[tester::#AV4] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#AV4] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[tester::#AV4] [test-3] [0m[94mRunning test case: 3[0m
@@ -70,10 +70,10 @@ Debug = true
 [33m[tester::#PG8] [test-1.lox] [0m[33m// This program defines a simple function that[0m
 [33m[tester::#PG8] [test-1.lox] [0m[33m// doesn't take any arguments[0m
 [33m[tester::#PG8] [test-1.lox] [0m[33m// and then invokes the function[0m
-[33m[tester::#PG8] [test-1.lox] [0mfun foo() { print 99; }
-[33m[tester::#PG8] [test-1.lox] [0mfoo();
+[33m[tester::#PG8] [test-1.lox] [0mfun hello() { print 55; }
+[33m[tester::#PG8] [test-1.lox] [0mhello();
 [33m[tester::#PG8] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m99
+[33m[your_program] [0m55
 [33m[tester::#PG8] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#PG8] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[tester::#PG8] [test-2] [0m[94mRunning test case: 2[0m
@@ -124,9 +124,9 @@ Debug = true
 [33m[tester::#LB6] [test-1.lox] [0m[33m// This is a simple function that takes one[0m
 [33m[tester::#LB6] [test-1.lox] [0m[33m// argument and prints it[0m
 [33m[tester::#LB6] [test-1.lox] [0mfun f1(a) { print a; }
-[33m[tester::#LB6] [test-1.lox] [0mf1(30);
+[33m[tester::#LB6] [test-1.lox] [0mf1(45);
 [33m[tester::#LB6] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m30
+[33m[your_program] [0m45
 [33m[tester::#LB6] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#LB6] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[tester::#LB6] [test-2] [0m[94mRunning test case: 2[0m
@@ -134,9 +134,9 @@ Debug = true
 [33m[tester::#LB6] [test-2.lox] [0m[33m// This function takes three arguments and prints[0m
 [33m[tester::#LB6] [test-2.lox] [0m[33m// their sum[0m
 [33m[tester::#LB6] [test-2.lox] [0mfun f3(a, b, c) { print a + b + c; }
-[33m[tester::#LB6] [test-2.lox] [0mf3(82, 82, 82);
+[33m[tester::#LB6] [test-2.lox] [0mf3(67, 67, 67);
 [33m[tester::#LB6] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m246
+[33m[your_program] [0m201
 [33m[tester::#LB6] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#LB6] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[tester::#LB6] [test-3] [0m[94mRunning test case: 3[0m
@@ -146,9 +146,9 @@ Debug = true
 [33m[tester::#LB6] [test-3.lox] [0mfun f8(a, b, c, d, e, f, g, h) {
 [33m[tester::#LB6] [test-3.lox] [0m  print a - b + c * d + e - f + g - h;
 [33m[tester::#LB6] [test-3.lox] [0m}
-[33m[tester::#LB6] [test-3.lox] [0mf8(65, 65, 65, 65, 65, 65, 65, 65);
+[33m[tester::#LB6] [test-3.lox] [0mf8(29, 29, 29, 29, 29, 29, 29, 29);
 [33m[tester::#LB6] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m4225
+[33m[your_program] [0m841
 [33m[tester::#LB6] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#LB6] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[tester::#LB6] [test-4] [0m[94mRunning test case: 4[0m
@@ -171,13 +171,13 @@ Debug = true
 [33m[tester::#LB6] [test-4.lox] [0m  }
 [33m[tester::#LB6] [test-4.lox] [0m}
 [33m[tester::#LB6] [test-4.lox] [0m
-[33m[tester::#LB6] [test-4.lox] [0mvar score = 47;
-[33m[tester::#LB6] [test-4.lox] [0mvar bonus = 5;
+[33m[tester::#LB6] [test-4.lox] [0mvar score = 64;
+[33m[tester::#LB6] [test-4.lox] [0mvar bonus = 3;
 [33m[tester::#LB6] [test-4.lox] [0mprint "Grade for given score is: ";
 [33m[tester::#LB6] [test-4.lox] [0mcalculateGrade(score, bonus);
 [33m[tester::#LB6] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mGrade for given score is: 
-[33m[your_program] [0mF
+[33m[your_program] [0mD
 [33m[tester::#LB6] [test-4] [0m[92m✓ 2 line(s) match on stdout[0m
 [33m[tester::#LB6] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[tester::#LB6] [0m[92mTest passed.[0m
@@ -210,10 +210,10 @@ Debug = true
 [33m[tester::#PX4] [test-3.lox] [0m[33m// opening and closing braces[0m
 [33m[tester::#PX4] [test-3.lox] [0m[33m// The body should always be inside a block[0m
 [33m[tester::#PX4] [test-3.lox] [0m[33m// Hence the compiler error[0m
-[33m[tester::#PX4] [test-3.lox] [0mfun f() 58;
+[33m[tester::#PX4] [test-3.lox] [0mfun f() 27;
 [33m[tester::#PX4] [test-3.lox] [0mprint f();
 [33m[tester::#PX4] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m[line 5] Error at '58': Expect '{' before function body.
+[33m[your_program] [0m[line 5] Error at '27': Expect '{' before function body.
 [33m[tester::#PX4] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#PX4] [test-3] [0m[92m✓ Received exit code 65.[0m
 [33m[tester::#PX4] [test-4] [0m[94mRunning test case: 4[0m
@@ -252,12 +252,12 @@ Debug = true
 [33m[tester::#RD2] [test-2.lox] [0m[33m// if statement[0m
 [33m[tester::#RD2] [test-2.lox] [0m[33m// to return "ok" if the condition is false[0m
 [33m[tester::#RD2] [test-2.lox] [0mfun f() {
-[33m[tester::#RD2] [test-2.lox] [0m  if (false) return "no"; else return "ok";
+[33m[tester::#RD2] [test-2.lox] [0m  if (true) return "no"; else return "ok";
 [33m[tester::#RD2] [test-2.lox] [0m}
 [33m[tester::#RD2] [test-2.lox] [0m
 [33m[tester::#RD2] [test-2.lox] [0mprint f();
 [33m[tester::#RD2] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0mok
+[33m[your_program] [0mno
 [33m[tester::#RD2] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#RD2] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[tester::#RD2] [test-3] [0m[94mRunning test case: 3[0m
@@ -266,12 +266,12 @@ Debug = true
 [33m[tester::#RD2] [test-3.lox] [0m[33m// while loop[0m
 [33m[tester::#RD2] [test-3.lox] [0m[33m// to return "ok" if the condition is false[0m
 [33m[tester::#RD2] [test-3.lox] [0mfun f() {
-[33m[tester::#RD2] [test-3.lox] [0m  while (!true) return "ok";
+[33m[tester::#RD2] [test-3.lox] [0m  while (!false) return "ok";
 [33m[tester::#RD2] [test-3.lox] [0m}
 [33m[tester::#RD2] [test-3.lox] [0m
 [33m[tester::#RD2] [test-3.lox] [0mprint f();
 [33m[tester::#RD2] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0mnil
+[33m[your_program] [0mok
 [33m[tester::#RD2] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#RD2] [test-3] [0m[92m✓ Received exit code 0.[0m
 [33m[tester::#RD2] [test-4] [0m[94mRunning test case: 4[0m
