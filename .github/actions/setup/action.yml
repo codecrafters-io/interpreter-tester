@@ -36,6 +36,7 @@ runs:
       shell: bash
       run: |
         cd ..
+        pwd && ls -lah
         git clone https://github.com/munificent/craftinginterpreters.git
 
     - name: Set up Dart
@@ -46,8 +47,7 @@ runs:
     - name: Get Dart dependencies
       shell: bash
       run: |
-        pwd
-        ls -lah
+        pwd && ls -lah
         cd craftinginterpreters && make get
 
     - name: Minor updates to official implementation
