@@ -12,7 +12,7 @@ on:
 jobs:
   regenerate_fixtures:
     if: github.event.label.name == 'regenerate-fixtures'
-    uses: ./.github/workflows/fixtures-with-setup.yml
+    uses: ./.github/workflows/fixtures-with-setup.yml@CC-1779
     with:
       tester_repo: interpreter-tester
     secrets: inherit
