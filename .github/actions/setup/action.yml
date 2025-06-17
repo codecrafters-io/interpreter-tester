@@ -34,7 +34,9 @@ runs:
 
     - name: Fetch jlox official implementation
       shell: bash
-      run: git clone https://github.com/munificent/craftinginterpreters.git
+      run: |
+        cd ..
+        git clone https://github.com/munificent/craftinginterpreters.git
 
     - name: Set up Dart
       uses: dart-lang/setup-dart@v1
