@@ -69,6 +69,8 @@ runs:
         cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap08_statements
         cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap09_control
         cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap10_functions
+        cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap11_resolving
+        cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap12_classes
         cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap13_inheritance
 
     - name: Debug
