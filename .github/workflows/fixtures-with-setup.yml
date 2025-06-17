@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - uses: codecrafters-io/interpreter-tester/.github/actions/setup@CC-1779
-      - uses: codecrafters-io/tester-utils/.github/actions/fixtures@CC-1779-2
+      - uses: codecrafters-io/tester-utils/.github/actions/fixtures@master
         with:
           tester_repo: interpreter-tester
           github_token: ${{ secrets.GITHUB_TOKEN }}
