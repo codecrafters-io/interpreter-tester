@@ -41,14 +41,11 @@ runs:
       shell: bash
       run: |
         cd ..
-        pwd && ls -lah
         git clone https://github.com/munificent/craftinginterpreters.git
-        pwd && ls -lah
 
     - name: Get Dart dependencies
       shell: bash
       run: |
-        pwd && ls -lah
         cd ../craftinginterpreters && make get
 
     - name: Minor updates to official implementation
@@ -72,8 +69,3 @@ runs:
         cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap11_resolving
         cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap12_classes
         cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap13_inheritance
-
-    - name: Debug
-      shell: bash
-      run: |
-        pwd && ls -laRh
