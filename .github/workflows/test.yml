@@ -7,6 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup testing environment
-        uses: codecrafters-io/interpreter-tester/.github/actions/setup@CC-1779
+        uses: codecrafters-io/interpreter-tester/.github/actions/setup@main
 
       - run: make test
