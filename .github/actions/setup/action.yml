@@ -55,12 +55,12 @@ runs:
       # We update the Scanner class to print the unexpected character along with the error message
       shell: bash
       run: |
-        sed -i 's/Lox\.error(line, "Unexpected character\.");/Lox\.error(line, "Unexpected character: " + c);/g' craftinginterpreters/java/com/craftinginterpreters/lox/Scanner.java
+        sed -i 's/Lox\.error(line, "Unexpected character\.");/Lox\.error(line, "Unexpected character: " + c);/g' ../craftinginterpreters/java/com/craftinginterpreters/lox/Scanner.java
 
     - name: Compile jlox
       shell: bash
       run: |
-        cd craftinginterpreters
+        cd ../craftinginterpreters
         make java_chapters
         cd ..
         cp -r interpreter-tester/internal/test_helpers/jlox04/* craftinginterpreters/build/gen/chap04_scanning
