@@ -1,18 +1,18 @@
-name: Trigger Fixture Regeneration
+# name: Trigger Fixture Regeneration
 
-permissions:
-  contents: write
-  pull-requests: write
+# permissions:
+#   contents: write
+#   pull-requests: write
 
-on:
-  pull_request:
-    types:
-      - labeled
+# on:
+#   pull_request:
+#     types:
+#       - labeled
 
-jobs:
-  regenerate_fixtures:
-    if: github.event.label.name == 'regenerate-fixtures'
-    uses: codecrafters-io/interpreter-tester/.github/workflows/fixtures-with-setup.yml@CC-1779
-    with:
-      tester_repo: interpreter-tester
-    secrets: inherit
+# jobs:
+#   regenerate_fixtures:
+#     if: github.event.label.name == 'regenerate-fixtures'
+#     uses: codecrafters-io/interpreter-tester/.github/workflows/fixtures-with-setup.yml@CC-1779
+#     with:
+#       tester_repo: interpreter-tester
+#     secrets: inherit
