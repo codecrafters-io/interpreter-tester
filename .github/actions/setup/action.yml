@@ -1,0 +1,71 @@
+# This workflow sets up the environment required for testing & generating
+# fixtures for the interpreter tester against the official jlox implementation.
+
+name: 'interpreter-tester prerequisites'
+description: 'Set up interpreter-tester test prerequisites'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        lfs: true
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: 1.24.x
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.13'
+
+    - name: Set up OpenJDKv22
+      uses: actions/setup-java@v2
+      with:
+        java-version: '22'
+        distribution: 'adopt'
+
+    - name: Checkout test-helpers
+      shell: bash
+      run: git clone https://github.com/codecrafters-io/interpreter-tester.git
+
+    - name: Set up Dart
+      uses: dart-lang/setup-dart@v1
+      with:
+        sdk: 2.19.6
+
+    - name: Fetch jlox official implementation
+      shell: bash
+      run: |
+        cd ..
+        git clone https://github.com/munificent/craftinginterpreters.git
+
+    - name: Get Dart dependencies
+      shell: bash
+      run: |
+        cd ../craftinginterpreters && make get
+
+    - name: Minor updates to official implementation
+      # We update the Scanner class to print the unexpected character along with the error message
+      shell: bash
+      run: |
+        sed -i 's/Lox\.error(line, "Unexpected character\.");/Lox\.error(line, "Unexpected character: " + c);/g' ../craftinginterpreters/java/com/craftinginterpreters/lox/Scanner.java
+
+    - name: Compile jlox
+      shell: bash
+      run: |
+        cd ../craftinginterpreters
+        make java_chapters
+        cd ..
+        cp -r interpreter-tester/internal/test_helpers/jlox04/* craftinginterpreters/build/gen/chap04_scanning
+        cp -r interpreter-tester/internal/test_helpers/jlox06/* craftinginterpreters/build/gen/chap06_parsing
+        cp -r interpreter-tester/internal/test_helpers/jlox07/* craftinginterpreters/build/gen/chap07_evaluating
+        cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap08_statements
+        cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap09_control
+        cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap10_functions
+        cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap11_resolving
+        cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap12_classes
+        cp -r interpreter-tester/internal/test_helpers/jlox08/* craftinginterpreters/build/gen/chap13_inheritance
