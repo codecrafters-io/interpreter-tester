@@ -1,8 +1,8 @@
 ---
 expected_error_type: none
 ---
-// This program should print a different string
-// based on the value of age
+// From: github.com/munificent/craftinginterpreters
+// Test case file: if/if.lox
 var stage = "unknown";
 var age = <<RANDOM_INTEGER>>;
 if (age < 18) { stage = "child"; }
