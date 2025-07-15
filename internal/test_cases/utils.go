@@ -51,8 +51,8 @@ func logReadableFileContents(logger *logger.Logger, fileContents string) {
 	// This is of the form "test-N"
 	oldPrefix := logger.GetSecondaryPrefix()
 	testNumber := strings.TrimPrefix(oldPrefix, "test-")
-	logger.UpdateSecondaryPrefix(fmt.Sprintf("test-%s.lox", testNumber))
-	defer logger.UpdateSecondaryPrefix(oldPrefix)
+	logger.UpdateLastSecondaryPrefix(fmt.Sprintf("test-%s.lox", testNumber))
+	defer logger.UpdateLastSecondaryPrefix(oldPrefix)
 
 	if len(printableFileContents) == 0 {
 		logger.Plainf("<|EMPTY FILE|>")
@@ -82,8 +82,8 @@ func logReadableFileContentsPreservingWhitespace(logger *logger.Logger, fileCont
 	// This is of the form "test-N"
 	oldPrefix := logger.GetSecondaryPrefix()
 	testNumber := strings.TrimPrefix(oldPrefix, "test-")
-	logger.UpdateSecondaryPrefix(fmt.Sprintf("test-%s.lox", testNumber))
-	defer logger.UpdateSecondaryPrefix(oldPrefix)
+	logger.UpdateLastSecondaryPrefix(fmt.Sprintf("test-%s.lox", testNumber))
+	defer logger.UpdateLastSecondaryPrefix(oldPrefix)
 
 	if len(printableFileContents) == 0 {
 		logger.Plainf("<|EMPTY FILE|>")
