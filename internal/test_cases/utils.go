@@ -49,7 +49,7 @@ func logReadableFileContents(logger *logger.Logger, fileContents string) {
 	printableFileContents = regex2.ReplaceAllString(printableFileContents, "<|SPACE|>")
 
 	// This is of the form "test-N"
-	oldPrefix := logger.GetSecondaryPrefix()
+	oldPrefix := logger.GetLastSecondaryPrefix()
 	testNumber := strings.TrimPrefix(oldPrefix, "test-")
 	logger.UpdateLastSecondaryPrefix(fmt.Sprintf("test-%s.lox", testNumber))
 	defer logger.UpdateLastSecondaryPrefix(oldPrefix)
@@ -80,7 +80,7 @@ func logReadableFileContentsPreservingWhitespace(logger *logger.Logger, fileCont
 	printableFileContents = strings.ReplaceAll(printableFileContents, " ", "<|SPACE|>")
 
 	// This is of the form "test-N"
-	oldPrefix := logger.GetSecondaryPrefix()
+	oldPrefix := logger.GetLastSecondaryPrefix()
 	testNumber := strings.TrimPrefix(oldPrefix, "test-")
 	logger.UpdateLastSecondaryPrefix(fmt.Sprintf("test-%s.lox", testNumber))
 	defer logger.UpdateLastSecondaryPrefix(oldPrefix)
