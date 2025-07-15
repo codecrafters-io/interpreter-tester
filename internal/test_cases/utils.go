@@ -49,10 +49,10 @@ func logReadableFileContents(logger *logger.Logger, fileContents string) {
 	printableFileContents = regex2.ReplaceAllString(printableFileContents, "<|SPACE|>")
 
 	// This is of the form "test-N"
-	oldPrefix := logger.GetSecondaryPrefix()
+	oldPrefix := logger.GetLastSecondaryPrefix()
 	testNumber := strings.TrimPrefix(oldPrefix, "test-")
-	logger.UpdateSecondaryPrefix(fmt.Sprintf("test-%s.lox", testNumber))
-	defer logger.UpdateSecondaryPrefix(oldPrefix)
+	logger.UpdateLastSecondaryPrefix(fmt.Sprintf("test-%s.lox", testNumber))
+	defer logger.UpdateLastSecondaryPrefix(oldPrefix)
 
 	if len(printableFileContents) == 0 {
 		logger.Plainf("<|EMPTY FILE|>")
@@ -80,10 +80,10 @@ func logReadableFileContentsPreservingWhitespace(logger *logger.Logger, fileCont
 	printableFileContents = strings.ReplaceAll(printableFileContents, " ", "<|SPACE|>")
 
 	// This is of the form "test-N"
-	oldPrefix := logger.GetSecondaryPrefix()
+	oldPrefix := logger.GetLastSecondaryPrefix()
 	testNumber := strings.TrimPrefix(oldPrefix, "test-")
-	logger.UpdateSecondaryPrefix(fmt.Sprintf("test-%s.lox", testNumber))
-	defer logger.UpdateSecondaryPrefix(oldPrefix)
+	logger.UpdateLastSecondaryPrefix(fmt.Sprintf("test-%s.lox", testNumber))
+	defer logger.UpdateLastSecondaryPrefix(oldPrefix)
 
 	if len(printableFileContents) == 0 {
 		logger.Plainf("<|EMPTY FILE|>")
