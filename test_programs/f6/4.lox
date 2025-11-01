@@ -4,9 +4,9 @@ expected_error_type: none
 // This program creates a function that returns
 // another function
 // and uses it to filter a list of numbers
-fun makeFilter(min) {
+fun makeFilter() {
   fun filter(n) {
-    if (n < min) {
+    if (n < <<RANDOM_INTEGER_1>>) {
       return false;
     }
     return true;
@@ -26,11 +26,7 @@ fun applyToNumbers(f, count) {
   }
 }
 
-var greaterThanX = makeFilter(<<RANDOM_INTEGER_1>>);
-var greaterThanY = makeFilter(<<RANDOM_INTEGER_2>>);
+var greaterThanX = makeFilter();
 
 print "Numbers >= <<RANDOM_INTEGER_1>>:";
 applyToNumbers(greaterThanX, <<RANDOM_INTEGER_1>> + <<RANDOM_DIGIT>>);
-
-print "Numbers >= <<RANDOM_INTEGER_2>>:";
-applyToNumbers(greaterThanY, <<RANDOM_INTEGER_2>> + <<RANDOM_DIGIT>>);
