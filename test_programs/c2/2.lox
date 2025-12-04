@@ -1,9 +1,7 @@
 ---
 expected_error_type: none
 ---
-// This program initializes age with a random
-// integer and then prints "adult"
-// if the age is greater than 18, otherwise it
-// prints "child"
+// From: github.com/munificent/craftinginterpreters
+// Test case file: if/else.lox
 var age = <<RANDOM_INTEGER>>;
 if (age > 18) print "adult"; else print "child";
