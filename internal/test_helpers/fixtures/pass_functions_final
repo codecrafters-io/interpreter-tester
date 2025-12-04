@@ -372,9 +372,9 @@ Debug = true
 [33m[tester::#EY3] [test-4.lox] [0m[33m// This program creates a function that returns[0m
 [33m[tester::#EY3] [test-4.lox] [0m[33m// another function[0m
 [33m[tester::#EY3] [test-4.lox] [0m[33m// and uses it to filter a list of numbers[0m
-[33m[tester::#EY3] [test-4.lox] [0mfun makeFilter(min) {
+[33m[tester::#EY3] [test-4.lox] [0mfun makeFilter() {
 [33m[tester::#EY3] [test-4.lox] [0m  fun filter(n) {
-[33m[tester::#EY3] [test-4.lox] [0m    if (n < min) {
+[33m[tester::#EY3] [test-4.lox] [0m    if (n < 54) {
 [33m[tester::#EY3] [test-4.lox] [0m      return false;
 [33m[tester::#EY3] [test-4.lox] [0m    }
 [33m[tester::#EY3] [test-4.lox] [0m    return true;
@@ -394,14 +394,10 @@ Debug = true
 [33m[tester::#EY3] [test-4.lox] [0m  }
 [33m[tester::#EY3] [test-4.lox] [0m}
 [33m[tester::#EY3] [test-4.lox] [0m
-[33m[tester::#EY3] [test-4.lox] [0mvar greaterThanX = makeFilter(54);
-[33m[tester::#EY3] [test-4.lox] [0mvar greaterThanY = makeFilter(44);
+[33m[tester::#EY3] [test-4.lox] [0mvar greaterThanX = makeFilter();
 [33m[tester::#EY3] [test-4.lox] [0m
 [33m[tester::#EY3] [test-4.lox] [0mprint "Numbers >= 54:";
 [33m[tester::#EY3] [test-4.lox] [0mapplyToNumbers(greaterThanX, 54 + 6);
-[33m[tester::#EY3] [test-4.lox] [0m
-[33m[tester::#EY3] [test-4.lox] [0mprint "Numbers >= 44:";
-[33m[tester::#EY3] [test-4.lox] [0mapplyToNumbers(greaterThanY, 44 + 6);
 [33m[tester::#EY3] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
 [33m[your_program] [0mNumbers >= 54:
 [33m[your_program] [0m54
@@ -410,14 +406,7 @@ Debug = true
 [33m[your_program] [0m57
 [33m[your_program] [0m58
 [33m[your_program] [0m59
-[33m[your_program] [0mNumbers >= 44:
-[33m[your_program] [0m44
-[33m[your_program] [0m45
-[33m[your_program] [0m46
-[33m[your_program] [0m47
-[33m[your_program] [0m48
-[33m[your_program] [0m49
-[33m[tester::#EY3] [test-4] [0m[92m✓ 14 line(s) match on stdout[0m
+[33m[tester::#EY3] [test-4] [0m[92m✓ 7 line(s) match on stdout[0m
 [33m[tester::#EY3] [test-4] [0m[92m✓ Received exit code 0.[0m
 [33m[tester::#EY3] [0m[92mTest passed.[0m
 
