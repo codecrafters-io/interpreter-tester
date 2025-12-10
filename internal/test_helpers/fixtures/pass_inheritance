@@ -11,6 +11,7 @@ Debug = true
 [33m[tester::#MF6] [test-1.lox] [0mprint Doughnut();
 [33m[tester::#MF6] [test-1.lox] [0mprint BostonCream();
 [33m[tester::#MF6] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-13552-1765391871238099388: permission denied
 [33m[your_program] [0mDoughnut instance
 [33m[your_program] [0mBostonCream instance
 [33m[tester::#MF6] [test-1] [0m[92m✓ 2 line(s) match on stdout[0m
@@ -31,6 +32,7 @@ Debug = true
 [33m[tester::#MF6] [test-2.lox] [0m  print C();
 [33m[tester::#MF6] [test-2.lox] [0m}
 [33m[tester::#MF6] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-13574-1765391871299596633: permission denied
 [33m[your_program] [0mA instance
 [33m[your_program] [0mB instance
 [33m[your_program] [0mC instance
@@ -48,6 +50,7 @@ Debug = true
 [33m[tester::#MF6] [test-3.lox] [0m
 [33m[tester::#MF6] [test-3.lox] [0mprint f();
 [33m[tester::#MF6] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-13596-1765391871359932376: permission denied
 [33m[your_program] [0mB
 [33m[tester::#MF6] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#MF6] [test-3] [0m[92m✓ Received exit code 0.[0m
@@ -71,6 +74,7 @@ Debug = true
 [33m[tester::#MF6] [test-4.lox] [0m  print Truck();
 [33m[tester::#MF6] [test-4.lox] [0m}
 [33m[tester::#MF6] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-13618-1765391871428961586: permission denied
 [33m[your_program] [0mVehicle instance
 [33m[your_program] [0mCar instance
 [33m[your_program] [0mSedan instance
@@ -95,6 +99,7 @@ Debug = true
 [33m[tester::#KY1] [test-1.lox] [0m[33m// method from Doughnut class[0m
 [33m[tester::#KY1] [test-1.lox] [0mBostonCream().cook();
 [33m[tester::#KY1] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-13640-1765391871491035377: permission denied
 [33m[your_program] [0mFry until golden brown.
 [33m[tester::#KY1] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#KY1] [test-1] [0m[92m✓ Received exit code 0.[0m
@@ -134,6 +139,7 @@ Debug = true
 [33m[tester::#KY1] [test-2.lox] [0m[33m// Child methods are only available to Child[0m
 [33m[tester::#KY1] [test-2.lox] [0mchild.childMethod();
 [33m[tester::#KY1] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-13662-1765391871560572453: permission denied
 [33m[your_program] [0mRoot class
 [33m[your_program] [0mRoot class
 [33m[your_program] [0mRoot class
@@ -162,6 +168,7 @@ Debug = true
 [33m[tester::#KY1] [test-3.lox] [0m[33m// which should set the secret value to 42[0m
 [33m[tester::#KY1] [test-3.lox] [0mprint baz.secret;
 [33m[tester::#KY1] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-13684-1765391871631767864: permission denied
 [33m[your_program] [0m42
 [33m[tester::#KY1] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#KY1] [test-3] [0m[92m✓ Received exit code 0.[0m
@@ -192,6 +199,7 @@ Debug = true
 [33m[tester::#KY1] [test-4.lox] [0mquz.inbar();
 [33m[tester::#KY1] [test-4.lox] [0mquz.inquz();
 [33m[tester::#KY1] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-13706-1765391871703068737: permission denied
 [33m[your_program] [0mfrom baz
 [33m[your_program] [0mfrom bar
 [33m[your_program] [0mfrom quz
@@ -220,6 +228,7 @@ Debug = true
 [33m[tester::#KA5] [test-1.lox] [0mvar b = B();
 [33m[tester::#KA5] [test-1.lox] [0mb.method();  [33m// expect: B method[0m
 [33m[tester::#KA5] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-13728-1765391871773461043: permission denied
 [33m[your_program] [0mB method
 [33m[tester::#KA5] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#KA5] [test-1] [0m[92m✓ Received exit code 0.[0m
@@ -244,6 +253,7 @@ Debug = true
 [33m[tester::#KA5] [test-2.lox] [0mprint derived.a;
 [33m[tester::#KA5] [test-2.lox] [0mprint derived.b;
 [33m[tester::#KA5] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-13750-1765391871845636395: permission denied
 [33m[your_program] [0m53
 [33m[your_program] [0m31
 [33m[tester::#KA5] [test-2] [0m[92m✓ 2 line(s) match on stdout[0m
@@ -284,6 +294,7 @@ Debug = true
 [33m[tester::#KA5] [test-3.lox] [0mprint Base("ingredient").cook();
 [33m[tester::#KA5] [test-3.lox] [0mprint derived.cook();
 [33m[tester::#KA5] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-13772-1765391871917370445: permission denied
 [33m[your_program] [0monions
 [33m[your_program] [0mshallots
 [33m[your_program] [0mBase cooking ingredient
@@ -336,6 +347,7 @@ Debug = true
 [33m[tester::#KA5] [test-4.lox] [0mprint dog.communicate();
 [33m[tester::#KA5] [test-4.lox] [0mprint puppy.communicate();
 [33m[tester::#KA5] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-13794-1765391871989369424: permission denied
 [33m[your_program] [0mAnimal speaks : Generic sound
 [33m[your_program] [0mDog speaks : Woof
 [33m[your_program] [0mPuppy speaks : Woof
@@ -349,6 +361,7 @@ Debug = true
 [33m[tester::#AB0] [test-1.lox] [0m[33m// A class can't inherit from itself.[0m
 [33m[tester::#AB0] [test-1.lox] [0mclass Foo < Foo {} [33m// expect compile error[0m
 [33m[tester::#AB0] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-13816-1765391872058205624: permission denied
 [33m[your_program] [0m[line 2] Error at 'Foo': A class can't inherit from itself.
 [33m[tester::#AB0] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#AB0] [test-1] [0m[92m✓ Received exit code 65.[0m
@@ -362,6 +375,7 @@ Debug = true
 [33m[tester::#AB0] [test-2.lox] [0mprint A();
 [33m[tester::#AB0] [test-2.lox] [0mprint B();
 [33m[tester::#AB0] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-13838-1765391872148909099: permission denied
 [33m[your_program] [0mSuperclass must be a class.
 [33m[your_program] [0m[line 4]
 [33m[tester::#AB0] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
@@ -375,6 +389,7 @@ Debug = true
 [33m[tester::#AB0] [test-3.lox] [0m
 [33m[tester::#AB0] [test-3.lox] [0mprint B();
 [33m[tester::#AB0] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-13860-1765391872233510998: permission denied
 [33m[your_program] [0mSuperclass must be a class.
 [33m[your_program] [0m[line 4]
 [33m[tester::#AB0] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
@@ -396,6 +411,7 @@ Debug = true
 [33m[tester::#AB0] [test-4.lox] [0m[33m// E inherits from B, which is not a class[0m
 [33m[tester::#AB0] [test-4.lox] [0mclass E < B {}  [33m// expect runtime error[0m
 [33m[tester::#AB0] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-13882-1765391872312877935: permission denied
 [33m[your_program] [0mSuperclass must be a class.
 [33m[your_program] [0m[line 14]
 [33m[tester::#AB0] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
@@ -421,6 +437,7 @@ Debug = true
 [33m[tester::#QI0] [test-1.lox] [0m
 [33m[tester::#QI0] [test-1.lox] [0mBostonCream().cook();
 [33m[tester::#QI0] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-13904-1765391872395274225: permission denied
 [33m[your_program] [0mFry until golden brown.
 [33m[tester::#QI0] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#QI0] [test-1] [0m[92m✓ Received exit code 0.[0m
@@ -455,6 +472,7 @@ Debug = true
 [33m[tester::#QI0] [test-2.lox] [0mC().say();
 [33m[tester::#QI0] [test-2.lox] [0mC().test(); [33m// expect: A[0m
 [33m[tester::#QI0] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-13926-1765391872464127708: permission denied
 [33m[your_program] [0mC
 [33m[your_program] [0mA
 [33m[tester::#QI0] [test-2] [0m[92m✓ 2 line(s) match on stdout[0m
@@ -491,6 +509,7 @@ Debug = true
 [33m[tester::#QI0] [test-3.lox] [0m[33m// should still have a binding to B[0m
 [33m[tester::#QI0] [test-3.lox] [0mC().getClosure()(); [33m// expect: A[0m
 [33m[tester::#QI0] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-13948-1765391872534038471: permission denied
 [33m[your_program] [0mA
 [33m[tester::#QI0] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#QI0] [test-3] [0m[92m✓ Received exit code 0.[0m
@@ -521,6 +540,7 @@ Debug = true
 [33m[tester::#QI0] [test-4.lox] [0mvar child = Child();
 [33m[tester::#QI0] [test-4.lox] [0mchild.method(); [33m// expect: Base.method()[0m
 [33m[tester::#QI0] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-13970-1765391872605351188: permission denied
 [33m[your_program] [0mBase.method()
 [33m[your_program] [0mBase.method()
 [33m[tester::#QI0] [test-4] [0m[92m✓ 2 line(s) match on stdout[0m
@@ -537,6 +557,7 @@ Debug = true
 [33m[tester::#IB9] [test-1.lox] [0m  }
 [33m[tester::#IB9] [test-1.lox] [0m}
 [33m[tester::#IB9] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-13992-1765391872675863109: permission denied
 [33m[your_program] [0m[line 4] Error at 'super': Can't use 'super' in a class with no superclass.
 [33m[tester::#IB9] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#IB9] [test-1] [0m[92m✓ Received exit code 65.[0m
@@ -545,6 +566,7 @@ Debug = true
 [33m[tester::#IB9] [test-2.lox] [0m[33m// super can't be used outside of a class[0m
 [33m[tester::#IB9] [test-2.lox] [0msuper.notEvenInAClass(); [33m// expect compile error[0m
 [33m[tester::#IB9] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-14014-1765391872766873631: permission denied
 [33m[your_program] [0m[line 2] Error at 'super': Can't use 'super' outside of a class.
 [33m[tester::#IB9] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#IB9] [test-2] [0m[92m✓ Received exit code 65.[0m
@@ -562,6 +584,7 @@ Debug = true
 [33m[tester::#IB9] [test-3.lox] [0m  }
 [33m[tester::#IB9] [test-3.lox] [0m}
 [33m[tester::#IB9] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-14036-1765391872849063822: permission denied
 [33m[your_program] [0m[line 9] Error at ')': Expect '.' after 'super'.
 [33m[tester::#IB9] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#IB9] [test-3] [0m[92m✓ Received exit code 65.[0m
@@ -577,6 +600,7 @@ Debug = true
 [33m[tester::#IB9] [test-4.lox] [0m  }
 [33m[tester::#IB9] [test-4.lox] [0m}
 [33m[tester::#IB9] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-14058-1765391872937192782: permission denied
 [33m[your_program] [0m[line 7] Error at ';': Expect '.' after 'super'.
 [33m[tester::#IB9] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#IB9] [test-4] [0m[92m✓ Received exit code 65.[0m
