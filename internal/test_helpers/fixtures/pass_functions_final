@@ -5,16 +5,18 @@ Debug = true
 [33m[tester::#AV4] [test-1] [0m[94mWriting contents to ./test.lox:[0m
 [33m[tester::#AV4] [test-1.lox] [0mprint clock() + 23;
 [33m[tester::#AV4] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1.750191785202E9
-[33m[tester::#AV4] [test-1] [0m[92m✓ 1750191785.202000[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19300-1765391887367064140: permission denied
+[33m[your_program] [0m1.765391910416E9
+[33m[tester::#AV4] [test-1] [0m[92m✓ 1765391910.416000[0m
 [33m[tester::#AV4] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#AV4] [test-1] [0m[92m✓ Received exit code 0.[0m
 [33m[tester::#AV4] [test-2] [0m[94mRunning test case: 2[0m
 [33m[tester::#AV4] [test-2] [0m[94mWriting contents to ./test.lox:[0m
 [33m[tester::#AV4] [test-2.lox] [0mprint clock() / 1000;
 [33m[tester::#AV4] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
-[33m[your_program] [0m1750191.762257
-[33m[tester::#AV4] [test-2] [0m[92m✓ 1750191.762257[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19322-1765391887423656570: permission denied
+[33m[your_program] [0m1765391.887472
+[33m[tester::#AV4] [test-2] [0m[92m✓ 1765391.887472[0m
 [33m[tester::#AV4] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#AV4] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[tester::#AV4] [test-3] [0m[94mRunning test case: 3[0m
@@ -36,6 +38,7 @@ Debug = true
 [33m[tester::#AV4] [test-3.lox] [0m  print "Operation timed out!";
 [33m[tester::#AV4] [test-3.lox] [0m}
 [33m[tester::#AV4] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19344-1765391887486193091: permission denied
 [33m[your_program] [0mOperation in progress...
 [33m[tester::#AV4] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#AV4] [test-3] [0m[92m✓ Received exit code 0.[0m
@@ -58,6 +61,7 @@ Debug = true
 [33m[tester::#AV4] [test-4.lox] [0m  }
 [33m[tester::#AV4] [test-4.lox] [0m}
 [33m[tester::#AV4] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19366-1765391887544460474: permission denied
 [33m[your_program] [0mStarting timer for 0.2 seconds
 [33m[your_program] [0mTimer ended
 [33m[tester::#AV4] [test-4] [0m[92m✓ 2 line(s) match on stdout[0m
@@ -73,6 +77,7 @@ Debug = true
 [33m[tester::#PG8] [test-1.lox] [0mfun hello() { print 55; }
 [33m[tester::#PG8] [test-1.lox] [0mhello();
 [33m[tester::#PG8] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19392-1765391888000874393: permission denied
 [33m[your_program] [0m55
 [33m[tester::#PG8] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#PG8] [test-1] [0m[92m✓ Received exit code 0.[0m
@@ -83,6 +88,7 @@ Debug = true
 [33m[tester::#PG8] [test-2.lox] [0mfun f() {}
 [33m[tester::#PG8] [test-2.lox] [0mf();
 [33m[tester::#PG8] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19414-1765391888074145605: permission denied
 [33m[tester::#PG8] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#PG8] [test-2] [0m[92m✓ Received exit code 0.[0m
 [33m[tester::#PG8] [test-3] [0m[94mRunning test case: 3[0m
@@ -91,6 +97,7 @@ Debug = true
 [33m[tester::#PG8] [test-3.lox] [0mfun foo() {}
 [33m[tester::#PG8] [test-3.lox] [0mprint foo;
 [33m[tester::#PG8] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19436-1765391888146474505: permission denied
 [33m[your_program] [0m<fn foo>
 [33m[tester::#PG8] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#PG8] [test-3] [0m[92m✓ Received exit code 0.[0m
@@ -112,6 +119,7 @@ Debug = true
 [33m[tester::#PG8] [test-4.lox] [0m
 [33m[tester::#PG8] [test-4.lox] [0mcumulative_sum();
 [33m[tester::#PG8] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19458-1765391888216947039: permission denied
 [33m[your_program] [0mThe cumulative sum from 1 to 10 is: 
 [33m[your_program] [0m55
 [33m[tester::#PG8] [test-4] [0m[92m✓ 2 line(s) match on stdout[0m
@@ -126,6 +134,7 @@ Debug = true
 [33m[tester::#LB6] [test-1.lox] [0mfun f1(a) { print a; }
 [33m[tester::#LB6] [test-1.lox] [0mf1(45);
 [33m[tester::#LB6] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19480-1765391888289928142: permission denied
 [33m[your_program] [0m45
 [33m[tester::#LB6] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#LB6] [test-1] [0m[92m✓ Received exit code 0.[0m
@@ -136,6 +145,7 @@ Debug = true
 [33m[tester::#LB6] [test-2.lox] [0mfun f3(a, b, c) { print a + b + c; }
 [33m[tester::#LB6] [test-2.lox] [0mf3(67, 67, 67);
 [33m[tester::#LB6] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19502-1765391888358625185: permission denied
 [33m[your_program] [0m201
 [33m[tester::#LB6] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#LB6] [test-2] [0m[92m✓ Received exit code 0.[0m
@@ -148,6 +158,7 @@ Debug = true
 [33m[tester::#LB6] [test-3.lox] [0m}
 [33m[tester::#LB6] [test-3.lox] [0mf8(29, 29, 29, 29, 29, 29, 29, 29);
 [33m[tester::#LB6] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19524-1765391888429381683: permission denied
 [33m[your_program] [0m841
 [33m[tester::#LB6] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#LB6] [test-3] [0m[92m✓ Received exit code 0.[0m
@@ -176,6 +187,7 @@ Debug = true
 [33m[tester::#LB6] [test-4.lox] [0mprint "Grade for given score is: ";
 [33m[tester::#LB6] [test-4.lox] [0mcalculateGrade(score, bonus);
 [33m[tester::#LB6] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19546-1765391888500437444: permission denied
 [33m[your_program] [0mGrade for given score is: 
 [33m[your_program] [0mD
 [33m[tester::#LB6] [test-4] [0m[92m✓ 2 line(s) match on stdout[0m
@@ -190,6 +202,7 @@ Debug = true
 [33m[tester::#PX4] [test-1.lox] [0m[33m// Hence the compiler error[0m
 [33m[tester::#PX4] [test-1.lox] [0mprint clock(;
 [33m[tester::#PX4] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19568-1765391888573107112: permission denied
 [33m[your_program] [0m[line 4] Error at ';': Expect expression.
 [33m[tester::#PX4] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#PX4] [test-1] [0m[92m✓ Received exit code 65.[0m
@@ -201,6 +214,7 @@ Debug = true
 [33m[tester::#PX4] [test-2.lox] [0m[33m// Hence the compiler error[0m
 [33m[tester::#PX4] [test-2.lox] [0mprint clock)));
 [33m[tester::#PX4] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19590-1765391888660059278: permission denied
 [33m[your_program] [0m[line 5] Error at ')': Expect ';' after value.
 [33m[tester::#PX4] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#PX4] [test-2] [0m[92m✓ Received exit code 65.[0m
@@ -213,6 +227,7 @@ Debug = true
 [33m[tester::#PX4] [test-3.lox] [0mfun f() 27;
 [33m[tester::#PX4] [test-3.lox] [0mprint f();
 [33m[tester::#PX4] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19612-1765391888742295610: permission denied
 [33m[your_program] [0m[line 5] Error at '27': Expect '{' before function body.
 [33m[tester::#PX4] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#PX4] [test-3] [0m[92m✓ Received exit code 65.[0m
@@ -224,6 +239,7 @@ Debug = true
 [33m[tester::#PX4] [test-4.lox] [0mfun foo(a, b c, d, e, f) {}
 [33m[tester::#PX4] [test-4.lox] [0mfoo();
 [33m[tester::#PX4] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19634-1765391888821597080: permission denied
 [33m[your_program] [0m[line 4] Error at 'c': Expect ')' after parameters.
 [33m[tester::#PX4] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#PX4] [test-4] [0m[92m✓ Received exit code 65.[0m
@@ -242,6 +258,7 @@ Debug = true
 [33m[tester::#RD2] [test-1.lox] [0mprint fib(10) == 55;
 [33m[tester::#RD2] [test-1.lox] [0mprint (clock() - start) < 5; [33m// 5 seconds[0m
 [33m[tester::#RD2] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19656-1765391888903839277: permission denied
 [33m[your_program] [0mtrue
 [33m[your_program] [0mtrue
 [33m[tester::#RD2] [test-1] [0m[92m✓ 2 line(s) match on stdout[0m
@@ -257,6 +274,7 @@ Debug = true
 [33m[tester::#RD2] [test-2.lox] [0m
 [33m[tester::#RD2] [test-2.lox] [0mprint f();
 [33m[tester::#RD2] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19678-1765391888976845685: permission denied
 [33m[your_program] [0mno
 [33m[tester::#RD2] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#RD2] [test-2] [0m[92m✓ Received exit code 0.[0m
@@ -271,6 +289,7 @@ Debug = true
 [33m[tester::#RD2] [test-3.lox] [0m
 [33m[tester::#RD2] [test-3.lox] [0mprint f();
 [33m[tester::#RD2] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19700-1765391889048039834: permission denied
 [33m[your_program] [0mok
 [33m[tester::#RD2] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#RD2] [test-3] [0m[92m✓ Received exit code 0.[0m
@@ -285,6 +304,7 @@ Debug = true
 [33m[tester::#RD2] [test-4.lox] [0m
 [33m[tester::#RD2] [test-4.lox] [0mprint f();
 [33m[tester::#RD2] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19722-1765391889117732243: permission denied
 [33m[your_program] [0mnil
 [33m[tester::#RD2] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#RD2] [test-4] [0m[92m✓ Received exit code 0.[0m
@@ -310,6 +330,7 @@ Debug = true
 [33m[tester::#EY3] [test-1.lox] [0msayHello("Alice");
 [33m[tester::#EY3] [test-1.lox] [0msayHello("Eve");
 [33m[tester::#EY3] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19744-1765391889188054422: permission denied
 [33m[your_program] [0mHello Bob
 [33m[your_program] [0mHello Alice
 [33m[your_program] [0mHello Eve
@@ -335,6 +356,7 @@ Debug = true
 [33m[tester::#EY3] [test-2.lox] [0m
 [33m[tester::#EY3] [test-2.lox] [0mreturnFunCallWithArg(printArg, "world");
 [33m[tester::#EY3] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19766-1765391889259076761: permission denied
 [33m[your_program] [0mworld
 [33m[tester::#EY3] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#EY3] [test-2] [0m[92m✓ Received exit code 0.[0m
@@ -362,6 +384,7 @@ Debug = true
 [33m[tester::#EY3] [test-3.lox] [0m[33m// 2 is squared thrice[0m
 [33m[tester::#EY3] [test-3.lox] [0mprint applyTimesN(3, square, 2);
 [33m[tester::#EY3] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19788-1765391889328621720: permission denied
 [33m[your_program] [0m4
 [33m[your_program] [0m16
 [33m[your_program] [0m256
@@ -403,6 +426,7 @@ Debug = true
 [33m[tester::#EY3] [test-4.lox] [0mprint "Numbers >= 44:";
 [33m[tester::#EY3] [test-4.lox] [0mapplyToNumbers(greaterThanY, 44 + 6);
 [33m[tester::#EY3] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19810-1765391889401655390: permission denied
 [33m[your_program] [0mNumbers >= 54:
 [33m[your_program] [0m54
 [33m[your_program] [0m55
@@ -428,6 +452,7 @@ Debug = true
 [33m[tester::#FJ7] [test-1.lox] [0m[33m// function[0m
 [33m[tester::#FJ7] [test-1.lox] [0m25();
 [33m[tester::#FJ7] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19832-1765391889477407103: permission denied
 [33m[your_program] [0mCan only call functions and classes.
 [33m[your_program] [0m[line 3]
 [33m[tester::#FJ7] [test-1] [0m[92m✓ 1 line(s) match on stdout[0m
@@ -444,6 +469,7 @@ Debug = true
 [33m[tester::#FJ7] [test-2.lox] [0mf(1, 2, 3, 4);
 [33m[tester::#FJ7] [test-2.lox] [0m[33m// expect runtime error: Expected 2 arguments[0m
 [33m[tester::#FJ7] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19854-1765391889550784520: permission denied
 [33m[your_program] [0mExpected 2 arguments but got 4.
 [33m[your_program] [0m[line 8]
 [33m[tester::#FJ7] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
@@ -457,6 +483,7 @@ Debug = true
 [33m[tester::#FJ7] [test-3.lox] [0m[33m// expect runtime error: Expected 2 arguments[0m
 [33m[tester::#FJ7] [test-3.lox] [0mf(1);
 [33m[tester::#FJ7] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19876-1765391889653907858: permission denied
 [33m[your_program] [0mExpected 2 arguments but got 1.
 [33m[your_program] [0m[line 6]
 [33m[tester::#FJ7] [test-3] [0m[92m✓ 1 line(s) match on stdout[0m
@@ -467,6 +494,7 @@ Debug = true
 [33m[tester::#FJ7] [test-4.lox] [0m[33m// function[0m
 [33m[tester::#FJ7] [test-4.lox] [0m(false == false)();
 [33m[tester::#FJ7] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19898-1765391889748708295: permission denied
 [33m[your_program] [0mCan only call functions and classes.
 [33m[your_program] [0m[line 3]
 [33m[tester::#FJ7] [test-4] [0m[92m✓ 1 line(s) match on stdout[0m
@@ -490,6 +518,7 @@ Debug = true
 [33m[tester::#BZ4] [test-1.lox] [0ma = 59;
 [33m[tester::#BZ4] [test-1.lox] [0mprintAndModify();
 [33m[tester::#BZ4] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19920-1765391889830862275: permission denied
 [33m[your_program] [0m81
 [33m[your_program] [0m59
 [33m[your_program] [0m89
@@ -517,6 +546,7 @@ Debug = true
 [33m[tester::#BZ4] [test-2.lox] [0m
 [33m[tester::#BZ4] [test-2.lox] [0mwhile (!tick()) {}
 [33m[tester::#BZ4] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19942-1765391889902560429: permission denied
 [33m[your_program] [0m3
 [33m[your_program] [0m2
 [33m[your_program] [0m1
@@ -545,6 +575,7 @@ Debug = true
 [33m[tester::#BZ4] [test-3.lox] [0m}
 [33m[tester::#BZ4] [test-3.lox] [0mprint counter;
 [33m[tester::#BZ4] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19964-1765391889972965961: permission denied
 [33m[your_program] [0m102
 [33m[your_program] [0m102
 [33m[your_program] [0m102
@@ -604,6 +635,7 @@ Debug = true
 [33m[tester::#BZ4] [test-4.lox] [0m  printBoth();
 [33m[tester::#BZ4] [test-4.lox] [0m}
 [33m[tester::#BZ4] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-19986-1765391890042280459: permission denied
 [33m[your_program] [0mLocal x: 
 [33m[your_program] [0m11
 [33m[your_program] [0mLocal y: 
@@ -649,6 +681,7 @@ Debug = true
 [33m[tester::#GG6] [test-1.lox] [0mcounter();
 [33m[tester::#GG6] [test-1.lox] [0mcounter();
 [33m[tester::#GG6] [test-1] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-20008-1765391890113312810: permission denied
 [33m[your_program] [0m4
 [33m[your_program] [0m8
 [33m[tester::#GG6] [test-1] [0m[92m✓ 2 line(s) match on stdout[0m
@@ -678,6 +711,7 @@ Debug = true
 [33m[tester::#GG6] [test-2.lox] [0m  print isEven(75);
 [33m[tester::#GG6] [test-2.lox] [0m}
 [33m[tester::#GG6] [test-2] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-20030-1765391890187450491: permission denied
 [33m[your_program] [0mfalse
 [33m[tester::#GG6] [test-2] [0m[92m✓ 1 line(s) match on stdout[0m
 [33m[tester::#GG6] [test-2] [0m[92m✓ Received exit code 0.[0m
@@ -716,6 +750,7 @@ Debug = true
 [33m[tester::#GG6] [test-3.lox] [0merrorLog("Failed!");
 [33m[tester::#GG6] [test-3.lox] [0merrorLog("Retrying...");
 [33m[tester::#GG6] [test-3] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-20052-1765391890263781946: permission denied
 [33m[your_program] [0mbaz: Starting
 [33m[your_program] [0mbaz: Processing
 [33m[your_program] [0mbaz: Finishing
@@ -770,6 +805,7 @@ Debug = true
 [33m[tester::#GG6] [test-4.lox] [0macc2(4);
 [33m[tester::#GG6] [test-4.lox] [0macc2(5);
 [33m[tester::#GG6] [test-4] [0m[94m$ ./your_program.sh run test.lox[0m
+[33m[your_program] [0mWarning: failed to setup memory limit: failed to create cgroup: mkdir /sys/fs/cgroup/tester-utils-20074-1765391890334606418: permission denied
 [33m[your_program] [0mFirst:
 [33m[your_program] [0m1
 [33m[your_program] [0m6
