@@ -5,12 +5,13 @@ go 1.24.0
 toolchain go1.24.2
 
 require (
-	github.com/codecrafters-io/tester-utils v0.4.10
+	github.com/codecrafters-io/tester-utils v0.4.12-0.20260104152906-cf6b663004b1
 	github.com/fatih/color v1.18.0
 	gopkg.in/yaml.v3 v3.0.1
 )
 
 require (
+	github.com/creack/pty v1.1.24 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
