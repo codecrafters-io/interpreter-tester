@@ -1,16 +1,16 @@
 ---
 expected_error_type: none
 ---
-// This program converts a random integer from
-// Celsius to Fahrenheit
-// and prints the result. It also prints a message
-// based on the temperature.
+// From: github.com/munificent/craftinginterpreters
+// Test case file: if/else.lox
 var celsius = <<RANDOM_INTEGER>>;
 var fahrenheit = 0;
 var isHot = false;
 
 {
   fahrenheit = celsius * 9 / 5 + 32;
+  // multiple statements can be on the same line,
+  // but they should be separated by a semicolon
   print celsius; print fahrenheit;
 
   if (celsius > 30) {

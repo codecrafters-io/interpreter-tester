@@ -1,9 +1,9 @@
 ---
 expected_error_type: none
 ---
-// This program uses a random boolean to decide
-// which branch to execute,
-// and then prints the appropriate string
+// From: github.com/munificent/craftinginterpreters
+// Test case file: if/else.lox
+// Basic if-else statements
 if (<<RANDOM_BOOLEAN>>) {
   print "<<RANDOM_STRING>>";
 } else if (<<RANDOM_BOOLEAN>>) print "<<RANDOM_STRING>>";

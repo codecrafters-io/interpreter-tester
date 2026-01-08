@@ -1,8 +1,8 @@
 ---
 expected_error_type: none
 ---
-// This program uses nested if statements to print
-// a message
+// From: github.com/munificent/craftinginterpreters
+// Test case file: if/else.lox
 if (true) {
   if (<<RANDOM_BOOLEAN>>) print "<<RANDOM_STRING>>"; else print "<<RANDOM_STRING>>";
 }
