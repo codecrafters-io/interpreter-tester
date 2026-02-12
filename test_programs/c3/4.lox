@@ -1,10 +1,9 @@
 ---
 expected_error_type: none
 ---
-// This program uses multiple if statements to
-// determine eligibility for
-// voting, driving, and drinking based on a random
-// integer age
+// From: github.com/munificent/craftinginterpreters
+// Test case file: if/else.lox
+// Multiple if-else statements
 var age = <<RANDOM_INTEGER>>;
 
 var isAdult = age >= 18;

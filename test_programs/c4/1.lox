@@ -1,6 +1,7 @@
 ---
 expected_error_type: none
 ---
-// This program uses nested if statements to print
-// a message
+// From: github.com/munificent/craftinginterpreters
+// Test case file: if/if.lox
+// Nested if statement
 if (true) if (true) print "nested true";
