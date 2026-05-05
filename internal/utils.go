@@ -2,11 +2,11 @@ package internal
 
 import (
 	"fmt"
-	"os"
 	"path/filepath"
 	"regexp"
 	"strings"
 
+	interpretertester "github.com/codecrafters-io/interpreter-tester"
 	testcases "github.com/codecrafters-io/interpreter-tester/internal/test_cases"
 	"github.com/codecrafters-io/tester-utils/random"
 )
@@ -34,10 +34,8 @@ func getRandBoolean() string {
 func GetTestCasesForCurrentStage(stageIdentifier string) []testcases.RunTestCase {
 	var testCases []testcases.RunTestCase
 
-	// Construct the path to the test_programs directory
-	parentDir := filepath.Join(os.Getenv("TESTER_DIR"), "test_programs")
-	testDir := filepath.Join(parentDir, stageIdentifier)
-	files, err := os.ReadDir(testDir)
+	testDir := filepath.Join("test_programs", stageIdentifier)
+	files, err := interpretertester.TestFS.ReadDir(testDir)
 	if err != nil {
 		panic(fmt.Sprintf("CodeCrafters Internal Error: Encountered error while reading test directory: %s", err))
 	}

@@ -11,7 +11,7 @@ build:
 	go build -o dist/main.out ./cmd/tester
 
 test:
-	TESTER_DIR=$(shell pwd) go test -v ./internal/
+	go test -v ./internal/
 
 test_and_watch:
 	onchange '**/*' -- go test -v ./internal/

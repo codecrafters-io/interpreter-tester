@@ -6,6 +6,7 @@ import (
 	"os"
 	"strings"
 
+	interpretertester "github.com/codecrafters-io/interpreter-tester"
 	"github.com/codecrafters-io/interpreter-tester/internal/assertions"
 	"github.com/codecrafters-io/interpreter-tester/internal/interpreter_executable"
 	loxapi "github.com/codecrafters-io/interpreter-tester/internal/lox/api"
@@ -35,7 +36,7 @@ type RunTestCaseFrontMatter struct {
 }
 
 func NewRunTestCaseFromFilePath(filePath string) RunTestCase {
-	fileContents, err := os.ReadFile(filePath)
+	fileContents, err := interpretertester.TestFS.ReadFile(filePath)
 	if err != nil {
 		panic(fmt.Sprintf("CodeCrafters Internal Error: Encountered error while reading test file: %s", err))
 	}

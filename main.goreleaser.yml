@@ -7,6 +7,3 @@ builds:
 archives:
   - name_template: "{{ .Tag }}_{{ .Os }}_{{ .Arch }}"
     format: tar.gz
-    files:
-      - test.sh
-      - test_programs/**/*
